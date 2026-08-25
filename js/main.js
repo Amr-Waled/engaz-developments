@@ -559,7 +559,7 @@ if (document.getElementById('leadCaptureForm')) {
             const formData = {
                 name: name,
                 phone: phone,
-                whatsapp: whatsapp,
+                whatsapp: whatsapp || phone,
                 email: email || null,
                 project_interest: parseInt(document.getElementById('wizard_project').value),
                 unit_type: document.getElementById('wizard_unit_type').value,
