@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا | إنجاز للإستثمار العقاري والمقاولات</title>
+    <meta name="description" content="تواصل مع إنجاز للإستثمار العقاري">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="تواصل معنا">
+    <meta property="og:description" content="تواصل مع إنجاز للإستثمار العقاري">
+    <meta property="og:image" content="/images/og-image.jpg">
+    <meta property="og:locale" content="ar_EG">
+    
+    <link rel="canonical" href="https://engazdevelopments.com/contact.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Facebook Pixel -->
+    <script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '202610203040506');
+      fbq('track', 'PageView');
+    </script>
+</head>
+<body>
+    <!-- Glow Effects -->
+    <div class="glow-effect" style="top: 5%; left: 0; background: var(--gold-gradient);"></div>
+    <div class="glow-effect" style="bottom: 10%; right: 0; background: var(--petrol-gradient, var(--royal-gradient));"></div>
+
+    <!-- SHARED HEADER -->
+    <header>
+        <a href="index.html" class="logo-area" style="display: flex; align-items: center; gap: 14px; text-decoration: none;">
+            <div class="logo-img-wrapper" style="width: 54px; height: 54px; border-radius: 14px; background: #fff; border: 1.5px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 4px 20px rgba(184, 149, 46, 0.35); transition: transform 0.3s ease;">
+                <img src="images/logo_engaz.png" alt="ENGAZ Logo" style="width: 100%; height: 100%; object-fit: contain; padding: 4px;">
+            </div>
+            <div class="logo-text">
+                <h1 style="color: var(--text-primary, #fff); font-weight: 900; font-size: 1.4rem; margin: 0; letter-spacing: -0.5px; line-height: 1.1;">ENGAZ</h1>
+                <span style="color: var(--accent-gold); font-weight: 800; font-size: 0.82rem; display: block; margin-top: 2px;">إنجاز للإستثمار العقاري والمقاولات</span>
+            </div>
+        </a>
+        <button class="mobile-menu-btn" onclick="document.querySelector('nav').classList.toggle('mobile-active'); this.querySelector('i').classList.toggle('fa-bars'); this.querySelector('i').classList.toggle('fa-xmark');" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <nav>
+            <a href="index.html">الرئيسية</a>
+            <a href="projects.html">مشاريعنا</a>
+            <a href="portfolio.html">سابقة أعمالنا</a>
+            <a href="about.html">عن الشركة</a>
+            <a href="contact.html" class="nav-btn"><i class="fa-solid fa-phone"></i> تواصل معنا</a>
+        </nav>
+    </header>
+
+    <main>
+<section class="lead-section" id="register-interest">
+        <h2 class="section-title" style="margin-top: 0;"><i class="fa-solid fa-graduation-cap"></i> مخطط الاستثمار الذكي (4 خطوات)</h2>
+        <p class="section-subtitle" style="margin-bottom: 2rem;">خطط استثمارك في دقيقة واحدة وسنقوم بإرسال الخطط المالية الرسمية المتوافقة معك.</p>
+
+        <!-- Step indicators -->
+        <div class="wizard-progress">
+            <div class="progress-line-active" id="wizard-progress-line"></div>
+            <div class="progress-step active" id="step-i-1">1</div>
+            <div class="progress-step" id="step-i-2">2</div>
+            <div class="progress-step" id="step-i-3">3</div>
+            <div class="progress-step" id="step-i-4">4</div>
+        </div>
+
+        <form id="leadCaptureForm">
+            <!-- Step 1: Goal -->
+            <div class="wizard-step active" id="step-1">
+                <h3>1. ما هو هدفك الاستثماري الأساسي؟</h3>
+                <p class="step-subtitle">اختر نوع الوحدة التي تلبي رغبتك العقارية</p>
+                <div class="segmented-grid">
+                    <div class="seg-card" onclick="selectSegment('goal', 'apartment', this)">
+                        <i class="fa-solid fa-house"></i>
+                        <span>شقة سكنية عائلية</span>
+                    </div>
+                    <div class="seg-card" onclick="selectSegment('goal', 'villa', this)">
+                        <i class="fa-solid fa-tree"></i>
+                        <span>فيلا مستقلة</span>
+                    </div>
+                    <div class="seg-card" onclick="selectSegment('goal', 'shop', this)">
+                        <i class="fa-solid fa-shop"></i>
+                        <span>محل تجاري واستثماري</span>
+                    </div>
+                    <div class="seg-card" onclick="selectSegment('goal', 'clinic', this)">
+                        <i class="fa-solid fa-stethoscope"></i>
+                        <span>عيادة طبية</span>
+                    </div>
+                </div>
+                <input type="hidden" id="wizard_unit_type" name="unit_type" value="">
+            </div>
+
+            <!-- Step 2: Project -->
+            <div class="wizard-step" id="step-2">
+                <h3>2. ما هي المنطقة العقارية المهتم بها؟</h3>
+                <p class="step-subtitle">اختر المشروع أو الفرع الأقرب لأهدافك</p>
+                <div class="segmented-grid">
+                    <div class="seg-card" onclick="selectSegment('project', '1', this)">
+                        <i class="fa-solid fa-city"></i>
+                        <span>مشاريع التجمع الخامس</span>
+                    </div>
+                    <div class="seg-card" onclick="selectSegment('project', '2', this)">
+                        <i class="fa-solid fa-store"></i>
+                        <span>مول صيدناوي بسيون</span>
+                    </div>
+                    <div class="seg-card" onclick="selectSegment('project', '3', this)">
+                        <i class="fa-solid fa-building"></i>
+                        <span>برج نقابة المعلمين</span>
+                    </div>
+                    <div class="seg-card" onclick="selectSegment('project', '5', this)">
+                        <i class="fa-solid fa-globe"></i>
+                        <span>فرع الرياض / السعودية</span>
+                    </div>
+                </div>
+                <input type="hidden" id="wizard_project" name="project_interest" value="">
+            </div>
+
+            <!-- Step 3: Budget -->
+            <div class="wizard-step" id="step-3">
+                <h3>3. ما هي الميزانية الاستثمارية المقترحة؟</h3>
+                <p class="step-subtitle">اختر النطاق السعري المناسب لقدرتك التمويلية</p>
+                <div class="segmented-grid">
+                    <div class="seg-card" onclick="selectSegment('budget', '1.5M', this)">
+                        <i class="fa-solid fa-coins"></i>
+                        <span>حتى 1.5 مليون ج.م</span>
+                    </div>
+                    <div class="seg-card" onclick="selectSegment('budget', '3M', this)">
+                        <i class="fa-solid fa-wallet"></i>
+                        <span>من 1.5 إلى 3 مليون</span>
+                    </div>
+                    <div class="seg-card" onclick="selectSegment('budget', '5M', this)">
+                        <i class="fa-solid fa-money-bill-trend-up"></i>
+                        <span>من 3 إلى 5 مليون</span>
+                    </div>
+                    <div class="seg-card" onclick="selectSegment('budget', '5M+', this)">
+                        <i class="fa-solid fa-gem"></i>
+                        <span>أكثر من 5 مليون ج.م</span>
+                    </div>
+                </div>
+                <input type="hidden" id="wizard_budget" name="notes_budget" value="">
+            </div>
+
+            <!-- Step 4: Contact details -->
+            <div class="wizard-step" id="step-4">
+                <h3>4. أدخل بيانات الاتصال لتلقي خطة الأسعار</h3>
+                <p class="step-subtitle">سيقوم النظام بإرسال العروض والتفاصيل المالية مباشرة لهاتفك</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 600px; margin: 0 auto;">
+                    <div class="form-group">
+                        <label for="lead_name">الاسم بالكامل *</label>
+                        <input type="text" id="lead_name" class="form-input" required placeholder="أدخل اسمك ثلاثي">
+                    </div>
+                    <div class="form-group">
+                        <label for="lead_phone">رقم الهاتف *</label>
+                        <input type="tel" id="lead_phone" class="form-input" required placeholder="مثال: 01012345678">
+                    </div>
+                    <div class="form-group">
+                        <label for="lead_whatsapp">رقم الواتساب *</label>
+                        <input type="tel" id="lead_whatsapp" class="form-input" required placeholder="لإرسال العروض والأسعار">
+                    </div>
+                    <div class="form-group">
+                        <label for="lead_email">البريد الإلكتروني (اختياري)</label>
+                        <input type="email" id="lead_email" class="form-input" placeholder="example@domain.com">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="lead_notes">ملاحظات أو طلبات مخصصة (اختياري)</label>
+                        <textarea id="lead_notes" class="form-textarea" rows="3" placeholder="مثال: أريد طابق متكرر، أو مواجه للشارع الرئيسي..."></textarea>
+                    </div>
+                </div>
+
+                <div id="formStatusMessage" class="form-message" style="max-width: 600px; margin: 1.5rem auto 0;"></div>
+            </div>
+
+            <!-- Wizard control actions -->
+            <div class="wizard-actions">
+                <button type="button" class="btn-wizard btn-wizard-prev" id="btn-prev" onclick="changeStep(-1)" style="display: none;">السابق</button>
+                <div style="flex-grow: 1;"></div>
+                <button type="button" class="btn-wizard btn-wizard-next" id="btn-next" onclick="changeStep(1)">التالي <i class="fa-solid fa-arrow-left"></i></button>
+                <button type="submit" class="btn-submit" id="btnSubmitLead" style="display: none; max-width: 250px; margin-top: 0;">إرسال البيانات والتسجيل</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Premium Project Detail Modal Overlay -->
+    </main>
+
+    <!-- SHARED FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 1rem;">
+                    <div style="width: 52px; height: 52px; border-radius: 14px; background: #fff; border: 1.5px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 4px 20px rgba(184, 149, 46, 0.4);">
+                        <img src="images/logo_engaz.png" alt="ENGAZ Logo" style="width: 100%; height: 100%; object-fit: contain; padding: 4px;">
+                    </div>
+                    <div>
+                        <h4 style="margin: 0; color: #ffffff; font-weight: 900; font-size: 1.25rem;">ENGAZ</h4>
+                        <span style="color: var(--accent-gold); font-size: 0.82rem; font-weight: 700;">إنجاز للإستثمار العقاري والمقاولات</span>
+                    </div>
+                </div>
+                <p>إنجاز للإستثمار العقاري والمقاولات - نبني مجتمعات سكنية وتجارية فاخرة تدوم طويلاً.</p>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/Engazrealestate.eg/" class="social-link" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/201030405054" class="social-link" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/engazdevelopments/" class="social-link" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>مكاتبنا وفروعنا</h4>
+                <p>📍 طنطا - شارع الجيش - مول طنطا تاون (الفرع الرئيسي)</p>
+                <p>📍 الرياض - حي الياسمين - طريق الملك عبدالعزيز</p>
+                <p>📍 بسيون - شارع 23 يوليو - بجوار نقابة المعلمين</p>
+                <p>📞 مبيعات مصر: 01030405054</p>
+                <p>📞 مبيعات السعودية: +966503040505</p>
+            </div>
+            <div class="footer-col">
+                <h4>روابط سريعة</h4>
+                <a href="projects.html">معرض المشاريع</a>
+                <a href="contact.html">طلب عرض السعر</a>
+                <a href="about.html">نبذة عن الشركة</a>
+                <a href="portfolio.html">سابقة الأعمال</a>
+            </div>
+        </div>
+        <p class="copyright-text">جميع الحقوق محفوظة © 2026 | إنجاز للإستثمار العقاري والمقاولات</p>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/201030405054" class="floating-whatsapp" target="_blank" rel="noopener noreferrer" id="floating-whatsapp-btn">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Theme Switcher -->
+    <button class="theme-switcher-btn" id="theme-switcher-btn" title="تبديل الإضاءة" aria-label="تبديل الإضاءة">
+        <i class="fa-solid fa-circle-half-stroke"></i>
+    </button>
+
+    <!-- Mobile Sticky Bar -->
+    <div class="mobile-sticky-contact-bar">
+        <a href="tel:+201030405054" class="sticky-contact-item call"><i class="fa-solid fa-phone"></i> <span>اتصل الآن</span></a>
+        <a href="https://wa.me/201030405054" class="sticky-contact-item whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i> <span>واتساب</span></a>
+        <a href="contact.html" class="sticky-contact-item consult"><i class="fa-solid fa-file-signature"></i> <span>استشارة مجانية</span></a>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

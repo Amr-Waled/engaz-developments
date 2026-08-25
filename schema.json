@@ -1,0 +1,192 @@
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "Engaz Developments إنجاز للتطوير العقاري",
+  "alternateName": "Engaz Developments",
+  "slogan": "Engaz Developments.. وده إنجازنا",
+  "url": "https://Amr-Waled.github.io/engaz-developments/",
+  "logo": "https://Amr-Waled.github.io/engaz-developments/images/logo.png",
+  "image": "https://Amr-Waled.github.io/engaz-developments/images/logo.png",
+  "description": "شركة إنجاز للتطوير العقاري (Engaz Developments)، مطور عقاري رائد في مصر متخصص في تشييد وتطوير المشاريع السكنية الراقية بربوة التجمع والمراكز التجارية والطبية بالدلتا (طنطا وبسيون).",
+  "telephone": "+201030405054",
+  "email": "engaz.com2020@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "شارع الجيش، مول طنطا تاون",
+    "addressLocality": "Tanta",
+    "addressRegion": "Gharbia",
+    "addressCountry": "EG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "30.7865",
+    "longitude": "31.0004"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Saturday",
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday"
+    ],
+    "opens": "09:00",
+    "closes": "17:00"
+  },
+  "sameAs": [
+    "https://www.facebook.com/Engazrealestate.eg/",
+    "https://www.instagram.com/engazdevelopments/"
+  ],
+  "areaServed": [
+    {
+      "@type": "AdministrativeArea",
+      "name": "New Cairo"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Tanta"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Basyoun"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Gharbia"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Egypt"
+    }
+  ],
+  "knowsAbout": [
+    "Real Estate Development",
+    "Property Investment",
+    "Residential Construction",
+    "Commercial Malls",
+    "Medical Clinics Development",
+    "Tanta Town Mall",
+    "Mall Sednawy Basyoun",
+    "Rabwat Al-Tagamoa New Cairo"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "المشاريع العقارية لشركة إنجاز",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "RealEstateProperty",
+          "name": "مشروع H151 - ربوة التجمع",
+          "description": "وحدة سكنية جاهزة للتسليم الفوري بالكامل (Completed & Delivered) في ربوة التجمع."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "RealEstateProperty",
+          "name": "مشروع F129 - ربوة التجمع",
+          "description": "مبنى سكني مكتمل بالكامل وجاهز للتسليم الفوري في ربوة التجمع."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "RealEstateProperty",
+          "name": "مشروع H165 - ربوة التجمع",
+          "description": "مشروع سكني في مرحلة التشطيبات النهائية (Under Finishing) في ربوة التجمع."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "RealEstateProperty",
+          "name": "مشروع C87 - ربوة التجمع",
+          "description": "مشروع سكني تم اكتمال الهيكل الخرساني له بالكامل في ربوة التجمع."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "RealEstateProperty",
+          "name": "مشروع A100 - ربوة التجمع (نورث هاوس)",
+          "description": "مشروع سكني تحت الإنشاء في مرحلة بناء الدور الأول في ربوة التجمع."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "RealEstateProperty",
+          "name": "مشروع F216 - ربوة التجمع",
+          "description": "مشروع سكني تحت الإنشاء في مرحلة الهيكل الخرساني في ربوة التجمع."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "RealEstateProperty",
+          "name": "مشروع F218 - ربوة التجمع",
+          "description": "مشروع سكني استثماري تحت الإنشاء في مرحلة الهيكل الخرساني في ربوة التجمع."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "RealEstateProperty",
+          "name": "مشروع H79 - ربوة التجمع",
+          "description": "مشروع سكني استثماري في مرحلة أعمال الحفر وتجهيز الأساسات في ربوة التجمع."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "RealEstateProperty",
+          "name": "Mall Sednawy Basyoun (مول صيدناوي بسيون)",
+          "description": "مول تجاري وعيادات طبية ومكاتب إدارية في الموقع التجاري الأكثر حركة ونشاطاً بمدينة بسيون بمقدم 40% وتسهيلات سنة."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "RealEstateProperty",
+          "name": "برج نقابة المعلمين بسيون (Teachers Syndicate Tower)",
+          "description": "برج سكني تجاري طبي في مدينة بسيون يضم عيادات طبية ومحلات تجارية وشقق إدارية ممتازة بمقدم 40% وتقسيط على 12 شهراً."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "RealEstateProperty",
+          "name": "Tanta Town Mall (مول طنطا تاون) - طنطا",
+          "description": "مول تجاري وترفيهي متميز في موقع استراتيجي بقلب مدينة طنطا بمحافظة الغربية تم تسليمه بالكامل."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "RealEstateProperty",
+          "name": "برج الفيروز - تلا",
+          "description": "برج سكني إداري متكامل بموقع مميز في مدينة تلا بمحافظة المنوفية تم تسليمه بالكامل."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "RealEstateProperty",
+          "name": "فلل المنصورة الجديدة",
+          "description": "فيلات سكنية فاخرة بموقع ساحلي متميز بالمنصورة الجديدة بمحافظة الدقهلية تم تسليمها بالكامل."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "RealEstateProperty",
+          "name": "مشروع رأس البر",
+          "description": "عقارات ووحدات سكنية ساحلية متميزة بمحافظة دمياط تم تسليمها بالكامل."
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,107 @@
+2709: <div class="hero-slider-container">
+2710: <div class="hero-slide active">
+2713: <div class="hero-slide">
+2716: <div class="hero-slide">
+2720: <div class="hero-overlay-content">
+2746: <section class="vision-mission-section" id="vision-mission" style="padding: 4rem 4%; max-width: 1200
+2805: <section class="project-categories-section" id="project-categories" style="padding: 4rem 4%; max-wid
+2862: <input type="text" id="filter-search" class="search-input" placeholder="اكتب اسم البرج أو المشروع...
+2867: <select id="filter-city" class="search-select">
+2881: <select id="filter-status" class="search-select">
+2892: <section class="stats-section" id="stats-counter-area">
+2912: <section class="projects-section" id="projects-gallery">
+2917: <div class="projects-grid" id="dynamicProjectsGrid">
+2923: <section class="sister-companies-section" id="sister-companies">
+2952: <section id="previous-projects" class="section" style="padding: 80px 5%; max-width: 1200px; margin: 
+2963: <button class="btn-before-after active" onclick="switchBeforeAfterProject('fayrouz')" id="tab-ba-fay
+2964: <button class="btn-before-after" onclick="switchBeforeAfterProject('sidnawy')" id="tab-ba-sidnawy">�
+2965: <button class="btn-before-after" onclick="switchBeforeAfterProject('teachers')" id="tab-ba-teachers"
+2966: <button class="btn-before-after" onclick="switchBeforeAfterProject('mansoura')" id="tab-ba-mansoura"
+2976: <div class="after-img" id="sliderAfterImg" style="position: absolute; top:0; left:0; width:100%; hei
+2981: <input type="range" min="0" max="100" value="50" class="before-after-range-input" id="beforeAfterRan
+2983: <div class="before-after-line" id="sliderDividerLine" style="position: absolute; top:0; bottom:0; le
+2990: <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 2.5rem; flex-wrap: wra
+2997: <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; m
+3129: <section class="partners-section">
+3141: <section id="about-engaz" style="max-width: 1000px; margin: 6rem auto; padding: 0 4%;">
+3166: <section class="faq-section" id="faq-accordion-section">
+3218: <a href="https://wa.me/201030405054" class="floating-whatsapp" target="_blank" rel="noopener norefer
+3223: <button class="theme-switcher-btn" id="theme-switcher-btn" title="تبديل الإضاءة (بترولي / أبيض)" ari
+3228: <section class="branches-section" id="our-branches">
+3296: <section class="lead-section" id="register-interest">
+3302: <div class="progress-line-active" id="wizard-progress-line"></div>
+3303: <div class="progress-step active" id="step-i-1">1</div>
+3304: <div class="progress-step" id="step-i-2">2</div>
+3305: <div class="progress-step" id="step-i-3">3</div>
+3306: <div class="progress-step" id="step-i-4">4</div>
+3309: <form id="leadCaptureForm">
+3311: <div class="wizard-step active" id="step-1">
+3332: <input type="hidden" id="wizard_unit_type" name="unit_type" value="">
+3336: <div class="wizard-step" id="step-2">
+3357: <input type="hidden" id="wizard_project" name="project_interest" value="">
+3361: <div class="wizard-step" id="step-3">
+3382: <input type="hidden" id="wizard_budget" name="notes_budget" value="">
+3386: <div class="wizard-step" id="step-4">
+3393: <input type="text" id="lead_name" class="form-input" required placeholder="أدخل اسمك ثلاثي">
+3397: <input type="tel" id="lead_phone" class="form-input" required placeholder="مثال: 01012345678">
+3401: <input type="tel" id="lead_whatsapp" class="form-input" required placeholder="لإرسال العروض والأسعار
+3405: <input type="email" id="lead_email" class="form-input" placeholder="example@domain.com">
+3409: <textarea id="lead_notes" class="form-textarea" rows="3" placeholder="مثال: أريد طابق متكرر، أو مواج
+3413: <div id="formStatusMessage" class="form-message" style="max-width: 600px; margin: 1.5rem auto 0;"></
+3418: <button type="button" class="btn-wizard btn-wizard-prev" id="btn-prev" onclick="changeStep(-1)" styl
+3420: <button type="button" class="btn-wizard btn-wizard-next" id="btn-next" onclick="changeStep(1)">التال
+3421: <button type="submit" class="btn-submit" id="btnSubmitLead" style="display: none; max-width: 250px; 
+3427: <div class="modal-overlay" id="projectDetailsModal">
+3428: <div class="modal-card">
+3429: <span class="modal-close-btn" id="btnCloseModal">✕</span>
+3430: <img src="" class="modal-header-img" id="modalProjectImg" alt="Project Image">
+3431: <div class="modal-body">
+3432: <h3 class="modal-title" id="modalProjectTitle">اسم المشروع</h3>
+3433: <div class="modal-subtitle" id="modalProjectSubtitle">الموقع والمطور</div>
+3436: <div class="modal-tabs">
+3437: <button class="modal-tab-btn active" onclick="switchModalTab('desc')">وصف المشروع</button>
+3438: <button class="modal-tab-btn" onclick="switchModalTab('specs')">المميزات والمرافق</button>
+3439: <button class="modal-tab-btn" onclick="switchModalTab('payment')">خطة السداد</button>
+3440: <button class="modal-tab-btn" onclick="switchModalTab('progress')">تطور الأعمال الإنشائية</button>
+3443: <div class="modal-tab-content active" id="tab-desc">
+3444: <p class="modal-desc" id="modalProjectDesc">تفاصيل المشروع والخدمات...</p>
+3447: <div class="modal-tab-content" id="tab-specs">
+3448: <ul style="padding-right: 1.2rem; margin: 0; color: var(--text-secondary);" id="modalProjectSpecsLis
+3456: <div class="modal-tab-content" id="tab-payment">
+3458: <div style="background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 12px; border: 1px soli
+3463: <div class="modal-tab-content" id="tab-progress">
+3465: <div id="modalProjectProgressList" style="display: flex; flex-direction: column; gap: 15px;">
+3470: <div class="modal-meta-grid">
+3471: <div class="meta-item">📍 الموقع والمحافظة: <strong id="modalMetaLocation">-</strong></div>
+3472: <div class="meta-item">📊 الحالة الإنشائية: <strong id="modalMetaStatus">-</strong></div>
+3473: <div class="meta-item">🏗️ المطور العقاري: <strong id="modalMetaDeveloper">Engaz Developments</stron
+3474: <div class="meta-item">🔑 خيارات الحجز: <strong id="modalMetaBooking" style="color: var(--accent-gol
+3477: <button class="btn-modal-action" id="btnModalRegisterInterest">
+3481: <button class="btn-modal-action" id="btnModalDownloadBrochure" style="background: var(--gold-gradien
+3489: <div class="modal-overlay" id="brochureDownloadModal" style="display: none; z-index: 9999;">
+3490: <div class="modal-card" style="max-width: 450px;">
+3491: <span class="modal-close-btn" id="btnCloseBrochureModal">✕</span>
+3492: <div class="modal-body" style="padding: 2rem;">
+3493: <h3 class="modal-title" style="margin-top: 0; color: var(--accent-gold); text-align: center;">📥 تحم
+3496: <form id="brochureLeadForm">
+3497: <input type="hidden" id="brochure_project_id" value="">
+3498: <input type="hidden" id="brochure_project_name" value="">
+3499: <input type="hidden" id="brochure_pdf_url" value="">
+3503: <input type="text" id="brochure_name" required style="width: 100%; padding: 10px 15px; border-radius
+3508: <input type="tel" id="brochure_phone" required style="width: 100%; padding: 10px 15px; border-radius
+3513: <input type="tel" id="brochure_whatsapp" required style="width: 100%; padding: 10px 15px; border-rad
+3516: <button type="submit" class="btn-modal-action" style="width: 100%; margin: 0;" id="btnSubmitBrochure
+3519: <div id="brochureStatusMessage" style="display: none; margin-top: 1rem; padding: 10px; border-radius
+3526: <div class="modal-overlay" id="discountLeadMagnetModal" style="display: none; z-index: 99999; backdr
+3527: <div class="modal-card" style="max-width: 480px; width: 94%; background: linear-gradient(135deg, rgb
+3528: <button type="button" class="modal-close-btn" id="btnCloseDiscountModal" onclick="document.getElemen
+3529: <div class="modal-body" style="padding: 2.2rem 1.5rem; text-align: center;">
+3531: <h3 class="modal-title" style="margin-top: 0; color: var(--accent-gold); font-size: 1.5rem; font-wei
+3536: <form id="discountLeadForm" style="text-align: right; display: flex; flex-direction: column; gap: 10
+3539: <input type="text" id="discount_name" required style="width: 100%; padding: 12px 15px; border-radius
+3544: <input type="tel" id="discount_phone" required style="width: 100%; padding: 12px 15px; border-radius
+3549: <input type="email" id="discount_email" required style="width: 100%; padding: 12px 15px; border-radi
+3552: <button type="submit" class="btn-modal-action" style="width: 100%; margin: 8px 0 0 0; padding: 13px;
+3556: <div id="discountStatusMessage" style="display: none; margin-top: 0.8rem; padding: 10px; border-radi
+3563: <section class="testimonials-section" id="client-testimonials-section" style="max-width: 1000px; mar
+3567: <div id="testimonialsContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax
