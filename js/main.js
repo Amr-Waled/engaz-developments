@@ -343,22 +343,14 @@ if (brochureForm) {
             return;
         }
 
-        const phoneRegex = /^\+?[0-9\s\-]{9,20}$/;
+        const finalWhatsapp = whatsapp || phone;
+
+        const phoneRegex = /^\+?[0-9\s\-]{8,20}$/;
         if (!phoneRegex.test(phone)) {
             statusMessage.style.display = 'block';
             statusMessage.style.background = 'rgba(231, 76, 60, 0.15)';
             statusMessage.style.color = '#e74c3c';
-            statusMessage.innerHTML = '❌ رقم الهاتف غير صحيح، يرجى إدخال أرقام فقط (9 أرقام على الأقل).';
-            btnSubmit.disabled = false;
-            btnSubmit.innerHTML = '🚀 إرسال وتحميل ملف الـ PDF الآن';
-            return;
-        }
-
-        if (!phoneRegex.test(whatsapp)) {
-            statusMessage.style.display = 'block';
-            statusMessage.style.background = 'rgba(231, 76, 60, 0.15)';
-            statusMessage.style.color = '#e74c3c';
-            statusMessage.innerHTML = '❌ رقم الواتساب غير صحيح، يرجى إدخال أرقام فقط (9 أرقام على الأقل).';
+            statusMessage.innerHTML = '❌ رقم الهاتف غير صحيح، يرجى إدخال أرقام فقط (8 أرقام على الأقل).';
             btnSubmit.disabled = false;
             btnSubmit.innerHTML = '🚀 إرسال وتحميل ملف الـ PDF الآن';
             return;
@@ -367,7 +359,7 @@ if (brochureForm) {
         const formData = {
             name: name,
             phone: phone,
-            whatsapp: whatsapp,
+            whatsapp: finalWhatsapp,
             email: null,
             project_interest: projId ? parseInt(projId) : null,
             unit_type: 'Not Specified',
@@ -534,19 +526,12 @@ if (document.getElementById('leadCaptureForm')) {
                 return;
             }
 
-            const phoneRegex = /^\+?[0-9\s\-]{9,20}$/;
+            const finalWhatsapp = whatsapp || phone;
+
+            const phoneRegex = /^\+?[0-9\s\-]{8,20}$/;
             if (!phoneRegex.test(phone)) {
                 statusMessage.className = 'form-message error';
-                statusMessage.innerHTML = '❌ رقم الهاتف غير صحيح، يرجى إدخال أرقام فقط (9 أرقام على الأقل).';
-                statusMessage.style.display = 'block';
-                btnSubmit.disabled = false;
-                btnSubmit.innerHTML = 'إرسال البيانات والتسجيل';
-                return;
-            }
-
-            if (!phoneRegex.test(whatsapp)) {
-                statusMessage.className = 'form-message error';
-                statusMessage.innerHTML = '❌ رقم الواتساب غير صحيح، يرجى إدخال أرقام فقط (9 أرقام على الأقل).';
+                statusMessage.innerHTML = '❌ رقم الهاتف غير صحيح، يرجى إدخال أرقام فقط (8 أرقام على الأقل).';
                 statusMessage.style.display = 'block';
                 btnSubmit.disabled = false;
                 btnSubmit.innerHTML = 'إرسال البيانات والتسجيل';
@@ -556,13 +541,16 @@ if (document.getElementById('leadCaptureForm')) {
             const budgetSelected = document.getElementById('wizard_budget').value;
             const fullNotes = `الميزانية المقترحة: ${budgetSelected}\nملاحظات العميل: ${document.getElementById('lead_notes').value.trim()}`;
 
+            const projVal = document.getElementById('wizard_project').value;
+            const projIdParsed = projVal ? parseInt(projVal) : null;
+
             const formData = {
                 name: name,
                 phone: phone,
-                whatsapp: whatsapp || phone,
+                whatsapp: finalWhatsapp,
                 email: email || null,
-                project_interest: parseInt(document.getElementById('wizard_project').value),
-                unit_type: document.getElementById('wizard_unit_type').value,
+                project_interest: isNaN(projIdParsed) ? null : projIdParsed,
+                unit_type: document.getElementById('wizard_unit_type').value || 'Not Specified',
                 notes: fullNotes,
                 source: 'Web Landing Page',
                 status: 'new'
