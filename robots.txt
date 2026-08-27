@@ -1,37 +1,3 @@
-# robots.txt for Engaz Developments - Optimized for AI Search & AEO Citation
-
 User-agent: *
 Allow: /
-
-# Explicitly Allow OpenAI ChatGPT crawlers
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-# Explicitly Allow Perplexity Search crawler
-User-agent: PerplexityBot
-Allow: /
-
-# Explicitly Allow Anthropic Claude crawlers
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-# Explicitly Allow Google Gemini & AI Overviews crawlers
-User-agent: Google-Extended
-Allow: /
-
-# Explicitly Allow Microsoft Copilot crawler (via Bing)
-User-agent: Bingbot
-Allow: /
-
-# Block generic scrapers that do not provide citations (Optional)
-User-agent: CCBot
-Disallow: /
-
-# Sitemap Location
 Sitemap: https://engazdevelopments.com/sitemap.xml

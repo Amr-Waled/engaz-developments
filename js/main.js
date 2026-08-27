@@ -93,8 +93,8 @@ function renderProjects(list) {
         const isSoldOut = p.status === 'completed';
         const isPlanned = p.status === 'planned';
         
-        const badgeText = isSoldOut ? '🔴 تم البيع بالكامل (مباع 100%)' :
-                          isPlanned ? '📅 قيد التخطيط والطرح' : '🟢 متاح للحجز المباشر';
+        const badgeText = isSoldOut ? 'تم البيع بالكامل (مباع 100%)' :
+                          isPlanned ? 'قيد التخطيط والطرح المستقبلي' : 'متاح للحجز المباشر';
 
         const badgeStyle = isSoldOut ? 'style="background: rgba(239, 68, 68, 0.95) !important; color: #ffffff !important; border: 1px solid #dc2626 !important; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4) !important;"' : '';
 
@@ -188,7 +188,7 @@ window.openProjectModal = async function(idx) {
     const registerBtn = document.getElementById('btnModalRegisterInterest');
 
     if (p.status === 'completed') {
-        modalStatusEl.innerHTML = '<span style="color: #ef4444; font-weight: 800;">🔴 تم البيع والتسليم بالكامل للملاك 100%</span>';
+        modalStatusEl.innerHTML = '<span style="color: #ef4444; font-weight: 800;">تم البيع والتسليم بالكامل للملاك 100%</span>';
         if (modalBookingEl) {
             modalBookingEl.innerText = 'غير متوفرة (مباع بالكامل)';
             modalBookingEl.style.color = '#ef4444';
@@ -196,10 +196,10 @@ window.openProjectModal = async function(idx) {
         if (registerBtn) {
             registerBtn.style.background = 'linear-gradient(135deg, #ef4444 0%, #b91c1c 100%)';
             registerBtn.style.color = '#ffffff';
-            registerBtn.innerHTML = '🔴 الوحدات مباعة بالكامل 100% (استفسر عن الـ Resale)';
+            registerBtn.innerHTML = 'الوحدات مباعة بالكامل 100% (استفسر عن الـ Resale)';
         }
     } else if (p.status === 'planned') {
-        modalStatusEl.innerHTML = '<span style="color: #3b82f6; font-weight: 800;">📅 قيد التخطيط والطرح المستقبلي</span>';
+        modalStatusEl.innerHTML = '<span style="color: #3b82f6; font-weight: 800;">قيد التخطيط والطرح المستقبلي المستقبلي</span>';
         if (modalBookingEl) {
             modalBookingEl.innerText = 'حجز الأولوية قريباً';
             modalBookingEl.style.color = '#3b82f6';
@@ -210,7 +210,7 @@ window.openProjectModal = async function(idx) {
             registerBtn.innerHTML = 'تسجيل الأولوية قبل الطرح المباشر';
         }
     } else {
-        modalStatusEl.innerHTML = '<span style="color: #10b981; font-weight: 800;">🟢 متاح للحجز المباشر</span>';
+        modalStatusEl.innerHTML = '<span style="color: #10b981; font-weight: 800;">متاح للحجز المباشر</span>';
         if (modalBookingEl) {
             modalBookingEl.innerText = 'متوفرة الآن';
             modalBookingEl.style.color = '#10b981';
@@ -261,13 +261,13 @@ window.openProjectModal = async function(idx) {
                     `;
                 });
             } else {
-                progressContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 1rem;">🏗️ أعمال الأساسات والتخطيط المبدئي قيد التشغيل والترخيص.</p>';
+                progressContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 1rem;">أعمال الأساسات والتخطيط المبدئي قيد التشغيل والترخيص.</p>';
             }
         } else {
-            progressContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 1rem;">🏗️ أعمال الأساسات والتخطيط المبدئي قيد التشغيل والترخيص.</p>';
+            progressContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 1rem;">أعمال الأساسات والتخطيط المبدئي قيد التشغيل والترخيص.</p>';
         }
     } catch (err) {
-        progressContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 1rem;">🏗️ أعمال الأساسات والتخطيط المبدئي قيد التشغيل والترخيص.</p>';
+        progressContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 1rem;">أعمال الأساسات والتخطيط المبدئي قيد التشغيل والترخيص.</p>';
     }
 
     const brochureBtn = document.getElementById('btnModalDownloadBrochure');
@@ -337,9 +337,9 @@ if (brochureForm) {
             statusMessage.style.display = 'block';
             statusMessage.style.background = 'rgba(231, 76, 60, 0.15)';
             statusMessage.style.color = '#e74c3c';
-            statusMessage.innerHTML = '❌ الاسم بالكامل يجب ألا يقل عن 3 أحرف.';
+            statusMessage.innerHTML = 'الاسم بالكامل يجب ألا يقل عن 3 أحرف.';
             btnSubmit.disabled = false;
-            btnSubmit.innerHTML = '🚀 إرسال وتحميل ملف الـ PDF الآن';
+            btnSubmit.innerHTML = 'إرسال وتحميل ملف الـ PDF الآن';
             return;
         }
 
@@ -350,9 +350,9 @@ if (brochureForm) {
             statusMessage.style.display = 'block';
             statusMessage.style.background = 'rgba(231, 76, 60, 0.15)';
             statusMessage.style.color = '#e74c3c';
-            statusMessage.innerHTML = '❌ رقم الهاتف غير صحيح، يرجى إدخال أرقام فقط (8 أرقام على الأقل).';
+            statusMessage.innerHTML = 'رقم الهاتف غير صحيح، يرجى إدخال أرقام فقط (8 أرقام على الأقل).';
             btnSubmit.disabled = false;
-            btnSubmit.innerHTML = '🚀 إرسال وتحميل ملف الـ PDF الآن';
+            btnSubmit.innerHTML = 'إرسال وتحميل ملف الـ PDF الآن';
             return;
         }
 
@@ -379,7 +379,7 @@ if (brochureForm) {
                 statusMessage.style.display = 'block';
                 statusMessage.style.background = 'rgba(46, 204, 113, 0.15)';
                 statusMessage.style.color = '#2ecc71';
-                statusMessage.innerHTML = '🎉 تم حفظ بياناتك بنجاح! جاري تحميل المخطط الهندسي والكتالوج الآن...';
+                statusMessage.innerHTML = 'تم حفظ بياناتك بنجاح! جاري تحميل المخطط الهندسي والكتالوج الآن...';
                 if (window.fbq) fbq('track', 'SubmitApplication', { content_name: 'Brochure Gated Download', project: projName });
                 localStorage.setItem('leadSubmitted', 'true');
                 window.open(brochureUrl, '_blank');
@@ -402,7 +402,7 @@ if (brochureForm) {
                 statusMessage.style.display = 'block';
                 statusMessage.style.background = 'rgba(46, 204, 113, 0.15)';
                 statusMessage.style.color = '#2ecc71';
-                statusMessage.innerHTML = '🎉 تم حفظ بياناتك بنجاح! جاري تحميل المخطط الهندسي والكتالوج الآن...';
+                statusMessage.innerHTML = 'تم حفظ بياناتك بنجاح! جاري تحميل المخطط الهندسي والكتالوج الآن...';
                 if (brochureUrl) window.open(brochureUrl, '_blank');
                 setTimeout(() => {
                     document.getElementById('brochureDownloadModal').style.display = 'none';
@@ -413,11 +413,11 @@ if (brochureForm) {
                 statusMessage.style.display = 'block';
                 statusMessage.style.background = 'rgba(231, 76, 60, 0.15)';
                 statusMessage.style.color = '#e74c3c';
-                statusMessage.innerHTML = '❌ عذراً: ' + error.message;
+                statusMessage.innerHTML = 'عذراً: ' + error.message;
             }
         } finally {
             btnSubmit.disabled = false;
-            btnSubmit.innerHTML = '🚀 إرسال وتحميل ملف الـ PDF الآن';
+            btnSubmit.innerHTML = 'إرسال وتحميل ملف الـ PDF الآن';
         }
     });
 }
@@ -519,7 +519,7 @@ if (document.getElementById('leadCaptureForm')) {
 
             if (!name || name.length < 3) {
                 statusMessage.className = 'form-message error';
-                statusMessage.innerHTML = '❌ الاسم بالكامل يجب ألا يقل عن 3 أحرف.';
+                statusMessage.innerHTML = 'الاسم بالكامل يجب ألا يقل عن 3 أحرف.';
                 statusMessage.style.display = 'block';
                 btnSubmit.disabled = false;
                 btnSubmit.innerHTML = 'إرسال البيانات والتسجيل';
@@ -531,7 +531,7 @@ if (document.getElementById('leadCaptureForm')) {
             const phoneRegex = /^\+?[0-9\s\-]{8,20}$/;
             if (!phoneRegex.test(phone)) {
                 statusMessage.className = 'form-message error';
-                statusMessage.innerHTML = '❌ رقم الهاتف غير صحيح، يرجى إدخال أرقام فقط (8 أرقام على الأقل).';
+                statusMessage.innerHTML = 'رقم الهاتف غير صحيح، يرجى إدخال أرقام فقط (8 أرقام على الأقل).';
                 statusMessage.style.display = 'block';
                 btnSubmit.disabled = false;
                 btnSubmit.innerHTML = 'إرسال البيانات والتسجيل';
@@ -565,7 +565,7 @@ if (document.getElementById('leadCaptureForm')) {
                 const data = await response.json();
                 if (response.ok) {
                     statusMessage.classList.add('success');
-                    statusMessage.innerHTML = '🎉 تم تسجيل بياناتك وخطة استثمارك بنجاح! سيتواصل معك أحد مستشارينا العقاريين خلال دقائق لتوضيح الأسعار والتقسيط المتاح.';
+                    statusMessage.innerHTML = 'تم تسجيل بياناتك وخطة استثمارك بنجاح! سيتواصل معك أحد مستشارينا العقاريين خلال دقائق لتوضيح الأسعار والتقسيط المتاح.';
                     statusMessage.style.display = 'block';
                     if (window.fbq) fbq('track', 'Lead', { content_name: 'Wizard Form Submission', value: 0.00, currency: 'EGP' });
                     
@@ -600,7 +600,7 @@ if (document.getElementById('leadCaptureForm')) {
                         localStorage.setItem('offline_demo_leads', JSON.stringify(savedLeads));
                     } catch(e){}
                     statusMessage.className = 'form-message success';
-                    statusMessage.innerHTML = '🎉 تم تسجيل بياناتك وخطة استثمارك بنجاح! سيتواصل معك أحد مستشارينا العقاريين خلال دقائق لتوضيح الأسعار والتقسيط المتاح.';
+                    statusMessage.innerHTML = 'تم تسجيل بياناتك وخطة استثمارك بنجاح! سيتواصل معك أحد مستشارينا العقاريين خلال دقائق لتوضيح الأسعار والتقسيط المتاح.';
                     statusMessage.style.display = 'block';
                     setTimeout(() => {
                         leadForm.reset();
@@ -623,7 +623,7 @@ if (document.getElementById('leadCaptureForm')) {
                     }, 4000);
                 } else {
                     statusMessage.className = 'form-message error';
-                    statusMessage.innerHTML = '❌ عذراً: ' + error.message;
+                    statusMessage.innerHTML = 'عذراً: ' + error.message;
                     statusMessage.style.display = 'block';
                 }
             } finally {
@@ -641,18 +641,20 @@ if (document.getElementById('stats-counter-area')) {
         if (!statsArea) return;
         const counters = statsArea.querySelectorAll('.stat-number[data-target]');
         counters.forEach(counter => {
-            const target = parseInt(counter.getAttribute('data-target'), 10);
+            const targetStr = counter.getAttribute('data-target') || '0';
+            const target = parseInt(targetStr, 10);
             if (isNaN(target)) return;
+            const hasPlus = targetStr.includes('+') || target >= 10;
             let current = 0;
             const increment = Math.ceil(target / 25) || 1;
             
             const timer = setInterval(() => {
                 current += increment;
                 if (current >= target) {
-                    counter.innerText = target;
+                    counter.innerText = (hasPlus ? '+' : '') + target;
                     clearInterval(timer);
                 } else {
-                    counter.innerText = current;
+                    counter.innerText = (hasPlus ? '+' : '') + current;
                 }
             }, 30);
         });
@@ -722,19 +724,19 @@ if (document.querySelector('.before-after-container')) {
 
     const beforeAfterData = {
         fayrouz: {
-            before: 'images/fayrouz-tower-opt.jpg',
+            before: 'images/el-fayrouz-tower-before-engaz-developments.jpg',
             after: 'images/el-fayrouz-tower-after-engaz-developments.jpg'
         },
         sidnawy: {
             before: 'images/sednawy-before.jpg',
-            after: 'images/sednawy-mall-hd.jpg'
+            after: 'images/sednawy-after.jpg'
         },
         teachers: {
-            before: 'images/teachers-syndicate-opt.jpg',
-            after: 'images/teachers-syndicate-night.jpg'
+            before: 'images/teachers-syndicate-before-engaz-developments.jpg',
+            after: 'images/teachers-syndicate-after-engaz-developments.jpg'
         },
         mansoura: {
-            before: 'images/mansoura-villas-opt.jpg',
+            before: 'images/new-mansoura-villas-before-engaz-developments.jpg',
             after: 'images/new-mansoura-villas-after-engaz-developments.jpg'
         }
     };
@@ -838,9 +840,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
-                console.log('✅ WhatsApp click logged to CRM successfully');
+                console.log('WhatsApp click logged to CRM successfully');
             } catch (err) {
-                console.error('❌ Error logging WhatsApp click to CRM:', err);
+                console.error('Error logging WhatsApp click to CRM:', err);
             }
         }
     });
@@ -894,17 +896,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const handleScroll = () => {
-        const threshold = window.innerWidth <= 768 ? 1600 : 800;
-        if (window.scrollY > threshold) {
+    // Exit Intent: Show popup only when user moves mouse toward browser top (intent to leave)
+    let popupTriggered = false;
+    const handleExitIntent = (e) => {
+        if (popupTriggered) return;
+        if (e.clientY < 60) { // Mouse heading toward browser bar
             if (!sessionStorage.getItem('discount_popup_shown')) {
                 popup.style.display = 'flex';
                 sessionStorage.setItem('discount_popup_shown', 'true');
+                popupTriggered = true;
             }
-            window.removeEventListener('scroll', handleScroll);
+            document.removeEventListener('mousemove', handleExitIntent);
         }
     };
-    window.addEventListener('scroll', handleScroll);
+    // Also show after 45s of inactivity — only once per session
+    const inactivityTimer = setTimeout(() => {
+        if (!popupTriggered && !sessionStorage.getItem('discount_popup_shown')) {
+            popup.style.display = 'flex';
+            sessionStorage.setItem('discount_popup_shown', 'true');
+            popupTriggered = true;
+        }
+    }, 45000);
+    document.addEventListener('mousemove', handleExitIntent);
 
     if(closeBtn) {
         closeBtn.addEventListener('click', () => {
@@ -946,7 +959,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 statusMsg.style.background = 'rgba(16, 185, 129, 0.1)';
                 statusMsg.style.color = '#10b981';
                 statusMsg.style.border = '1px solid #10b981';
-                statusMsg.innerHTML = '🎉 تم إرسال كود الخصم بنجاح! كود الخصم الخاص بك هو <strong>ENGAZ10</strong>.';
+                statusMsg.innerHTML = 'تم إرسال كود الخصم بنجاح! كود الخصم الخاص بك هو <strong>ENGAZ10</strong>.';
 
                 submitBtn.disabled = false;
                 submitBtn.style.background = '#25D366';
@@ -969,7 +982,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     statusMsg.style.background = 'rgba(16, 185, 129, 0.1)';
                     statusMsg.style.color = '#10b981';
                     statusMsg.style.border = '1px solid #10b981';
-                    statusMsg.innerHTML = '🎉 تم إرسال كود الخصم بنجاح! كود الخصم الخاص بك هو <strong>ENGAZ10</strong>.';
+                    statusMsg.innerHTML = 'تم إرسال كود الخصم بنجاح! كود الخصم الخاص بك هو <strong>ENGAZ10</strong>.';
 
                     submitBtn.disabled = false;
                     submitBtn.style.background = '#25D366';
@@ -981,7 +994,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     };
                 } else {
                     submitBtn.disabled = false;
-                    submitBtn.textContent = '⚡ احصل على الخصم الفوري وتفاصيل العرض';
+                    submitBtn.textContent = 'احصل على الخصم الفوري وتفاصيل العرض';
                     statusMsg.style.display = 'block';
                     statusMsg.style.background = 'rgba(239, 68, 68, 0.1)';
                     statusMsg.style.color = '#ef4444';

@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مشاريعنا | إنجاز للإستثمار العقاري والمقاولات</title>
-    <meta name="description" content="استكشف مشاريع إنجاز للإستثمار العقاري">
+    <title>مشاريعنا العقارية | إنجاز للإستثمار — أبراج سكنية بالتجمع الخامس ومولات تجارية</title>
+    <meta name="description" content="استكشف مشاريع إنجاز العقارية: أبراج سكنية فاخرة بربوة التجمع الخامس القاهرة الجديدة، مولات تجارية وطبية ببسيون وطنطا. احجز وحدتك الآن بمقدم 20% وأقساط مريحة.">
     
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="مشاريعنا">
-    <meta property="og:description" content="استكشف مشاريع إنجاز للإستثمار العقاري">
+    <meta property="og:title" content="مشاريعنا العقارية | إنجاز للإستثمار — أبراج سكنية بالتجمع الخامس ومولات تجارية">
+    <meta property="og:description" content="استكشف مشاريع إنجاز العقارية: أبراج سكنية فاخرة بربوة التجمع الخامس القاهرة الجديدة، مولات تجارية وطبية ببسيون وطنطا. احجز وحدتك الآن بمقدم 20% وأقساط مريحة.">
     <meta property="og:image" content="/images/og-image.jpg">
     <meta property="og:locale" content="ar_EG">
     
@@ -26,6 +26,53 @@
       fbq('init', '202610203040506');
       fbq('track', 'PageView');
     </script>
+
+    <!-- Schema.org RealEstateAgent Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "إنجاز للإستثمار العقاري والمقاولات - ENGAZ Developments",
+      "image": "https://engazdevelopments.com/images/logo_engaz.png",
+      "@id": "https://engazdevelopments.com/#organization",
+      "url": "https://engazdevelopments.com",
+      "telephone": "+201030405054",
+      "priceRange": "$$",
+      "description": "شركة إنجاز للإستثمار العقاري والمقاولات - تطوير أبراج سكنية فاخرة بالتجمع الخامس ومولات تجارية وطبية ببسيون وطنطا بأعلى مواصفات الجودة وأنظمة تقسيط مريحة.",
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "شارع الجيش - مول طنطا تاون",
+          "addressLocality": "طنطا",
+          "addressRegion": "الغربية",
+          "addressCountry": "EG"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "حي الياسمين - طريق الملك عبدالعزيز",
+          "addressLocality": "الرياض",
+          "addressCountry": "SA"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "شارع 23 يوليو - بجوار نقابة المعلمين",
+          "addressLocality": "بسيون",
+          "addressRegion": "الغربية",
+          "addressCountry": "EG"
+        }
+      ],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.7865,
+        "longitude": 31.0004
+      },
+      "sameAs": [
+        "https://www.facebook.com/Engazrealestate.eg/",
+        "https://www.instagram.com/engazdevelopments/"
+      ]
+    }
+    </script>
+
 </head>
 <body>
     <!-- Glow Effects -->
@@ -48,7 +95,7 @@
         </button>
         <nav>
             <a href="index.html">الرئيسية</a>
-            <a href="projects.html">مشاريعنا</a>
+            <a href="projects.html" class="nav-link-active">مشاريعنا</a>
             <a href="portfolio.html">سابقة أعمالنا</a>
             <a href="about.html">عن الشركة</a>
             <a href="contact.html" class="nav-btn"><i class="fa-solid fa-phone"></i> تواصل معنا</a>
@@ -69,7 +116,7 @@
     <!-- --- FEATURE: SISTER COMPANIES SECTION --- -->
     <div class="modal-overlay" id="projectDetailsModal">
         <div class="modal-card">
-            <span class="modal-close-btn" id="btnCloseModal">✕</span>
+            <span class="modal-close-btn" id="btnCloseModal"></span>
             <img src="" class="modal-header-img" id="modalProjectImg" alt="Project Image">
             <div class="modal-body">
                 <h3 class="modal-title" id="modalProjectTitle">اسم المشروع</h3>
@@ -111,10 +158,10 @@
                 </div>
 
                 <div class="modal-meta-grid">
-                    <div class="meta-item">📍 الموقع والمحافظة: <strong id="modalMetaLocation">-</strong></div>
-                    <div class="meta-item">📊 الحالة الإنشائية: <strong id="modalMetaStatus">-</strong></div>
-                    <div class="meta-item">🏗️ المطور العقاري: <strong id="modalMetaDeveloper">Engaz Developments</strong></div>
-                    <div class="meta-item">🔑 خيارات الحجز: <strong id="modalMetaBooking" style="color: var(--accent-gold);">-</strong></div>
+                    <div class="meta-item"><i class="fa-solid fa-location-dot"></i> الموقع والمحافظة: <strong id="modalMetaLocation">-</strong></div>
+                    <div class="meta-item"> الحالة الإنشائية: <strong id="modalMetaStatus">-</strong></div>
+                    <div class="meta-item">️ المطور العقاري: <strong id="modalMetaDeveloper">Engaz Developments</strong></div>
+                    <div class="meta-item"> خيارات الحجز: <strong id="modalMetaBooking" style="color: var(--accent-gold);">-</strong></div>
                 </div>
 
                 <button class="btn-modal-action" id="btnModalRegisterInterest">
@@ -131,9 +178,9 @@
     <!-- Brochure Download Lead Capture Modal -->
     <div class="modal-overlay" id="brochureDownloadModal" style="display: none; z-index: 9999;">
         <div class="modal-card" style="max-width: 450px;">
-            <span class="modal-close-btn" id="btnCloseBrochureModal">✕</span>
+            <span class="modal-close-btn" id="btnCloseBrochureModal"></span>
             <div class="modal-body" style="padding: 2rem;">
-                <h3 class="modal-title" style="margin-top: 0; color: var(--accent-gold); text-align: center;">📥 تحميل المخطط الهندسي والكتالوج</h3>
+                <h3 class="modal-title" style="margin-top: 0; color: var(--accent-gold); text-align: center;"> تحميل المخطط الهندسي والكتالوج</h3>
                 <p style="color: var(--text-secondary); font-size: 0.9rem; text-align: center; margin-bottom: 1.5rem;">يرجى تسجيل بياناتك الرسمية لنقوم بإرسال نسخة الكتالوج والمخططات الإنشائية لجهازك فوراً.</p>
                 
                 <form id="brochureLeadForm">
@@ -157,10 +204,11 @@
                     </div>
 
                     <button type="submit" class="btn-modal-action" style="width: 100%; margin: 0;" id="btnSubmitBrochureForm">
-                        🚀 إرسال وتحميل ملف الـ PDF الآن
+                         إرسال وتحميل ملف الـ PDF الآن
                     </button>
                     <div id="brochureStatusMessage" style="display: none; margin-top: 1rem; padding: 10px; border-radius: 8px; font-size: 0.85rem; text-align: center;"></div>
-                </form>
+                    <input type="text" name="website_hp_check" style="display:none !important; visibility:hidden !important; position:absolute !important; left:-9999px !important;" tabindex="-1" autocomplete="off">
+</form>
             </div>
         </div>
     </div>
@@ -168,9 +216,9 @@
     <!-- Discount Lead Magnet Modal Overlay -->
     <div class="modal-overlay" id="discountLeadMagnetModal" style="display: none; z-index: 99999; backdrop-filter: blur(15px); background: rgba(5, 20, 28, 0.85); transition: all 0.4s ease;">
         <div class="modal-card" style="max-width: 480px; width: 94%; background: linear-gradient(135deg, rgba(11, 31, 43, 0.98), rgba(5, 20, 28, 0.99)); border: 1px solid rgba(212, 175, 55, 0.4); box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(212, 175, 55, 0.2); backdrop-filter: blur(20px); border-radius: 24px; position: relative; margin: auto;">
-            <button type="button" class="modal-close-btn" id="btnCloseDiscountModal" onclick="document.getElementById('discountLeadMagnetModal').style.display='none'" aria-label="Close" style="color: var(--accent-gold); font-size: 1.4rem; cursor: pointer; background: rgba(13, 21, 39, 0.9); border: 1px solid rgba(212,175,55,0.3); width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; position: absolute; top: 12px; left: 12px; z-index: 100; transition: all 0.3s ease;">✕</button>
+            <button type="button" class="modal-close-btn" id="btnCloseDiscountModal" onclick="document.getElementById('discountLeadMagnetModal').style.display='none'" aria-label="Close" style="color: var(--accent-gold); font-size: 1.4rem; cursor: pointer; background: rgba(13, 21, 39, 0.9); border: 1px solid rgba(212,175,55,0.3); width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; position: absolute; top: 12px; left: 12px; z-index: 100; transition: all 0.3s ease;"></button>
             <div class="modal-body" style="padding: 2.2rem 1.5rem; text-align: center;">
-                <div style="font-size: 3.2rem; margin-bottom: 0.3rem; filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4)); animation: floatGift 3s ease-in-out infinite;">🎁</div>
+                <div style="font-size: 3.2rem; margin-bottom: 0.3rem; filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4)); animation: floatGift 3s ease-in-out infinite;"></div>
                 <h3 class="modal-title" style="margin-top: 0; color: var(--accent-gold); font-size: 1.5rem; font-weight: 900; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.5px;">احصل على عرض خصم 10% فوراً!</h3>
                 <p style="color: #cbd5e1; font-size: 0.88rem; margin-bottom: 1.5rem; line-height: 1.5; font-weight: 500;">
                     سجل بياناتك الآن لتفعيل كود الخصم الحصري <strong style="color: var(--accent-gold); font-size: 1rem;">ENGAZ10</strong> للحجز في مشاريع شركة إنجاز، وسنقوم بإرسال كود الخصم فوراً!
@@ -193,7 +241,7 @@
                     </div>
 
                     <button type="submit" class="btn-modal-action" style="width: 100%; margin: 8px 0 0 0; padding: 13px; font-weight: 800; font-size: 0.95rem; background: var(--gold-gradient); color: #000; border-radius: 12px; cursor: pointer; transition: all 0.3s ease; border: none; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);" id="btnSubmitDiscountForm">
-                        ⚡ احصل على الخصم الفوري وتفاصيل العرض
+                         احصل على الخصم الفوري وتفاصيل العرض
                     </button>
                     <button type="button" onclick="document.getElementById('discountLeadMagnetModal').style.display='none'" style="background: transparent; border: none; color: #a3b8cc; font-size: 0.85rem; margin-top: 6px; cursor: pointer; text-decoration: underline; font-family: 'Cairo', sans-serif;">لا شكراً، إغلاق النافذة</button>
                     <div id="discountStatusMessage" style="display: none; margin-top: 0.8rem; padding: 10px; border-radius: 8px; font-size: 0.85rem; text-align: center; font-weight: 700;"></div>
@@ -217,15 +265,15 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 1rem;">
-                    <div style="width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(6, 19, 29, 0.98)); border: 1.5px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 4px 20px rgba(197, 160, 89, 0.4);">
-                        <img src="images/gold-logo.png" alt="Engaz Developments Gold Logo" style="width: 100%; height: 100%; object-fit: cover; transform: scale(1.05);">
+                    <div style="width: 52px; height: 52px; border-radius: 14px; background: #ffffff; border: 1.5px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 4px 20px rgba(197, 160, 89, 0.4);">
+                        <img src="images/logo_engaz.png" alt="ENGAZ - إنجاز للإستثمار العقاري والمقاولات" style="width: 100%; height: 100%; object-fit: cover; transform: scale(1.05);">
                     </div>
                     <div>
-                        <h4 style="margin: 0; color: #ffffff; font-weight: 900; font-size: 1.25rem;">Engaz Developments</h4>
-                        <span style="color: var(--accent-gold); font-size: 0.82rem; font-weight: 700;">إنجاز للتطوير العقاري</span>
+                        <h4 style="margin: 0; color: #ffffff; font-weight: 900; font-size: 1.25rem;">ENGAZ</h4>
+                        <span style="color: var(--accent-gold); font-size: 0.82rem; font-weight: 700;">إنجاز للإستثمار العقاري والمقاولات</span>
                     </div>
                 </div>
-                <p>إنجاز للتطوير العقاري - نبني مجتمعات سكنية وتجارية فاخرة تدوم طويلاً.</p>
+                <p>إنجاز للإستثمار العقاري والمقاولات - نبني مجتمعات سكنية وتجارية فاخرة تدوم طويلاً.</p>
                 <div class="footer-socials">
                     <a href="https://www.facebook.com/Engazrealestate.eg/" class="social-link" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="https://wa.me/201030405054" class="social-link" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
@@ -234,11 +282,11 @@
             </div>
             <div class="footer-col">
                 <h4>مكاتبنا وفروعنا</h4>
-                <p>📍 طنطا - شارع الجيش - مول طنطا تاون (الفرع الرئيسي)</p>
-                <p>📍 الرياض - حي الياسمين - طريق الملك عبدالعزيز</p>
-                <p>📍 بسيون - شارع 23 يوليو - بجوار نقابة المعلمين</p>
-                <p>📞 الخط الموحد لمبيعات مصر: 01030405054</p>
-                <p>📞 الخط الموحد لمبيعات السعودية: +966503040505</p>
+                <p><i class="fa-solid fa-location-dot"></i> طنطا - شارع الجيش - مول طنطا تاون (الفرع الرئيسي)</p>
+                <p><i class="fa-solid fa-location-dot"></i> الرياض - حي الياسمين - طريق الملك عبدالعزيز</p>
+                <p><i class="fa-solid fa-location-dot"></i> بسيون - شارع 23 يوليو - بجوار نقابة المعلمين</p>
+                <p><i class="fa-solid fa-phone"></i> الخط الموحد لمبيعات مصر: 01030405054</p>
+                <p><i class="fa-solid fa-phone"></i> الخط الموحد لمبيعات السعودية: +966503040505</p>
             </div>
             <div class="footer-col">
                 <h4>روابط سريعة</h4>
@@ -247,7 +295,7 @@
                 <a href="#about-engaz">نبذة عن الشركة</a>
             </div>
         </div>
-        <p class="copyright-text">جميع الحقوق محفوظة © 2026 | شركة إنجاز للتطوير العقاري</p>
+        <p class="copyright-text">جميع الحقوق محفوظة © 2026 | شركة إنجاز للإستثمار العقاري والمقاولات</p>
     </footer>
 
     <!-- Web Application Logic Scripts -->
@@ -361,9 +409,9 @@
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(payload)
                         });
-                        console.log('✅ WhatsApp click logged to CRM successfully');
+                        console.log(' WhatsApp click logged to CRM successfully');
                     } catch (err) {
-                        console.error('❌ Error logging WhatsApp click to CRM:', err);
+                        console.error(' Error logging WhatsApp click to CRM:', err);
                     }
                 }
             });
@@ -423,7 +471,7 @@
                 const card = document.createElement('div');
                 card.className = 'testimonial-card';
                 card.innerHTML = `
-                    <div class="testimonial-rating">${'★'.repeat(item.rating)}${'☆'.repeat(5 - item.rating)}</div>
+                    <div class="testimonial-rating">${''.repeat(item.rating)}${''.repeat(5 - item.rating)}</div>
                     <p class="testimonial-text">"${item.comment}"</p>
                     <div class="testimonial-user">
                         <div class="testimonial-avatar">${item.client_name.charAt(0)}</div>
@@ -451,8 +499,8 @@
                 const isSoldOut = p.status === 'completed';
                 const isPlanned = p.status === 'planned';
                 
-                const badgeText = isSoldOut ? '🔴 تم البيع بالكامل (مباع 100%)' :
-                                  isPlanned ? '📅 قيد التخطيط والطرح' : '🟢 متاح للحجز المباشر';
+                const badgeText = isSoldOut ? ' تم البيع بالكامل (مباع 100%)' :
+                                  isPlanned ? ' قيد التخطيط والطرح' : ' متاح للحجز المباشر';
 
                 const badgeStyle = isSoldOut ? 'style="background: rgba(239, 68, 68, 0.95) !important; color: #ffffff !important; border: 1px solid #dc2626 !important; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4) !important;"' : '';
 
@@ -533,7 +581,7 @@
             const registerBtn = document.getElementById('btnModalRegisterInterest');
 
             if (p.status === 'completed') {
-                modalStatusEl.innerHTML = '<span style="color: #ef4444; font-weight: 800;">🔴 تم البيع والتسليم بالكامل للملاك 100%</span>';
+                modalStatusEl.innerHTML = '<span style="color: #ef4444; font-weight: 800;"> تم البيع والتسليم بالكامل للملاك 100%</span>';
                 if (modalBookingEl) {
                     modalBookingEl.innerText = 'غير متوفرة (مباع بالكامل)';
                     modalBookingEl.style.color = '#ef4444';
@@ -541,10 +589,10 @@
                 if (registerBtn) {
                     registerBtn.style.background = 'linear-gradient(135deg, #ef4444 0%, #b91c1c 100%)';
                     registerBtn.style.color = '#ffffff';
-                    registerBtn.innerHTML = '🔴 الوحدات مباعة بالكامل 100% (استفسر عن الـ Resale)';
+                    registerBtn.innerHTML = ' الوحدات مباعة بالكامل 100% (استفسر عن الـ Resale)';
                 }
             } else if (p.status === 'planned') {
-                modalStatusEl.innerHTML = '<span style="color: #3b82f6; font-weight: 800;">📅 قيد التخطيط والطرح المستقبلي</span>';
+                modalStatusEl.innerHTML = '<span style="color: #3b82f6; font-weight: 800;"> قيد التخطيط والطرح المستقبلي</span>';
                 if (modalBookingEl) {
                     modalBookingEl.innerText = 'حجز الأولوية قريباً';
                     modalBookingEl.style.color = '#3b82f6';
@@ -555,7 +603,7 @@
                     registerBtn.innerHTML = 'تسجيل الأولوية قبل الطرح المباشر';
                 }
             } else {
-                modalStatusEl.innerHTML = '<span style="color: #10b981; font-weight: 800;">🟢 متاح للحجز المباشر</span>';
+                modalStatusEl.innerHTML = '<span style="color: #10b981; font-weight: 800;"> متاح للحجز المباشر</span>';
                 if (modalBookingEl) {
                     modalBookingEl.innerText = 'متوفرة الآن';
                     modalBookingEl.style.color = '#10b981';
@@ -607,13 +655,13 @@
                             `;
                         });
                     } else {
-                        progressContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 1rem;">🏗️ أعمال الأساسات والتخطيط المبدئي قيد التشغيل والترخيص.</p>';
+                        progressContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 1rem;">️ أعمال الأساسات والتخطيط المبدئي قيد التشغيل والترخيص.</p>';
                     }
                 } else {
-                    progressContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 1rem;">🏗️ أعمال الأساسات والتخطيط المبدئي قيد التشغيل والترخيص.</p>';
+                    progressContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 1rem;">️ أعمال الأساسات والتخطيط المبدئي قيد التشغيل والترخيص.</p>';
                 }
             } catch (err) {
-                progressContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 1rem;">🏗️ أعمال الأساسات والتخطيط المبدئي قيد التشغيل والترخيص.</p>';
+                progressContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 1rem;">️ أعمال الأساسات والتخطيط المبدئي قيد التشغيل والترخيص.</p>';
             }
 
             // زر تحميل البروشور الكتالوج
@@ -863,9 +911,9 @@
                         statusMessage.style.display = 'block';
                         statusMessage.style.background = 'rgba(231, 76, 60, 0.15)';
                         statusMessage.style.color = '#e74c3c';
-                        statusMessage.innerHTML = '❌ الاسم بالكامل يجب ألا يقل عن 3 أحرف.';
+                        statusMessage.innerHTML = ' الاسم بالكامل يجب ألا يقل عن 3 أحرف.';
                         btnSubmit.disabled = false;
-                        btnSubmit.innerHTML = '🚀 إرسال وتحميل ملف الـ PDF الآن';
+                        btnSubmit.innerHTML = ' إرسال وتحميل ملف الـ PDF الآن';
                         return;
                     }
 
@@ -874,9 +922,9 @@
                         statusMessage.style.display = 'block';
                         statusMessage.style.background = 'rgba(231, 76, 60, 0.15)';
                         statusMessage.style.color = '#e74c3c';
-                        statusMessage.innerHTML = '❌ رقم الهاتف غير صحيح، يرجى إدخال أرقام فقط (9 أرقام على الأقل).';
+                        statusMessage.innerHTML = ' رقم الهاتف غير صحيح، يرجى إدخال أرقام فقط (9 أرقام على الأقل).';
                         btnSubmit.disabled = false;
-                        btnSubmit.innerHTML = '🚀 إرسال وتحميل ملف الـ PDF الآن';
+                        btnSubmit.innerHTML = ' إرسال وتحميل ملف الـ PDF الآن';
                         return;
                     }
 
@@ -884,9 +932,9 @@
                         statusMessage.style.display = 'block';
                         statusMessage.style.background = 'rgba(231, 76, 60, 0.15)';
                         statusMessage.style.color = '#e74c3c';
-                        statusMessage.innerHTML = '❌ رقم الواتساب غير صحيح، يرجى إدخال أرقام فقط (9 أرقام على الأقل).';
+                        statusMessage.innerHTML = ' رقم الواتساب غير صحيح، يرجى إدخال أرقام فقط (9 أرقام على الأقل).';
                         btnSubmit.disabled = false;
-                        btnSubmit.innerHTML = '🚀 إرسال وتحميل ملف الـ PDF الآن';
+                        btnSubmit.innerHTML = ' إرسال وتحميل ملف الـ PDF الآن';
                         return;
                     }
 
@@ -917,7 +965,7 @@
                             statusMessage.style.display = 'block';
                             statusMessage.style.background = 'rgba(46, 204, 113, 0.15)';
                             statusMessage.style.color = '#2ecc71';
-                            statusMessage.innerHTML = '🎉 تم حفظ بياناتك بنجاح! جاري تحميل المخطط الهندسي والكتالوج الآن...';
+                            statusMessage.innerHTML = ' تم حفظ بياناتك بنجاح! جاري تحميل المخطط الهندسي والكتالوج الآن...';
                             
                             // إرسال تتبع تحويل فيسبوك (Facebook Pixel Conversion)
                             if (window.fbq) {
@@ -954,7 +1002,7 @@
                             statusMessage.style.display = 'block';
                             statusMessage.style.background = 'rgba(46, 204, 113, 0.15)';
                             statusMessage.style.color = '#2ecc71';
-                            statusMessage.innerHTML = '🎉 تم حفظ بياناتك بنجاح! جاري تحميل المخطط الهندسي والكتالوج الآن...';
+                            statusMessage.innerHTML = ' تم حفظ بياناتك بنجاح! جاري تحميل المخطط الهندسي والكتالوج الآن...';
                             if (brochureUrl) window.open(brochureUrl, '_blank');
                             setTimeout(() => {
                                 document.getElementById('brochureDownloadModal').style.display = 'none';
@@ -965,11 +1013,11 @@
                             statusMessage.style.display = 'block';
                             statusMessage.style.background = 'rgba(231, 76, 60, 0.15)';
                             statusMessage.style.color = '#e74c3c';
-                            statusMessage.innerHTML = '❌ عذراً: ' + error.message;
+                            statusMessage.innerHTML = ' عذراً: ' + error.message;
                         }
                     } finally {
                         btnSubmit.disabled = false;
-                        btnSubmit.innerHTML = '🚀 إرسال وتحميل ملف الـ PDF الآن';
+                        btnSubmit.innerHTML = ' إرسال وتحميل ملف الـ PDF الآن';
                     }
                 });
             }
@@ -995,7 +1043,7 @@
             // التحقق من صحة البيانات فرونت إند
             if (!name || name.length < 3) {
                 statusMessage.className = 'form-message error';
-                statusMessage.innerHTML = '❌ الاسم بالكامل يجب ألا يقل عن 3 أحرف.';
+                statusMessage.innerHTML = ' الاسم بالكامل يجب ألا يقل عن 3 أحرف.';
                 statusMessage.style.display = 'block';
                 btnSubmit.disabled = false;
                 btnSubmit.innerHTML = 'إرسال البيانات والتسجيل';
@@ -1005,7 +1053,7 @@
             const phoneRegex = /^\+?[0-9\s\-]{9,20}$/;
             if (!phoneRegex.test(phone)) {
                 statusMessage.className = 'form-message error';
-                statusMessage.innerHTML = '❌ رقم الهاتف غير صحيح، يرجى إدخال أرقام فقط (9 أرقام على الأقل).';
+                statusMessage.innerHTML = ' رقم الهاتف غير صحيح، يرجى إدخال أرقام فقط (9 أرقام على الأقل).';
                 statusMessage.style.display = 'block';
                 btnSubmit.disabled = false;
                 btnSubmit.innerHTML = 'إرسال البيانات والتسجيل';
@@ -1014,7 +1062,7 @@
 
             if (!phoneRegex.test(whatsapp)) {
                 statusMessage.className = 'form-message error';
-                statusMessage.innerHTML = '❌ رقم الواتساب غير صحيح، يرجى إدخال أرقام فقط (9 أرقام على الأقل).';
+                statusMessage.innerHTML = ' رقم الواتساب غير صحيح، يرجى إدخال أرقام فقط (9 أرقام على الأقل).';
                 statusMessage.style.display = 'block';
                 btnSubmit.disabled = false;
                 btnSubmit.innerHTML = 'إرسال البيانات والتسجيل';
@@ -1049,7 +1097,7 @@
 
                 if (response.ok) {
                     statusMessage.classList.add('success');
-                    statusMessage.innerHTML = '🎉 تم تسجيل بياناتك وخطة استثمارك بنجاح! سيتواصل معك أحد مستشارينا العقاريين خلال دقائق لتوضيح الأسعار والتقسيط المتاح.';
+                    statusMessage.innerHTML = ' تم تسجيل بياناتك وخطة استثمارك بنجاح! سيتواصل معك أحد مستشارينا العقاريين خلال دقائق لتوضيح الأسعار والتقسيط المتاح.';
                     statusMessage.style.display = 'block';
 
                     // إرسال تتبع تحويل فيسبوك (Facebook Pixel Conversion)
@@ -1094,7 +1142,7 @@
                     } catch(e){}
 
                     statusMessage.className = 'form-message success';
-                    statusMessage.innerHTML = '🎉 تم تسجيل بياناتك وخطة استثمارك بنجاح! سيتواصل معك أحد مستشارينا العقاريين خلال دقائق لتوضيح الأسعار والتقسيط المتاح.';
+                    statusMessage.innerHTML = ' تم تسجيل بياناتك وخطة استثمارك بنجاح! سيتواصل معك أحد مستشارينا العقاريين خلال دقائق لتوضيح الأسعار والتقسيط المتاح.';
                     statusMessage.style.display = 'block';
 
                     setTimeout(() => {
@@ -1118,7 +1166,7 @@
                     }, 4000);
                 } else {
                     statusMessage.className = 'form-message error';
-                    statusMessage.innerHTML = '❌ عذراً: ' + error.message;
+                    statusMessage.innerHTML = ' عذراً: ' + error.message;
                     statusMessage.style.display = 'block';
                 }
             } finally {
@@ -1289,7 +1337,7 @@
                     statusMsg.style.background = 'rgba(16, 185, 129, 0.1)';
                     statusMsg.style.color = '#10b981';
                     statusMsg.style.border = '1px solid #10b981';
-                    statusMsg.innerHTML = '🎉 تم إرسال كود الخصم بنجاح! كود الخصم الخاص بك هو <strong>ENGAZ10</strong>.';
+                    statusMsg.innerHTML = ' تم إرسال كود الخصم بنجاح! كود الخصم الخاص بك هو <strong>ENGAZ10</strong>.';
 
                     submitBtn.disabled = false;
                     submitBtn.style.background = '#25D366';
@@ -1312,7 +1360,7 @@
                         statusMsg.style.background = 'rgba(16, 185, 129, 0.1)';
                         statusMsg.style.color = '#10b981';
                         statusMsg.style.border = '1px solid #10b981';
-                        statusMsg.innerHTML = '🎉 تم إرسال كود الخصم بنجاح! كود الخصم الخاص بك هو <strong>ENGAZ10</strong>.';
+                        statusMsg.innerHTML = ' تم إرسال كود الخصم بنجاح! كود الخصم الخاص بك هو <strong>ENGAZ10</strong>.';
 
                         submitBtn.disabled = false;
                         submitBtn.style.background = '#25D366';
@@ -1324,7 +1372,7 @@
                         };
                     } else {
                         submitBtn.disabled = false;
-                        submitBtn.textContent = '⚡ احصل على الخصم الفوري وتفاصيل العرض';
+                        submitBtn.textContent = ' احصل على الخصم الفوري وتفاصيل العرض';
                         statusMsg.style.display = 'block';
                         statusMsg.style.background = 'rgba(239, 68, 68, 0.1)';
                         statusMsg.style.color = '#ef4444';
@@ -1418,67 +1466,23 @@
             <span>طلب استشارة</span>
         </button>
     </div>
-</body>
-</html>
 
-    </main>
-
-    <!-- SHARED FOOTER -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 1rem;">
-                    <div style="width: 52px; height: 52px; border-radius: 14px; background: #fff; border: 1.5px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 4px 20px rgba(184, 149, 46, 0.4);">
-                        <img src="images/logo_engaz.png" alt="ENGAZ Logo" style="width: 100%; height: 100%; object-fit: contain; padding: 4px;">
-                    </div>
-                    <div>
-                        <h4 style="margin: 0; color: #ffffff; font-weight: 900; font-size: 1.25rem;">ENGAZ</h4>
-                        <span style="color: var(--accent-gold); font-size: 0.82rem; font-weight: 700;">إنجاز للإستثمار العقاري والمقاولات</span>
-                    </div>
-                </div>
-                <p>إنجاز للإستثمار العقاري والمقاولات - نبني مجتمعات سكنية وتجارية فاخرة تدوم طويلاً.</p>
-                <div class="footer-socials">
-                    <a href="https://www.facebook.com/Engazrealestate.eg/" class="social-link" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://wa.me/201030405054" class="social-link" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="https://www.instagram.com/engazdevelopments/" class="social-link" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h4>مكاتبنا وفروعنا</h4>
-                <p>📍 طنطا - شارع الجيش - مول طنطا تاون (الفرع الرئيسي)</p>
-                <p>📍 الرياض - حي الياسمين - طريق الملك عبدالعزيز</p>
-                <p>📍 بسيون - شارع 23 يوليو - بجوار نقابة المعلمين</p>
-                <p>📞 مبيعات مصر: 01030405054</p>
-                <p>📞 مبيعات السعودية: +966503040505</p>
-            </div>
-            <div class="footer-col">
-                <h4>روابط سريعة</h4>
-                <a href="projects.html">معرض المشاريع</a>
-                <a href="contact.html">طلب عرض السعر</a>
-                <a href="about.html">نبذة عن الشركة</a>
-                <a href="portfolio.html">سابقة الأعمال</a>
-            </div>
+    <!-- Privacy Policy & Cookie Consent Notification -->
+    <div id="privacy-consent-banner" style="position: fixed; bottom: 20px; right: 20px; left: 20px; max-width: 480px; margin: 0 auto; background: rgba(6, 20, 30, 0.95); border: 1px solid var(--accent-gold); border-radius: 16px; padding: 16px 20px; backdrop-filter: blur(15px); box-shadow: 0 10px 30px rgba(0,0,0,0.6); z-index: 99999; display: flex; align-items: center; justify-content: space-between; gap: 15px; font-size: 0.85rem; color: #b0cdd8; transition: all 0.4s ease;">
+        <div>
+            <strong style="color: #fff; display: block; margin-bottom: 2px; font-size: 0.9rem;">حماية البيانات والخصوصية</strong>
+            نستخدم تقنيات التصفح الآمنة لتقديم أفضل تجربة عقارية واستثمارية.
         </div>
-        <p class="copyright-text">جميع الحقوق محفوظة © 2026 | إنجاز للإستثمار العقاري والمقاولات</p>
-    </footer>
-
-    <!-- Floating WhatsApp -->
-    <a href="https://wa.me/201030405054" class="floating-whatsapp" target="_blank" rel="noopener noreferrer" id="floating-whatsapp-btn">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <!-- Theme Switcher -->
-    <button class="theme-switcher-btn" id="theme-switcher-btn" title="تبديل الإضاءة" aria-label="تبديل الإضاءة">
-        <i class="fa-solid fa-circle-half-stroke"></i>
-    </button>
-
-    <!-- Mobile Sticky Bar -->
-    <div class="mobile-sticky-contact-bar">
-        <a href="tel:+201030405054" class="sticky-contact-item call"><i class="fa-solid fa-phone"></i> <span>اتصل الآن</span></a>
-        <a href="https://wa.me/201030405054" class="sticky-contact-item whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i> <span>واتساب</span></a>
-        <a href="contact.html" class="sticky-contact-item consult"><i class="fa-solid fa-file-signature"></i> <span>استشارة مجانية</span></a>
+        <button onclick="document.getElementById('privacy-consent-banner').style.display='none'; localStorage.setItem('engaz_privacy_accepted', '1');" style="background: var(--gold-gradient); border: none; color: #000; font-weight: 800; padding: 8px 16px; border-radius: 8px; cursor: pointer; white-space: nowrap; font-size: 0.82rem;">موافق</button>
     </div>
+    <script>
+        if(localStorage.getItem('engaz_privacy_accepted') === '1') {
+            document.addEventListener('DOMContentLoaded', () => {
+                const b = document.getElementById('privacy-consent-banner');
+                if(b) b.style.display = 'none';
+            });
+        }
+    </script>
 
-    <script src="js/main.js"></script>
 </body>
 </html>

@@ -2683,3 +2683,193 @@
 }
 
 
+
+/* Luxury Real Estate Badges & Pills */
+.category-badge, .badge, .project-status-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 6px 16px !important;
+    border-radius: 8px !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    font-family: 'Cairo', sans-serif !important;
+    letter-spacing: 0.3px !important;
+    border: 1px solid rgba(184, 149, 46, 0.35) !important;
+    background: rgba(184, 149, 46, 0.08) !important;
+    color: #d4b85a !important;
+    backdrop-filter: blur(8px) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.3s ease !important;
+}
+
+.category-badge i, .badge i, .project-status-badge i {
+    font-size: 0.85rem !important;
+    color: var(--accent-gold) !important;
+}
+
+.badge-commercial {
+    border-color: rgba(184, 149, 46, 0.4) !important;
+    background: rgba(184, 149, 46, 0.12) !important;
+    color: #e5c158 !important;
+}
+
+.badge-residential {
+    border-color: rgba(13, 99, 120, 0.5) !important;
+    background: rgba(13, 99, 120, 0.25) !important;
+    color: #b0cdd8 !important;
+}
+
+.badge-completed {
+    border-color: rgba(16, 185, 129, 0.4) !important;
+    background: rgba(16, 185, 129, 0.12) !important;
+    color: #10b981 !important;
+}
+
+.btn-before-after {
+    border-radius: 10px !important;
+    padding: 9px 20px !important;
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+    border: 1px solid rgba(184, 149, 46, 0.3) !important;
+    background: rgba(6, 47, 58, 0.8) !important;
+    color: #ffffff !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-before-after:hover, .btn-before-after.active {
+    background: var(--gold-gradient) !important;
+    color: #000000 !important;
+    border-color: var(--accent-gold) !important;
+    box-shadow: 0 4px 15px rgba(184, 149, 46, 0.35) !important;
+}
+
+/* ========================================================
+   🚀 HIGH-PERFORMANCE GPU-ACCELERATED UI MOTIONS & ANIMATIONS
+   ======================================================== */
+
+/* Hardware acceleration defaults */
+.project-card, .gateway-card, .previous-project-card, .branch-card, 
+.stat-card, .btn-detail, .nav-btn, .btn-submit, .floating-whatsapp,
+.theme-switcher-btn, .search-widget-container, .before-after-container {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+}
+
+/* 1. Staggered Scroll Entrance Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Grid Stagger Delays */
+.projects-grid > *:nth-child(1), .portfolio-grid > *:nth-child(1) { transition-delay: 0.05s; }
+.projects-grid > *:nth-child(2), .portfolio-grid > *:nth-child(2) { transition-delay: 0.1s; }
+.projects-grid > *:nth-child(3), .portfolio-grid > *:nth-child(3) { transition-delay: 0.15s; }
+.projects-grid > *:nth-child(4), .portfolio-grid > *:nth-child(4) { transition-delay: 0.2s; }
+
+/* 2. Micro-Interactions: Card Lift & Ambient Glow */
+.project-card, .gateway-card, .previous-project-card, .branch-card, .stat-card {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.project-card:hover, .gateway-card:hover, .previous-project-card:hover, .branch-card:hover {
+    transform: translateY(-6px) scale(1.01) !important;
+    border-color: rgba(184, 149, 46, 0.6) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(184, 149, 46, 0.2) !important;
+}
+
+/* Card Image Zoom */
+.project-img-wrapper img, .previous-project-card img {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+.project-card:hover .project-img-wrapper img, 
+.previous-project-card:hover img {
+    transform: scale(1.07);
+    filter: brightness(1.05);
+}
+
+/* 3. Button Click Feedback & Sheen Animation */
+.btn-detail:active, .nav-btn:active, .btn-submit:active, .btn-before-after:active {
+    transform: scale(0.97) !important;
+}
+
+/* 4. Ambient Pulse Animations */
+@keyframes whatsappPulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+    70% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.floating-whatsapp {
+    animation: whatsappPulse 3s infinite ease-in-out;
+}
+
+@keyframes dividerPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 10px rgba(184, 149, 46, 0.4); }
+    50% { transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 22px rgba(184, 149, 46, 0.75); }
+}
+
+.before-after-line > div {
+    animation: dividerPulse 3s infinite ease-in-out;
+}
+
+/* 5. Smooth Input Focus State */
+.search-input:focus, .search-select:focus, input:focus, select:focus, textarea:focus {
+    border-color: var(--accent-gold) !important;
+    box-shadow: 0 0 15px rgba(184, 149, 46, 0.25) !important;
+    transform: translateY(-2px);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* 6. Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .animate-on-scroll, .project-card, .btn-detail, .floating-whatsapp {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+    }
+}
+
+/* Hero Slide Badge — Real Project Label */
+.slide-badge {
+    position: absolute;
+    bottom: 28px;
+    right: 28px;
+    background: rgba(6, 12, 20, 0.88);
+    color: var(--accent-gold);
+    border: 1px solid rgba(184, 149, 46, 0.45);
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    font-family: 'Cairo', sans-serif;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    z-index: 20;
+    pointer-events: none;
+    letter-spacing: 0.3px;
+}
+
+/* Active Nav Link */
+nav a.active {
+    color: var(--accent-gold) !important;
+}
+nav a.active::after {
+    width: 100% !important;
+}
+
+/* Active Navigation Link */
+nav a.nav-link-active {
+    color: var(--accent-gold) !important;
+    font-weight: 800 !important;
+}
+nav a.nav-link-active::after {
+    width: 100% !important;
+    background: var(--gold-gradient) !important;
+}
