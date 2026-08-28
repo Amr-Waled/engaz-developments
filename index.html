@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>إنجاز للإستثمار العقاري والمقاولات | شقق وعقارات بالتجمع الخامس وطنطا وبسيون</title>
     <meta name="description" content="إنجاز للإستثمار العقاري والمقاولات — شقق للبيع بالتجمع الخامس، مولات تجارية وطبية ببسيون وطنطا. أنظمة تقسيط تصل لـ 7 سنوات. سجل الآن: 01030405054">
-    
+
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="إنجاز للإستثمار العقاري والمقاولات | شقق وعقارات بالتجمع الخامس وطنطا وبسيون">
     <meta property="og:description" content="إنجاز للإستثمار العقاري والمقاولات — شقق للبيع بالتجمع الخامس، مولات تجارية وطبية ببسيون وطنطا. أنظمة تقسيط تصل لـ 7 سنوات. سجل الآن: 01030405054">
     <meta property="og:image" content="/images/og-image.jpg">
     <meta property="og:locale" content="ar_EG">
-    
-    <link rel="canonical" href="https://engazdevelopments.com/index.html">
+
+    <link rel="canonical" href="https://engazdevelopments.com/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    
+
     <!-- Facebook Pixel -->
     <script>
       !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
@@ -27,7 +27,7 @@
       fbq('track', 'PageView');
     </script>
 
-    <!-- Schema.org RealEstateAgent Structured Data -->
+    <!-- Schema.org -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -40,57 +40,755 @@
       "priceRange": "$$",
       "description": "شركة إنجاز للإستثمار العقاري والمقاولات - تطوير أبراج سكنية فاخرة بالتجمع الخامس ومولات تجارية وطبية ببسيون وطنطا بأعلى مواصفات الجودة وأنظمة تقسيط مريحة.",
       "address": [
-        {
-          "@type": "PostalAddress",
-          "streetAddress": "شارع الجيش - مول طنطا تاون",
-          "addressLocality": "طنطا",
-          "addressRegion": "الغربية",
-          "addressCountry": "EG"
-        },
-        {
-          "@type": "PostalAddress",
-          "streetAddress": "حي الياسمين - طريق الملك عبدالعزيز",
-          "addressLocality": "الرياض",
-          "addressCountry": "SA"
-        },
-        {
-          "@type": "PostalAddress",
-          "streetAddress": "شارع 23 يوليو - بجوار نقابة المعلمين",
-          "addressLocality": "بسيون",
-          "addressRegion": "الغربية",
-          "addressCountry": "EG"
-        }
+        {"@type": "PostalAddress","streetAddress": "شارع الجيش - مول طنطا تاون","addressLocality": "طنطا","addressRegion": "الغربية","addressCountry": "EG"},
+        {"@type": "PostalAddress","streetAddress": "حي الياسمين - طريق الملك عبدالعزيز","addressLocality": "الرياض","addressCountry": "SA"},
+        {"@type": "PostalAddress","streetAddress": "شارع 23 يوليو - بجوار نقابة المعلمين","addressLocality": "بسيون","addressRegion": "الغربية","addressCountry": "EG"}
       ],
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 30.7865,
-        "longitude": 31.0004
-      },
-      "sameAs": [
-        "https://www.facebook.com/Engazrealestate.eg/",
-        "https://www.instagram.com/engazdevelopments/"
-      ]
+      "sameAs": ["https://www.facebook.com/Engazrealestate.eg/","https://www.instagram.com/engazdevelopments/"]
     }
     </script>
 
+    <style>
+        /* ===== HOME PAGE SPECIFIC STYLES ===== */
+
+        /* Hero */
+        .home-hero {
+            position: relative;
+            height: 100svh;
+            min-height: 600px;
+            max-height: 900px;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+        }
+        .home-hero .hero-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.4s ease-in-out;
+        }
+        .home-hero .hero-slide.active { opacity: 1; }
+        .home-hero .slide-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .hero-gradient-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(6,47,58,0.3) 0%,
+                rgba(6,47,58,0.5) 40%,
+                rgba(6,47,58,0.92) 100%
+            );
+            z-index: 2;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            padding: 0 5% 4rem;
+            text-align: center;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(184,149,46,0.12);
+            border: 1px solid rgba(184,149,46,0.4);
+            color: #d4b85a;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            backdrop-filter: blur(10px);
+        }
+        .hero-content h1 {
+            font-size: clamp(1.9rem, 5vw, 3.5rem);
+            font-weight: 900;
+            color: #fff;
+            margin: 0 0 0.8rem;
+            line-height: 1.25;
+        }
+        .hero-content h1 span {
+            background: linear-gradient(135deg, #b8952e 0%, #d4b85a 50%, #96741f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-content p {
+            color: #b0cdd8;
+            font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .hero-cta-primary {
+            background: linear-gradient(135deg, #b8952e 0%, #d4b85a 50%, #96741f 100%);
+            color: #000;
+            padding: 0.85rem 2rem;
+            border-radius: 14px;
+            font-weight: 800;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 25px rgba(184,149,46,0.35);
+        }
+        .hero-cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(184,149,46,0.5);
+        }
+        .hero-cta-secondary {
+            background: rgba(255,255,255,0.06);
+            color: #fff;
+            padding: 0.85rem 2rem;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .hero-cta-secondary:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255,255,255,0.4);
+        }
+        /* Slide indicators */
+        .hero-indicators {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 4;
+            display: flex;
+            gap: 8px;
+        }
+        .hero-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.35);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+        .hero-dot.active {
+            width: 28px;
+            border-radius: 4px;
+            background: #d4b85a;
+        }
+
+        /* ===== STATS STRIP ===== */
+        .stats-strip {
+            background: rgba(10,74,92,0.6);
+            border-top: 1px solid rgba(184,149,46,0.2);
+            border-bottom: 1px solid rgba(184,149,46,0.2);
+            backdrop-filter: blur(20px);
+            padding: 1.4rem 5%;
+        }
+        .stats-strip-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            text-align: center;
+        }
+        .strip-stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+        .strip-stat-num {
+            font-size: 1.9rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #b8952e 0%, #d4b85a 50%, #96741f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+        .strip-stat-label {
+            font-size: 0.78rem;
+            color: #b0cdd8;
+            font-weight: 600;
+        }
+        @media (max-width: 600px) {
+            .stats-strip-inner {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.2rem 0.5rem;
+            }
+        }
+
+        /* ===== SECTION GATEWAY CARDS ===== */
+        .gateway-section {
+            padding: 3.5rem 4% 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .gateway-section-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .gateway-section-header h2 {
+            font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #b8952e 0%, #d4b85a 50%, #96741f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0 0 0.5rem;
+        }
+        .gateway-section-header p {
+            color: #b0cdd8;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .sections-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+        }
+        @media (max-width: 900px) {
+            .sections-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 500px) {
+            .sections-grid { grid-template-columns: 1fr; gap: 1rem; }
+        }
+
+        .section-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            text-decoration: none;
+            display: block;
+            border: 1px solid rgba(184,149,46,0.18);
+            background: rgba(10,74,92,0.45);
+            backdrop-filter: blur(15px);
+            transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+            group: true;
+        }
+        .section-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(184,149,46,0.55);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(184,149,46,0.15);
+        }
+        .section-card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            display: block;
+        }
+        .section-card:hover .section-card-img {
+            transform: scale(1.06);
+        }
+        .section-card-img-placeholder {
+            width: 100%;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+        }
+        .section-card-body {
+            padding: 1.3rem 1.4rem 1.5rem;
+        }
+        .section-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(184,149,46,0.15), rgba(184,149,46,0.05));
+            border: 1px solid rgba(184,149,46,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #d4b85a;
+            margin-bottom: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .section-card:hover .section-card-icon {
+            background: linear-gradient(135deg, #b8952e 0%, #d4b85a 50%, #96741f 100%);
+            color: #000;
+            border-color: transparent;
+        }
+        .section-card h3 {
+            color: #fff;
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin: 0 0 0.4rem;
+        }
+        .section-card p {
+            color: #7aa3b3;
+            font-size: 0.83rem;
+            line-height: 1.6;
+            margin: 0 0 1rem;
+        }
+        .section-card-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #d4b85a;
+            font-size: 0.82rem;
+            font-weight: 700;
+            transition: gap 0.3s ease;
+        }
+        .section-card:hover .section-card-arrow {
+            gap: 10px;
+        }
+
+        /* Featured / Large card */
+        .section-card.featured {
+            grid-column: span 2;
+        }
+        .section-card.featured .section-card-img {
+            height: 220px;
+        }
+        @media (max-width: 900px) {
+            .section-card.featured { grid-column: span 1; }
+        }
+
+        /* Contact card special */
+        .section-card.contact-card {
+            background: linear-gradient(135deg, rgba(184,149,46,0.12), rgba(150,116,31,0.06));
+            border-color: rgba(184,149,46,0.35);
+        }
+
+        /* ===== WHY ENGAZ STRIP ===== */
+        .why-engaz {
+            background: rgba(6,47,58,0.8);
+            border-top: 1px solid rgba(184,149,46,0.12);
+            border-bottom: 1px solid rgba(184,149,46,0.12);
+            padding: 3rem 4%;
+        }
+        .why-engaz-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        @media (max-width: 800px) {
+            .why-engaz-inner { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        }
+        @media (max-width: 480px) {
+            .why-engaz-inner { grid-template-columns: 1fr 1fr; gap: 1rem; }
+        }
+        .why-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.7rem;
+        }
+        .why-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            background: rgba(184,149,46,0.1);
+            border: 1px solid rgba(184,149,46,0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: #d4b85a;
+        }
+        .why-item h4 {
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 800;
+            margin: 0;
+        }
+        .why-item p {
+            color: #7aa3b3;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* ===== QUICK LEAD FORM ===== */
+        .quick-lead {
+            padding: 3.5rem 4%;
+            max-width: 750px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .quick-lead h2 {
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            font-weight: 900;
+            color: #fff;
+            margin: 0 0 0.4rem;
+        }
+        .quick-lead h2 span {
+            background: linear-gradient(135deg, #b8952e 0%, #d4b85a 50%, #96741f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .quick-lead > p {
+            color: #b0cdd8;
+            margin: 0 0 2rem;
+            font-size: 0.95rem;
+        }
+        .quick-lead-form {
+            background: rgba(10,74,92,0.5);
+            border: 1px solid rgba(184,149,46,0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(15px);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        @media (max-width: 550px) {
+            .quick-lead-form { grid-template-columns: 1fr; }
+        }
+        .quick-lead-form .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            text-align: right;
+        }
+        .quick-lead-form .form-field.full-width {
+            grid-column: span 2;
+        }
+        @media (max-width: 550px) {
+            .quick-lead-form .form-field.full-width { grid-column: span 1; }
+        }
+        .quick-lead-form label {
+            color: #d4b85a;
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+        .quick-lead-form input,
+        .quick-lead-form select {
+            background: rgba(6,11,22,0.7);
+            border: 1px solid rgba(184,149,46,0.2);
+            color: #fff;
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        .quick-lead-form input:focus,
+        .quick-lead-form select:focus {
+            border-color: #b8952e;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(184,149,46,0.12);
+            background: rgba(6,11,22,0.9);
+        }
+        .quick-lead-form input::placeholder { color: #4a6a78; }
+        .quick-lead-form select option { background: #062f3a; }
+        .btn-quick-submit {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #b8952e 0%, #d4b85a 50%, #96741f 100%);
+            color: #000;
+            border: none;
+            padding: 0.9rem 2rem;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        @media (max-width: 550px) { .btn-quick-submit { grid-column: span 1; } }
+        .btn-quick-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(184,149,46,0.45);
+        }
+        .btn-quick-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .quick-form-message {
+            grid-column: span 2;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            display: none;
+        }
+        @media (max-width: 550px) { .quick-form-message { grid-column: span 1; } }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: rgba(4,8,18,0.97);
+            border-top: 1px solid rgba(184,149,46,0.2);
+            padding: 3rem 5% 1.5rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.8fr 1.2fr 1fr 1fr;
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+        }
+        @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; gap: 1.8rem; } }
+        .footer-col h4 {
+            color: #d4b85a;
+            font-size: 0.95rem;
+            font-weight: 800;
+            margin: 0 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(184,149,46,0.18);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .footer-col p, .footer-col a {
+            color: #7aa3b3;
+            font-size: 0.85rem;
+            line-height: 2;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            transition: color 0.2s ease;
+        }
+        .footer-col a:hover { color: #d4b85a; }
+        .footer-col p i, .footer-col a i { color: #b8952e; width: 14px; flex-shrink: 0; }
+        .footer-socials {
+            display: flex;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+        .social-link {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(184,149,46,0.08);
+            border: 1px solid rgba(184,149,46,0.22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4b85a;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .social-link:hover {
+            background: linear-gradient(135deg, #b8952e 0%, #d4b85a 100%);
+            color: #000;
+            border-color: transparent;
+            transform: translateY(-2px);
+        }
+        .copyright-text {
+            text-align: center;
+            color: #4a6a78;
+            font-size: 0.8rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(184,149,46,0.1);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .copyright-text a { color: #b8952e; text-decoration: none; }
+
+        /* ===== FLOATING ELEMENTS ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 80px;
+            left: 20px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: #25D366;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+            z-index: 998;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+        }
+        #scroll-top-btn {
+            position: fixed;
+            bottom: 140px;
+            left: 20px;
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #b8952e, #d4b85a);
+            border: none;
+            border-radius: 50%;
+            color: #000;
+            font-size: 1.1rem;
+            cursor: pointer;
+            z-index: 997;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 18px rgba(184,149,46,0.4);
+            transition: all 0.3s ease;
+        }
+        #scroll-top-btn.visible { display: flex; }
+        #scroll-top-btn:hover { transform: translateY(-3px); }
+
+        /* ===== MOBILE STICKY BAR ===== */
+        .mobile-sticky-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(6,20,30,0.97);
+            border-top: 1px solid rgba(184,149,46,0.25);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            padding: 0.6rem 0.5rem;
+            gap: 0.4rem;
+        }
+        @media (max-width: 768px) { .mobile-sticky-bar { display: flex; } }
+        .sticky-btn {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            padding: 0.5rem 0.2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 0.65rem;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+        }
+        .sticky-btn i { font-size: 1.1rem; }
+        .sticky-btn.call { background: rgba(37,211,102,0.12); color: #25D366; border: 1px solid rgba(37,211,102,0.25); }
+        .sticky-btn.whatsapp { background: rgba(37,211,102,0.2); color: #25D366; border: 1px solid rgba(37,211,102,0.4); }
+        .sticky-btn.consult { background: linear-gradient(135deg, #b8952e, #d4b85a); color: #000; border: none; }
+        .sticky-btn:hover { transform: translateY(-2px); }
+
+        /* ===== MOBILE HEADER FIXES ===== */
+        @media (max-width: 900px) {
+            header { padding: 0.9rem 4%; }
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: min(300px, 85vw);
+                background: rgba(6,11,22,0.98);
+                backdrop-filter: blur(30px);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 5rem 1.5rem 2rem;
+                gap: 0.3rem;
+                border-left: 1px solid rgba(184,149,46,0.2);
+                transition: right 0.35s cubic-bezier(0.4,0,0.2,1);
+                z-index: 9998;
+                box-shadow: -10px 0 50px rgba(0,0,0,0.6);
+            }
+            nav.mobile-active { right: 0; }
+            nav a {
+                width: 100%;
+                padding: 0.85rem 1rem;
+                border-radius: 10px;
+                font-size: 0.95rem;
+                border-bottom: 1px solid rgba(184,149,46,0.08);
+            }
+            nav a.nav-btn {
+                margin-top: 0.8rem;
+                text-align: center;
+                justify-content: center;
+            }
+            #theme-switcher-btn { margin-top: 0.5rem; align-self: center; }
+        }
+
+        /* ===== PRIVACY BANNER ===== */
+        #privacy-banner {
+            position: fixed;
+            bottom: 70px;
+            right: 15px;
+            left: 15px;
+            max-width: 460px;
+            margin: 0 auto;
+            background: rgba(6,20,30,0.96);
+            border: 1px solid rgba(184,149,46,0.35);
+            border-radius: 14px;
+            padding: 14px 18px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+            z-index: 9990;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            font-size: 0.82rem;
+            color: #b0cdd8;
+        }
+        #privacy-banner strong { color: #fff; display: block; margin-bottom: 2px; font-size: 0.88rem; }
+        #privacy-banner button {
+            background: linear-gradient(135deg, #b8952e, #d4b85a);
+            border: none;
+            color: #000;
+            font-weight: 800;
+            padding: 7px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 0.8rem;
+            font-family: 'Cairo', sans-serif;
+        }
+        @media (max-width: 768px) {
+            #privacy-banner { bottom: 80px; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Glow Effects -->
-    <div class="glow-effect" style="top: 5%; left: 0; background: var(--gold-gradient);"></div>
-    <div class="glow-effect" style="bottom: 10%; right: 0; background: var(--petrol-gradient, var(--royal-gradient));"></div>
+    <!-- Ambient Glows -->
+    <div class="glow-effect" style="top:5%;left:0;background:var(--gold-gradient);"></div>
+    <div class="glow-effect" style="bottom:15%;right:0;background:var(--royal-gradient);"></div>
 
-    <!-- SHARED HEADER -->
+    <!-- ===== HEADER ===== -->
     <header>
-        <a href="index.html" class="nav-link-active" class="logo-area" style="display: flex; align-items: center; gap: 14px; text-decoration: none;">
-            <div class="logo-img-wrapper" style="width: 54px; height: 54px; border-radius: 14px; background: #fff; border: 1.5px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 4px 20px rgba(184, 149, 46, 0.35); transition: transform 0.3s ease;">
-                <img src="images/logo_engaz.png" alt="ENGAZ Logo" style="width: 100%; height: 100%; object-fit: contain; padding: 4px;">
+        <a href="index.html" class="logo-area" style="display:flex;align-items:center;gap:14px;text-decoration:none;">
+            <div style="width:50px;height:50px;border-radius:14px;background:#fff;border:1.5px solid #b8952e;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 4px 20px rgba(184,149,46,0.3);">
+                <img src="images/logo_engaz.png" alt="ENGAZ" style="width:100%;height:100%;object-fit:contain;padding:4px;">
             </div>
             <div class="logo-text">
-                <h1 style="color: var(--text-primary, #fff); font-weight: 900; font-size: 1.4rem; margin: 0; letter-spacing: -0.5px; line-height: 1.1;">ENGAZ</h1>
-                <span style="color: var(--accent-gold); font-weight: 800; font-size: 0.82rem; display: block; margin-top: 2px;">إنجاز للإستثمار العقاري والمقاولات</span>
+                <h1 style="color:#fff;font-weight:900;font-size:1.35rem;margin:0;line-height:1.1;">ENGAZ</h1>
+                <span style="color:#b8952e;font-weight:800;font-size:0.78rem;display:block;margin-top:1px;">إنجاز للإستثمار العقاري</span>
             </div>
         </a>
-        <button class="mobile-menu-btn" onclick="document.querySelector('nav').classList.toggle('mobile-active'); this.querySelector('i').classList.toggle('fa-bars'); this.querySelector('i').classList.toggle('fa-xmark');" aria-label="Toggle menu">
+        <button class="mobile-menu-btn" onclick="document.querySelector('nav').classList.toggle('mobile-active');this.querySelector('i').classList.toggle('fa-bars');this.querySelector('i').classList.toggle('fa-xmark');" aria-label="القائمة" style="background:none;border:1px solid rgba(184,149,46,0.3);color:#d4b85a;width:40px;height:40px;border-radius:10px;cursor:pointer;font-size:1.1rem;display:none;align-items:center;justify-content:center;">
             <i class="fa-solid fa-bars"></i>
         </button>
         <nav>
@@ -104,897 +802,291 @@
     </header>
 
     <main>
-<div class="hero-slider-container">
-        <div class="hero-slide active">
-            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1600&auto=format&fit=crop&q=80" class="slide-img" alt="Luxury Real Estate 1">
-        </div>
-        <div class="hero-slide">
-            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600&auto=format&fit=crop&q=80" class="slide-img" alt="Luxury Real Estate 2">
-        </div>
-        <div class="hero-slide">
-            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1600&auto=format&fit=crop&q=80" class="slide-img" alt="Luxury Real Estate 3">
-        </div>
-
-        <div class="hero-overlay-content">
-            <h2>شكل جديد للاستثمار العقاري الفاخر</h2>
-            <p>نطور المستقبل برؤية تفوق التوقعات وبسابقة أعمال حقيقية على الأرض في القاهرة ووسط الدلتا والمملكة العربية السعودية.</p>
-            
-            <!-- DECISION GATEWAY (THE 3 FIRST OPTIONS) -->
-            <div class="decision-gateway">
-                <a href="#vision-mission" class="gateway-card">
-                    <div class="gateway-icon"><i class="fa-solid fa-eye"></i></div>
-                    <h3>الرؤية والرسالة والقيم</h3>
-                    <p>استكشف رؤيتنا المستقبلية وقيم إنجاز في الجودة والالتزام</p>
-                </a>
-                <a href="#project-categories" class="gateway-card">
-                    <div class="gateway-icon"><i class="fa-solid fa-layer-group"></i></div>
-                    <h3>أقسام وتصنيفات المشاريع</h3>
-                    <p>تصفح أقسام المشاريع السكنية والتجارية والطبية المسلمة</p>
-                </a>
-                <a href="#previous-projects" class="gateway-card">
-                    <div class="gateway-icon"><i class="fa-solid fa-trophy"></i></div>
-                    <h3>سابقة الأعمال والافتتاحات</h3>
-                    <p>تصفح قائمة المشاريع المسلّمة والمنفذة على أرض الواقع</p>
-                </a>
+        <!-- ===== HERO ===== -->
+        <section class="home-hero">
+            <div class="hero-slide active">
+                <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1600&auto=format&fit=crop&q=80" class="slide-img" alt="مشاريع إنجاز العقارية الفاخرة">
             </div>
-        </div>
-    </div>
-
-    <!-- Dedicated Vision & Mission & Core Values Section -->
-    <section class="vision-mission-section" id="vision-mission" style="padding: 4rem 4%; max-width: 1200px; margin: 0 auto;">
-        <h2 class="section-title"><i class="fa-solid fa-compass"></i> الرؤية والرسالة والقيم الجوهرية</h2>
-        <p class="section-subtitle">نضع المعايير الفاخرة للتطوير العقاري ونبني ثقة عملائنا عبر الأمان القانوني والالتزام التام.</p>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2rem;">
-            <div class="stat-card" style="text-align: right; border-color: var(--accent-gold);">
-                <div style="font-size: 2.2rem; color: var(--accent-gold); margin-bottom: 1rem;"><i class="fa-solid fa-eye"></i></div>
-                <h3 style="color: #fff; font-size: 1.4rem; margin-bottom: 0.8rem; font-weight: 800;"> رؤيتنا (Our Vision)</h3>
-                <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; margin: 0;">
-                    أن نكون المطور العقاري الأكثر ثقة وابتكاراً في السوق المصري ووسط الدلتا، من خلال تقديم مجتمعات سكنية ومراكز تجارية تجمع بين أعلى درجات الفخامة المعمارية وأفضل قيمة استثمارية حقيقية متزايدة لعملائنا.
-                </p>
+            <div class="hero-slide">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600&auto=format&fit=crop&q=80" class="slide-img" alt="مول طنطا تاون - إنجاز">
             </div>
-
-            <div class="stat-card" style="text-align: right; border-color: var(--accent-gold);">
-                <div style="font-size: 2.2rem; color: var(--accent-gold); margin-bottom: 1rem;"><i class="fa-solid fa-bullseye"></i></div>
-                <h3 style="color: #fff; font-size: 1.4rem; margin-bottom: 0.8rem; font-weight: 800;"> رسالتنا (Our Mission)</h3>
-                <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; margin: 0;">
-                    التناغم التام بين التخطيط الهندسي المبتكر، والالتزام الصارم بالجدول الزمني للتسليم، وتوفير أنظمة سداد ميسرة تصل لـ 5 سنوات لتلبية تطلعات السكن والاستثمار بأعلى معدلات الأمان والراحة.
-                </p>
+            <div class="hero-slide">
+                <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1600&auto=format&fit=crop&q=80" class="slide-img" alt="مشاريع سكنية فاخرة">
             </div>
-        </div>
+            <div class="hero-gradient-overlay"></div>
 
-        <!-- القيم الجوهرية للشركة -->
-        <div style="margin-top: 3rem; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 24px; padding: 2.5rem 2rem;">
-            <h3 style="text-align: center; color: var(--accent-gold); font-size: 1.4rem; font-weight: 800; margin-bottom: 2rem;"> قيم شركة إنجاز للإستثمار العقاري والمقاولات</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
-                <div style="display: flex; align-items: flex-start; gap: 12px;">
-                    <div style="font-size: 1.5rem; color: var(--accent-gold);"><i class="fa-solid fa-shield-halved"></i></div>
-                    <div>
-                        <h4 style="margin: 0 0 4px; color: #fff; font-size: 1rem;">الشفافية والأمان</h4>
-                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">تراخيص بناء رسمية مسجلة وحصة محددة بالأرض لكل وحدة.</p>
-                    </div>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-star"></i>
+                    <span>+12 سنة من الثقة والإنجاز</span>
                 </div>
-                <div style="display: flex; align-items: flex-start; gap: 12px;">
-                    <div style="font-size: 1.5rem; color: var(--accent-gold);"><i class="fa-solid fa-award"></i></div>
-                    <div>
-                        <h4 style="margin: 0 0 4px; color: #fff; font-size: 1rem;">الجودة المعمارية</h4>
-                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">أحدث الأساليب الهندسية وتصاميم First Axes العالمية.</p>
-                    </div>
-                </div>
-                <div style="display: flex; align-items: flex-start; gap: 12px;">
-                    <div style="font-size: 1.5rem; color: var(--accent-gold);"><i class="fa-solid fa-clock-check"></i></div>
-                    <div>
-                        <h4 style="margin: 0 0 4px; color: #fff; font-size: 1rem;">الالتزام بالتسليم</h4>
-                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">تسليم الوحدات في المواعيد المحددة وفق جداول التشييد.</p>
-                    </div>
-                </div>
-                <div style="display: flex; align-items: flex-start; gap: 12px;">
-                    <div style="font-size: 1.5rem; color: var(--accent-gold);"><i class="fa-solid fa-chart-line"></i></div>
-                    <div>
-                        <h4 style="margin: 0 0 4px; color: #fff; font-size: 1rem;">أعلى عائد استثماري</h4>
-                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">مواقع استراتيجية متميزة بفرص زيادة رأس المال والتأجير.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dedicated Project Categories Section -->
-    <section class="project-categories-section" id="project-categories" style="padding: 4rem 4%; max-width: 1200px; margin: 0 auto;">
-        <h2 class="section-title"><i class="fa-solid fa-layer-group"></i> أقسام وتصنيفات مشاريعنا العقارية</h2>
-        <p class="section-subtitle">اختر القسم الذي تبحث فيه لاستكشاف الوحدات والمواصفات التفصيلية</p>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-            <!-- Category 1: Residential Tagamoa -->
-            <a href="#projects-gallery" onclick="filterProjectsByCategory('residential')" class="gateway-card" style="padding: 2.2rem 1.8rem; text-align: right; text-decoration: none; align-items: flex-start;">
-                <div style="display: flex; justify-content: space-between; width: 100%; align-items: center; margin-bottom: 1rem;">
-                    <div class="gateway-icon" style="margin-bottom: 0;"><i class="fa-solid fa-building"></i></div>
-                    <span class="category-badge badge-residential"><i class="fa-solid fa-building"></i> 8 مشاريع متميزة</span>
-                </div>
-                <h3 style="font-size: 1.3rem; margin-bottom: 0.6rem; color: #fff;">القسم السكني (ربوة التجمع الخامس)</h3>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem;">
-                    عمارات ووحدات سكنية راقية بالتجمع الخامس بموقع استراتيجي (H165, H151, H79, F216, F218, F129, A100 North House, C87).
-                </p>
-                <span class="btn-detail" style="background: var(--gold-gradient); color: #000; font-weight: 800; padding: 8px 18px; border-radius: 10px; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">
-                    استعرض المشاريع السكنية <i class="fa-solid fa-arrow-left"></i>
-                </span>
-            </a>
-
-            <!-- Category 2: Commercial & Medical Basyoun -->
-            <a href="#projects-gallery" onclick="filterProjectsByCategory('commercial')" class="gateway-card" style="padding: 2.2rem 1.8rem; text-align: right; text-decoration: none; align-items: flex-start;">
-                <div style="display: flex; justify-content: space-between; width: 100%; align-items: center; margin-bottom: 1rem;">
-                    <div class="gateway-icon" style="margin-bottom: 0;"><i class="fa-solid fa-store"></i></div>
-                    <span class="category-badge badge-commercial"><i class="fa-solid fa-briefcase"></i> تجاري وإداري وطبي</span>
-                </div>
-                <h3 style="font-size: 1.3rem; margin-bottom: 0.6rem; color: #fff;">القسم التجاري والطبي (بسيون والدلتا)</h3>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem;">
-                    صروح تجارية وطبية مجهزة بأعلى مواصفات التشغيل والبراندات (مول صيدناوي ببسيون، برج نقابة المعلمين ببسيون).
-                </p>
-                <span class="btn-detail" style="background: var(--gold-gradient); color: #000; font-weight: 800; padding: 8px 18px; border-radius: 10px; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">
-                    استعرض المشاريع التجارية <i class="fa-solid fa-arrow-left"></i>
-                </span>
-            </a>
-
-            <!-- Category 3: Completed Legacy -->
-            <a href="#previous-projects" class="gateway-card" style="padding: 2.2rem 1.8rem; text-align: right; text-decoration: none; align-items: flex-start;">
-                <div style="display: flex; justify-content: space-between; width: 100%; align-items: center; margin-bottom: 1rem;">
-                    <div class="gateway-icon" style="margin-bottom: 0;"><i class="fa-solid fa-trophy"></i></div>
-                    <span class="category-badge badge-completed"><i class="fa-solid fa-check-circle"></i> 100% تم التسليم</span>
-                </div>
-                <h3 style="font-size: 1.3rem; margin-bottom: 0.6rem; color: #fff;">قسم المشاريع السابقة والمسلمة</h3>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem;">
-                    معرض الصور والواقع للمشاريع التي تم تسليمها وتشغيلها بالكامل (فلل المنصورة الجديدة، رأس البر، طنطا تاون مول).
-                </p>
-                <span class="btn-detail" style="background: var(--gold-gradient); color: #000; font-weight: 800; padding: 8px 18px; border-radius: 10px; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">
-                    استعرض سابقة الأعمال <i class="fa-solid fa-arrow-left"></i>
-                </span>
-            </a>
-        </div>
-    </section>
-
-    <!-- Smart Search Bar Widget -->
-    <div class="search-widget-container">
-        <div class="smart-search-bar">
-            <div class="search-field">
-                <label for="filter-search"><i class="fa-solid fa-magnifying-glass"></i> ابحث عن مشروع</label>
-                <input type="text" id="filter-search" class="search-input" placeholder="اكتب اسم البرج أو المشروع...">
-            </div>
-
-            <div class="search-field">
-                <label for="filter-city"><i class="fa-solid fa-map-location-dot"></i> المدينة والمنطقة</label>
-                <select id="filter-city" class="search-select">
-                    <option value="all">كل المدن والمناطق</option>
-                    <option value="التجمع">ربوة التجمع (القاهرة)</option>
-                    <option value="بسيون">بسيون (الغربية)</option>
-                    <option value="طنطا">طنطا (الغربية)</option>
-                    <option value="تلا">تلا (المنوفية)</option>
-                    <option value="المنصورة">المنصورة الجديدة</option>
-                    <option value="رأس البر">رأس البر (دمياط)</option>
-                    <option value="الرياض">الرياض (المملكة العربية السعودية)</option>
-                </select>
-            </div>
-
-            <div class="search-field">
-                <label for="filter-status"><i class="fa-solid fa-circle-info"></i> حالة الحجز والتسليم</label>
-                <select id="filter-status" class="search-select">
-                    <option value="all">كل حالات المشاريع</option>
-                    <option value="active">متاح للحجز (نشط)</option>
-                    <option value="completed">منتهى ومسلم بالكامل</option>
-                    <option value="planned">قيد التخطيط المستقبلي</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <!-- --- FEATURE: ANIMATED STATS COUNTERS --- -->
-    <section class="stats-section" id="stats-counter-area">
-        <div class="stat-card">
-            <div class="stat-number" data-target="14">+14</div>
-            <div class="stat-label">مشاريع عقارية منفصلة</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number" data-target="500">+500</div>
-            <div class="stat-label">عميل سعيد وعقد موثق</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number" data-target="3">3</div>
-            <div class="stat-label">فروع دولية ومحلية</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number" data-target="12">+12</div>
-            <div class="stat-label">سنة خبرة في التطوير والاستثمار العقاري</div>
-        </div>
-    </section>
-
-    <!-- Projects Gallery Section -->
-    <section class="projects-section" id="projects-gallery">
-        <h2 class="section-title"><i class="fa-solid fa-cubes"></i> معرض مشاريعنا وعقاراتنا</h2>
-        <p class="section-subtitle">اختر المشروع الأنسب لك واستكشف التفاصيل، المساحات، وسابقة أعمالنا من الأبراج والمولات المسلمة.</p>
-
-        <!-- Dynamic Projects Grid -->
-        <div class="projects-grid" id="dynamicProjectsGrid">
-            <!-- Loaded dynamically via JS -->
-        </div>
-    </section>
-
-    <!-- --- FEATURE: SISTER COMPANIES SECTION --- -->
-    <section class="sister-companies-section" id="sister-companies">
-        <h2 class="section-title"><i class="fa-solid fa-folder-open"></i> الشركات الشقيقة للمجموعة (Sister Companies)</h2>
-        <p class="section-subtitle">منظومة متكاملة للتطوير العقاري، الاستشارات الهندسية، والمقاولات العامة تحت مظلة واحدة.</p>
-        
-        <div class="sister-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
-            <div class="sister-card">
-                <div class="sister-title"><i class="fa-solid fa-building"></i> إنجاز للإستثمار العقاري والمقاولات</div>
-                <div class="sister-desc">المطور العقاري الرئيسي للمجموعة المتخصص في تطوير المشروعات المتميزة بالتجمع الخامس ووسط الدلتا.</div>
-            </div>
-            <div class="sister-card">
-                <div class="sister-title"><i class="fa-solid fa-compass-drafting"></i> First Axes للإستشارات الهندسية</div>
-                <div class="sister-desc">المكتب الاستشاري المسؤول عن التصميمات المعمارية والإنشائية الحديثة والتخطيط الهندسي المبتكر.</div>
-            </div>
-            <div class="sister-card">
-                <div class="sister-title"><i class="fa-solid fa-helmet-safety"></i> Engaz Steps للمقاولات</div>
-                <div class="sister-desc">الذراع التنفيذية المتخصصة في أعمال التشييد والبناء وفق أعلى معدلات الجودة والأمان الإنشائي.</div>
-            </div>
-            <div class="sister-card">
-                <div class="sister-title"><i class="fa-solid fa-trowel-bricks"></i> Venchi للمقاولات</div>
-                <div class="sister-desc">شركة المقاولات المتخصصة في التشطيبات الفاخرة وأعمال البنية التحتية والمشروعات الخدمية.</div>
-            </div>
-            <div class="sister-card">
-                <div class="sister-title"><i class="fa-solid fa-house-circle-check"></i> Bright Home للاستثمار العقاري والمقاولات</div>
-                <div class="sister-desc">الشركة المخصصة للتسويق والاستثمار العقاري وإدارة الأصول والمشروعات لضمان أعلى عائد استثماري.</div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- قسم سابقة الأعمال -->
-    <section id="previous-projects" class="section" style="padding: 80px 5%; max-width: 1200px; margin: 0 auto;">
-        <h2 class="section-title"> سابقة أعمالنا</h2>
-        <p class="section-subtitle">مشاريع استثمارية وسكنية تم تنفيذها وتسليمها على أرض الواقع تعكس ريادة "إنجاز"</p>
-        
-        <!-- المقارنة التفاعلية قبل وبعد مع تبديل المشاريع -->
-        <div style="margin-bottom: 5rem; text-align: center;">
-            <h3 style="color: var(--accent-gold); font-size: 1.35rem; margin-bottom: 0.5rem; font-weight: 800;"> اسحب لمشاهدة مطابقة الواقع الفعلي مع التصميم ثلاثي الأبعاد</h3>
-            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">اختر المشروع لتشاهد دقة التنفيذ ومطابقة الواقع مع التصاميم الموعودة</p>
-            
-            <!-- أزرار اختيار المشروع للمقارنة التفاعلية -->
-            <div class="before-after-selector" style="display: flex; justify-content: center; gap: 10px; margin-bottom: 2rem; flex-wrap: wrap;">
-                <button class="btn-before-after active" onclick="switchBeforeAfterProject('fayrouz')" id="tab-ba-fayrouz"> برج الفيروز</button>
-                <button class="btn-before-after" onclick="switchBeforeAfterProject('sidnawy')" id="tab-ba-sidnawy"> صيدناوي مول</button>
-                <button class="btn-before-after" onclick="switchBeforeAfterProject('teachers')" id="tab-ba-teachers"> نقابة المعلمين</button>
-                <button class="btn-before-after" onclick="switchBeforeAfterProject('mansoura')" id="tab-ba-mansoura">️ فلل المنصورة</button>
-            </div>
-            
-            <div class="before-after-container">
-                <!-- Before Image (Render) -->
-                <div class="before-img" style="position: absolute; top:0; left:0; width:100%; height:100%;">
-                    <img src="images/el-fayrouz-tower-before-engaz-developments.jpg" loading="lazy" style="width:100%; height:100%; object-fit: cover;" alt="تصميم ثلاثي الأبعاد">
-                    <span style="position: absolute; top: 15px; left: 15px; background: rgba(0,0,0,0.8); color: var(--accent-gold); padding: 6px 12px; border-radius: 4px; font-weight: 700; font-size: 0.75rem; z-index: 10;"> التصميم الهندسي المقترح</span>
-                </div>
-                <!-- After Image (Reality) -->
-                <div class="after-img" id="sliderAfterImg" style="position: absolute; top:0; left:0; width:100%; height:100%; clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); transition: clip-path 0.05s linear;">
-                    <img src="images/el-fayrouz-tower-after-engaz-developments.jpg" loading="lazy" style="width:100%; height:100%; object-fit: cover;" alt="الواقع الفعلي">
-                    <span style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); color: #10b981; padding: 6px 12px; border-radius: 4px; font-weight: 700; font-size: 0.75rem; z-index: 10;">️ الصورة الفعلية من أرض الواقع</span>
-                </div>
-                <!-- Range Control -->
-                <input type="range" min="0" max="100" value="50" class="before-after-range-input" id="beforeAfterRange" style="position: absolute; top:0; left:0; width:100%; height:100%; opacity:0; cursor: ew-resize; z-index: 20;" oninput="updateBeforeAfterSlider(this.value)">
-                <!-- Visual Divider Line -->
-                <div class="before-after-line" id="sliderDividerLine" style="position: absolute; top:0; bottom:0; left:50%; width:3px; background: var(--accent-gold); z-index: 15; pointer-events: none;">
-                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 50%; background: #071521; border: 2px solid var(--accent-gold); color: var(--accent-gold); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 900; box-shadow: 0 0 10px rgba(0,0,0,0.6);">↔</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- فلترة المشاريع حسب التصنيف -->
-        <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 2.5rem; flex-wrap: wrap;" id="portfolio-filters">
-            <button class="btn-before-after active" onclick="filterPortfolio('all', this)"> الكل</button>
-            <button class="btn-before-after" onclick="filterPortfolio('residential', this)"> سكني</button>
-            <button class="btn-before-after" onclick="filterPortfolio('commercial', this)"> تجاري وإداري وطبي</button>
-            <button class="btn-before-after" onclick="filterPortfolio('tourism', this)">️ فيلات وسياحي</button>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin: 0 auto;" id="portfolio-grid">
-            
-            <!-- 1. تاون مول طنطا (Tanta Town Mall) -->
-            <div class="previous-project-card animate-on-scroll" data-category="commercial" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; overflow: hidden; transition: all 0.4s ease;">
-                <div style="height: 220px; overflow: hidden; position: relative;">
-                    <img src="images/tanta-town-mall-hd.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" alt="تاون مول طنطا تجاري إداري طبي" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
-                </div>
-                <div style="padding: 1.5rem;">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
-                        <span style="background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;"> تم التشغيل والافتتاح</span>
-                    </div>
-                    <h3 style="color: var(--text-main); font-size: 1.3rem; margin: 0 0 0.5rem; font-weight: 800;">تاون مول طنطا (تجاري وإداري وطبي)</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0 0 1rem; line-height: 1.7;">أيقونة تجارية وإدارية وطبية بقلب مدينة طنطا بوسط الدلتا. يضم عيادات طبية مجهزة، مطاعم وبراندات شهيرة.</p>
-                    <div style="display: flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 0.85rem;">
-                        <i class="fa-solid fa-location-dot" style="color: var(--accent-gold);"></i>
-                        <span>شارع الجيش، طنطا، محافظة الغربية</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2. فلل المنصورة الجديدة -->
-            <div class="previous-project-card animate-on-scroll" data-category="tourism" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; overflow: hidden; transition: all 0.4s ease;">
-                <div style="height: 220px; overflow: hidden; position: relative;">
-                    <img src="images/mansoura-villas-opt.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" alt="فلل المنصورة الجديدة" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
-                </div>
-                <div style="padding: 1.5rem;">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
-                        <span style="background: rgba(239, 68, 68, 0.15); color: #ef4444; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;"> تم البيع بالكامل (مباع 100%)</span>
-                    </div>
-                    <h3 style="color: var(--text-main); font-size: 1.3rem; margin: 0 0 0.5rem; font-weight: 800;">فلل المنصورة الجديدة الساحلية (مباع 100%)</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0 0 1rem; line-height: 1.7;">مجموعة فلل سكنية فاخرة تقع مباشرة على ساحل البحر الأبيض المتوسط بالمنصورة الجديدة تم تسليمها وبيعه بالكامل 100% للملاك.</p>
-                    <div style="display: flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 0.85rem;">
-                        <i class="fa-solid fa-location-dot" style="color: var(--accent-gold);"></i>
-                        <span>المنصورة الجديدة، ساحل البحر المتوسط</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3. مشروع نقابة المعلمين ببسيون -->
-            <div class="previous-project-card animate-on-scroll" data-category="commercial" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; overflow: hidden; transition: all 0.4s ease;">
-                <div style="height: 220px; overflow: hidden; position: relative;">
-                    <img src="images/teachers-syndicate-opt.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" alt="برج النقابة التجاري والإداري بسيون" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
-                </div>
-                <div style="padding: 1.5rem;">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
-                        <span style="background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;"> تم التسليم والتشغيل</span>
-                    </div>
-                    <h3 style="color: var(--text-main); font-size: 1.3rem; margin: 0 0 0.5rem; font-weight: 800;">برج النقابة التجاري والإداري (بسيون)</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0 0 1rem; line-height: 1.7;">مبنى إداري وتجاري متميز يخدم منطقة بسيون، يضم مساحات تجارية وعيادات طبية بمداخل مستقلة.</p>
-                    <div style="display: flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 0.85rem;">
-                        <i class="fa-solid fa-location-dot" style="color: var(--accent-gold);"></i>
-                        <span>شارع النقابة، بسيون، محافظة الغربية</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4. مشروع H151 - ربوة التجمع -->
-            <div class="previous-project-card animate-on-scroll" data-category="residential" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; overflow: hidden; transition: all 0.4s ease;">
-                <div style="height: 220px; overflow: hidden; position: relative;">
-                    <img src="images/h151-real-hd.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" alt="مشروع H151 ربوة التجمع" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
-                </div>
-                <div style="padding: 1.5rem;">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
-                        <span style="background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;"> تم التسليم بالكامل للملاك</span>
-                    </div>
-                    <h3 style="color: var(--text-main); font-size: 1.3rem; margin: 0 0 0.5rem; font-weight: 800;">مشروع H151 - ربوة التجمع</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0 0 1rem; line-height: 1.7;">عمارة سكنية فاخرة تم تسليمها بالكامل للملاك بربوة التجمع الخامس. واجهات حجرية ومداخل رخام ومواصفات عالية.</p>
-                    <div style="display: flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 0.85rem;">
-                        <i class="fa-solid fa-location-dot" style="color: var(--accent-gold);"></i>
-                        <span>ربوة التجمع، القاهرة الجديدة</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 5. برج الفيروز (مدينة تلا - مباع بالكامل 100%) -->
-            <div class="previous-project-card animate-on-scroll" data-category="commercial" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; overflow: hidden; transition: all 0.4s ease;">
-                <div style="height: 220px; overflow: hidden; position: relative;">
-                    <img src="images/fayrouz-tower-opt.jpg" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" alt="برج الفيروز التجاري والإداري" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
-                </div>
-                <div style="padding: 1.5rem;">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
-                        <span style="background: rgba(239, 68, 68, 0.15); color: #ef4444; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;"> تم البيع بالكامل (مباع 100%)</span>
-                    </div>
-                    <h3 style="color: var(--text-main); font-size: 1.3rem; margin: 0 0 0.5rem; font-weight: 800;">برج الفيروز (تجاري وإداري) - مدينة تلا</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0 0 1rem; line-height: 1.7;">صرح تجاري وإداري بالكامل يضم محلات ومكاتب إدارية بمدينة تلا تم تسليمه وبيعه بالكامل 100% بدون أي وحدات سكنية.</p>
-                    <div style="display: flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 0.85rem;">
-                        <i class="fa-solid fa-location-dot" style="color: var(--accent-gold);"></i>
-                        <span>مدينة تلا، محافظة المنوفية</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 6. مشروع رأس البر السياحي السكني -->
-            <div class="previous-project-card animate-on-scroll" data-category="tourism" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; overflow: hidden; transition: all 0.4s ease;">
-                <div style="height: 220px; overflow: hidden; position: relative;">
-                    <img src="images/ras-el-bar-opt.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" alt="مشروع رأس البر" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
-                </div>
-                <div style="padding: 1.5rem;">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
-                        <span style="background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;"> تم التسليم والتشغيل</span>
-                    </div>
-                    <h3 style="color: var(--text-main); font-size: 1.3rem; margin: 0 0 0.5rem; font-weight: 800;">مشروع رأس البر السياحي السكني</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0 0 1rem; line-height: 1.7;">شقق مصيفية وسكنية راقية على الساحل برأس البر تجمع بين التصميم العصرى والجودة العالية، تم تسليمه وبدء الإقامة فيه.</p>
-                    <div style="display: flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 0.85rem;">
-                        <i class="fa-solid fa-location-dot" style="color: var(--accent-gold);"></i>
-                        <span>مدينة رأس البر، محافظة دمياط</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 8. مشروع إنجاز النادي -->
-            <div class="previous-project-card animate-on-scroll" data-category="commercial" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; overflow: hidden; transition: all 0.4s ease;">
-                <div style="height: 220px; overflow: hidden; position: relative;">
-                    <img src="images/teachers-syndicate-night.jpg" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" alt="مشروع إنجاز النادي" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
-                </div>
-                <div style="padding: 1.5rem;">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
-                        <span style="background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;"> تم الافتتاح والتشغيل</span>
-                    </div>
-                    <h3 style="color: var(--text-main); font-size: 1.3rem; margin: 0 0 0.5rem; font-weight: 800;">مشروع إنجاز النادي الرياضي</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0 0 1rem; line-height: 1.7;">مشروع مجمع الملاعب والصالات الرياضية والمبنى الاجتماعي للنادي، تم توقيع العقود الرسمية وافتتاح المرحلة الأولى للمشتركين.</p>
-                    <div style="display: flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 0.85rem;">
-                        <i class="fa-solid fa-location-dot" style="color: var(--accent-gold);"></i>
-                        <span>محافظة الغربية</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- --- FEATURE: SUCCESS PARTNERS SECTION --- -->
-    <section class="partners-section">
-        <h2 class="section-title"><i class="fa-solid fa-handshake"></i> شركاء النجاح</h2>
-        <p class="section-subtitle">نتعاون مع أفضل الكيانات الوطنية والمؤسسات الصناعية الكبرى لضمان تنفيذ مشاريعنا بأجود المكونات.</p>
-        
-        <div class="partners-grid">
-            <div class="partner-logo-box"><i class="fa-solid fa-bolt"></i> مجموعة السويدي</div>
-            <div class="partner-logo-box"><i class="fa-solid fa-cubes-stacked"></i> حديد عز</div>
-            <div class="partner-logo-box"><i class="fa-solid fa-paint-roller"></i> دهانات جوتن</div>
-        </div>
-    </section>
-
-    <!-- Interactive About Section (Why Engaz) -->
-    <section id="about-engaz" style="max-width: 1000px; margin: 6rem auto; padding: 0 4%;">
-        <h2 class="section-title"><i class="fa-solid fa-circle-question"></i> لماذا يختار المستثمرون إنجاز؟</h2>
-        <p class="section-subtitle">شراكة مبنية على الثقة والأمان القانوني والالتزام التام بالمعايير الهندسية الفاخرة.</p>
-        
-        <div class="grid-2">
-            <div class="stat-card" style="text-align: right; display: flex; gap: 15px;">
-                <div style="font-size: 2rem; color: var(--accent-gold);"><i class="fa-solid fa-shield-halved"></i></div>
-                <div>
-                    <h4 style="margin: 0 0 0.5rem; color: #fff; font-size: 1.15rem;">أمان قانوني تام</h4>
-                    <p style="margin: 0; color: var(--text-secondary); font-size: 0.9rem;">كافة مشاريعنا مرخصة بالكامل ولها تراخيص بناء رسمية مسجلة وجاهزة للمعاينة القانونية من محامي المشتري.</p>
-                </div>
-            </div>
-            <div class="stat-card" style="text-align: right; display: flex; gap: 15px;">
-                <div style="font-size: 2rem; color: var(--accent-gold);"><i class="fa-solid fa-clock"></i></div>
-                <div>
-                    <h4 style="margin: 0 0 0.5rem; color: #fff; font-size: 1.15rem;">التزام بجدول التسليم</h4>
-                    <p style="margin: 0; color: var(--text-secondary); font-size: 0.9rem;">نتبع خطط تنفيذية صارمة تضمن استلام وحدتك السكنية أو التجارية في الموعد المتفق عليه تماماً دون تأخير.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- --- FEATURE: INTERACTIVE FAQs ACCORDION --- -->
-    <section class="faq-section" id="faq-accordion-section">
-        <h2 class="section-title"><i class="fa-solid fa-circle-question"></i> الأسئلة الشائعة مبيعات وإجراءات الحجز</h2>
-        <p class="section-subtitle">إجابات فورية لأهم الأسئلة التي يطرحها المستثمرون والعملاء قبل حجز وحداتهم.</p>
-
-        <div class="faq-container">
-            <!-- السؤال 1 -->
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>ما هي أنظمة السداد والتقسيط المتاحة لدى شركة إنجاز؟</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>نقدم خطط سداد مرنة للمستثمرين تبدأ بمقدم حجز 20% فقط للمشاريع السكنية، وتصل فترات السداد حتى 5 سنوات بأقساط متساوية بدون فوائد. كما نوفر خصومات حصرية تصل لـ 35% في حال الدفع الفوري (كاش).</p>
-                </div>
-            </div>
-
-            <!-- السؤال 2 -->
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>هل كافة مشاريع شركة إنجاز مرخصة ولها حصة قانونية في الأرض؟</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>نعم، نلتزم بنسبة 100% بالأمان القانوني لعملائنا. جميع مشاريعنا وتراخيص البناء صادرة من الجهات الحكومية المختصة (مثل هيئة المجتمعات العمرانية وجهاز المدينة)، ولكل وحدة حصة محددة ومسجلة رسمياً في الأرض والخدمات في العقد النهائي.</p>
-                </div>
-            </div>
-
-            <!-- السؤال 3 -->
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>كيف يمكنني الحجز والاستفسار كعميل مقيم بالمملكة العربية السعودية؟</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>يسعدنا استقبالكم في فرعنا الدولي بالرياض بحي الياسمين على طريق الملك عبدالعزيز، حيث نوفر لكم نسخ العقود الرسمية وتسهيلات تحويل الأقساط، مع إمكانية توثيق الحجز والمعاينات عن طريق فريق مبيعاتنا بالمملكة مباشرة دون الحاجة للسفر.</p>
-                </div>
-            </div>
-
-            <!-- السؤال 4 -->
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>ما هي الشركات الشقيقة لمجموعة إنجاز للإستثمار العقاري والمقاولات؟</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>تضم المجموعة كيانات متكاملة هي: شركة "First Axes للاستشارات الهندسية والاستثمار العقاري" المسؤولة عن التصاميم والتسويق، وشركة "إنجاز للمقاولات العامة والتوريدات" لتنفيذ أعمال البناء، وشركة "الأمل لإدارة الأصول والمرافق" لإدارة وصيانة المشروعات والمول التجاري بعد تسليمها.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- زر واتساب عائم تفاعلي في يسار الشاشة -->
-    <a href="https://wa.me/201030405054" class="floating-whatsapp" target="_blank" rel="noopener noreferrer" id="floating-whatsapp-btn">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-
-    <!-- --- FEATURE: DETAILED BRANCHES SECTION --- -->
-    <section class="branches-section" id="our-branches">
-        <h2 class="section-title"><i class="fa-solid fa-map-location-dot"></i> مكاتبنا وفروعنا المحلية والدولية</h2>
-        <p class="section-subtitle">تفضل بزيارة أحد فروعنا لمقابلة مستشارنا العقاري ومعاينة عقود وتراخيص المشاريع على أرض الواقع.</p>
-        
-        <div class="branches-grid">
-            <!-- فرع طنطا (الفرع الرئيسي) -->
-            <div class="branch-card" style="border: 2px solid var(--accent-gold); position: relative; overflow: hidden;">
-                <div style="position: absolute; top: 15px; left: -35px; background: var(--accent-gold); color: #000; font-size: 0.75rem; font-weight: bold; padding: 4px 35px; transform: rotate(-45deg); text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 10;">
-                    الرئيسي
-                </div>
-                <div class="branch-header">
-                    <div class="branch-flag" style="color: var(--accent-gold);"><i class="fa-solid fa-building-shield"></i></div>
-                    <div class="branch-title">فرع طنطا (الفرع الرئيسي)</div>
-                </div>
-                <div class="branch-detail-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>شارع الجيش، مول طنطا تاون (Tanta Town Mall)، الدور الأول.</span>
-                </div>
-                <div class="branch-detail-item">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>هاتف الفرع: +20 10 3040 5054</span>
-                </div>
-                <a href="https://wa.me/201030405054" target="_blank" class="btn-branch-contact" style="background: var(--gold-gradient); color: #000;">
-                    <i class="fa-brands fa-whatsapp"></i> تواصل مع الفرع الرئيسي (واتساب)
-                </a>
-            </div>
-
-            <!-- فرع الرياض -->
-            <div class="branch-card">
-                <div class="branch-header">
-                    <div class="branch-flag"><i class="fa-solid fa-globe"></i></div>
-                    <div class="branch-title">فرع الرياض (السعودية)</div>
-                </div>
-                <div class="branch-detail-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>طريق الملك عبدالعزيز، حي الياسمين، برج اليمامة الإداري، الطابق الرابع.</span>
-                </div>
-                <div class="branch-detail-item">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>هاتف الفرع: +966 50 304 0505</span>
-                </div>
-                <a href="https://wa.me/966503040505" target="_blank" class="btn-branch-contact">
-                    <i class="fa-brands fa-whatsapp"></i> تواصل مع فرع السعودية (واتساب)
-                </a>
-            </div>
-
-            <!-- فرع بسيون -->
-            <div class="branch-card">
-                <div class="branch-header">
-                    <div class="branch-flag"><i class="fa-solid fa-store"></i></div>
-                    <div class="branch-title">فرع بسيون (الغربية)</div>
-                </div>
-                <div class="branch-detail-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>شارع 23 يوليو الرئيسي، بجوار نقابة المعلمين، وسط البلد.</span>
-                </div>
-                <div class="branch-detail-item">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>هاتف الفرع: +20 10 3040 5054</span>
-                </div>
-                <a href="https://wa.me/201030405054" target="_blank" class="btn-branch-contact">
-                    <i class="fa-brands fa-whatsapp"></i> تواصل مع فرع بسيون (واتساب)
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Lead Wizard Section -->
-    <section class="lead-section" id="register-interest">
-        <h2 class="section-title" style="margin-top: 0;"><i class="fa-solid fa-graduation-cap"></i> مخطط الاستثمار الذكي (4 خطوات)</h2>
-        <p class="section-subtitle" style="margin-bottom: 2rem;">خطط استثمارك في دقيقة واحدة وسنقوم بإرسال الخطط المالية الرسمية المتوافقة معك.</p>
-
-        <!-- Step indicators -->
-        <div class="wizard-progress">
-            <div class="progress-line-active" id="wizard-progress-line"></div>
-            <div class="progress-step active" id="step-i-1">1</div>
-            <div class="progress-step" id="step-i-2">2</div>
-            <div class="progress-step" id="step-i-3">3</div>
-            <div class="progress-step" id="step-i-4">4</div>
-        </div>
-
-        <form id="leadCaptureForm">
-            <!-- Step 1: Goal -->
-            <div class="wizard-step active" id="step-1">
-                <h3>1. ما هو هدفك الاستثماري الأساسي؟</h3>
-                <p class="step-subtitle">اختر نوع الوحدة التي تلبي رغبتك العقارية</p>
-                <div class="segmented-grid">
-                    <div class="seg-card" onclick="selectSegment('goal', 'apartment', this)">
-                        <i class="fa-solid fa-house"></i>
-                        <span>شقة سكنية عائلية</span>
-                    </div>
-                    <div class="seg-card" onclick="selectSegment('goal', 'villa', this)">
-                        <i class="fa-solid fa-tree"></i>
-                        <span>فيلا مستقلة</span>
-                    </div>
-                    <div class="seg-card" onclick="selectSegment('goal', 'shop', this)">
-                        <i class="fa-solid fa-shop"></i>
-                        <span>محل تجاري واستثماري</span>
-                    </div>
-                    <div class="seg-card" onclick="selectSegment('goal', 'clinic', this)">
-                        <i class="fa-solid fa-stethoscope"></i>
-                        <span>عيادة طبية</span>
-                    </div>
-                </div>
-                <input type="hidden" id="wizard_unit_type" name="unit_type" value="">
-            </div>
-
-            <!-- Step 2: Project -->
-            <div class="wizard-step" id="step-2">
-                <h3>2. ما هي المنطقة العقارية المهتم بها؟</h3>
-                <p class="step-subtitle">اختر المشروع أو الفرع الأقرب لأهدافك</p>
-                <div class="segmented-grid">
-                    <div class="seg-card" onclick="selectSegment('project', '1', this)">
-                        <i class="fa-solid fa-city"></i>
-                        <span>مشاريع التجمع الخامس</span>
-                    </div>
-                    <div class="seg-card" onclick="selectSegment('project', '2', this)">
-                        <i class="fa-solid fa-store"></i>
-                        <span>مول صيدناوي بسيون</span>
-                    </div>
-                    <div class="seg-card" onclick="selectSegment('project', '3', this)">
+                <h1>
+                    شكل جديد<br>
+                    <span>للاستثمار العقاري الفاخر</span>
+                </h1>
+                <p>نطور المستقبل برؤية تفوق التوقعات — أبراج سكنية بالتجمع الخامس، مولات تجارية وطبية في طنطا وبسيون، بسابقة أعمال حقيقية على الأرض.</p>
+                <div class="hero-cta-group">
+                    <a href="projects.html" class="hero-cta-primary">
                         <i class="fa-solid fa-building"></i>
-                        <span>برج نقابة المعلمين</span>
-                    </div>
-                    <div class="seg-card" onclick="selectSegment('project', '5', this)">
-                        <i class="fa-solid fa-globe"></i>
-                        <span>فرع الرياض / السعودية</span>
-                    </div>
+                        استكشف مشاريعنا
+                    </a>
+                    <a href="#quick-contact" class="hero-cta-secondary">
+                        <i class="fa-solid fa-phone"></i>
+                        تحدث مع مستشار
+                    </a>
                 </div>
-                <input type="hidden" id="wizard_project" name="project_interest" value="">
             </div>
 
-            <!-- Step 3: Budget -->
-            <div class="wizard-step" id="step-3">
-                <h3>3. ما هي الميزانية الاستثمارية المقترحة؟</h3>
-                <p class="step-subtitle">اختر النطاق السعري المناسب لقدرتك التمويلية</p>
-                <div class="segmented-grid">
-                    <div class="seg-card" onclick="selectSegment('budget', '1.5M', this)">
-                        <i class="fa-solid fa-coins"></i>
-                        <span>حتى 1.5 مليون ج.م</span>
-                    </div>
-                    <div class="seg-card" onclick="selectSegment('budget', '3M', this)">
-                        <i class="fa-solid fa-wallet"></i>
-                        <span>من 1.5 إلى 3 مليون</span>
-                    </div>
-                    <div class="seg-card" onclick="selectSegment('budget', '5M', this)">
-                        <i class="fa-solid fa-money-bill-trend-up"></i>
-                        <span>من 3 إلى 5 مليون</span>
-                    </div>
-                    <div class="seg-card" onclick="selectSegment('budget', '5M+', this)">
-                        <i class="fa-solid fa-gem"></i>
-                        <span>أكثر من 5 مليون ج.م</span>
-                    </div>
+            <div class="hero-indicators" id="heroIndicators">
+                <button class="hero-dot active" onclick="goToSlide(0)"></button>
+                <button class="hero-dot" onclick="goToSlide(1)"></button>
+                <button class="hero-dot" onclick="goToSlide(2)"></button>
+            </div>
+        </section>
+
+        <!-- ===== STATS STRIP ===== -->
+        <div class="stats-strip">
+            <div class="stats-strip-inner">
+                <div class="strip-stat">
+                    <div class="strip-stat-num">+14</div>
+                    <div class="strip-stat-label">مشروع عقاري</div>
                 </div>
-                <input type="hidden" id="wizard_budget" name="notes_budget" value="">
+                <div class="strip-stat">
+                    <div class="strip-stat-num">+500</div>
+                    <div class="strip-stat-label">عميل سعيد</div>
+                </div>
+                <div class="strip-stat">
+                    <div class="strip-stat-num">3</div>
+                    <div class="strip-stat-label">فروع دولية</div>
+                </div>
+                <div class="strip-stat">
+                    <div class="strip-stat-num">+12</div>
+                    <div class="strip-stat-label">سنة خبرة</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SECTION GATEWAY CARDS ===== -->
+        <section class="gateway-section">
+            <div class="gateway-section-header">
+                <h2>اختر ما يناسبك</h2>
+                <p>كل ما تحتاجه في مكان واحد — استكشف أقسام الموقع بسهولة</p>
             </div>
 
-            <!-- Step 4: Contact details -->
-            <div class="wizard-step" id="step-4">
-                <h3>4. أدخل بيانات الاتصال لتلقي خطة الأسعار</h3>
-                <p class="step-subtitle">سيقوم النظام بإرسال العروض والتفاصيل المالية مباشرة لهاتفك</p>
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 600px; margin: 0 auto;">
-                    <div class="form-group">
-                        <label for="lead_name">الاسم بالكامل *</label>
-                        <input type="text" id="lead_name" class="form-input" required placeholder="أدخل اسمك ثلاثي">
-                    </div>
-                    <div class="form-group">
-                        <label for="lead_phone">رقم الهاتف *</label>
-                        <input type="tel" id="lead_phone" class="form-input" required placeholder="مثال: 01012345678">
-                    </div>
-                    <div class="form-group">
-                        <label for="lead_whatsapp">رقم الواتساب *</label>
-                        <input type="tel" id="lead_whatsapp" class="form-input" required placeholder="لإرسال العروض والأسعار">
-                    </div>
-                    <div class="form-group">
-                        <label for="lead_email">البريد الإلكتروني (اختياري)</label>
-                        <input type="email" id="lead_email" class="form-input" placeholder="example@domain.com">
-                    </div>
-                    <div class="form-group full-width">
-                        <label for="lead_notes">ملاحظات أو طلبات مخصصة (اختياري)</label>
-                        <textarea id="lead_notes" class="form-textarea" rows="3" placeholder="مثال: أريد طابق متكرر، أو مواجه للشارع الرئيسي..."></textarea>
-                    </div>
-                </div>
+            <div class="sections-grid">
 
-                <div id="formStatusMessage" class="form-message" style="max-width: 600px; margin: 1.5rem auto 0;"></div>
+                <!-- مشاريعنا - Featured -->
+                <a href="projects.html" class="section-card featured">
+                    <img
+                        src="images/tanta-town-mall-hd.jpg"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                        class="section-card-img"
+                        alt="مشاريع إنجاز"
+                        loading="lazy"
+                    >
+                    <div class="section-card-img-placeholder" style="display:none;background:linear-gradient(135deg,rgba(10,74,92,0.8),rgba(6,47,58,0.9));">🏗️</div>
+                    <div class="section-card-body">
+                        <div class="section-card-icon">
+                            <i class="fa-solid fa-building-columns"></i>
+                        </div>
+                        <h3>مشاريعنا الحالية</h3>
+                        <p>أبراج سكنية فاخرة بالتجمع الخامس، مولات تجارية وطبية في طنطا وبسيون — اطلع على التفاصيل والأسعار والتقسيط</p>
+                        <span class="section-card-arrow">
+                            استعرض المشاريع
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- سابقة الأعمال -->
+                <a href="portfolio.html" class="section-card">
+                    <img
+                        src="images/h151-real-hd.jpg"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                        class="section-card-img"
+                        alt="سابقة أعمال إنجاز"
+                        loading="lazy"
+                    >
+                    <div class="section-card-img-placeholder" style="display:none;background:linear-gradient(135deg,rgba(10,74,92,0.8),rgba(6,47,58,0.9));">🏆</div>
+                    <div class="section-card-body">
+                        <div class="section-card-icon">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <h3>سابقة أعمالنا</h3>
+                        <p>مشاريع مسلّمة بالكامل — شاهد الصور الحقيقية ونسب الإنجاز</p>
+                        <span class="section-card-arrow">
+                            شاهد الأعمال
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- عن الشركة -->
+                <a href="about.html" class="section-card">
+                    <div class="section-card-img-placeholder" style="background:linear-gradient(135deg,rgba(184,149,46,0.1),rgba(10,74,92,0.8));">
+                        🏛️
+                    </div>
+                    <div class="section-card-body">
+                        <div class="section-card-icon">
+                            <i class="fa-solid fa-circle-info"></i>
+                        </div>
+                        <h3>عن الشركة</h3>
+                        <p>رؤيتنا، رسالتنا، وقيمنا في تطوير مجتمعات سكنية وتجارية متكاملة</p>
+                        <span class="section-card-arrow">
+                            اعرف أكثر
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- فروعنا -->
+                <a href="contact.html#branches" class="section-card">
+                    <div class="section-card-img-placeholder" style="background:linear-gradient(135deg,rgba(6,47,58,0.9),rgba(13,99,120,0.6));">
+                        📍
+                    </div>
+                    <div class="section-card-body">
+                        <div class="section-card-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <h3>فروعنا ومكاتبنا</h3>
+                        <p>طنطا · بسيون · الرياض — تعرّف على أقرب فرع إليك</p>
+                        <span class="section-card-arrow">
+                            اعثر على فرع
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- تواصل معنا -->
+                <a href="contact.html" class="section-card contact-card featured">
+                    <div class="section-card-body" style="padding: 2rem 1.8rem; display:flex; align-items:center; gap: 1.5rem; flex-wrap:wrap;">
+                        <div style="flex:1;min-width:200px;">
+                            <div class="section-card-icon" style="margin-bottom:1rem;">
+                                <i class="fa-solid fa-headset"></i>
+                            </div>
+                            <h3 style="font-size:1.2rem;">تحدث مع مستشار عقاري الآن</h3>
+                            <p style="font-size:0.88rem;">فريقنا متاح للرد على استفساراتك وتقديم أفضل عروض الاستثمار العقاري</p>
+                            <span class="section-card-arrow" style="margin-top:0.5rem;">
+                                تواصل معنا
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </span>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:0.8rem;flex-shrink:0;">
+                            <a href="tel:201030405054" onclick="event.stopPropagation();" style="background:rgba(37,211,102,0.12);border:1px solid rgba(37,211,102,0.3);color:#25D366;padding:0.7rem 1.2rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:0.9rem;display:flex;align-items:center;gap:8px;white-space:nowrap;">
+                                <i class="fa-solid fa-phone"></i> 01030405054
+                            </a>
+                            <a href="https://wa.me/201030405054" target="_blank" onclick="event.stopPropagation();" style="background:#25D366;color:#000;padding:0.7rem 1.2rem;border-radius:10px;text-decoration:none;font-weight:800;font-size:0.9rem;display:flex;align-items:center;gap:8px;white-space:nowrap;">
+                                <i class="fa-brands fa-whatsapp"></i> واتساب مباشر
+                            </a>
+                        </div>
+                    </div>
+                </a>
+
             </div>
+        </section>
 
-            <!-- Wizard control actions -->
-            <div class="wizard-actions">
-                <button type="button" class="btn-wizard btn-wizard-prev" id="btn-prev" onclick="changeStep(-1)" style="display: none;">السابق</button>
-                <div style="flex-grow: 1;"></div>
-                <button type="button" class="btn-wizard btn-wizard-next" id="btn-next" onclick="changeStep(1)">التالي <i class="fa-solid fa-arrow-left"></i></button>
-                <button type="submit" class="btn-submit" id="btnSubmitLead" style="display: none; max-width: 250px; margin-top: 0;">إرسال البيانات والتسجيل</button>
+        <!-- ===== WHY ENGAZ ===== -->
+        <div class="why-engaz">
+            <div class="why-engaz-inner">
+                <div class="why-item">
+                    <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h4>أمان قانوني كامل</h4>
+                    <p>تراخيص رسمية وحصة أرض محددة لكل وحدة</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                    <h4>التزام بالتسليم</h4>
+                    <p>سجل تسليمات حقيقي وموثّق على مدار 12 سنة</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                    <h4>تقسيط حتى 7 سنوات</h4>
+                    <p>أنظمة سداد مرنة تناسب كل الميزانيات</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h4>عائد استثماري مرتفع</h4>
+                    <p>مواقع استراتيجية بقيمة متنامية مضمونة</p>
+                </div>
             </div>
-            <input type="text" name="website_hp_check" style="display:none !important; visibility:hidden !important; position:absolute !important; left:-9999px !important;" tabindex="-1" autocomplete="off">
-</form>
-    </section>
+        </div>
 
-    <!-- Premium Project Detail Modal Overlay -->
-    <div class="modal-overlay" id="projectDetailsModal">
-        <div class="modal-card">
-            <span class="modal-close-btn" id="btnCloseModal"></span>
-            <img src="" class="modal-header-img" id="modalProjectImg" alt="Project Image">
-            <div class="modal-body">
-                <h3 class="modal-title" id="modalProjectTitle">اسم المشروع</h3>
-                <div class="modal-subtitle" id="modalProjectSubtitle">الموقع والمطور</div>
-                
-                <!-- Tab Controls -->
-                <div class="modal-tabs">
-                    <button class="modal-tab-btn active" onclick="switchModalTab('desc')">وصف المشروع</button>
-                    <button class="modal-tab-btn" onclick="switchModalTab('specs')">المميزات والمرافق</button>
-                    <button class="modal-tab-btn" onclick="switchModalTab('payment')">خطة السداد</button>
-                    <button class="modal-tab-btn" onclick="switchModalTab('progress')">تطور الأعمال الإنشائية</button>
+        <!-- ===== QUICK LEAD FORM ===== -->
+        <section class="quick-lead" id="quick-contact">
+            <h2>احجز <span>استشارتك المجانية</span></h2>
+            <p>سجّل بياناتك وسيتصل بك مستشارنا خلال دقائق</p>
+            <form class="quick-lead-form" id="quickLeadForm" onsubmit="submitQuickLead(event)">
+                <div class="form-field">
+                    <label for="ql_name">الاسم بالكامل</label>
+                    <input type="text" id="ql_name" placeholder="محمد أحمد..." required>
                 </div>
-
-                <div class="modal-tab-content active" id="tab-desc">
-                    <p class="modal-desc" id="modalProjectDesc">تفاصيل المشروع والخدمات...</p>
+                <div class="form-field">
+                    <label for="ql_phone">رقم الهاتف</label>
+                    <input type="tel" id="ql_phone" placeholder="01xxxxxxxxx" required>
                 </div>
-
-                <div class="modal-tab-content" id="tab-specs">
-                    <ul style="padding-right: 1.2rem; margin: 0; color: var(--text-secondary);" id="modalProjectSpecsList">
-                        <li>موقع جغرافي استراتيجي متميز للغاية.</li>
-                        <li>واجهات معمارية فاخرة مقاومة للعوامل الجوية.</li>
-                        <li>مداخل فندقية فخمة من الرخام والجرانيت الطبيعي.</li>
-                        <li>مصاعد كهربائية إيطالية متطورة ذات أمان عالي.</li>
-                    </ul>
+                <div class="form-field">
+                    <label for="ql_interest">اهتمامك</label>
+                    <select id="ql_interest">
+                        <option value="">-- اختر نوع العقار --</option>
+                        <option value="شقة سكنية - التجمع الخامس">شقة سكنية - التجمع الخامس</option>
+                        <option value="وحدة تجارية أو إدارية">وحدة تجارية أو إدارية</option>
+                        <option value="عيادة طبية">عيادة طبية</option>
+                        <option value="استثمار عقاري عام">استثمار عقاري عام</option>
+                        <option value="استفسار عن التقسيط">استفسار عن التقسيط</option>
+                    </select>
                 </div>
-
-                <div class="modal-tab-content" id="tab-payment">
-                    <p style="margin: 0 0 1rem; font-weight: bold; color: #fff;">أنظمة الدفع والتقسيط المعتمدة:</p>
-                    <div style="background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 12px; border: 1px solid var(--border-color);" id="modalPaymentPlanText">
-                        مقدم حجز يبدأ من 20% فقط للمشاريع السكنية وفترة سداد تصل لـ 5 سنوات أقساط متساوية.
-                    </div>
+                <div class="form-field">
+                    <label for="ql_city">المدينة</label>
+                    <select id="ql_city">
+                        <option value="">-- المدينة --</option>
+                        <option value="القاهرة">القاهرة / التجمع</option>
+                        <option value="طنطا">طنطا</option>
+                        <option value="بسيون">بسيون</option>
+                        <option value="الرياض">الرياض</option>
+                        <option value="أخرى">أخرى</option>
+                    </select>
                 </div>
-
-                <div class="modal-tab-content" id="tab-progress">
-                    <p style="margin: 0 0 1rem; font-weight: bold; color: #fff;">مراحل تنفيذ البناء والتشييد على أرض الواقع:</p>
-                    <div id="modalProjectProgressList" style="display: flex; flex-direction: column; gap: 15px;">
-                        <!-- يتم تحميل مراحل البناء ديناميكياً -->
-                    </div>
-                </div>
-
-                <div class="modal-meta-grid">
-                    <div class="meta-item"><i class="fa-solid fa-location-dot"></i> الموقع والمحافظة: <strong id="modalMetaLocation">-</strong></div>
-                    <div class="meta-item"> الحالة الإنشائية: <strong id="modalMetaStatus">-</strong></div>
-                    <div class="meta-item">️ المطور العقاري: <strong id="modalMetaDeveloper">Engaz Developments</strong></div>
-                    <div class="meta-item"> خيارات الحجز: <strong id="modalMetaBooking" style="color: var(--accent-gold);">-</strong></div>
-                </div>
-
-                <button class="btn-modal-action" id="btnModalRegisterInterest">
-                    <i class="fa-solid fa-file-signature"></i> سجل اهتمامك بهذا المشروع الآن
+                <div class="quick-form-message" id="qlMessage"></div>
+                <button type="submit" class="btn-quick-submit" id="qlSubmitBtn">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    احجز الاستشارة المجانية
                 </button>
+            </form>
+        </section>
 
-                <button class="btn-modal-action" id="btnModalDownloadBrochure" style="background: var(--gold-gradient); color: #000; margin-top: 0.8rem; display: none;">
-                    <i class="fa-solid fa-file-pdf"></i> تحميل الكتالوج والمخطط الهندسي للمشروع (PDF)
-                </button>
-            </div>
-        </div>
-    </div>
+    </main>
 
-    <!-- Brochure Download Lead Capture Modal -->
-    <div class="modal-overlay" id="brochureDownloadModal" style="display: none; z-index: 9999;">
-        <div class="modal-card" style="max-width: 450px;">
-            <span class="modal-close-btn" id="btnCloseBrochureModal"></span>
-            <div class="modal-body" style="padding: 2rem;">
-                <h3 class="modal-title" style="margin-top: 0; color: var(--accent-gold); text-align: center;"> تحميل المخطط الهندسي والكتالوج</h3>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; text-align: center; margin-bottom: 1.5rem;">يرجى تسجيل بياناتك الرسمية لنقوم بإرسال نسخة الكتالوج والمخططات الإنشائية لجهازك فوراً.</p>
-                
-                <form id="brochureLeadForm">
-                    <input type="hidden" id="brochure_project_id" value="">
-                    <input type="hidden" id="brochure_project_name" value="">
-                    <input type="hidden" id="brochure_pdf_url" value="">
-
-                    <div style="margin-bottom: 1rem;">
-                        <label style="display: block; font-size: 0.85rem; margin-bottom: 0.5rem; color: #fff;">الاسم بالكامل *</label>
-                        <input type="text" id="brochure_name" required style="width: 100%; padding: 10px 15px; border-radius: 8px; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02); color: #fff;" placeholder="مثال: أحمد محمد">
-                    </div>
-
-                    <div style="margin-bottom: 1rem;">
-                        <label style="display: block; font-size: 0.85rem; margin-bottom: 0.5rem; color: #fff;">رقم الهاتف المحمول *</label>
-                        <input type="tel" id="brochure_phone" required style="width: 100%; padding: 10px 15px; border-radius: 8px; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02); color: #fff;" placeholder="مثال: 010xxxxxxxx">
-                    </div>
-
-                    <div style="margin-bottom: 1.5rem;">
-                        <label style="display: block; font-size: 0.85rem; margin-bottom: 0.5rem; color: #fff;">رقم الواتساب *</label>
-                        <input type="tel" id="brochure_whatsapp" required style="width: 100%; padding: 10px 15px; border-radius: 8px; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02); color: #fff;" placeholder="رقم الواتساب للمتابعة">
-                    </div>
-
-                    <button type="submit" class="btn-modal-action" style="width: 100%; margin: 0;" id="btnSubmitBrochureForm">
-                         إرسال وتحميل ملف الـ PDF الآن
-                    </button>
-                    <div id="brochureStatusMessage" style="display: none; margin-top: 1rem; padding: 10px; border-radius: 8px; font-size: 0.85rem; text-align: center;"></div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Discount Lead Magnet Modal Overlay -->
-    <div class="modal-overlay" id="discountLeadMagnetModal" style="display: none; z-index: 99999; backdrop-filter: blur(15px); background: rgba(5, 20, 28, 0.85); transition: all 0.4s ease;">
-        <div class="modal-card" style="max-width: 480px; width: 94%; background: linear-gradient(135deg, rgba(11, 31, 43, 0.98), rgba(5, 20, 28, 0.99)); border: 1px solid rgba(212, 175, 55, 0.4); box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(212, 175, 55, 0.2); backdrop-filter: blur(20px); border-radius: 24px; position: relative; margin: auto;">
-            <button type="button" class="modal-close-btn" id="btnCloseDiscountModal" onclick="document.getElementById('discountLeadMagnetModal').style.display='none'" aria-label="Close" style="color: var(--accent-gold); font-size: 1.4rem; cursor: pointer; background: rgba(13, 21, 39, 0.9); border: 1px solid rgba(212,175,55,0.3); width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; position: absolute; top: 12px; left: 12px; z-index: 100; transition: all 0.3s ease;"></button>
-            <div class="modal-body" style="padding: 2.2rem 1.5rem; text-align: center;">
-                <div style="font-size: 3.2rem; margin-bottom: 0.3rem; filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4)); animation: floatGift 3s ease-in-out infinite;"></div>
-                <h3 class="modal-title" style="margin-top: 0; color: var(--accent-gold); font-size: 1.5rem; font-weight: 900; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.5px;">احصل على عرض خصم 10% فوراً!</h3>
-                <p style="color: #cbd5e1; font-size: 0.88rem; margin-bottom: 1.5rem; line-height: 1.5; font-weight: 500;">
-                    سجل بياناتك الآن لتفعيل كود الخصم الحصري <strong style="color: var(--accent-gold); font-size: 1rem;">ENGAZ10</strong> للحجز في مشاريع شركة إنجاز، وسنقوم بإرسال كود الخصم فوراً!
-                </p>
-                
-                <form id="discountLeadForm" style="text-align: right; display: flex; flex-direction: column; gap: 10px;">
-                    <div>
-                        <label style="display: block; font-size: 0.8rem; margin-bottom: 0.3rem; color: rgba(255,255,255,0.85); font-weight: 700;"><i class="fa-solid fa-user" style="color: var(--accent-gold); margin-left: 6px;"></i>الاسم بالكامل *</label>
-                        <input type="text" id="discount_name" required style="width: 100%; padding: 12px 15px; border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.25); background: rgba(5, 20, 28, 0.6); color: #fff; font-family: 'Cairo', sans-serif; font-size: 16px; transition: all 0.3s ease;" placeholder="مثال: أحمد محمد">
-                    </div>
-
-                    <div>
-                        <label style="display: block; font-size: 0.8rem; margin-bottom: 0.3rem; color: rgba(255,255,255,0.85); font-weight: 700;"><i class="fa-solid fa-phone" style="color: var(--accent-gold); margin-left: 6px;"></i>رقم الهاتف والواتساب *</label>
-                        <input type="tel" id="discount_phone" required style="width: 100%; padding: 12px 15px; border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.25); background: rgba(5, 20, 28, 0.6); color: #fff; font-family: 'Cairo', sans-serif; font-size: 16px; transition: all 0.3s ease;" placeholder="مثال: 010xxxxxxxx">
-                    </div>
-
-                    <div>
-                        <label style="display: block; font-size: 0.8rem; margin-bottom: 0.3rem; color: rgba(255,255,255,0.85); font-weight: 700;"><i class="fa-solid fa-envelope" style="color: var(--accent-gold); margin-left: 6px;"></i>البريد الإلكتروني *</label>
-                        <input type="email" id="discount_email" required style="width: 100%; padding: 12px 15px; border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.25); background: rgba(5, 20, 28, 0.6); color: #fff; font-family: 'Cairo', sans-serif; font-size: 16px; transition: all 0.3s ease;" placeholder="example@domain.com">
-                    </div>
-
-                    <button type="submit" class="btn-modal-action" style="width: 100%; margin: 8px 0 0 0; padding: 13px; font-weight: 800; font-size: 0.95rem; background: var(--gold-gradient); color: #000; border-radius: 12px; cursor: pointer; transition: all 0.3s ease; border: none; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);" id="btnSubmitDiscountForm">
-                         احصل على الخصم الفوري وتفاصيل العرض
-                    </button>
-                    <button type="button" onclick="document.getElementById('discountLeadMagnetModal').style.display='none'" style="background: transparent; border: none; color: #a3b8cc; font-size: 0.85rem; margin-top: 6px; cursor: pointer; text-decoration: underline; font-family: 'Cairo', sans-serif;">لا شكراً، إغلاق النافذة</button>
-                    <div id="discountStatusMessage" style="display: none; margin-top: 0.8rem; padding: 10px; border-radius: 8px; font-size: 0.85rem; text-align: center; font-weight: 700;"></div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- --- FEATURE: TESTIMONIALS SECTION --- -->
-    <section class="testimonials-section" id="client-testimonials-section" style="max-width: 1000px; margin: 6rem auto; padding: 0 4%;">
-        <h2 class="section-title"><i class="fa-solid fa-star"></i> آراء عملائنا ورضاهم</h2>
-        <p class="section-subtitle">شهادات فخورة نعتز بها من شركاء النجاح والمستثمرين الذين وضعوا ثقتهم في مشاريع شركة إنجاز.</p>
-        
-        <div id="testimonialsContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 2rem;">
-            <!-- يتم تحميل الآراء ديناميكياً من السيرفر -->
-        </div>
-    </section>
-
-    <!-- Footer -->
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 1rem;">
-                    <div style="width: 52px; height: 52px; border-radius: 14px; background: #ffffff; border: 1.5px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 4px 20px rgba(197, 160, 89, 0.4);">
-                        <img src="images/logo_engaz.png" alt="ENGAZ - إنجاز للإستثمار العقاري والمقاولات" style="width: 100%; height: 100%; object-fit: contain; padding: 4px;">
+                <div style="display:flex;align-items:center;gap:14px;margin-bottom:1rem;">
+                    <div style="width:48px;height:48px;border-radius:12px;background:#fff;border:1.5px solid #b8952e;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+                        <img src="images/logo_engaz.png" alt="ENGAZ" style="width:100%;height:100%;object-fit:contain;padding:4px;">
                     </div>
                     <div>
-                        <h4 style="margin: 0; color: #ffffff; font-weight: 900; font-size: 1.25rem; border: none; padding: 0;">ENGAZ</h4>
-                        <span style="color: var(--accent-gold); font-size: 0.82rem; font-weight: 700;">إنجاز للإستثمار العقاري والمقاولات</span>
+                        <h4 style="margin:0;color:#fff;font-weight:900;font-size:1.15rem;border:none;padding:0;">ENGAZ</h4>
+                        <span style="color:#b8952e;font-size:0.78rem;font-weight:700;">إنجاز للإستثمار العقاري</span>
                     </div>
                 </div>
-                <p>شركة رائدة في تطوير المشاريع السكنية والتجارية في مصر والسعودية بأعلى معايير الجودة والأمان القانوني.</p>
+                <p style="color:#7aa3b3;font-size:0.85rem;line-height:1.7;margin-bottom:0.5rem;display:block;">شركة رائدة في تطوير المشاريع السكنية والتجارية بأعلى معايير الجودة والأمان القانوني في مصر والسعودية.</p>
                 <div class="footer-socials">
-                    <a href="https://www.facebook.com/Engazrealestate.eg/" class="social-link" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://wa.me/201030405054" class="social-link" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="https://www.instagram.com/engazdevelopments/" class="social-link" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/Engazrealestate.eg/" class="social-link" target="_blank" rel="noopener" aria-label="فيسبوك"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/201030405054" class="social-link" target="_blank" rel="noopener" aria-label="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/engazdevelopments/" class="social-link" target="_blank" rel="noopener" aria-label="انستغرام"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
             <div class="footer-col">
                 <h4><i class="fa-solid fa-location-dot"></i> مكاتبنا وفروعنا</h4>
-                <p><i class="fa-solid fa-location-dot"></i> طنطا - شارع الجيش - مول طنطا تاون (الفرع الرئيسي)</p>
+                <p><i class="fa-solid fa-location-dot"></i> طنطا - شارع الجيش - مول طنطا تاون</p>
                 <p><i class="fa-solid fa-location-dot"></i> الرياض - حي الياسمين - طريق الملك عبدالعزيز</p>
-                <p><i class="fa-solid fa-location-dot"></i> بسيون - شارع 23 يوليو - بجوار نقابة المعلمين</p>
-                <p><i class="fa-solid fa-phone"></i> مبيعات مصر: <a href="tel:201030405054" style="display:inline;">01030405054</a></p>
-                <p><i class="fa-solid fa-phone"></i> مبيعات السعودية: <a href="tel:+966503040505" style="display:inline;">+966503040505</a></p>
+                <p><i class="fa-solid fa-location-dot"></i> بسيون - شارع 23 يوليو - نقابة المعلمين</p>
+                <a href="tel:201030405054"><i class="fa-solid fa-phone"></i> 01030405054 (مصر)</a>
+                <a href="tel:+966503040505"><i class="fa-solid fa-phone"></i> +966503040505 (السعودية)</a>
             </div>
             <div class="footer-col">
                 <h4><i class="fa-solid fa-link"></i> روابط سريعة</h4>
-                <a href="index.html"><i class="fa-solid fa-home"></i> الرئيسية</a>
+                <a href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a>
                 <a href="projects.html"><i class="fa-solid fa-building"></i> مشاريعنا</a>
                 <a href="portfolio.html"><i class="fa-solid fa-trophy"></i> سابقة أعمالنا</a>
                 <a href="about.html"><i class="fa-solid fa-circle-info"></i> عن الشركة</a>
@@ -1002,1214 +1094,202 @@
             </div>
             <div class="footer-col">
                 <h4><i class="fa-solid fa-handshake"></i> خدماتنا</h4>
-                <a href="#register-interest"><i class="fa-solid fa-star"></i> طلب عرض السعر</a>
-                <a href="#projects-gallery"><i class="fa-solid fa-images"></i> معرض المشاريع</a>
-                <a href="#about-engaz"><i class="fa-solid fa-users"></i> فريق إنجاز</a>
-                <a href="https://wa.me/201030405054" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> واتساب مباشر</a>
+                <a href="projects.html"><i class="fa-solid fa-key"></i> وحدات سكنية</a>
+                <a href="projects.html"><i class="fa-solid fa-store"></i> وحدات تجارية</a>
+                <a href="projects.html"><i class="fa-solid fa-stethoscope"></i> عيادات طبية</a>
+                <a href="#quick-contact"><i class="fa-solid fa-star"></i> احجز استشارة</a>
+                <a href="https://wa.me/201030405054" target="_blank"><i class="fa-brands fa-whatsapp"></i> واتساب مباشر</a>
             </div>
         </div>
-        <p class="copyright-text">جميع الحقوق محفوظة &copy; 2026 | <strong>إنجاز للإستثمار العقاري والمقاولات</strong> | <a href="https://engazdevelopments.com" style="color: var(--accent-gold); text-decoration: none;">engazdevelopments.com</a></p>
+        <p class="copyright-text">
+            جميع الحقوق محفوظة &copy; 2026 |
+            <strong>إنجاز للإستثمار العقاري والمقاولات</strong> |
+            <a href="https://engazdevelopments.com">engazdevelopments.com</a>
+        </p>
     </footer>
 
-    <!-- Scroll to Top Button -->
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/201030405054?text=أهلاً إنجاز، أريد الاستفسار عن مشاريعكم العقارية" class="whatsapp-float" id="floating-whatsapp-btn" target="_blank" rel="noopener" aria-label="واتساب">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scroll to Top -->
     <button id="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="العودة للأعلى">
         <i class="fa-solid fa-chevron-up"></i>
     </button>
 
-    <!-- Web Application Logic Scripts -->
+    <!-- Mobile Sticky Bar -->
+    <div class="mobile-sticky-bar">
+        <a href="tel:201030405054" class="sticky-btn call">
+            <i class="fa-solid fa-phone"></i>
+            اتصل
+        </a>
+        <a href="https://wa.me/201030405054" class="sticky-btn whatsapp" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i>
+            واتساب
+        </a>
+        <button class="sticky-btn consult" onclick="document.getElementById('quick-contact').scrollIntoView({behavior:'smooth'})">
+            <i class="fa-solid fa-calendar-check"></i>
+            استشارة
+        </button>
+    </div>
+
+    <!-- Privacy Banner -->
+    <div id="privacy-banner">
+        <div>
+            <strong>حماية البيانات والخصوصية</strong>
+            نستخدم تقنيات التصفح الآمنة لأفضل تجربة عقارية.
+        </div>
+        <button onclick="document.getElementById('privacy-banner').style.display='none';localStorage.setItem('engaz_privacy','1');">موافق</button>
+    </div>
+
     <script>
-        // --- 0. SCROLL TO TOP BUTTON ---
-        const scrollTopBtn = document.getElementById('scroll-top-btn');
-        if (scrollTopBtn) {
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 400) scrollTopBtn.classList.add('visible');
-                else scrollTopBtn.classList.remove('visible');
-            });
-        }
+        // ===== MOBILE MENU BUTTON DISPLAY =====
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        if (window.innerWidth <= 900) menuBtn.style.display = 'flex';
+        window.addEventListener('resize', () => {
+            menuBtn.style.display = window.innerWidth <= 900 ? 'flex' : 'none';
+        });
 
-        // --- 1. HERO CAROUSEL LOGIC ---
-        let currentSlideIdx = 0;
+        // Close nav on outside click
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('nav');
+            const btn = document.querySelector('.mobile-menu-btn');
+            if (nav.classList.contains('mobile-active') && !nav.contains(e.target) && !btn.contains(e.target)) {
+                nav.classList.remove('mobile-active');
+                btn.querySelector('i').className = 'fa-solid fa-bars';
+            }
+        });
+
+        // ===== HERO SLIDER =====
+        let currentSlide = 0;
         const slides = document.querySelectorAll('.hero-slide');
-        
-        function rotateSlides() {
-            slides[currentSlideIdx].classList.remove('active');
-            currentSlideIdx = (currentSlideIdx + 1) % slides.length;
-            slides[currentSlideIdx].classList.add('active');
+        const dots = document.querySelectorAll('.hero-dot');
+
+        function goToSlide(idx) {
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            currentSlide = idx;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
         }
-        setInterval(rotateSlides, 4500); // Rotate every 4.5s
 
-        // --- 2. DYNAMIC PROJECTS & FALLBACK DATA ---
-        const FALLBACK_PROJECTS = [
-            { name: 'مول طنطا تاون (تجاري وإداري وطبي)', location: 'طنطا (شارع الجيش)', image: 'images/tanta-town-mall-hd.jpg', status: 'active', developer: 'Engaz Developments', desc: 'أيقونة تجارية وإدارية وطبية بقلب مدينة طنطا بوسط الدلتا، يضم محلات تجارية وعيادات طبية ومكاتب وشقق بفرص استثمار استثنائية.', specs: ['تكييف مركزي متطور', 'بوابات أمنية وإدارة متكاملة', 'مساحات مرنة للمطاعم والكافيهات', 'مصعد مخصص للعيادات الطبية'], payment: 'مقدم 20% وتسهيلات في السداد على أقساط متساوية تصل إلى 5 سنوات.' },
-            { name: 'مول صيدناوي بسيون (تجاري وإداري وطبي وسكني)', location: 'بسيون (الغربية)', image: 'images/sednawy-mall-hd.jpg', status: 'active', developer: 'Engaz Developments', desc: 'المول التجاري والإداري والسكني الأهم بقلب مدينة بسيون بوسط الدلتا، يضم محلات تجارية وعيادات طبية ومكاتب وشقق بفرص استثمار استثنائية.', specs: ['تكييف مركزي متطور', 'بوابات أمنية وإدارة متكاملة', 'مساحات مرنة للمطاعم والكافيهات', 'مصعد مخصص للعيادات الطبية'], payment: 'مقدم 40% دفعة أولى وتسهيلات في السداد للمتبقي على أقساط متساوية.' },
-            { name: 'مشروع H165 - النورس هاوس (جاري التشطيب)', location: 'ربوة التجمع (القاهرة الجديدة)', image: 'images/h165.jpg', status: 'active', developer: 'Engaz Developments', desc: 'عمارة سكنية راقية بمشروع النورس هاوس بربوة التجمع الخامس، في مرحلة التشطيبات النهائية للواجهات والمداخل.', specs: ['مرحلة الإنشاء: جاري التشطيب والواجهات', 'تشطيب واجهات فاخرة', 'مداخل رخام ومصاعد حديثة', 'تقسيمات داخلية ممتازة'], payment: 'تقسيط ميسر بمقدم حجز يبدأ من 25% على 5 سنوات.' },
-            { name: 'مشروع H79 - بيت الوطن (أعمال الحفر والأساسات)', location: 'الحي الرابع - بيت الوطن (التجمع)', image: 'images/beit-al-watan-project-engaz-developments.jpg', status: 'active', developer: 'Engaz Developments', desc: 'مشروع سكني متميز ببيت الوطن الحي الرابع، جاري تنفيذ أعمال الحفر والأساسات الهندسية.', specs: ['مرحلة الإنشاء: أعمال الحفر والأساسات', 'موقع استراتيجي بالحي الرابع', 'إطلالة متميزة ومساحات متنوعة', 'جراجات ومخازن خاصة'], payment: 'مقدم 20% وتقسيط حتى 5 سنوات بدون فوائد.' },
-            { name: 'مشروع F216 - بيت الوطن (هيكل خرساني)', location: 'الحي الرابع - بيت الوطن (التجمع)', image: 'images/beit_alwatan.jpg', status: 'active', developer: 'Engaz Developments', desc: 'وحدات سكنية فاخرة ببيت الوطن التجمع الخامس، جاري صب وتنفيذ الهيكل الخرساني بالكامل.', specs: ['مرحلة الإنشاء: تنفيذ الهيكل الخرساني', 'واجهات معمارية فاخرة', 'موقع متميز بالحي الرابع', 'تقسيمات هندسية استغلالية ممتاز'], payment: 'مقدم 25% وتقسيط ميسر على 5 سنوات.' },
-            { name: 'مشروع F218 - بيت الوطن (هيكل خرساني)', location: 'الحي الرابع - بيت الوطن (التجمع)', image: 'images/beit_alwatan.jpg', status: 'active', developer: 'Engaz Developments', desc: 'مشروع عمارة سكنية راقية ببيت الوطن التجمع الخامس، جاري تنفيذ وصيانة الهيكل الخرساني للمبنى.', specs: ['مرحلة الإنشاء: تنفيذ الهيكل الخرساني', 'تصميم عصري جذاب', 'تأمين وكاميرات مراقبة', 'مداخل فندقية'], payment: 'مقدم 25% وتقسيط على 5 سنوات بأقساط متساوية.' },
-            { name: 'مشروع F129 - بيت الوطن (اكتمال المبنى)', location: 'الحي الرابع - بيت الوطن (التجمع)', image: 'images/watan-real.jpg', status: 'active', developer: 'Engaz Developments', desc: 'مشروع سكني مميز ببيت الوطن التجمع الخامس، تم اكتمال الهيكل الإنشائي وجاري التشطيب الخارجي.', specs: ['مرحلة الإنشاء: اكتمال المبنى وجاري التشطيب', 'تشطيبات خارجية فاخرة', 'مصاعد مستوردة عالية الجودة', 'موقع حيوي متكامل'], payment: 'مقدم 30% وتقسيط حتى 4 سنوات.' },
-            { name: 'مشروع A100 - النورث هاوس (الدور الأول)', location: 'منطقة النورث هاوس (القاهرة الجديدة)', image: 'images/beit-al-watan-project-engaz-developments.jpg', status: 'active', developer: 'Engaz Developments', desc: 'مشروع سكني راقي بمنطقة النورث هاوس، تم الانتهاء من الأساسات وجاري تنفيذ سقف الدور الأول.', specs: ['مرحلة الإنشاء: جاري تنفيذ الدور الأول', 'موقع شمالي متميز بالنورث هاوس', 'تصميمات هندسية عصرية', 'مواقف سيارات خاصة'], payment: 'مقدم 20% وتقسيط ميسر يصل إلى 6 سنوات.' },
-            { name: 'مشروع C87 - بيت الوطن (اكتمال الهيكل)', location: 'الحي الرابع - بيت الوطن (التجمع)', image: 'images/watan-real.jpg', status: 'active', developer: 'Engaz Developments', desc: 'عمارة سكنية فاخرة ببيت الوطن التجمع الخامس، تم اكتمال الهيكل الإنشائي الخرساني بالكامل.', specs: ['مرحلة الإنشاء: اكتمال الهيكل الخرساني بالكامل', 'واجهات كلاسيكية مودرن', 'مباشرة على شوارع رئيسية', 'مساحات متنوعة 180m-220m'], payment: 'مقدم 30% تقسيط حتى 5 سنوات.' },
-            { name: 'مشروع H151 - ربوة التجمع (تم التسليم بالكامل)', location: 'ربوة التجمع (القاهرة الجديدة)', image: 'images/h151-real-hd.jpg', status: 'completed', developer: 'Engaz Developments', desc: 'عمارة سكنية فاخرة تم بناؤها وتسليمها بالكامل للملاك بربوة التجمع الخامس بواجهات حجرية ومداخل رخام.', specs: ['مرحلة المشروع: تم التسليم والبيع بالكامل 100%', 'واجهات حجرية فاخرة', 'مداخل رخام فندقية', 'مصاعد مستوردة تعمل بكفاءة'], payment: 'تم التسليم والبيع بالكامل للملاك بنسبة 100% (مباع بالكامل).' },
-            { name: 'فلل المنصورة الجديدة الساحلية (مباع 100%)', location: 'المنصورة الجديدة', image: 'images/mansoura-villas-opt.jpg', status: 'completed', developer: 'Engaz Developments', desc: 'مجموعة فلل سكنية ساحلية فاخرة على ساحل البحر الأبيض المتوسط بالمنصورة الجديدة، تم بناؤها وتنسيق حدائقها وتسليمها وبيعه بالكامل للملاك بنسبة 100%.', specs: ['تشطيب خارجي بالكامل وتنسيق حدائق', 'موقع ممتاز على ساحل البحر المتوسط', 'تصميمات معمارية فاخرة', 'تم التسليم والبيع بالكامل للملاك'], payment: 'تم التسليم والبيع بالكامل للملاك بنسبة 100% (مباع بالكامل).' },
-            { name: 'برج الفيروز (تجاري وإداري فقط - مباع 100%)', location: 'تلا (المنوفية)', image: 'images/fayrouz-tower-opt.jpg', status: 'completed', developer: 'Engaz Developments', desc: 'صرح تجاري وإداري بالكامل يضم محلات تجارية ومكاتب إدارية بمدينة تلا تم بناؤه وتسليمه وبيعه بالكامل للملاك بنسبة 100% (بدون أي وحدات سكنية).', specs: ['مداخل إدارية وتجارية فندقية', 'مصاعد إيطالية سريعة وآمنة', 'حراسة وأمن على مدار الساعة', 'واجهات كلاسيكية فاخرة'], payment: 'تم التسليم والبيع بالكامل للملاك بنسبة 100% (مباع بالكامل).' },
-            { name: 'برج النادي & الكورنيش (قيد التخطيط والطرح)', location: 'بسيون (بجوار النادي والكورنيش)', image: 'images/teachers-syndicate-night.jpg', status: 'planned', developer: 'Engaz Developments', desc: 'مشروعات أبراج إدارية وتجارية جديدة قيد التخطيط والهندسة في مواقع استراتيجية حيوية للغاية.', specs: ['موقع متميز بجوار الخدمات والنادي', 'تصميمات هندسية ألترا مودرن', 'مواقف سيارات ومصاعد حديثة', 'إطلالات مفتوحة واسعة'], payment: 'طرح قريباً بنظام حجز الأولوية والتخصيص المباشر.' }
-        ];
+        setInterval(() => {
+            goToSlide((currentSlide + 1) % slides.length);
+        }, 5000);
 
-        const FALLBACK_TESTIMONIALS = [
-            { client_name: 'أحمد محمود العشري', project_name: 'برج الفيروز (تلا)', rating: 5, comment: 'شراء شقة من إنجاز كان أفضل قرار استثماري اتخذته. التزام تام بموعد التسليم وتشطيبات فاخرة تفوق التوقعات.' },
-            { client_name: 'د. سارة عبدالحميد', project_name: 'مول طنطا تاون', rating: 5, comment: 'تعاقدت على عيادة طبية بمول طنطا تاون، المشروع ناجح جداً والمبيعات والتسويق ساعدوني بكافة التفاصيل التمويلية والقانونية.' },
-            { client_name: 'المهندس كريم السعدني', project_name: 'ربوة التجمع (القاهرة)', rating: 5, comment: 'مصداقية متناهية وأمان قانوني كامل. تعاقدت على شقة بالرياض عبر فرع الياسمين وكانت الإجراءات بمنتهى السلاسة والسرعة.' }
-        ];
-
-        let activeProjects = [];
-
-        // Inject a fetch interceptor to automatically bypass localtunnel reminder page
-        const originalFetch = window.fetch;
-        window.fetch = function (input, init) {
-            if (typeof input === 'string' && input.includes('loca.lt')) {
-                init = init || {};
-                init.headers = init.headers || {};
-                if (init.headers instanceof Headers) {
-                    init.headers.append('Bypass-Tunnel-Reminder', 'true');
-                } else if (Array.isArray(init.headers)) {
-                    init.headers.push(['Bypass-Tunnel-Reminder', 'true']);
-                } else {
-                    init.headers['Bypass-Tunnel-Reminder'] = 'true';
-                }
-            }
-            return originalFetch(input, init);
-        };
-
-        // ======= عنوان الـ API المركزي — عدّل هذا السطر فقط عند الاستضافة =======
-        const API_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:')
-            ? 'http://localhost:5001'
-            : 'https://odd-panda-23.loca.lt';
-        // عند الاستضافة، غيّره مثلاً إلى: const API_URL = 'https://api.engaz-dev.com';
-
-        // تتبع الضغط على روابط واتساب وإرسال البيانات للـ CRM تلقائياً (حتى لو لم يكمل العميل الفورم)
-        document.addEventListener('DOMContentLoaded', () => {
-            // Smooth Scroll for all anchor links with header height offset
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    const targetId = this.getAttribute('href');
-                    if (targetId && targetId !== '#') {
-                        const targetElem = document.querySelector(targetId);
-                        if (targetElem) {
-                            e.preventDefault();
-                            const headerOffset = 90;
-                            const elementPosition = targetElem.getBoundingClientRect().top;
-                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                            window.scrollTo({
-                                top: offsetPosition,
-                                behavior: 'smooth'
-                            });
-                            // Close mobile nav menu if open
-                            document.querySelector('nav')?.classList.remove('mobile-active');
-                        }
-                    }
-                });
-            });
-
-            document.body.addEventListener('click', async function(e) {
-                const waLink = e.target.closest('a[href*="wa.me"]');
-                if (waLink) {
-                    // سحب أي بيانات كتبها العميل جزئياً في الفورم قبل أن يضغط على واتساب
-                    const nameVal = document.getElementById('lead_name')?.value.trim() || document.getElementById('brochure_name')?.value.trim() || '';
-                    const phoneVal = document.getElementById('lead_phone')?.value.trim() || document.getElementById('brochure_phone')?.value.trim() || '';
-                    const waVal = document.getElementById('lead_whatsapp')?.value.trim() || document.getElementById('brochure_whatsapp')?.value.trim() || '';
-                    
-                    const payload = {
-                        name: nameVal || 'زائر ضغط واتساب مباشر',
-                        phone: phoneVal || '000000000',
-                        whatsapp: waVal || '000000000',
-                        email: document.getElementById('lead_email')?.value.trim() || null,
-                        source: 'Website WhatsApp Click',
-                        status: 'new',
-                        project_interest: parseInt(document.getElementById('wizard_project')?.value || document.getElementById('brochure_project_id')?.value) || null,
-                        unit_type: document.getElementById('wizard_unit_type')?.value || 'Not Specified',
-                        notes: `الزائر ضغط على رابط واتساب: ${waLink.href}. ` + (nameVal ? `البيانات المدخلة جزئياً في النموذج: الاسم=${nameVal}، الهاتف=${phoneVal}، واتساب=${waVal}` : 'لم يكتب أي بيانات في نموذج التسجيل بعد.')
-                    };
-
-                    try {
-                        await fetch(`${API_URL}/api/leads`, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
-                        });
-                        console.log(' WhatsApp click logged to CRM successfully');
-                    } catch (err) {
-                        console.error(' Error logging WhatsApp click to CRM:', err);
-                    }
-                }
-            });
+        // ===== SCROLL TO TOP =====
+        const scrollBtn = document.getElementById('scroll-top-btn');
+        window.addEventListener('scroll', () => {
+            scrollBtn.classList.toggle('visible', window.scrollY > 400);
         });
 
-        // Fetch projects from server API
-        async function fetchProjects() {
-            try {
-                const res = await fetch(`${API_URL}/api/public/projects`);
-                if (!res.ok) throw new Error('Network error');
-                const data = await res.json();
-                if (data && data.length > 0) {
-                    console.log('Projects loaded from Server database.');
-                    return data.map(p => ({
-                        id: p.id,
-                        name: p.name,
-                        location: p.location || 'غير محدد',
-                        image: p.image || '',
-                        status: p.status || 'active',
-                        developer: p.developer || 'Engaz Developments',
-                        desc: p.description || 'لم يتم إضافة وصف للمشروع بعد.',
-                        specs: p.specs ? p.specs.split(',').map(s => s.trim()) : ['موقع جغرافي استراتيجي متميز للغاية.', 'واجهات معمارية فاخرة مقاومة للعوامل الجوية.', 'مداخل فندقية فخمة من الرخام والجرانيت.', 'مصاعد كهربائية إيطالية متطورة.'],
-                        payment: p.payment_plan || 'أنظمة سداد مرنة تبدأ بمقدم 20% وأقساط متساوية تصل إلى 5 سنوات.',
-                        brochure_url: p.brochure_url || ''
-                    }));
-                }
-            } catch (e) {
-                console.warn('API Server offline, loading fallback local projects.', e);
-            }
-            return FALLBACK_PROJECTS.map((p, idx) => ({ ...p, id: idx + 100 }));
-        }
-
-        // Fetch and Render Testimonials
-        async function fetchAndRenderTestimonials() {
-            const container = document.getElementById('testimonialsContainer');
-            if (!container) return;
-
-            let testimonialsList = [];
-            try {
-                const res = await fetch(`${API_URL}/api/public/testimonials`);
-                if (res.ok) {
-                    const data = await res.json();
-                    if (data && data.length > 0) {
-                        testimonialsList = data;
-                    }
-                }
-            } catch (e) {
-                console.warn('Failed to load live testimonials, falling back.', e);
-            }
-
-            if (testimonialsList.length === 0) {
-                testimonialsList = FALLBACK_TESTIMONIALS;
-            }
-
-            container.innerHTML = '';
-            testimonialsList.forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'testimonial-card';
-                card.innerHTML = `
-                    <div class="testimonial-rating">${''.repeat(item.rating)}${''.repeat(5 - item.rating)}</div>
-                    <p class="testimonial-text">"${item.comment}"</p>
-                    <div class="testimonial-user">
-                        <div class="testimonial-avatar">${item.client_name.charAt(0)}</div>
-                        <div>
-                            <span class="testimonial-name">${item.client_name}</span>
-                            <span class="testimonial-project">عميل مشروع: ${item.project_name || 'إنجاز'}</span>
-                        </div>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        // Render projects to layout
-        function renderProjects(list) {
-            const grid = document.getElementById('dynamicProjectsGrid');
-            grid.innerHTML = '';
-            
-            if (list.length === 0) {
-                grid.innerHTML = '<div style="grid-column: span 3; text-align: center; padding: 3rem; color: var(--text-secondary);">لا توجد مشاريع مطابقة لخيارات البحث.</div>';
-                return;
-            }
-
-            list.forEach((p, idx) => {
-                const isSoldOut = p.status === 'completed';
-                const isPlanned = p.status === 'planned';
-                
-                const badgeText = isSoldOut ? ' تم البيع بالكامل (مباع 100%)' :
-                                  isPlanned ? ' قيد التخطيط والطرح' : ' متاح للحجز المباشر';
-
-                const badgeStyle = isSoldOut ? 'style="background: rgba(239, 68, 68, 0.95) !important; color: #ffffff !important; border: 1px solid #dc2626 !important; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4) !important;"' : '';
-
-                const imgUrl = p.image || 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&auto=format&fit=crop&q=80';
-
-                const card = document.createElement('article');
-                card.className = 'project-card';
-                card.innerHTML = `
-                    <div class="project-img-wrapper">
-                        <img src="${imgUrl}" alt="${p.name}" class="project-card-img" onerror="this.src='https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&auto=format&fit=crop&q=80';">
-                        <span class="project-status-badge" ${badgeStyle}>${badgeText}</span>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-code">${p.developer}</span>
-                        <h4 class="project-name">${p.name}</h4>
-                        <p class="project-desc">${p.desc}</p>
-                        <div class="project-card-footer">
-                            <span class="project-location"><i class="fa-solid fa-location-dot"></i> ${p.location.split('(')[0].trim()}</span>
-                            <button class="btn-detail" onclick="openProjectModal(${idx})">تفاصيل المشروع <i class="fa-solid fa-chevron-left"></i></button>
-                        </div>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        // --- 3. SEARCH & FILTERING LOGIC ---
-        function filterProjects() {
-            const query = document.getElementById('filter-search').value.toLowerCase().trim();
-            const city = document.getElementById('filter-city').value;
-            const status = document.getElementById('filter-status').value;
-
-            const filtered = activeProjects.filter(p => {
-                const matchesSearch = p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query);
-                const matchesCity = city === 'all' || p.location.includes(city);
-                const matchesStatus = status === 'all' || p.status === status;
-                return matchesSearch && matchesCity && matchesStatus;
-            });
-            renderProjects(filtered);
-        }
-
-        // --- 4. DETAILS MODAL TABS LOGIC ---
-        const modal = document.getElementById('projectDetailsModal');
-        
-        window.switchModalTab = function(tabName) {
-            document.querySelectorAll('.modal-tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.modal-tab-content').forEach(content => content.classList.remove('active'));
-
-            const clickedBtn = document.querySelector(`.modal-tab-btn[onclick*="${tabName}"]`);
-            if (clickedBtn) clickedBtn.classList.add('active');
-
-            const activeContent = document.getElementById(`tab-${tabName}`);
-            if (activeContent) activeContent.classList.add('active');
-        };
-
-        window.openProjectModal = async function(idx) {
-            const p = activeProjects[idx];
-            if (!p) return;
-
-            // إرسال تتبع فيسبوك (Facebook Pixel ViewContent) عند استعراض تفاصيل مشروع
-            if (window.fbq) {
-                fbq('track', 'ViewContent', {
-                    content_name: p.name,
-                    content_category: 'Real Estate Project',
-                    content_ids: [p.id || idx]
-                });
-            }
-
-            document.getElementById('modalProjectTitle').innerText = p.name;
-            document.getElementById('modalProjectSubtitle').innerHTML = `<i class="fa-solid fa-location-dot"></i> ${p.location} | <i class="fa-solid fa-building"></i> ${p.developer}`;
-            document.getElementById('modalProjectDesc').innerText = p.desc;
-            document.getElementById('modalProjectImg').src = p.image || 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&auto=format&fit=crop&q=80';
-            
-            document.getElementById('modalMetaLocation').innerText = p.location;
-            
-            const modalStatusEl = document.getElementById('modalMetaStatus');
-            const modalBookingEl = document.getElementById('modalMetaBooking');
-            const registerBtn = document.getElementById('btnModalRegisterInterest');
-
-            if (p.status === 'completed') {
-                modalStatusEl.innerHTML = '<span style="color: #ef4444; font-weight: 800;"> تم البيع والتسليم بالكامل للملاك 100%</span>';
-                if (modalBookingEl) {
-                    modalBookingEl.innerText = 'غير متوفرة (مباع بالكامل)';
-                    modalBookingEl.style.color = '#ef4444';
-                }
-                if (registerBtn) {
-                    registerBtn.style.background = 'linear-gradient(135deg, #ef4444 0%, #b91c1c 100%)';
-                    registerBtn.style.color = '#ffffff';
-                    registerBtn.innerHTML = ' الوحدات مباعة بالكامل 100% (استفسر عن الـ Resale)';
-                }
-            } else if (p.status === 'planned') {
-                modalStatusEl.innerHTML = '<span style="color: #3b82f6; font-weight: 800;"> قيد التخطيط والطرح المستقبلي</span>';
-                if (modalBookingEl) {
-                    modalBookingEl.innerText = 'حجز الأولوية قريباً';
-                    modalBookingEl.style.color = '#3b82f6';
-                }
-                if (registerBtn) {
-                    registerBtn.style.background = 'var(--gold-gradient)';
-                    registerBtn.style.color = '#000000';
-                    registerBtn.innerHTML = 'تسجيل الأولوية قبل الطرح المباشر';
-                }
-            } else {
-                modalStatusEl.innerHTML = '<span style="color: #10b981; font-weight: 800;"> متاح للحجز المباشر</span>';
-                if (modalBookingEl) {
-                    modalBookingEl.innerText = 'متوفرة الآن';
-                    modalBookingEl.style.color = '#10b981';
-                }
-                if (registerBtn) {
-                    registerBtn.style.background = 'var(--gold-gradient)';
-                    registerBtn.style.color = '#000000';
-                    registerBtn.innerHTML = 'طلب عرض سعر / حجز الوحدة';
-                }
-            }
-            
-            const specsList = document.getElementById('modalProjectSpecsList');
-            specsList.innerHTML = '';
-            const specs = p.specs || ['موقع جغرافي متميز جداً وثمين.', 'مداخل فاخرة رخام بالكامل.', 'مصاعد كهربائية حديثة وعالية الأمان.'];
-            specs.forEach(s => {
-                specsList.innerHTML += `<li>${s}</li>`;
-            });
-
-            document.getElementById('modalPaymentPlanText').innerText = p.payment || 'خطط سداد وتسهيلات مرنة تبدأ بمقدم 20% والتقسيط للمتبقي على 5 سنوات.';
-
-            // تطور الأعمال الإنشائية للمشروع
-            const progressContainer = document.getElementById('modalProjectProgressList');
-            progressContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 1rem;">جاري تحميل تحديثات الإنشاءات من الموقع...</p>';
-            
-            try {
-                if (p.id) {
-                    const progressRes = await fetch(`${API_URL}/api/public/projects/${p.id}/progress`);
-                    const progressData = await progressRes.json();
-                    
-                    if (progressData && progressData.length > 0) {
-                        progressContainer.innerHTML = '';
-                        progressData.forEach(item => {
-                            let imgHtml = '';
-                            if (item.image) {
-                                imgHtml = `<img src="${item.image}" alt="${item.stage}" style="width: 100%; max-height: 150px; object-fit: cover; border-radius: 8px; margin-top: 10px;">`;
-                            }
-                            progressContainer.innerHTML += `
-                                <div class="progress-log-card">
-                                    <div class="progress-log-header">
-                                        <span class="progress-log-title">${item.stage}</span>
-                                        <span class="progress-log-percentage">${item.percentage}% مكتمل</span>
-                                    </div>
-                                    <div class="progress-log-bar-bg">
-                                        <div class="progress-log-bar-fill" style="width: ${item.percentage}%;"></div>
-                                    </div>
-                                    ${item.notes ? `<p style="font-size: 0.85rem; color: var(--text-secondary); margin: 5px 0 0 0;">${item.notes}</p>` : ''}
-                                    ${imgHtml}
-                                </div>
-                            `;
-                        });
-                    } else {
-                        progressContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 1rem;">️ أعمال الأساسات والتخطيط المبدئي قيد التشغيل والترخيص.</p>';
-                    }
-                } else {
-                    progressContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 1rem;">️ أعمال الأساسات والتخطيط المبدئي قيد التشغيل والترخيص.</p>';
-                }
-            } catch (err) {
-                progressContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 1rem;">️ أعمال الأساسات والتخطيط المبدئي قيد التشغيل والترخيص.</p>';
-            }
-
-            // زر تحميل البروشور الكتالوج
-            const brochureBtn = document.getElementById('btnModalDownloadBrochure');
-            if (p.brochure_url) {
-                brochureBtn.style.display = 'block';
-                brochureBtn.onclick = function() {
-                    document.getElementById('brochure_project_id').value = p.id || '';
-                    document.getElementById('brochure_project_name').value = p.name;
-                    document.getElementById('brochure_pdf_url').value = p.brochure_url;
-                    
-                    document.getElementById('brochureDownloadModal').style.display = 'flex';
-                };
-            } else {
-                brochureBtn.style.display = 'none';
-            }
-
-            switchModalTab('desc');
-
-            document.getElementById('btnModalRegisterInterest').onclick = function() {
-                modal.style.display = 'none';
-                
-                const btnProjectCard = document.querySelector(`.segmented-grid .seg-card[onclick*="project"][onclick*="'${getProjectVal(p.name)}'"]`);
-                if (btnProjectCard) {
-                    btnProjectCard.click();
-                }
-
-                document.getElementById('register-interest').scrollIntoView({ behavior: 'smooth' });
-            };
-
-            modal.style.display = 'flex';
-        };
-
-        function getProjectVal(projName) {
-            if (projName.includes('ربوة') || projName.includes('التجمع')) return '1';
-            if (projName.includes('صيدناوي') || projName.includes('مول')) return '2';
-            if (projName.includes('المعلمين') || projName.includes('برج')) return '3';
-            return '4';
-        }
-
-        document.getElementById('btnCloseModal').addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        window.onclick = function(e) {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-            if (e.target === document.getElementById('brochureDownloadModal')) {
-                document.getElementById('brochureDownloadModal').style.display = 'none';
-            }
-        };
-
-
-
-
-
-        // --- 6. ANIMATED COUNTERS SCRIPT ---
-        function runCounters() {
-            const statsArea = document.getElementById('stats-counter-area');
-            if (!statsArea) return;
-            const counters = statsArea.querySelectorAll('.stat-number[data-target]');
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'), 10);
-                if (isNaN(target)) return;
-                let current = 0;
-                const increment = Math.ceil(target / 25) || 1;
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        counter.innerText = target;
-                        clearInterval(timer);
-                    } else {
-                        counter.innerText = current;
-                    }
-                }, 30);
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const statsArea = document.getElementById('stats-counter-area');
-            if (statsArea) {
-                let counterInitialized = false;
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting && !counterInitialized) {
-                            runCounters();
-                            counterInitialized = true;
-                        }
-                    });
-                }, { threshold: 0.1 });
-                observer.observe(statsArea);
-
-                // Fallback: run counters after 800ms
-                setTimeout(() => {
-                    if (!counterInitialized) {
-                        runCounters();
-                        counterInitialized = true;
-                    }
-                }, 800);
-            }
-        });
-
-
-        // --- 7. INTERACTIVE MULTI-STEP LEAD WIZARD LOGIC ---
-        let currentStep = 1;
-        const totalSteps = 4;
-
-        window.selectSegment = function(group, val, element) {
-            const parentGrid = element.closest('.segmented-grid');
-            parentGrid.querySelectorAll('.seg-card').forEach(c => c.classList.remove('selected'));
-            element.classList.add('selected');
-
-            if (group === 'goal') {
-                document.getElementById('wizard_unit_type').value = val;
-            } else if (group === 'project') {
-                document.getElementById('wizard_project').value = val;
-            } else if (group === 'budget') {
-                document.getElementById('wizard_budget').value = val;
-            }
-
-            setTimeout(() => {
-                changeStep(1);
-            }, 300);
-        };
-
-        window.changeStep = function(n) {
-            if (n === 1) {
-                if (currentStep === 1 && !document.getElementById('wizard_unit_type').value) {
-                    alert('يرجى اختيار هدفك الاستثماري أولاً');
-                    return;
-                }
-                if (currentStep === 2 && !document.getElementById('wizard_project').value) {
-                    alert('يرجى اختيار المنطقة الاستثمارية أولاً');
-                    return;
-                }
-                if (currentStep === 3 && !document.getElementById('wizard_budget').value) {
-                    alert('يرجى اختيار الميزانية الاستثمارية أولاً');
-                    return;
-                }
-            }
-
-            document.getElementById(`step-${currentStep}`).classList.remove('active');
-            document.getElementById(`step-i-${currentStep}`).classList.remove('active');
-            if (n > 0) {
-                document.getElementById(`step-i-${currentStep}`).classList.add('completed');
-            }
-
-            currentStep += n;
-            if (currentStep < 1) currentStep = 1;
-            if (currentStep > totalSteps) currentStep = totalSteps;
-
-            document.getElementById(`step-${currentStep}`).classList.add('active');
-            document.getElementById(`step-i-${currentStep}`).classList.add('active');
-            document.getElementById(`step-i-${currentStep}`).classList.remove('completed');
-
-            const progressLine = document.getElementById('wizard-progress-line');
-            const pct = ((currentStep - 1) / (totalSteps - 1)) * 100;
-            progressLine.style.width = `${pct}%`;
-
-            const btnPrev = document.getElementById('btn-prev');
-            const btnNext = document.getElementById('btn-next');
-            const btnSubmit = document.getElementById('btnSubmitLead');
-
-            if (currentStep === 1) {
-                btnPrev.style.display = 'none';
-            } else {
-                btnPrev.style.display = 'block';
-            }
-
-            if (currentStep === totalSteps) {
-                btnNext.style.display = 'none';
-                btnSubmit.style.display = 'block';
-            } else {
-                btnNext.style.display = 'block';
-                btnSubmit.style.display = 'none';
-            }
-        };
-
-        // Initialize dynamic projects
-        window.addEventListener('DOMContentLoaded', async () => {
-            activeProjects = await fetchProjects();
-            renderProjects(activeProjects);
-
-            // Fetch and render approved testimonials
-            await fetchAndRenderTestimonials();
-
-            // Bind filter events
-            document.getElementById('filter-search').addEventListener('input', filterProjects);
-            document.getElementById('filter-city').addEventListener('change', filterProjects);
-            document.getElementById('filter-status').addEventListener('change', filterProjects);
-
-            // تفعيل أكورديون الأسئلة الشائعة
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                question.addEventListener('click', () => {
-                    const isActive = item.classList.contains('active');
-                    
-                    faqItems.forEach(otherItem => {
-                        otherItem.classList.remove('active');
-                        otherItem.querySelector('.faq-answer').style.maxHeight = null;
-                    });
-
-                    if (!isActive) {
-                        item.classList.add('active');
-                        const answer = item.querySelector('.faq-answer');
-                        answer.style.maxHeight = answer.scrollHeight + "px";
-                    }
-                });
-            });
-
-            // إغلاق مودال البروشور
-            const btnCloseBrochureModal = document.getElementById('btnCloseBrochureModal');
-            if (btnCloseBrochureModal) {
-                btnCloseBrochureModal.addEventListener('click', () => {
-                    document.getElementById('brochureDownloadModal').style.display = 'none';
-                });
-            }
-
-            // معالجة نموذج التقاط عملاء البروشور وتحميله
-            const brochureForm = document.getElementById('brochureLeadForm');
-            if (brochureForm) {
-                brochureForm.addEventListener('submit', async function(e) {
-                    e.preventDefault();
-                    
-                    const btnSubmit = document.getElementById('btnSubmitBrochureForm');
-                    const statusMessage = document.getElementById('brochureStatusMessage');
-                    
-                    btnSubmit.disabled = true;
-                    btnSubmit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري إرسال طلبك والتحميل...';
-                    
-                    statusMessage.style.display = 'none';
-                    statusMessage.style.background = 'none';
-                    statusMessage.style.color = '#fff';
-
-                    const name = document.getElementById('brochure_name').value.trim();
-                    const phone = document.getElementById('brochure_phone').value.trim();
-                    const whatsapp = document.getElementById('brochure_whatsapp').value.trim();
-                    const projName = document.getElementById('brochure_project_name').value;
-                    const brochureUrl = document.getElementById('brochure_pdf_url').value;
-                    const projId = document.getElementById('brochure_project_id').value;
-
-                    // التحقق من صحة البيانات فرونت إند
-                    if (!name || name.length < 3) {
-                        statusMessage.style.display = 'block';
-                        statusMessage.style.background = 'rgba(231, 76, 60, 0.15)';
-                        statusMessage.style.color = '#e74c3c';
-                        statusMessage.innerHTML = ' الاسم بالكامل يجب ألا يقل عن 3 أحرف.';
-                        btnSubmit.disabled = false;
-                        btnSubmit.innerHTML = ' إرسال وتحميل ملف الـ PDF الآن';
-                        return;
-                    }
-
-                    const phoneRegex = /^\+?[0-9\s\-]{9,20}$/;
-                    if (!phoneRegex.test(phone)) {
-                        statusMessage.style.display = 'block';
-                        statusMessage.style.background = 'rgba(231, 76, 60, 0.15)';
-                        statusMessage.style.color = '#e74c3c';
-                        statusMessage.innerHTML = ' رقم الهاتف غير صحيح، يرجى إدخال أرقام فقط (9 أرقام على الأقل).';
-                        btnSubmit.disabled = false;
-                        btnSubmit.innerHTML = ' إرسال وتحميل ملف الـ PDF الآن';
-                        return;
-                    }
-
-                    if (!phoneRegex.test(whatsapp)) {
-                        statusMessage.style.display = 'block';
-                        statusMessage.style.background = 'rgba(231, 76, 60, 0.15)';
-                        statusMessage.style.color = '#e74c3c';
-                        statusMessage.innerHTML = ' رقم الواتساب غير صحيح، يرجى إدخال أرقام فقط (9 أرقام على الأقل).';
-                        btnSubmit.disabled = false;
-                        btnSubmit.innerHTML = ' إرسال وتحميل ملف الـ PDF الآن';
-                        return;
-                    }
-
-                    const formData = {
-                        name: name,
-                        phone: phone,
-                        whatsapp: whatsapp,
-                        email: null,
-                        project_interest: projId ? parseInt(projId) : null,
-                        unit_type: 'Not Specified',
-                        notes: `طلب تحميل بروشور ومخطط مشروع: ${projName}`,
-                        source: 'Web Brochure Download Form',
-                        status: 'new'
-                    };
-
-                    try {
-                        const response = await fetch(`${API_URL}/api/leads`, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(formData)
-                        });
-
-                        const data = await response.json();
-
-                        if (response.ok) {
-                            statusMessage.style.display = 'block';
-                            statusMessage.style.background = 'rgba(46, 204, 113, 0.15)';
-                            statusMessage.style.color = '#2ecc71';
-                            statusMessage.innerHTML = ' تم حفظ بياناتك بنجاح! جاري تحميل المخطط الهندسي والكتالوج الآن...';
-                            
-                            // إرسال تتبع تحويل فيسبوك (Facebook Pixel Conversion)
-                            if (window.fbq) {
-                                fbq('track', 'SubmitApplication', {
-                                    content_name: 'Brochure Gated Download',
-                                    project: projName
-                                });
-                            }
-
-                            // حفظ حالة تقديم البيانات محلياً لتجنب التكرار إذا أراد المستخدم
-                            localStorage.setItem('leadSubmitted', 'true');
- 
-                            // فتح رابط البروشور في نافذة جديدة للتحميل الفوري
-                            window.open(brochureUrl, '_blank');
- 
-                            setTimeout(() => {
-                                document.getElementById('brochureDownloadModal').style.display = 'none';
-                                brochureForm.reset();
-                                statusMessage.style.display = 'none';
-                            }, 3000);
-
-                        } else {
-                            throw new Error(data.error || 'حدث خطأ أثناء تسجيل طلبك، يرجى المحاولة لاحقاً.');
-                        }
-                    } catch (error) {
-                        const isNetworkError = error.message.includes('fetch') || error.message.includes('Network') || error.message.includes('Failed');
-                        if (isNetworkError) {
-                            try {
-                                const savedLeads = JSON.parse(localStorage.getItem('offline_demo_leads') || '[]');
-                                savedLeads.push({ ...formData, created_at: new Date().toISOString() });
-                                localStorage.setItem('offline_demo_leads', JSON.stringify(savedLeads));
-                            } catch(e){}
-
-                            statusMessage.style.display = 'block';
-                            statusMessage.style.background = 'rgba(46, 204, 113, 0.15)';
-                            statusMessage.style.color = '#2ecc71';
-                            statusMessage.innerHTML = ' تم حفظ بياناتك بنجاح! جاري تحميل المخطط الهندسي والكتالوج الآن...';
-                            if (brochureUrl) window.open(brochureUrl, '_blank');
-                            setTimeout(() => {
-                                document.getElementById('brochureDownloadModal').style.display = 'none';
-                                brochureForm.reset();
-                                statusMessage.style.display = 'none';
-                            }, 3000);
-                        } else {
-                            statusMessage.style.display = 'block';
-                            statusMessage.style.background = 'rgba(231, 76, 60, 0.15)';
-                            statusMessage.style.color = '#e74c3c';
-                            statusMessage.innerHTML = ' عذراً: ' + error.message;
-                        }
-                    } finally {
-                        btnSubmit.disabled = false;
-                        btnSubmit.innerHTML = ' إرسال وتحميل ملف الـ PDF الآن';
-                    }
-                });
-            }
-        });
-
-        document.getElementById('leadCaptureForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const btnSubmit = document.getElementById('btnSubmitLead');
-            const statusMessage = document.getElementById('formStatusMessage');
-            
-            btnSubmit.disabled = true;
-            btnSubmit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري تسجيل طلبك...';
-            
-            statusMessage.className = 'form-message';
-            statusMessage.style.display = 'none';
-
-            const name = document.getElementById('lead_name').value.trim();
-            const phone = document.getElementById('lead_phone').value.trim();
-            const whatsapp = document.getElementById('lead_whatsapp').value.trim();
-            const email = document.getElementById('lead_email').value.trim();
-
-            // التحقق من صحة البيانات فرونت إند
-            if (!name || name.length < 3) {
-                statusMessage.className = 'form-message error';
-                statusMessage.innerHTML = ' الاسم بالكامل يجب ألا يقل عن 3 أحرف.';
-                statusMessage.style.display = 'block';
-                btnSubmit.disabled = false;
-                btnSubmit.innerHTML = 'إرسال البيانات والتسجيل';
-                return;
-            }
-
-            const phoneRegex = /^\+?[0-9\s\-]{9,20}$/;
-            if (!phoneRegex.test(phone)) {
-                statusMessage.className = 'form-message error';
-                statusMessage.innerHTML = ' رقم الهاتف غير صحيح، يرجى إدخال أرقام فقط (9 أرقام على الأقل).';
-                statusMessage.style.display = 'block';
-                btnSubmit.disabled = false;
-                btnSubmit.innerHTML = 'إرسال البيانات والتسجيل';
-                return;
-            }
-
-            if (!phoneRegex.test(whatsapp)) {
-                statusMessage.className = 'form-message error';
-                statusMessage.innerHTML = ' رقم الواتساب غير صحيح، يرجى إدخال أرقام فقط (9 أرقام على الأقل).';
-                statusMessage.style.display = 'block';
-                btnSubmit.disabled = false;
-                btnSubmit.innerHTML = 'إرسال البيانات والتسجيل';
-                return;
-            }
-
-            const budgetSelected = document.getElementById('wizard_budget').value;
-            const fullNotes = `الميزانية المقترحة: ${budgetSelected}\nملاحظات العميل: ${document.getElementById('lead_notes').value.trim()}`;
-
-            const formData = {
-                name: name,
-                phone: phone,
-                whatsapp: whatsapp,
-                email: email || null,
-                project_interest: parseInt(document.getElementById('wizard_project').value),
-                unit_type: document.getElementById('wizard_unit_type').value,
-                notes: fullNotes,
-                source: 'Web Landing Page',
-                status: 'new'
-            };
-
-            try {
-                const response = await fetch(`${API_URL}/api/leads`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    statusMessage.classList.add('success');
-                    statusMessage.innerHTML = ' تم تسجيل بياناتك وخطة استثمارك بنجاح! سيتواصل معك أحد مستشارينا العقاريين خلال دقائق لتوضيح الأسعار والتقسيط المتاح.';
-                    statusMessage.style.display = 'block';
-
-                    // إرسال تتبع تحويل فيسبوك (Facebook Pixel Conversion)
-                    if (window.fbq) {
-                        fbq('track', 'Lead', {
-                            content_name: 'Wizard Form Submission',
-                            value: 0.00,
-                            currency: 'EGP'
-                        });
-                    }
-                    
-                    setTimeout(() => {
-                        document.getElementById('leadCaptureForm').reset();
-                        document.querySelectorAll('.seg-card').forEach(c => c.classList.remove('selected'));
-                        document.getElementById('wizard_unit_type').value = '';
-                        document.getElementById('wizard_project').value = '';
-                        document.getElementById('wizard_budget').value = '';
-                        
-                        document.getElementById(`step-${currentStep}`).classList.remove('active');
-                        document.getElementById(`step-i-${currentStep}`).classList.remove('active');
-                        document.getElementById(`step-i-${currentStep}`).classList.remove('completed');
-                        currentStep = 1;
-                        document.getElementById('step-1').classList.add('active');
-                        document.getElementById('step-i-1').classList.add('active');
-                        document.getElementById('btn-prev').style.display = 'none';
-                        document.getElementById('btn-next').style.display = 'block';
-                        btnSubmit.style.display = 'none';
-                        document.getElementById('wizard-progress-line').style.width = '0%';
-                        statusMessage.style.display = 'none';
-                    }, 4000);
-
-                } else {
-                    throw new Error(data.error || 'حدث خطأ أثناء إرسال البيانات، يرجى المحاولة مرة أخرى.');
-                }
-            } catch (error) {
-                const isNetworkError = error.message.includes('fetch') || error.message.includes('Network') || error.message.includes('Failed');
-                if (isNetworkError) {
-                    try {
-                        const savedLeads = JSON.parse(localStorage.getItem('offline_demo_leads') || '[]');
-                        savedLeads.push({ ...formData, created_at: new Date().toISOString() });
-                        localStorage.setItem('offline_demo_leads', JSON.stringify(savedLeads));
-                    } catch(e){}
-
-                    statusMessage.className = 'form-message success';
-                    statusMessage.innerHTML = ' تم تسجيل بياناتك وخطة استثمارك بنجاح! سيتواصل معك أحد مستشارينا العقاريين خلال دقائق لتوضيح الأسعار والتقسيط المتاح.';
-                    statusMessage.style.display = 'block';
-
-                    setTimeout(() => {
-                        document.getElementById('leadCaptureForm').reset();
-                        document.querySelectorAll('.seg-card').forEach(c => c.classList.remove('selected'));
-                        document.getElementById('wizard_unit_type').value = '';
-                        document.getElementById('wizard_project').value = '';
-                        document.getElementById('wizard_budget').value = '';
-                        
-                        document.getElementById(`step-${currentStep}`).classList.remove('active');
-                        document.getElementById(`step-i-${currentStep}`).classList.remove('active');
-                        document.getElementById(`step-i-${currentStep}`).classList.remove('completed');
-                        currentStep = 1;
-                        document.getElementById('step-1').classList.add('active');
-                        document.getElementById('step-i-1').classList.add('active');
-                        document.getElementById('btn-prev').style.display = 'none';
-                        document.getElementById('btn-next').style.display = 'block';
-                        btnSubmit.style.display = 'none';
-                        document.getElementById('wizard-progress-line').style.width = '0%';
-                        statusMessage.style.display = 'none';
-                    }, 4000);
-                } else {
-                    statusMessage.className = 'form-message error';
-                    statusMessage.innerHTML = ' عذراً: ' + error.message;
-                    statusMessage.style.display = 'block';
-                }
-            } finally {
-                btnSubmit.disabled = false;
-                btnSubmit.innerHTML = 'إرسال البيانات والتسجيل';
-            }
-        });
-
-        // --- 9. DYNAMIC THEME SYSTEM SWITCHER (PETROLEUM & GOLD / WHITE & GOLD) ---
+        // ===== THEME TOGGLE =====
         const themeBtn = document.getElementById('theme-switcher-btn');
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'white-gold') document.documentElement.classList.add('theme-white-gold');
         if (themeBtn) {
-            // Apply saved theme on load
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'white-gold') {
-                document.documentElement.classList.add('theme-white-gold');
-            }
-
             themeBtn.addEventListener('click', () => {
                 const isWhite = document.documentElement.classList.toggle('theme-white-gold');
                 localStorage.setItem('theme', isWhite ? 'white-gold' : 'petroleum-gold');
             });
         }
 
-        // --- Category filtering helper ---
-        function filterProjectsByCategory(cat) {
-            const cityFilter = document.getElementById('filter-city');
-            if (!cityFilter) return;
-            if (cat === 'residential') cityFilter.value = 'التجمع';
-            else if (cat === 'commercial') cityFilter.value = 'بسيون';
-            else cityFilter.value = 'all';
-            
-            const event = new Event('change');
-            cityFilter.dispatchEvent(event);
+        // ===== PRIVACY BANNER =====
+        if (localStorage.getItem('engaz_privacy') === '1') {
+            const b = document.getElementById('privacy-banner');
+            if (b) b.style.display = 'none';
         }
 
-        // --- 10. FACEBOOK PIXEL CUSTOM TRACKING EVENTS ---
-        // Track WhatsApp Button Click
-        const whatsappBtn = document.getElementById('floating-whatsapp-btn');
-        if (whatsappBtn) {
-            whatsappBtn.addEventListener('click', () => {
-                if (window.fbq) fbq('track', 'Contact', { content_name: 'WhatsApp Floating Button' });
-            });
-        }
-        document.querySelectorAll('.btn-branch-contact').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const branchTitle = btn.closest('.branch-card')?.querySelector('.branch-title')?.textContent || 'Branch';
-                if (window.fbq) fbq('track', 'Contact', { content_name: `WhatsApp Branch: ${branchTitle}` });
-            });
-        });
+        // ===== QUICK LEAD FORM =====
+        const API_URL = 'https://crm-engaz-api.engazdevelopments.com';
 
-        // --- 11. SCROLL-TRIGGERED ANIMATIONS VIA INTERSECTION OBSERVER ---
-        document.addEventListener('DOMContentLoaded', () => {
-            // Select elements to animate dynamically on scroll
-            const animateTargets = [
-                '.project-card',
-                '.testimonial-card',
-                '.branch-card',
-                '.partner-logo-box',
-                '.section-title',
-                '.section-subtitle',
-                '.about-text',
-                '.stat-item',
-                '.segmented-grid',
-                '.wizard-step-container',
-                '.previous-project-card'
-            ];
-            
-            animateTargets.forEach(sel => {
-                document.querySelectorAll(sel).forEach(el => {
-                    el.classList.add('animate-on-scroll');
-                });
-            });
+        async function submitQuickLead(e) {
+            e.preventDefault();
+            const btn = document.getElementById('qlSubmitBtn');
+            const msg = document.getElementById('qlMessage');
+            const name = document.getElementById('ql_name').value.trim();
+            const phone = document.getElementById('ql_phone').value.trim();
+            const interest = document.getElementById('ql_interest').value;
+            const city = document.getElementById('ql_city').value;
 
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
+            if (!name || name.length < 2) {
+                showMsg(msg, 'يرجى إدخال الاسم بشكل صحيح.', 'error');
+                return;
+            }
+            if (!/^[0-9+\s\-]{9,}$/.test(phone)) {
+                showMsg(msg, 'يرجى إدخال رقم هاتف صحيح.', 'error');
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري الإرسال...';
+            msg.style.display = 'none';
+
+            const payload = {
+                name, phone, whatsapp: phone,
+                source: 'Homepage Quick Form',
+                notes: `اهتمام: ${interest || 'غير محدد'} — المدينة: ${city || 'غير محددة'}`,
+                status: 'new'
             };
 
-            const scrollObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target); // Animate once
-                    }
+            try {
+                const res = await fetch(`${API_URL}/api/leads`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
                 });
-            }, observerOptions);
-
-            document.querySelectorAll('.animate-on-scroll').forEach(el => {
-                scrollObserver.observe(el);
-            });
-        });
-
-        // --- 12. DISCOUNT LEAD MAGNET POPUP MODAL ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const popup = document.getElementById('discountLeadMagnetModal');
-            const closeBtn = document.getElementById('btnCloseDiscountModal');
-            const form = document.getElementById('discountLeadForm');
-            const statusMsg = document.getElementById('discountStatusMessage');
-
-            if (!popup) return;
-
-            // Close modal when clicking anywhere outside on dark overlay
-            document.querySelectorAll('.modal-overlay').forEach(overlay => {
-                overlay.addEventListener('click', (e) => {
-                    if (e.target === overlay) {
-                        overlay.style.display = 'none';
-                    }
-                });
-            });
-
-            const handleScroll = () => {
-                // Raise scroll threshold to 1500px so it doesn't interrupt mobile readers immediately
-                const threshold = window.innerWidth <= 768 ? 1600 : 800;
-                if (window.scrollY > threshold) {
-                    if (!sessionStorage.getItem('discount_popup_shown')) {
-                        popup.style.display = 'flex';
-                        sessionStorage.setItem('discount_popup_shown', 'true');
-                    }
-                    window.removeEventListener('scroll', handleScroll);
-                }
-            };
-            window.addEventListener('scroll', handleScroll);
-
-            closeBtn.addEventListener('click', () => {
-                popup.style.display = 'none';
-            });
-
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const name = document.getElementById('discount_name').value;
-                const phone = document.getElementById('discount_phone').value;
-                const email = document.getElementById('discount_email').value;
-                const submitBtn = document.getElementById('btnSubmitDiscountForm');
-
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'جاري الحفظ وإرسال كود الخصم...';
-                statusMsg.style.display = 'none';
-
+                if (!res.ok) throw new Error('server');
+                if (window.fbq) fbq('track', 'Lead', { content_name: 'Homepage Quick Form' });
+                showMsg(msg, '✅ تم تسجيل طلبك! سيتواصل معك مستشارنا خلال دقائق.', 'success');
+                document.getElementById('quickLeadForm').reset();
+            } catch (err) {
+                // Offline fallback
                 try {
-                    const response = await fetch(`${API_URL}/api/leads`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            name: name,
-                            phone: phone,
-                            whatsapp: phone,
-                            email: email,
-                            source: 'Website Popup',
-                            notes: 'طلب كود الخصم ENGAZ10 عبر نافذة الماركتنج المنبثقة الترحيبية.'
-                        })
-                    });
+                    const leads = JSON.parse(localStorage.getItem('offline_leads') || '[]');
+                    leads.push({ ...payload, created_at: new Date().toISOString() });
+                    localStorage.setItem('offline_leads', JSON.stringify(leads));
+                } catch(_) {}
+                showMsg(msg, '✅ تم تسجيل طلبك! سيتواصل معك مستشارنا خلال دقائق.', 'success');
+                document.getElementById('quickLeadForm').reset();
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> احجز الاستشارة المجانية';
+            }
+        }
 
-                    if (!response.ok) {
-                        throw new Error(await response.text());
-                    }
+        function showMsg(el, text, type) {
+            el.textContent = text;
+            el.style.display = 'block';
+            el.style.background = type === 'success' ? 'rgba(16,185,129,0.12)' : 'rgba(239,68,68,0.12)';
+            el.style.color = type === 'success' ? '#10b981' : '#ef4444';
+            el.style.border = `1px solid ${type === 'success' ? '#10b981' : '#ef4444'}`;
+            el.style.borderRadius = '10px';
+            el.style.padding = '0.75rem 1rem';
+            el.style.fontWeight = '600';
+        }
 
-                    if (window.fbq) {
-                        fbq('track', 'Lead', {
-                            content_name: 'Lead Magnet Popup',
-                            status: 'Discount Claimed'
-                        });
-                    }
-
-                    statusMsg.style.display = 'block';
-                    statusMsg.style.background = 'rgba(16, 185, 129, 0.1)';
-                    statusMsg.style.color = '#10b981';
-                    statusMsg.style.border = '1px solid #10b981';
-                    statusMsg.innerHTML = ' تم إرسال كود الخصم بنجاح! كود الخصم الخاص بك هو <strong>ENGAZ10</strong>.';
-
-                    submitBtn.disabled = false;
-                    submitBtn.style.background = '#25D366';
-                    submitBtn.style.color = '#fff';
-                    submitBtn.innerHTML = '<i class="fa-brands fa-whatsapp"></i> تفعيل الخصم وبدء المحادثة الفورية';
-                    submitBtn.onclick = (event) => {
-                        event.preventDefault();
-                        window.open(`https://api.whatsapp.com/send?phone=201030405054&text=${encodeURIComponent('أهلاً إنجاز، لقد حصلت على كود الخصم ENGAZ10 من الموقع الترحيبي، واسمي ' + name + '. أود تفعيله ومعرفة تفاصيل مشاريعكم.')}`, '_blank');
-                    };
-                } catch (err) {
-                    const isNetworkError = err.message.includes('fetch') || err.message.includes('Network') || err.message.includes('Failed');
-                    if (isNetworkError) {
-                        try {
-                            const savedLeads = JSON.parse(localStorage.getItem('offline_demo_leads') || '[]');
-                            savedLeads.push({ name, phone, email, source: 'Website Popup', notes: 'طلب كود الخصم ENGAZ10 عبر نافذة الماركتنج المنبثقة الترحيبية.', created_at: new Date().toISOString() });
-                            localStorage.setItem('offline_demo_leads', JSON.stringify(savedLeads));
-                        } catch(e){}
-
-                        statusMsg.style.display = 'block';
-                        statusMsg.style.background = 'rgba(16, 185, 129, 0.1)';
-                        statusMsg.style.color = '#10b981';
-                        statusMsg.style.border = '1px solid #10b981';
-                        statusMsg.innerHTML = ' تم إرسال كود الخصم بنجاح! كود الخصم الخاص بك هو <strong>ENGAZ10</strong>.';
-
-                        submitBtn.disabled = false;
-                        submitBtn.style.background = '#25D366';
-                        submitBtn.style.color = '#fff';
-                        submitBtn.innerHTML = '<i class="fa-brands fa-whatsapp"></i> تفعيل الخصم وبدء المحادثة الفورية';
-                        submitBtn.onclick = (event) => {
-                            event.preventDefault();
-                            window.open(`https://api.whatsapp.com/send?phone=201030405054&text=${encodeURIComponent('أهلاً إنجاز، لقد حصلت على كود الخصم ENGAZ10 من الموقع الترحيبي، واسمي ' + name + '. أود تفعيله ومعرفة تفاصيل مشاريعكم.')}`, '_blank');
-                        };
-                    } else {
-                        submitBtn.disabled = false;
-                        submitBtn.textContent = ' احصل على الخصم الفوري وتفاصيل العرض';
-                        statusMsg.style.display = 'block';
-                        statusMsg.style.background = 'rgba(239, 68, 68, 0.1)';
-                        statusMsg.style.color = '#ef4444';
-                        statusMsg.style.border = '1px solid #ef4444';
-                        statusMsg.textContent = 'حدث خطأ: ' + err.message;
-                    }
+        // ===== SECTION CARDS ENTRANCE ANIMATION =====
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
                 }
             });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section-card, .why-item, .strip-stat').forEach((el, i) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(24px)';
+            el.style.transition = `opacity 0.5s ease ${i * 0.08}s, transform 0.5s ease ${i * 0.08}s`;
+            observer.observe(el);
         });
 
-        function updateBeforeAfterSlider(val) {
-            const afterImg = document.getElementById('sliderAfterImg');
-            const divider = document.getElementById('sliderDividerLine');
-            if (afterImg && divider) {
-                afterImg.style.clipPath = 'polygon(0 0, ' + val + '% 0, ' + val + '% 100%, 0 100%)';
-                divider.style.left = val + '%';
-            }
-        }
-
-        const beforeAfterData = {
-            fayrouz: {
-                before: 'images/fayrouz-tower-opt.jpg',
-                after: 'images/el-fayrouz-tower-after-engaz-developments.jpg'
-            },
-            sidnawy: {
-                before: 'images/sednawy-before.jpg',
-                after: 'images/sednawy-mall-hd.jpg'
-            },
-            teachers: {
-                before: 'images/teachers-syndicate-opt.jpg',
-                after: 'images/teachers-syndicate-night.jpg'
-            },
-            mansoura: {
-                before: 'images/mansoura-villas-opt.jpg',
-                after: 'images/new-mansoura-villas-after-engaz-developments.jpg'
-            }
-        };
-
-        window.switchBeforeAfterProject = function(projectId) {
-            const data = beforeAfterData[projectId];
-            if (!data) return;
-            
-            document.querySelectorAll('.before-after-selector .btn-before-after').forEach(btn => btn.classList.remove('active'));
-            document.getElementById('tab-ba-' + projectId).classList.add('active');
-            
-            const beforeImg = document.querySelector('.before-img img');
-            const afterImg = document.querySelector('.after-img img');
-            
-            if (beforeImg && afterImg) {
-                beforeImg.src = data.before;
-                afterImg.src = data.after;
-            }
-            
-            const range = document.getElementById('beforeAfterRange');
-            if (range) {
-                range.value = 50;
-                updateBeforeAfterSlider(50);
-            }
-        };
-
-        window.filterPortfolio = function(category, element) {
-            document.querySelectorAll('#portfolio-filters .btn-before-after').forEach(btn => btn.classList.remove('active'));
-            element.classList.add('active');
-            
-            const cards = document.querySelectorAll('#portfolio-grid .previous-project-card');
-            cards.forEach(card => {
-                const cardCat = card.getAttribute('data-category');
-                if (category === 'all' || cardCat === category) {
-                    card.style.display = 'block';
-                    setTimeout(() => card.style.opacity = '1', 50);
-                } else {
-                    card.style.opacity = '0';
-                    setTimeout(() => card.style.display = 'none', 300);
-                }
-            });
-        };
+        // WhatsApp tracking
+        const wa = document.getElementById('floating-whatsapp-btn');
+        if (wa) wa.addEventListener('click', () => { if(window.fbq) fbq('track','Contact',{content_name:'WhatsApp Float'}); });
     </script>
-
-    <!-- Sleek Mobile Sticky Contact Bar -->
-    <div class="mobile-sticky-contact-bar">
-        <a href="tel:201030405054" class="sticky-contact-item call">
-            <i class="fa-solid fa-phone"></i>
-            <span>اتصل بنا</span>
-        </a>
-        <a href="https://wa.me/201030405054" class="sticky-contact-item whatsapp" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-whatsapp"></i>
-            <span>واتساب</span>
-        </a>
-        <button class="sticky-contact-item consult" onclick="document.getElementById('register-interest').scrollIntoView({behavior: 'smooth'})">
-            <i class="fa-solid fa-calendar-check"></i>
-            <span>طلب استشارة</span>
-        </button>
-    </div>
-
-    <!-- Privacy Policy & Cookie Consent Notification -->
-    <div id="privacy-consent-banner" style="position: fixed; bottom: 20px; right: 20px; left: 20px; max-width: 480px; margin: 0 auto; background: rgba(6, 20, 30, 0.95); border: 1px solid var(--accent-gold); border-radius: 16px; padding: 16px 20px; backdrop-filter: blur(15px); box-shadow: 0 10px 30px rgba(0,0,0,0.6); z-index: 99999; display: flex; align-items: center; justify-content: space-between; gap: 15px; font-size: 0.85rem; color: #b0cdd8; transition: all 0.4s ease;">
-        <div>
-            <strong style="color: #fff; display: block; margin-bottom: 2px; font-size: 0.9rem;">حماية البيانات والخصوصية</strong>
-            نستخدم تقنيات التصفح الآمنة لتقديم أفضل تجربة عقارية واستثمارية.
-        </div>
-        <button onclick="document.getElementById('privacy-consent-banner').style.display='none'; localStorage.setItem('engaz_privacy_accepted', '1');" style="background: var(--gold-gradient); border: none; color: #000; font-weight: 800; padding: 8px 16px; border-radius: 8px; cursor: pointer; white-space: nowrap; font-size: 0.82rem;">موافق</button>
-    </div>
-    <script>
-        if(localStorage.getItem('engaz_privacy_accepted') === '1') {
-            document.addEventListener('DOMContentLoaded', () => {
-                const b = document.getElementById('privacy-consent-banner');
-                if(b) b.style.display = 'none';
-            });
-        }
-    </script>
-
 </body>
 </html>
