@@ -1,4 +1,4 @@
-﻿const https = require('https');
+const https = require('https');
 
 const data = JSON.stringify({
   host: 'engazdevelopments.com',
@@ -35,11 +35,11 @@ endpoints.forEach(endpoint => {
   };
 
   const req = https.request(options, (res) => {
-    console.log([IndexNow]  - Status Code: );
+    console.log('[IndexNow] ' + endpoint.host + ' - Status Code: ' + res.statusCode);
   });
 
   req.on('error', (e) => {
-    console.error([IndexNow] Error for :, e.message);
+    console.error('[IndexNow] Error for ' + endpoint.host + ': ' + e.message);
   });
 
   req.write(data);
