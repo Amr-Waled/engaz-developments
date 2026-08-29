@@ -14,7 +14,8 @@
     {
       "@type": "PostalAddress",
       "name": "المقر الرئيسي - فرع طنطا",
-      "streetAddress": "شارع الجيش، مول طنطا تاون",
+      "streetAddress": "برج دلتا سيتي مول، شارع البحر، إشارة النحاس",
+      "postalCode": "31511",
       "addressLocality": "طنطا",
       "addressRegion": "الغربية",
       "addressCountry": "EG"
