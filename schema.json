@@ -4,19 +4,45 @@
   "name": "Engaz Developments إنجاز للتطوير العقاري",
   "alternateName": "Engaz Developments",
   "slogan": "Engaz Developments.. وده إنجازنا",
-  "url": "https://Amr-Waled.github.io/engaz-developments/",
-  "logo": "https://Amr-Waled.github.io/engaz-developments/images/logo.png",
-  "image": "https://Amr-Waled.github.io/engaz-developments/images/logo.png",
-  "description": "شركة إنجاز للتطوير العقاري (Engaz Developments)، مطور عقاري رائد في مصر متخصص في تشييد وتطوير المشاريع السكنية الراقية بربوة التجمع والمراكز التجارية والطبية بالدلتا (طنطا وبسيون).",
-  "telephone": "+201030405054",
+  "url": "https://engazdevelopments.com",
+  "logo": "https://engazdevelopments.com/images/logo_engaz.png",
+  "image": "https://engazdevelopments.com/images/logo_engaz.png",
+  "description": "شركة إنجاز للتطوير العقاري (Engaz Developments)، مطور عقاري رائد في مصر متخصص في تشييد وتطوير المشاريع السكنية الراقية بربوة التجمع والمراكز التجارية والطبية بالدلتا (طنطا وبسيون)، وفرع رسمي بالرياض لخدمة المستثمرين بالخليج.",
+  "telephone": "+201070207080",
   "email": "engaz.com2020@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "شارع الجيش، مول طنطا تاون",
-    "addressLocality": "Tanta",
-    "addressRegion": "Gharbia",
-    "addressCountry": "EG"
-  },
+  "address": [
+    {
+      "@type": "PostalAddress",
+      "name": "المقر الرئيسي - فرع طنطا",
+      "streetAddress": "شارع الجيش، مول طنطا تاون",
+      "addressLocality": "طنطا",
+      "addressRegion": "الغربية",
+      "addressCountry": "EG"
+    },
+    {
+      "@type": "PostalAddress",
+      "name": "فرع القاهرة والتجمع الخامس",
+      "streetAddress": "ربوة التجمع الخامس",
+      "addressLocality": "القاهرة الجديدة",
+      "addressRegion": "القاهرة",
+      "addressCountry": "EG"
+    },
+    {
+      "@type": "PostalAddress",
+      "name": "فرع بسيون",
+      "streetAddress": "شارع 23 يوليو، بجوار نقابة المعلمين ومول صيدناوي",
+      "addressLocality": "بسيون",
+      "addressRegion": "الغربية",
+      "addressCountry": "EG"
+    },
+    {
+      "@type": "PostalAddress",
+      "name": "فرع الرياض",
+      "streetAddress": "حي الياسمين، طريق الملك عبدالعزيز",
+      "addressLocality": "الرياض",
+      "addressCountry": "SA"
+    }
+  ],
   "geo": {
     "@type": "GeoCoordinates",
     "latitude": "30.7865",
@@ -37,7 +63,10 @@
   },
   "sameAs": [
     "https://www.facebook.com/Engazrealestate.eg/",
-    "https://www.instagram.com/engazdevelopments/"
+    "https://www.instagram.com/engazdevelopments/",
+    "https://www.tiktok.com/@engazdevelopments",
+    "https://www.linkedin.com/company/engaz-developments",
+    "https://crm.engazdevelopments.com"
   ],
   "areaServed": [
     {

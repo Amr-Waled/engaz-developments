@@ -14,10 +14,12 @@ if (!fs.existsSync(KEY_FILE)) {
 
 // الروابط التي نريد إجبار جوجل على أرشفتها فوراً
 const urlsToPing = [
-    'https://amr-waled.github.io/',
-    'https://amr-waled.github.io/llms.txt',
-    'https://amr-waled.github.io/engaz-developments/',
-    'https://amr-waled.github.io/engaz-developments/llms.txt'
+    'https://engazdevelopments.com/',
+    'https://engazdevelopments.com/llms.txt',
+    'https://engazdevelopments.com/projects.html',
+    'https://engazdevelopments.com/about.html',
+    'https://engazdevelopments.com/portfolio.html',
+    'https://engazdevelopments.com/contact.html'
 ];
 
 async function pingGoogle() {
