@@ -97,7 +97,7 @@
     <header>
         <a href="index.html" class="nav-link-active" class="logo-area" style="display: flex; align-items: center; gap: 14px; text-decoration: none;">
             <div class="logo-img-wrapper" style="width: 54px; height: 54px; border-radius: 14px; background: #fff; border: 1.5px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 4px 20px rgba(184, 149, 46, 0.35); transition: transform 0.3s ease;">
-                <img src="images/logo_engaz.png" alt="ENGAZ Logo" style="width: 100%; height: 100%; object-fit: contain; padding: 4px;">
+                <img src="images/logo_engaz.png" alt="ENGAZ Logo" style="width: 100%; height: 100%; object-fit: contain; padding: 4px;" loading="eager">
             </div>
             <div class="logo-text">
                 <h1 style="color: var(--text-primary, #fff); font-weight: 900; font-size: 1.4rem; margin: 0; letter-spacing: -0.5px; line-height: 1.1;">ENGAZ</h1>
@@ -119,13 +119,13 @@
     <main>
 <div class="hero-slider-container">
         <div class="hero-slide active">
-            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1600&auto=format&fit=crop&q=80" class="slide-img" alt="Luxury Real Estate 1">
+            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1600&auto=format&fit=crop&q=80" class="slide-img" alt="Luxury Real Estate 1" loading="lazy" decoding="async">
         </div>
         <div class="hero-slide">
-            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600&auto=format&fit=crop&q=80" class="slide-img" alt="Luxury Real Estate 2">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600&auto=format&fit=crop&q=80" class="slide-img" alt="Luxury Real Estate 2" loading="lazy" decoding="async">
         </div>
         <div class="hero-slide">
-            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1600&auto=format&fit=crop&q=80" class="slide-img" alt="Luxury Real Estate 3">
+            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1600&auto=format&fit=crop&q=80" class="slide-img" alt="Luxury Real Estate 3" loading="lazy" decoding="async">
         </div>
 
         <div class="hero-overlay-content">
@@ -380,12 +380,12 @@
             <div class="before-after-container">
                 <!-- Before Image (Render) -->
                 <div class="before-img" style="position: absolute; top:0; left:0; width:100%; height:100%;">
-                    <img src="images/el-fayrouz-tower-before-engaz-developments.jpg" loading="lazy" style="width:100%; height:100%; object-fit: cover;" alt="تصميم ثلاثي الأبعاد">
+                    <img src="images/el-fayrouz-tower-before-engaz-developments.jpg" loading="lazy" style="width:100%; height:100%; object-fit: cover;" alt="تصميم ثلاثي الأبعاد" decoding="async">
                     <span style="position: absolute; top: 15px; left: 15px; background: rgba(0,0,0,0.8); color: var(--accent-gold); padding: 6px 12px; border-radius: 4px; font-weight: 700; font-size: 0.75rem; z-index: 10;"> التصميم الهندسي المقترح</span>
                 </div>
                 <!-- After Image (Reality) -->
                 <div class="after-img" id="sliderAfterImg" style="position: absolute; top:0; left:0; width:100%; height:100%; clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); transition: clip-path 0.05s linear;">
-                    <img src="images/el-fayrouz-tower-after-engaz-developments.jpg" loading="lazy" style="width:100%; height:100%; object-fit: cover;" alt="الواقع الفعلي">
+                    <img src="images/el-fayrouz-tower-after-engaz-developments.jpg" loading="lazy" style="width:100%; height:100%; object-fit: cover;" alt="الواقع الفعلي" decoding="async">
                     <span style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); color: #10b981; padding: 6px 12px; border-radius: 4px; font-weight: 700; font-size: 0.75rem; z-index: 10;">️ الصورة الفعلية من أرض الواقع</span>
                 </div>
                 <!-- Range Control -->
@@ -410,7 +410,7 @@
             <!-- 1. تاون مول طنطا (Tanta Town Mall) -->
             <div class="previous-project-card animate-on-scroll" data-category="commercial" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; overflow: hidden; transition: all 0.4s ease;">
                 <div style="height: 220px; overflow: hidden; position: relative;">
-                    <img src="images/tanta-town-mall-hd.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" alt="تاون مول طنطا تجاري إداري طبي" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+                    <img src="images/tanta-town-mall-hd.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" alt="تاون مول طنطا تجاري إداري طبي" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" decoding="async">
                 </div>
                 <div style="padding: 1.5rem;">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
@@ -428,7 +428,7 @@
             <!-- 2. فلل المنصورة الجديدة -->
             <div class="previous-project-card animate-on-scroll" data-category="tourism" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; overflow: hidden; transition: all 0.4s ease;">
                 <div style="height: 220px; overflow: hidden; position: relative;">
-                    <img src="images/mansoura-villas-opt.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" alt="فلل المنصورة الجديدة" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+                    <img src="images/mansoura-villas-opt.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" alt="فلل المنصورة الجديدة" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" decoding="async">
                 </div>
                 <div style="padding: 1.5rem;">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
@@ -446,7 +446,7 @@
             <!-- 3. مشروع نقابة المعلمين ببسيون -->
             <div class="previous-project-card animate-on-scroll" data-category="commercial" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; overflow: hidden; transition: all 0.4s ease;">
                 <div style="height: 220px; overflow: hidden; position: relative;">
-                    <img src="images/teachers-syndicate-opt.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" alt="برج النقابة التجاري والإداري بسيون" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+                    <img src="images/teachers-syndicate-opt.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" alt="برج النقابة التجاري والإداري بسيون" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" decoding="async">
                 </div>
                 <div style="padding: 1.5rem;">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
@@ -464,7 +464,7 @@
             <!-- 4. مشروع H151 - ربوة التجمع -->
             <div class="previous-project-card animate-on-scroll" data-category="residential" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; overflow: hidden; transition: all 0.4s ease;">
                 <div style="height: 220px; overflow: hidden; position: relative;">
-                    <img src="images/h151-real-hd.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" alt="مشروع H151 ربوة التجمع" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+                    <img src="images/h151-real-hd.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" alt="مشروع H151 ربوة التجمع" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" decoding="async">
                 </div>
                 <div style="padding: 1.5rem;">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
@@ -482,7 +482,7 @@
             <!-- 5. برج الفيروز (مدينة تلا - مباع بالكامل 100%) -->
             <div class="previous-project-card animate-on-scroll" data-category="commercial" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; overflow: hidden; transition: all 0.4s ease;">
                 <div style="height: 220px; overflow: hidden; position: relative;">
-                    <img src="images/fayrouz-tower-opt.jpg" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" alt="برج الفيروز التجاري والإداري" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+                    <img src="images/fayrouz-tower-opt.jpg" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" alt="برج الفيروز التجاري والإداري" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" loading="lazy" decoding="async">
                 </div>
                 <div style="padding: 1.5rem;">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
@@ -500,7 +500,7 @@
             <!-- 6. مشروع رأس البر السياحي السكني -->
             <div class="previous-project-card animate-on-scroll" data-category="tourism" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; overflow: hidden; transition: all 0.4s ease;">
                 <div style="height: 220px; overflow: hidden; position: relative;">
-                    <img src="images/ras-el-bar-opt.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" alt="مشروع رأس البر" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+                    <img src="images/ras-el-bar-opt.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" alt="مشروع رأس البر" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" decoding="async">
                 </div>
                 <div style="padding: 1.5rem;">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
@@ -518,7 +518,7 @@
             <!-- 8. مشروع إنجاز النادي -->
             <div class="previous-project-card animate-on-scroll" data-category="commercial" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; overflow: hidden; transition: all 0.4s ease;">
                 <div style="height: 220px; overflow: hidden; position: relative;">
-                    <img src="images/teachers-syndicate-night.jpg" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" alt="مشروع إنجاز النادي" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+                    <img src="images/teachers-syndicate-night.jpg" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" alt="مشروع إنجاز النادي" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" loading="lazy" decoding="async">
                 </div>
                 <div style="padding: 1.5rem;">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
@@ -839,7 +839,7 @@
     <div class="modal-overlay" id="projectDetailsModal">
         <div class="modal-card">
             <span class="modal-close-btn" id="btnCloseModal"></span>
-            <img src="" class="modal-header-img" id="modalProjectImg" alt="Project Image">
+            <img src="" class="modal-header-img" id="modalProjectImg" alt="Project Image" loading="lazy" decoding="async">
             <div class="modal-body">
                 <h3 class="modal-title" id="modalProjectTitle">اسم المشروع</h3>
                 <div class="modal-subtitle" id="modalProjectSubtitle">الموقع والمطور</div>
@@ -987,7 +987,7 @@
             <div class="footer-col">
                 <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 1rem;">
                     <div style="width: 52px; height: 52px; border-radius: 14px; background: #ffffff; border: 1.5px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 4px 20px rgba(197, 160, 89, 0.4);">
-                        <img src="images/logo_engaz.png" alt="ENGAZ - إنجاز للإستثمار العقاري والمقاولات" style="width: 100%; height: 100%; object-fit: cover; transform: scale(1.05);">
+                        <img src="images/logo_engaz.png" alt="ENGAZ - إنجاز للإستثمار العقاري والمقاولات" style="width: 100%; height: 100%; object-fit: cover; transform: scale(1.05);" loading="lazy" decoding="async">
                     </div>
                     <div>
                         <h4 style="margin: 0; color: #ffffff; font-weight: 900; font-size: 1.25rem;">ENGAZ</h4>
@@ -1231,7 +1231,7 @@
                 card.className = 'project-card';
                 card.innerHTML = `
                     <div class="project-img-wrapper">
-                        <img src="${imgUrl}" alt="${p.name}" class="project-card-img" onerror="this.src='https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&auto=format&fit=crop&q=80';">
+                        <img src="${imgUrl}" alt="${p.name}" class="project-card-img" onerror="this.src='https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&auto=format&fit=crop&q=80';" loading="lazy" decoding="async">
                         <span class="project-status-badge" ${badgeStyle}>${badgeText}</span>
                     </div>
                     <div class="project-info">
@@ -1359,7 +1359,7 @@
                         progressData.forEach(item => {
                             let imgHtml = '';
                             if (item.image) {
-                                imgHtml = `<img src="${item.image}" alt="${item.stage}" style="width: 100%; max-height: 150px; object-fit: cover; border-radius: 8px; margin-top: 10px;">`;
+                                imgHtml = `<img src="${item.image}" alt="${item.stage}" style="width: 100%; max-height: 150px; object-fit: cover; border-radius: 8px; margin-top: 10px;" loading="lazy" decoding="async">`;
                             }
                             progressContainer.innerHTML += `
                                 <div class="progress-log-card">
