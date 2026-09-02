@@ -1,5 +1,25 @@
 {
+  "name": "engaz-developments-website",
+  "private": true,
+  "version": "3.0.0",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/styles.css -o ./css/app.css --minify",
+    "build:js": "esbuild ./src/site.js --bundle --minify --format=iife --target=es2020 --outfile=./js/app.js",
+    "build:images": "node ./scripts/optimize-site-images.mjs",
+    "build": "npm run build:css && npm run build:js",
+    "validate": "node ./scripts/validate-site.mjs",
+    "check": "npm run build && npm run validate",
+    "audit:mobile": "node ./scripts/mobile-audit.mjs",
+    "dev:css": "tailwindcss -i ./src/styles.css -o ./css/app.css --watch"
+  },
   "devDependencies": {
-    "sharp": "^0.35.3"
+    "@tailwindcss/cli": "^4.3.3",
+    "esbuild": "^0.25.0",
+    "sharp": "^0.35.3",
+    "tailwindcss": "^4.3.3"
+  },
+  "dependencies": {
+    "@fontsource-variable/cairo": "^5.3.0",
+    "lucide": "^1.39.0"
   }
 }

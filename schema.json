@@ -8,7 +8,7 @@
   "logo": "https://engazdevelopments.com/images/logo_engaz.png",
   "image": "https://engazdevelopments.com/images/logo_engaz.png",
   "description": "شركة إنجاز للتطوير العقاري (Engaz Developments)، مطور عقاري رائد في مصر متخصص في تشييد وتطوير المشاريع السكنية الراقية بربوة التجمع والمراكز التجارية والطبية بالدلتا (طنطا وبسيون)، وفرع رسمي بالرياض لخدمة المستثمرين بالخليج.",
-  "telephone": "+201070207080",
+  "telephone": "+201030405054",
   "email": "engaz.com2020@gmail.com",
   "address": [
     {
@@ -174,7 +174,7 @@
         "itemOffered": {
           "@type": "RealEstateProperty",
           "name": "Mall Sednawy Basyoun (مول صيدناوي بسيون)",
-          "description": "مول تجاري وعيادات طبية ومكاتب إدارية في الموقع التجاري الأكثر حركة ونشاطاً بمدينة بسيون بمقدم 40% وتسهيلات سنة."
+          "description": "مول متعدد الاستخدامات يضم وحدات تجارية وإدارية وطبية في مدينة بسيون."
         }
       },
       {
@@ -182,7 +182,7 @@
         "itemOffered": {
           "@type": "RealEstateProperty",
           "name": "برج نقابة المعلمين بسيون (Teachers Syndicate Tower)",
-          "description": "برج سكني تجاري طبي في مدينة بسيون يضم عيادات طبية ومحلات تجارية وشقق إدارية ممتازة بمقدم 40% وتقسيط على 12 شهراً."
+          "description": "برج تجاري وإداري في مدينة بسيون بمحافظة الغربية."
         }
       },
       {
