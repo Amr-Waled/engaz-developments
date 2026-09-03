@@ -5,7 +5,7 @@ import {
   CheckCircle2, Clock3, ChevronLeft, Star, Quote, Mail,
   Play, UsersRound, Award,
   Target, Eye, Gem, Handshake, CalendarDays, Layers3,
-  BadgeCheck, Send, LoaderCircle, SlidersHorizontal, Search,
+  BadgeCheck, Send, LoaderCircle, Search,
   Sparkles, Navigation, Headphones, ExternalLink, CircleCheck,
   KeyRound,
 } from 'lucide';
@@ -22,7 +22,7 @@ const icons = {
   CheckCircle2, Clock3, ChevronLeft, Star, Quote, Mail,
   Play, UsersRound, Award,
   Target, Eye, Gem, Handshake, CalendarDays, Layers3,
-  BadgeCheck, Send, LoaderCircle, SlidersHorizontal, Search,
+  BadgeCheck, Send, LoaderCircle, Search,
   Sparkles, Navigation, Headphones, ExternalLink, CircleCheck,
   KeyRound,
 };
@@ -394,22 +394,6 @@ function initReveals() {
   elements.forEach((element) => observer.observe(element));
 }
 
-function initBeforeAfter() {
-  document.querySelectorAll('[data-before-after]').forEach((root) => {
-    const range = root.querySelector('input[type="range"]');
-    const after = root.querySelector('[data-after]');
-    const divider = root.querySelector('[data-divider]');
-    if (!range || !after || !divider) return;
-    const update = () => {
-      const value = Number(range.value);
-      after.style.clipPath = `inset(0 ${100 - value}% 0 0)`;
-      divider.style.left = `${value}%`;
-    };
-    range.addEventListener('input', update);
-    update();
-  });
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   mountShell();
   createIcons({ icons, attrs: { 'stroke-width': 1.8 } });
@@ -419,6 +403,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initLeadForms();
   initFilters();
   initReveals();
-  initBeforeAfter();
   loadTestimonials();
 });

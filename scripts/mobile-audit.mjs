@@ -196,6 +196,25 @@ try {
         writeFileSync(output, Buffer.from(screenshot.result.data, 'base64'));
         console.log('Projects screenshot: ' + output);
       }
+
+      if (page === 'portfolio.html' && (width === 390 || width === 1440)) {
+        await send('Runtime.evaluate', {
+          expression: "document.querySelectorAll('.reveal').forEach((node) => node.classList.add('is-visible')); scrollTo(0, document.documentElement.scrollHeight)",
+        });
+        await delay(400);
+        const screenshotOptions = { format: 'png', fromSurface: true, captureBeyondViewport: width === 390 };
+        if (width === 390) {
+          const metrics = await send('Page.getLayoutMetrics');
+          screenshotOptions.clip = { x: 0, y: 0, width, height: Math.min(Math.ceil(metrics.result.cssContentSize.height), 14000), scale: 1 };
+        } else {
+          await send('Runtime.evaluate', { expression: 'scrollTo(0, 1180)' });
+          await delay(100);
+        }
+        const screenshot = await send('Page.captureScreenshot', screenshotOptions);
+        const output = join(tmpdir(), width === 390 ? 'engaz-portfolio-mobile.png' : 'engaz-portfolio-desktop.png');
+        writeFileSync(output, Buffer.from(screenshot.result.data, 'base64'));
+        console.log('Portfolio screenshot: ' + output);
+      }
     }
   }
 
@@ -280,26 +299,6 @@ try {
   const selectedState = selectedProject.result.result.value;
   if (selectedState.value !== '3' || selectedState.slug !== 'h165' || selectedState.name !== 'H165') {
     interactionFailures.push('project interest was not preselected correctly: ' + JSON.stringify(selectedState));
-  }
-
-  await send('Page.navigate', { url: pathToFileURL(resolve('portfolio.html')).href });
-  await waitForPage();
-  const compareState = await send('Runtime.evaluate', {
-    returnByValue: true,
-    expression: `(() => {
-      const root = document.querySelector('[data-before-after]');
-      const range = root.querySelector('input[type="range"]');
-      range.value = '75';
-      range.dispatchEvent(new Event('input', { bubbles: true }));
-      return {
-        clip: root.querySelector('[data-after]').style.clipPath,
-        divider: root.querySelector('[data-divider]').style.left
-      };
-    })()`,
-  });
-  const comparison = compareState.result.result.value;
-  if (comparison.clip !== 'inset(0px 25% 0px 0px)' && comparison.clip !== 'inset(0 25% 0 0)') {
-    interactionFailures.push('before/after control did not update: ' + JSON.stringify(comparison));
   }
 
   const failures = results.filter((result) => result.horizontalOverflow || !result.h1 || result.missingIcons.length || result.runtimeErrors.length);
