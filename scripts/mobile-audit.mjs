@@ -177,6 +177,25 @@ try {
         writeFileSync(output, Buffer.from(screenshot.result.data, 'base64'));
         console.log('Desktop screenshot: ' + output);
       }
+
+      if (page === 'projects.html' && (width === 390 || width === 1440)) {
+        await send('Runtime.evaluate', {
+          expression: "document.querySelectorAll('.reveal').forEach((node) => node.classList.add('is-visible')); scrollTo(0, document.documentElement.scrollHeight)",
+        });
+        await delay(400);
+        const screenshotOptions = { format: 'png', fromSurface: true, captureBeyondViewport: width === 390 };
+        if (width === 390) {
+          const metrics = await send('Page.getLayoutMetrics');
+          screenshotOptions.clip = { x: 0, y: 0, width, height: Math.min(Math.ceil(metrics.result.cssContentSize.height), 14000), scale: 1 };
+        } else {
+          await send('Runtime.evaluate', { expression: 'scrollTo(0, 620)' });
+          await delay(100);
+        }
+        const screenshot = await send('Page.captureScreenshot', screenshotOptions);
+        const output = join(tmpdir(), width === 390 ? 'engaz-projects-mobile.png' : 'engaz-projects-desktop.png');
+        writeFileSync(output, Buffer.from(screenshot.result.data, 'base64'));
+        console.log('Projects screenshot: ' + output);
+      }
     }
   }
 
@@ -247,6 +266,20 @@ try {
   const projectState = filterState.result.result.value;
   if (projectState.visibleAfterFilter !== 2 || projectState.visibleAfterSearch !== 1) {
     interactionFailures.push('project filtering/search returned unexpected results: ' + JSON.stringify(projectState));
+  }
+
+  await send('Page.navigate', { url: pathToFileURL(resolve('contact.html')).href + '?project=h165#consultation' });
+  await waitForPage();
+  const selectedProject = await send('Runtime.evaluate', {
+    returnByValue: true,
+    expression: `(() => {
+      const option = document.querySelector('select[name="project_interest"]')?.selectedOptions?.[0];
+      return { value: option?.value, slug: option?.dataset.slug, name: option?.dataset.projectName };
+    })()`,
+  });
+  const selectedState = selectedProject.result.result.value;
+  if (selectedState.value !== '3' || selectedState.slug !== 'h165' || selectedState.name !== 'H165') {
+    interactionFailures.push('project interest was not preselected correctly: ' + JSON.stringify(selectedState));
   }
 
   await send('Page.navigate', { url: pathToFileURL(resolve('portfolio.html')).href });

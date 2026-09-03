@@ -25,9 +25,9 @@
     <section class="subpage-hero relative overflow-hidden text-white">
       <div class="site-container section-space relative z-10">
         <div class="max-w-3xl">
-          <p class="section-kicker !text-gold-300"><i data-lucide="headphones" class="size-4"></i> نحن هنا لمساعدتك</p>
-          <h1 class="text-4xl leading-[1.3] font-black tracking-[-.04em] sm:text-5xl lg:text-6xl">ابدأ بخطوة بسيطة نحو قرار عقاري أوضح</h1>
-          <p class="mt-6 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">اختر الطريقة الأنسب لك: أرسل طلب استشارة وسنراجع احتياجك، أو تواصل مباشرة مع فريق إنجاز في مصر أو السعودية.</p>
+          <p class="mb-5 text-sm font-bold text-gold-300">فريق المبيعات في مصر والسعودية</p>
+          <h1 class="text-4xl leading-[1.3] font-black tracking-[-.02em] sm:text-5xl lg:text-6xl">تواصل مع فريق إنجاز</h1>
+          <p class="mt-5 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">سجّل اهتمامك بمشروع محدد، أو أرسل احتياجك وسيتواصل معك الفريق بالمعلومات الحالية عن الوحدات والأسعار وأنظمة السداد.</p>
         </div>
 
         <div class="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -101,15 +101,12 @@
     <section id="consultation" class="section-space scroll-mt-24">
       <div class="site-container grid items-start gap-10 lg:grid-cols-[.8fr_1.2fr] lg:gap-16">
         <div class="reveal lg:sticky lg:top-28">
-          <p class="section-kicker"><i data-lucide="send" class="size-4"></i> استشارة عقارية</p>
-          <h2 class="section-title">أخبرنا بما تبحث عنه</h2>
-          <p class="section-copy">املأ البيانات الأساسية فقط. سنستخدمها لفهم احتياجك والتواصل معك بشأن الخيارات المتاحة.</p>
-
-          <ol class="mt-8 grid gap-5" aria-label="مراحل طلب الاستشارة">
-            <li class="flex gap-4"><span class="grid size-9 shrink-0 place-items-center rounded-full bg-ink-950 text-sm font-black text-white">1</span><span><strong class="block text-sm font-black">أرسل احتياجك</strong><span class="mt-1 block text-sm leading-7 text-slate-600">نوع الوحدة ونطاق الميزانية يساعداننا على البدء.</span></span></li>
-            <li class="flex gap-4"><span class="grid size-9 shrink-0 place-items-center rounded-full bg-ink-950 text-sm font-black text-white">2</span><span><strong class="block text-sm font-black">نراجع الخيارات</strong><span class="mt-1 block text-sm leading-7 text-slate-600">يقارن الفريق طلبك بالمشروعات والوحدات المتاحة.</span></span></li>
-            <li class="flex gap-4"><span class="grid size-9 shrink-0 place-items-center rounded-full bg-ink-950 text-sm font-black text-white">3</span><span><strong class="block text-sm font-black">نتواصل معك</strong><span class="mt-1 block text-sm leading-7 text-slate-600">لمشاركة المعلومات وترتيب الخطوة التالية المناسبة لك.</span></span></li>
-          </ol>
+          <p class="mb-4 text-sm font-bold text-gold-600">طلب معلومات أو معاينة</p>
+          <h2 class="section-title">سجّل اهتمامك</h2>
+          <p class="section-copy">الاسم ورقم الهاتف هما البيانات الأساسية. اختيار المشروع ونوع الوحدة يساعد الفريق على تجهيز رد أدق قبل التواصل معك.</p>
+          <div class="mt-8 border-r-2 border-gold-400 pr-5 text-sm leading-8 text-slate-600">
+            لا نعرض أسعارًا أو توافرًا غير محدّث. سيشاركك فريق المبيعات بالمعلومات الحالية وقت التواصل.
+          </div>
         </div>
 
         <div class="surface-card reveal p-5 sm:p-8 lg:p-10">
@@ -129,10 +126,27 @@
                 <p id="contact-phone-hint" class="mt-2 text-xs leading-6 text-slate-500">نقبل أرقام الهاتف المصرية والسعودية.</p>
               </div>
 
+              <div class="sm:col-span-2">
+                <label for="contact-project" class="mb-2 block text-sm font-extrabold text-ink-950">المشروع المهتم به <span class="font-normal text-slate-500">(اختياري)</span></label>
+                <select id="contact-project" name="project_interest" class="field">
+                  <option value="">لم أحدد مشروعًا بعد</option>
+                  <option value="3" data-slug="h165" data-project-name="H165">H165 — ربوة التجمع</option>
+                  <option value="9" data-slug="a100" data-project-name="A100 نورث هاوس">A100 — نورث هاوس</option>
+                  <option value="5" data-slug="h79" data-project-name="H79">H79 — ربوة التجمع</option>
+                  <option value="" data-slug="f216" data-project-name="F216">F216 — ربوة التجمع</option>
+                  <option value="" data-slug="f218" data-project-name="F218">F218 — ربوة التجمع</option>
+                  <option value="8" data-slug="f129" data-project-name="F129">F129 — ربوة التجمع</option>
+                  <option value="10" data-slug="c87" data-project-name="C87">C87 — ربوة التجمع</option>
+                  <option value="" data-slug="h151" data-project-name="H151">H151 — مشروع مكتمل</option>
+                  <option value="1" data-slug="sednawy" data-project-name="مول صيدناوي">مول صيدناوي — بسيون</option>
+                  <option value="2" data-slug="teachers" data-project-name="برج نقابة المعلمين">برج نقابة المعلمين — بسيون</option>
+                </select>
+              </div>
+
               <div>
-                <label for="contact-unit" class="mb-2 block text-sm font-extrabold text-ink-950">نوع الوحدة المفضلة <span class="text-red-600" aria-hidden="true">*</span></label>
-                <select id="contact-unit" name="unit_type" required class="field">
-                  <option value="">اختر نوع الوحدة</option>
+                <label for="contact-unit" class="mb-2 block text-sm font-extrabold text-ink-950">نوع الوحدة المفضلة <span class="font-normal text-slate-500">(اختياري)</span></label>
+                <select id="contact-unit" name="unit_type" class="field">
+                  <option value="">لم أحدد بعد</option>
                   <option value="apartment">سكنية</option>
                   <option value="shop">تجارية</option>
                   <option value="office">إدارية</option>
@@ -142,9 +156,9 @@
               </div>
 
               <div>
-                <label for="contact-budget" class="mb-2 block text-sm font-extrabold text-ink-950">ميزانية الشراء <span class="text-red-600" aria-hidden="true">*</span></label>
-                <select id="contact-budget" name="budget" required class="field">
-                  <option value="">اختر نطاق الميزانية</option>
+                <label for="contact-budget" class="mb-2 block text-sm font-extrabold text-ink-950">ميزانية الشراء <span class="font-normal text-slate-500">(اختياري)</span></label>
+                <select id="contact-budget" name="budget" class="field">
+                  <option value="">لم أحدد بعد</option>
                   <option value="under-1500000">أقل من 1.5 مليون جنيه</option>
                   <option value="1500000-3000000">من 1.5 إلى 3 ملايين جنيه</option>
                   <option value="3000000-5000000">من 3 إلى 5 ملايين جنيه</option>
@@ -163,7 +177,7 @@
               <span>أوافق على استخدام بياناتي للرد على طلبي والتواصل معي بشأن مشروعات إنجاز. يمكنني طلب تحديثها أو حذفها وفق <a href="privacy.html" class="font-extrabold text-gold-600 underline underline-offset-4">سياسة الخصوصية</a>.</span>
             </label>
 
-            <button type="submit" class="btn btn-gold mt-6 w-full sm:w-auto"><i data-lucide="send" class="size-5"></i> إرسال طلب الاستشارة</button>
+            <button type="submit" class="btn btn-gold mt-6 w-full sm:w-auto"><i data-lucide="send" class="size-5"></i> سجّل اهتمامي</button>
             <p data-form-status role="status" aria-live="polite" class="mt-4 min-h-6 text-sm font-bold text-emerald-700"></p>
           </form>
         </div>

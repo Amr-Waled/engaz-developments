@@ -57,12 +57,12 @@
   .section-title { @apply max-w-3xl text-3xl leading-[1.35] font-black tracking-[-.035em] text-ink-950 sm:text-4xl lg:text-5xl; }
   .section-copy { @apply mt-4 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg; }
   .btn { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-extrabold transition duration-200 disabled:cursor-not-allowed disabled:opacity-60; }
-  .btn-primary { @apply bg-ink-950 text-white shadow-lg shadow-ink-950/15 hover:-translate-y-0.5 hover:bg-ink-800; }
-  .btn-gold { @apply bg-gold-400 text-ink-950 shadow-lg shadow-gold-500/20 hover:-translate-y-0.5 hover:bg-gold-300; }
-  .btn-secondary { @apply border border-slate-300 bg-white text-ink-950 hover:-translate-y-0.5 hover:border-gold-500 hover:bg-sand-100; }
+  .btn-primary { @apply bg-ink-950 text-white hover:bg-ink-800; }
+  .btn-gold { @apply bg-gold-400 text-ink-950 hover:bg-gold-300; }
+  .btn-secondary { @apply border border-slate-300 bg-white text-ink-950 hover:border-gold-500 hover:bg-sand-100; }
   .icon-box { @apply grid size-11 shrink-0 place-items-center rounded-xl bg-sand-100 text-gold-600; }
-  .surface-card { @apply rounded-2xl border border-slate-200/80 bg-white shadow-card; }
-  .project-card { @apply rounded-2xl border border-slate-200/80 bg-white shadow-card overflow-hidden transition duration-300 hover:-translate-y-1 hover:shadow-soft; }
+  .surface-card { @apply rounded-2xl border border-slate-200/80 bg-white shadow-[0_8px_28px_rgba(7,23,29,.055)]; }
+  .project-card { @apply overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-[0_8px_28px_rgba(7,23,29,.055)] transition duration-300 hover:border-gold-400/60; }
   .project-image { @apply aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-[1.03]; }
   .badge { @apply inline-flex min-h-7 items-center rounded-full px-3 py-1 text-[11px] font-extrabold; }
   .badge-active { @apply bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200; }
@@ -74,6 +74,26 @@
   .filter-btn { @apply min-h-11 shrink-0 rounded-full border border-slate-300 bg-white px-5 text-sm font-extrabold text-slate-600 transition; }
   .filter-btn.active { @apply border-ink-950 bg-ink-950 text-white; }
   .hero-social-link { @apply flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-2 text-[11px] font-extrabold text-white transition duration-200 hover:-translate-y-0.5 hover:border-gold-300/40 hover:bg-white/10 sm:px-3 sm:text-xs; }
+  .project-listing { @apply overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300 sm:grid sm:grid-cols-[210px_1fr] hover:border-gold-400/60; }
+  .project-listing-media { @apply relative min-h-56 overflow-hidden bg-slate-100 sm:min-h-full; }
+  .project-listing-image { @apply absolute inset-0 size-full object-cover transition duration-500 group-hover:scale-[1.025]; }
+  .project-phase { @apply absolute right-4 top-4 inline-flex min-h-8 items-center rounded-lg bg-white/95 px-3 py-1 text-[11px] font-extrabold text-ink-950 shadow-sm; }
+  .project-phase-complete { @apply bg-ink-950/90 text-white; }
+  .project-code-cover { @apply relative flex min-h-48 flex-col justify-end overflow-hidden bg-ink-900 p-6 text-white sm:min-h-full; }
+  .project-code-cover::before { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); background-size: 32px 32px; content: ""; }
+  .project-code-cover::after { position: absolute; inset-inline-start: 1.5rem; top: 1.5rem; width: 3rem; height: 2px; background: #cdb05a; content: ""; }
+  .project-code-cover span { @apply relative text-4xl font-black tracking-[-.04em] text-gold-300 sm:text-5xl; }
+  .project-code-cover small { @apply relative mt-2 text-xs font-bold text-slate-300; }
+  .project-listing-body { @apply flex min-w-0 flex-col p-5 sm:p-6; }
+  .project-location { @apply flex items-center gap-1.5 text-xs font-bold text-gold-600; }
+  .project-name { @apply mt-3 text-2xl font-black tracking-[-.03em] text-ink-950; }
+  .project-description { @apply mt-2 text-sm leading-7 text-slate-600; }
+  .project-facts { @apply mt-5 grid grid-cols-2 gap-4 border-y border-slate-100 py-4; }
+  .project-facts div { @apply grid gap-1; }
+  .project-facts dt { @apply text-[11px] font-bold text-slate-400; }
+  .project-facts dd { @apply m-0 text-xs font-extrabold text-ink-950; }
+  .project-actions { @apply mt-5 flex items-stretch gap-2; }
+  .project-whatsapp { @apply grid size-12 shrink-0 place-items-center rounded-xl border border-slate-300 bg-white text-whatsapp transition hover:border-whatsapp hover:bg-emerald-50; }
 }
 
 .hero-stage {

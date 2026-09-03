@@ -32,7 +32,6 @@ const navItems = [
   ['projects.html', 'مشروعاتنا'],
   ['portfolio.html', 'سابقة الأعمال'],
   ['about.html', 'عن الشركة'],
-  ['testimonials.html', 'آراء العملاء'],
   ['contact.html', 'اتصل بنا'],
 ];
 
@@ -65,7 +64,7 @@ function headerTemplate() {
         <nav class="hidden items-center gap-1 lg:flex" aria-label="التنقل الرئيسي">${links}</nav>
 
         <a href="contact.html#consultation" class="btn btn-gold hidden lg:inline-flex">
-          احجز استشارتك <i data-lucide="arrow-left" class="size-4"></i>
+          سجّل اهتمامك <i data-lucide="arrow-left" class="size-4"></i>
         </a>
 
         <button type="button" class="grid size-12 place-items-center rounded-xl border border-slate-300 bg-white text-ink-950 lg:hidden" data-menu-button aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
@@ -83,7 +82,7 @@ function headerTemplate() {
         </div>
         <nav aria-label="التنقل على الهاتف">${mobileLinks}</nav>
         <div class="mt-auto grid gap-3 pt-6">
-          <a href="contact.html#consultation" class="btn btn-gold w-full">احجز استشارة مجانية</a>
+          <a href="contact.html#consultation" class="btn btn-gold w-full">سجّل اهتمامك</a>
           <a href="https://wa.me/201030405054" target="_blank" rel="noopener" class="btn border border-white/15 bg-white/8 text-white" data-channel="whatsapp"><i data-lucide="message-circle" class="size-5"></i> واتساب</a>
         </div>
       </aside>
@@ -105,7 +104,7 @@ function footerTemplate() {
           <div>
             <h2 class="mb-4 text-sm font-black text-gold-300">استكشف</h2>
             <div class="grid gap-3 text-sm text-slate-300">
-              <a href="projects.html" class="flex min-h-11 items-center hover:text-white">المشروعات الحالية</a><a href="portfolio.html" class="flex min-h-11 items-center hover:text-white">سابقة الأعمال</a><a href="about.html" class="flex min-h-11 items-center hover:text-white">عن إنجاز</a><a href="testimonials.html" class="flex min-h-11 items-center hover:text-white">آراء العملاء</a>
+              <a href="projects.html" class="flex min-h-11 items-center hover:text-white">المشروعات الحالية</a><a href="portfolio.html" class="flex min-h-11 items-center hover:text-white">سابقة الأعمال</a><a href="about.html" class="flex min-h-11 items-center hover:text-white">عن إنجاز</a><a href="contact.html" class="flex min-h-11 items-center hover:text-white">الفروع والتواصل</a>
             </div>
           </div>
           <div>
@@ -149,7 +148,8 @@ function mountShell() {
 
 function initChannelTracking() {
   document.addEventListener('click', (event) => {
-    const link = event.target.closest('[data-channel]');
+    const target = event.target instanceof Element ? event.target : null;
+    const link = target?.closest('[data-channel]');
     if (!link) return;
     const channel = link.dataset.channel;
     const details = { channel, page_path: window.location.pathname };
@@ -224,6 +224,15 @@ const budgets = {
   'over-5000000': [5000000, null],
 };
 
+function initProjectSelection() {
+  const project = new URLSearchParams(window.location.search).get('project');
+  if (!project) return;
+  document.querySelectorAll('select[name="project_interest"]').forEach((select) => {
+    const option = [...select.options].find((item) => item.dataset.slug === project);
+    if (option) option.selected = true;
+  });
+}
+
 function initLeadForms() {
   document.querySelectorAll('[data-lead-form]').forEach((form) => {
     form.addEventListener('submit', async (event) => {
@@ -238,6 +247,10 @@ function initLeadForms() {
       const name = String(values.get('name') || '').trim();
       const phone = String(values.get('phone') || '').replace(/[\s()-]/g, '');
       const budget = budgets[values.get('budget')] || [null, null];
+      const projectSelect = form.querySelector('select[name="project_interest"]');
+      const projectOption = projectSelect?.selectedOptions?.[0];
+      const projectInterest = Number.parseInt(String(values.get('project_interest') || ''), 10);
+      const projectName = projectOption?.dataset.projectName || '';
 
       const validPhone = /^(?:(?:\+?20|0)?1[0125]\d{8}|(?:\+?966|0)?5\d{8})$/.test(phone);
       if (name.length < 3 || !validPhone) {
@@ -265,7 +278,8 @@ function initLeadForms() {
         unit_type: values.get('unit_type') || null,
         budget_min: budget[0],
         budget_max: budget[1],
-        notes: [values.get('notes') || `طلب استشارة من صفحة ${document.title}`, campaignNote, `referrer=${document.referrer || 'direct'}`].filter(Boolean).join(' | '),
+        project_interest: Number.isInteger(projectInterest) ? projectInterest : null,
+        notes: [projectName ? `المشروع المطلوب: ${projectName}` : '', values.get('notes') || `طلب استشارة من صفحة ${document.title}`, campaignNote, `referrer=${document.referrer || 'direct'}`].filter(Boolean).join(' | '),
       };
 
       try {
@@ -311,7 +325,9 @@ function initFilters() {
       card.classList.toggle('hidden', !show);
       if (show) visible += 1;
     });
-    if (count) count.textContent = `${visible} مشروع`;
+    if (count) {
+      count.textContent = visible === 1 ? 'مشروع واحد' : visible === 2 ? 'مشروعان' : visible >= 3 && visible <= 10 ? `${visible} مشروعات` : `${visible} مشروع`;
+    }
     empty?.classList.toggle('hidden', visible !== 0);
   };
 
@@ -399,6 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
   createIcons({ icons, attrs: { 'stroke-width': 1.8 } });
   initMenu();
   initChannelTracking();
+  initProjectSelection();
   initLeadForms();
   initFilters();
   initReveals();
