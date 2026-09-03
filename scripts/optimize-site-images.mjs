@@ -13,7 +13,7 @@ const images = [
   ['images/beit_alwatan.webp', 'project-c87.webp', 900, 74],
   ['images/h151-real-hd.webp', 'project-h151.webp', 1000, 76],
   ['images/sednawy-mall-hd.webp', 'project-sednawy.webp', 900, 74],
-  ['images/projects_real/teachers_syndicate/img-2.webp', 'project-teachers.webp', 900, 76],
+  ['images/projects_real/teachers_syndicate/img-2.webp', 'project-teachers-real.webp', 900, 76],
   ['images/projects_real/town_mall/img-3.webp', 'portfolio-tanta.webp', 1100, 76],
   ['images/projects_real/fayrouz_tower/img-3.webp', 'portfolio-fayrouz.webp', 1000, 76],
   ['images/projects_real/mansoura_villas/img-4.webp', 'portfolio-mansoura-built.webp', 960, 76],
