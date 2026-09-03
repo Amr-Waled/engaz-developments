@@ -272,18 +272,21 @@ try {
   const filterState = await send('Runtime.evaluate', {
     returnByValue: true,
     expression: `(() => {
+      document.querySelector('[data-location-filter="basyoun"]').click();
+      const visibleInBasyoun = [...document.querySelectorAll('[data-project-card]')].filter((card) => !card.classList.contains('hidden')).length;
       document.querySelector('[data-filter="administrative"]').click();
       const visibleAfterFilter = [...document.querySelectorAll('[data-project-card]')].filter((card) => !card.classList.contains('hidden')).length;
       const search = document.querySelector('[data-project-search]');
       document.querySelector('[data-filter="all"]').click();
+      document.querySelector('[data-location-filter="all"]').click();
       search.value = 'H165';
       search.dispatchEvent(new Event('input', { bubbles: true }));
       const visibleAfterSearch = [...document.querySelectorAll('[data-project-card]')].filter((card) => !card.classList.contains('hidden')).length;
-      return { visibleAfterFilter, visibleAfterSearch };
+      return { visibleInBasyoun, visibleAfterFilter, visibleAfterSearch };
     })()`,
   });
   const projectState = filterState.result.result.value;
-  if (projectState.visibleAfterFilter !== 2 || projectState.visibleAfterSearch !== 1) {
+  if (projectState.visibleInBasyoun !== 2 || projectState.visibleAfterFilter !== 2 || projectState.visibleAfterSearch !== 1) {
     interactionFailures.push('project filtering/search returned unexpected results: ' + JSON.stringify(projectState));
   }
 

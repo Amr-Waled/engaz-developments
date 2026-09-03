@@ -73,6 +73,12 @@
   .mobile-nav-link { @apply flex min-h-14 items-center justify-between border-b border-white/10 py-3 text-lg font-bold text-white; }
   .filter-btn { @apply min-h-11 shrink-0 rounded-full border border-slate-300 bg-white px-5 text-sm font-extrabold text-slate-600 transition; }
   .filter-btn.active { @apply border-ink-950 bg-ink-950 text-white; }
+  .location-filter { @apply relative flex min-h-24 flex-1 flex-col items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white p-3 text-center transition sm:flex-row sm:justify-start sm:gap-4 sm:p-4 sm:text-right; }
+  .location-filter.active { @apply border-ink-950 bg-ink-950 text-white shadow-lg; }
+  .location-filter-icon { @apply grid size-11 shrink-0 place-items-center rounded-xl bg-sand-100 text-gold-600; }
+  .location-filter.active .location-filter-icon { @apply bg-white/10 text-gold-300; }
+  .location-filter small { @apply mt-1 hidden text-[11px] font-bold text-slate-500 sm:block; }
+  .location-filter.active small { @apply text-slate-300; }
   .hero-social-link { @apply flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-2 text-[11px] font-extrabold text-white transition duration-200 hover:-translate-y-0.5 hover:border-gold-300/40 hover:bg-white/10 sm:px-3 sm:text-xs; }
   .project-listing { @apply overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300 sm:grid sm:grid-cols-[210px_1fr] hover:border-gold-400/60; }
   .project-listing-media { @apply relative min-h-56 overflow-hidden bg-slate-100 sm:min-h-full; }
@@ -97,27 +103,64 @@
 }
 
 .hero-stage {
-  background:
-    radial-gradient(circle at 12% 18%, rgba(205, 176, 90, .15), transparent 24rem),
-    radial-gradient(circle at 86% 80%, rgba(36, 68, 77, .48), transparent 30rem),
-    linear-gradient(145deg, #07171d 0%, #0b222a 56%, #07171d 100%);
+  background: linear-gradient(125deg, #07171d 0%, #0b222a 100%);
 }
 
-.hero-stage::before {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-  background-size: 54px 54px;
-  content: "";
-  pointer-events: none;
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,.8), transparent 82%);
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,.8), transparent 82%);
+.hero-home-grid {
+  display: grid;
+  width: 100%;
+}
+
+.hero-home-copy {
+  padding: 2.5rem 1rem 2rem;
+}
+
+.hero-home-media {
+  display: flex;
+  flex-direction: column;
+  margin: 0 1rem 1.5rem;
+  border-radius: 1.25rem;
+}
+
+.hero-home-image {
+  height: clamp(20rem, 48svh, 29rem);
 }
 
 .hero-visual {
-  box-shadow: 0 30px 90px rgba(0, 0, 0, .3), 0 0 0 1px rgba(255, 255, 255, .035);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, .28);
+}
+
+@media (min-width: 640px) {
+  .hero-home-copy { padding-inline: 1.5rem; }
+  .hero-home-media { margin-inline: 1.5rem; }
+}
+
+@media (min-width: 1024px) {
+  .hero-home-grid {
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr);
+    min-height: calc(100svh - 5rem);
+  }
+
+  .hero-home-copy {
+    align-self: center;
+    justify-self: end;
+    padding: 3rem clamp(2rem, 5vw, 6rem) 3rem max(2rem, calc((100vw - 80rem) / 2 + 2rem));
+  }
+
+  .hero-home-media {
+    height: 100%;
+    min-height: calc(100svh - 5rem);
+    margin: 0;
+    border-block: 0;
+    border-inline-start: 0;
+    border-radius: 0;
+  }
+
+  .hero-home-image {
+    min-height: 0;
+    height: auto;
+    flex: 1;
+  }
 }
 
 .subpage-hero {

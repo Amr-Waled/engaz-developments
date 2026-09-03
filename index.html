@@ -45,17 +45,18 @@
 
   <main id="main-content">
     <section class="hero-stage relative isolate overflow-hidden bg-ink-950 text-white" aria-labelledby="hero-title">
-      <div class="site-container grid gap-9 py-10 sm:gap-12 sm:py-14 lg:min-h-[680px] lg:grid-cols-[1.03fr_.97fr] lg:items-center lg:gap-16 lg:py-12">
-        <div class="relative z-10 max-w-2xl">
-          <p class="mb-5 flex items-center gap-3 text-xs font-extrabold text-gold-300 sm:text-sm">
+      <div class="hero-home-grid">
+        <div class="hero-home-copy relative z-10 max-w-2xl">
+          <p class="mb-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-extrabold text-gold-300 sm:text-sm">
+            <span dir="ltr" class="tracking-[.12em]">ENGAZ DEVELOPMENTS</span>
             <span class="h-px w-8 bg-gold-300" aria-hidden="true"></span>
-            إنجاز للتطوير العقاري والمقاولات — منذ 2012
+            <span>منذ 2012</span>
           </p>
-          <h1 id="hero-title" class="text-[clamp(2.15rem,8vw,4rem)] leading-[1.25] font-black tracking-[-.02em]">
-            مشروعات إنجاز<br><span class="text-gold-300">في القاهرة الجديدة والدلتا</span>
+          <h1 id="hero-title" class="text-[clamp(3rem,12vw,5.25rem)] leading-[1.08] font-black tracking-[-.055em]">
+            وده <span class="text-gold-300">إنجازنا.</span>
           </h1>
-          <p class="mt-4 max-w-xl text-[15px] leading-8 text-slate-300 sm:mt-5 sm:text-lg sm:leading-9">
-            مشروعات سكنية وتجارية وإدارية، مع صور من مواقع التنفيذ وقناة مباشرة لمعرفة الوحدات والأسعار المتاحة حاليًا.
+          <p class="mt-5 max-w-xl text-[15px] leading-8 text-slate-300 sm:text-lg sm:leading-9">
+            نطوّر مشروعات سكنية وتجارية وإدارية من الفكرة حتى التنفيذ، ونشاركك التفاصيل بوضوح قبل ما تختار.
           </p>
 
           <div class="mt-6 grid gap-3 sm:mt-7 sm:flex sm:flex-wrap">
@@ -90,8 +91,8 @@
           </div>
         </div>
 
-        <figure class="hero-visual relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-ink-900 shadow-2xl">
-          <div class="relative aspect-[16/11] overflow-hidden sm:aspect-[16/10] lg:aspect-[4/5]">
+        <figure class="hero-visual hero-home-media relative overflow-hidden border border-white/10 bg-ink-900">
+          <div class="hero-home-image relative overflow-hidden">
             <picture class="block size-full">
               <source srcset="images/site/hero.avif" type="image/avif">
               <img src="images/site/hero.webp" width="1280" height="1280" fetchpriority="high" decoding="async" alt="تصور معماري لأحد مشروعات إنجاز" class="size-full object-cover object-center">
@@ -114,9 +115,9 @@
       <div class="site-container">
         <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p class="mb-3 text-sm font-bold text-gold-600">المشروعات الحالية</p>
-            <h2 id="featured-title" class="section-title">مشروعات قيد التنفيذ</h2>
-            <p class="section-copy">موقع المشروع ونوعه ومرحلة التنفيذ الحالية، قبل التواصل لمعرفة الوحدات المتاحة.</p>
+            <p class="mb-3 text-sm font-bold text-gold-600">مختارات من أعمالنا</p>
+            <h2 id="featured-title" class="section-title">مشروعات تستحق نظرة أقرب</h2>
+            <p class="section-copy">صور ومعلومات واضحة عن عدد من مشروعاتنا قبل التواصل لمعرفة الوحدات المتاحة.</p>
           </div>
           <a href="projects.html" class="btn btn-secondary self-start sm:self-auto">كل المشروعات <i data-lucide="arrow-left" class="size-4"></i></a>
         </div>
@@ -124,13 +125,13 @@
         <div class="mt-9 grid gap-5 md:grid-cols-2 lg:mt-12 lg:grid-cols-3">
           <article class="project-card group reveal">
             <div class="relative overflow-hidden">
-              <img src="images/site/project-h165.webp" width="867" height="1156" loading="lazy" alt="أعمال الإنشاء في مشروع H165" class="project-image">
-              <span class="badge badge-active absolute right-4 top-4">صورة من مراحل التنفيذ</span>
+              <img src="images/site/project-h165-v2.webp" width="1000" height="750" loading="lazy" alt="أعمال الإنشاء في مشروع H165" class="project-image">
+              <span class="badge badge-active absolute right-4 top-4">أحدث صورة تنفيذ</span>
             </div>
             <div class="p-5 sm:p-6">
               <div class="mb-3 flex items-center gap-2 text-xs font-bold text-gold-600"><i data-lucide="map-pin" class="size-4"></i> ربوة التجمع، القاهرة الجديدة</div>
               <h3 class="text-xl font-black text-ink-950">H165</h3>
-              <p class="mt-2 text-sm leading-7 text-slate-600">مشروع سكني وصل إلى مرحلة التشطيبات.</p>
+              <p class="mt-2 text-sm leading-7 text-slate-600">مشروع سكني جارٍ استكمال أعمال المباني والتشطيبات به.</p>
               <div class="mt-5 flex items-center justify-between border-t border-slate-100 pt-4">
                 <span class="text-xs font-bold text-slate-500">سكني</span>
                 <a href="contact.html?project=h165#consultation" class="inline-flex min-h-11 items-center gap-1 text-sm font-black text-ink-950">سجّل اهتمامك <i data-lucide="chevron-left" class="size-4"></i></a>
@@ -140,8 +141,8 @@
 
           <article class="project-card group reveal">
             <div class="relative overflow-hidden">
-              <img src="images/site/project-teachers-real.webp" width="900" height="1200" loading="lazy" alt="صورة فعلية لبرج نقابة المعلمين أثناء التنفيذ في بسيون" class="project-image">
-              <span class="badge badge-active absolute right-4 top-4">صورة فعلية</span>
+              <img src="images/site/project-teachers-v3.webp" width="900" height="1200" loading="lazy" alt="صورة فعلية لبرج نقابة المعلمين أثناء التنفيذ في بسيون" class="project-image">
+              <span class="badge badge-active absolute right-4 top-4">تنفيذ موثق</span>
             </div>
             <div class="p-5 sm:p-6">
               <div class="mb-3 flex items-center gap-2 text-xs font-bold text-gold-600"><i data-lucide="map-pin" class="size-4"></i> بسيون، الغربية</div>
@@ -156,8 +157,8 @@
 
           <article class="project-card group reveal md:col-span-2 lg:col-span-1">
             <div class="relative overflow-hidden">
-              <img src="images/site/project-sednawy.webp" width="900" height="1200" loading="lazy" alt="أعمال التنفيذ في مشروع صيدناوي مول" class="project-image">
-              <span class="badge badge-active absolute right-4 top-4">تحت التنفيذ</span>
+              <img src="images/site/project-sednawy-v2.webp" width="1000" height="750" loading="lazy" alt="أعمال التنفيذ في مشروع صيدناوي مول" class="project-image">
+              <span class="badge badge-active absolute right-4 top-4">أحدث صورة تنفيذ</span>
             </div>
             <div class="p-5 sm:p-6">
               <div class="mb-3 flex items-center gap-2 text-xs font-bold text-gold-600"><i data-lucide="map-pin" class="size-4"></i> بسيون، الغربية</div>

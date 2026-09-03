@@ -7,7 +7,7 @@ import {
   Target, Eye, Gem, Handshake, CalendarDays, Layers3,
   BadgeCheck, Send, LoaderCircle, Search,
   Sparkles, Navigation, Headphones, ExternalLink, CircleCheck,
-  KeyRound,
+  KeyRound, LayoutGrid,
 } from 'lucide';
 
 document.documentElement.classList.add('motion-ok');
@@ -24,7 +24,7 @@ const icons = {
   Target, Eye, Gem, Handshake, CalendarDays, Layers3,
   BadgeCheck, Send, LoaderCircle, Search,
   Sparkles, Navigation, Headphones, ExternalLink, CircleCheck,
-  KeyRound,
+  KeyRound, LayoutGrid,
 };
 
 const navItems = [
@@ -308,20 +308,23 @@ function initLeadForms() {
 function initFilters() {
   const filterRoot = document.querySelector('[data-project-filters]');
   if (!filterRoot) return;
-  const buttons = [...filterRoot.querySelectorAll('[data-filter]')];
+  const categoryButtons = [...filterRoot.querySelectorAll('[data-filter]')];
+  const locationButtons = [...filterRoot.querySelectorAll('[data-location-filter]')];
   const cards = [...document.querySelectorAll('[data-project-card]')];
   const count = document.querySelector('[data-results-count]');
   const empty = document.querySelector('[data-filter-empty]');
   const search = document.querySelector('[data-project-search]');
-  let active = 'all';
+  let activeCategory = 'all';
+  let activeLocation = 'all';
 
   const apply = () => {
     const query = (search?.value || '').trim().toLowerCase();
     let visible = 0;
     cards.forEach((card) => {
-      const matchesCategory = active === 'all' || card.dataset.category?.split(' ').includes(active);
+      const matchesCategory = activeCategory === 'all' || card.dataset.category?.split(' ').includes(activeCategory);
+      const matchesLocation = activeLocation === 'all' || card.dataset.location === activeLocation;
       const matchesSearch = !query || card.textContent.toLowerCase().includes(query);
-      const show = matchesCategory && matchesSearch;
+      const show = matchesCategory && matchesLocation && matchesSearch;
       card.classList.toggle('hidden', !show);
       if (show) visible += 1;
     });
@@ -331,9 +334,18 @@ function initFilters() {
     empty?.classList.toggle('hidden', visible !== 0);
   };
 
-  buttons.forEach((button) => button.addEventListener('click', () => {
-    active = button.dataset.filter;
-    buttons.forEach((item) => item.classList.toggle('active', item === button));
+  categoryButtons.forEach((button) => button.addEventListener('click', () => {
+    activeCategory = button.dataset.filter;
+    categoryButtons.forEach((item) => item.classList.toggle('active', item === button));
+    apply();
+  }));
+  locationButtons.forEach((button) => button.addEventListener('click', () => {
+    activeLocation = button.dataset.locationFilter;
+    locationButtons.forEach((item) => {
+      const isActive = item === button;
+      item.classList.toggle('active', isActive);
+      item.setAttribute('aria-pressed', String(isActive));
+    });
     apply();
   }));
   search?.addEventListener('input', apply);

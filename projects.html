@@ -11,7 +11,7 @@
   <meta property="og:locale" content="ar_EG">
   <meta property="og:title" content="مشروعات إنجاز للتطوير العقاري">
   <meta property="og:description" content="مشروعات سكنية وتجارية وإدارية في القاهرة الجديدة وبسيون، مع تواصل مباشر لمعرفة التوافر الحالي.">
-  <meta property="og:image" content="https://engazdevelopments.com/images/site/project-h165.webp">
+  <meta property="og:image" content="https://engazdevelopments.com/images/site/project-h165-v2.webp">
   <link rel="icon" href="images/logo_engaz.png">
   <link rel="stylesheet" href="css/app.css">
   <script src="js/app.js" defer></script>
@@ -46,7 +46,25 @@
           <p class="text-sm font-extrabold text-slate-500" aria-live="polite"><span data-results-count>10 مشروعات</span></p>
         </div>
 
-        <div class="reveal mt-7 grid gap-4 lg:grid-cols-[minmax(280px,420px)_1fr] lg:items-center">
+        <div class="reveal mt-7">
+          <p class="mb-3 text-xs font-extrabold text-slate-500">اختار المنطقة</p>
+          <div class="grid grid-cols-3 gap-2 sm:gap-3" role="group" aria-label="تصفية المشروعات حسب المنطقة">
+            <button type="button" class="location-filter active" data-location-filter="all" aria-pressed="true">
+              <span class="location-filter-icon"><i data-lucide="layout-grid" class="size-5"></i></span>
+              <span><strong class="block text-sm sm:text-base">كل المشروعات</strong><small>القاهرة الجديدة وبسيون</small></span>
+            </button>
+            <button type="button" class="location-filter" data-location-filter="new-cairo" aria-pressed="false">
+              <span class="location-filter-icon"><i data-lucide="building-2" class="size-5"></i></span>
+              <span><strong class="block text-sm sm:text-base">التجمع</strong><small>القاهرة الجديدة</small></span>
+            </button>
+            <button type="button" class="location-filter" data-location-filter="basyoun" aria-pressed="false">
+              <span class="location-filter-icon"><i data-lucide="map-pin" class="size-5"></i></span>
+              <span><strong class="block text-sm sm:text-base">بسيون</strong><small>محافظة الغربية</small></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="reveal mt-6 grid gap-4 lg:grid-cols-[minmax(280px,420px)_1fr] lg:items-end">
           <div>
             <label for="project-search" class="sr-only">ابحث باسم المشروع أو المنطقة</label>
             <div class="relative">
@@ -54,26 +72,29 @@
               <input id="project-search" type="search" data-project-search class="field pr-12" placeholder="ابحث باسم المشروع أو المنطقة" autocomplete="off">
             </div>
           </div>
-          <div class="scrollbar-none flex gap-2 overflow-x-auto pb-1" role="group" aria-label="تصفية المشروعات">
+          <div>
+            <p class="mb-2 text-xs font-extrabold text-slate-500">نوع المشروع</p>
+            <div class="scrollbar-none flex gap-2 overflow-x-auto pb-1" role="group" aria-label="تصفية المشروعات حسب النوع">
             <button type="button" class="filter-btn active" data-filter="all">الكل</button>
             <button type="button" class="filter-btn" data-filter="residential">سكني</button>
             <button type="button" class="filter-btn" data-filter="commercial">تجاري</button>
             <button type="button" class="filter-btn" data-filter="administrative">إداري</button>
             <button type="button" class="filter-btn" data-filter="medical">طبي</button>
             <button type="button" class="filter-btn" data-filter="completed">تم التسليم</button>
+            </div>
           </div>
         </div>
 
         <div class="mt-8 grid gap-5 xl:grid-cols-2">
-          <article class="project-listing group reveal" data-project-card data-category="residential" aria-labelledby="project-h165">
+          <article class="project-listing group reveal" data-project-card data-location="new-cairo" data-category="residential" aria-labelledby="project-h165">
             <div class="project-listing-media">
-              <img src="images/site/project-h165.webp" width="867" height="1156" loading="eager" fetchpriority="high" alt="مشروع H165 في ربوة التجمع أثناء التنفيذ" class="project-listing-image">
-              <span class="project-phase">صورة من مراحل التنفيذ</span>
+              <img src="images/site/project-h165-v2.webp" width="1000" height="750" loading="eager" fetchpriority="high" alt="مشروع H165 في ربوة التجمع أثناء التنفيذ" class="project-listing-image">
+              <span class="project-phase">أحدث صورة تنفيذ متاحة</span>
             </div>
             <div class="project-listing-body">
               <p class="project-location"><i data-lucide="map-pin" class="size-4"></i> ربوة التجمع، القاهرة الجديدة</p>
               <h3 id="project-h165" class="project-name">H165</h3>
-              <p class="project-description">مشروع سكني وصل إلى مرحلة التشطيبات.</p>
+              <p class="project-description">مشروع سكني جارٍ استكمال أعمال المباني والتشطيبات به.</p>
               <dl class="project-facts"><div><dt>الاستخدام</dt><dd>سكني</dd></div><div><dt>الحالة</dt><dd>قيد التنفيذ</dd></div></dl>
               <div class="project-actions">
                 <a href="contact.html?project=h165#consultation" class="btn btn-primary grow">سجّل اهتمامك <i data-lucide="arrow-left" class="size-4"></i></a>
@@ -82,7 +103,7 @@
             </div>
           </article>
 
-          <article class="project-listing group reveal" data-project-card data-category="residential" aria-labelledby="project-a100">
+          <article class="project-listing group reveal" data-project-card data-location="new-cairo" data-category="residential" aria-labelledby="project-a100">
             <div class="project-listing-media">
               <img src="images/site/project-a100.webp" width="900" height="1200" loading="lazy" alt="مشروع A100 في نورث هاوس أثناء التنفيذ" class="project-listing-image">
               <span class="project-phase">قيد التنفيذ</span>
@@ -99,8 +120,11 @@
             </div>
           </article>
 
-          <article class="project-listing group reveal" data-project-card data-category="residential" aria-labelledby="project-h79">
-            <div class="project-code-cover" aria-hidden="true"><span>H79</span><small>ربوة التجمع</small></div>
+          <article class="project-listing group reveal" data-project-card data-location="new-cairo" data-category="residential" aria-labelledby="project-h79">
+            <div class="project-listing-media">
+              <img src="images/site/project-h79-v2.webp" width="1000" height="767" loading="lazy" alt="التصور المعماري المعتمد لمشروع H79 في ربوة التجمع" class="project-listing-image">
+              <span class="project-phase">تصور معماري</span>
+            </div>
             <div class="project-listing-body">
               <p class="project-location"><i data-lucide="map-pin" class="size-4"></i> ربوة التجمع، القاهرة الجديدة</p>
               <h3 id="project-h79" class="project-name">H79</h3>
@@ -113,8 +137,11 @@
             </div>
           </article>
 
-          <article class="project-listing group reveal" data-project-card data-category="residential" aria-labelledby="project-f216">
-            <div class="project-code-cover" aria-hidden="true"><span>F216</span><small>ربوة التجمع</small></div>
+          <article class="project-listing group reveal" data-project-card data-location="new-cairo" data-category="residential" aria-labelledby="project-f216">
+            <div class="project-listing-media">
+              <img src="images/site/project-f216-v2.webp" width="1000" height="1000" loading="lazy" alt="التصور المعماري لمشروع F216 في ربوة التجمع" class="project-listing-image">
+              <span class="project-phase">تصور معماري</span>
+            </div>
             <div class="project-listing-body">
               <p class="project-location"><i data-lucide="map-pin" class="size-4"></i> ربوة التجمع، القاهرة الجديدة</p>
               <h3 id="project-f216" class="project-name">F216</h3>
@@ -127,8 +154,11 @@
             </div>
           </article>
 
-          <article class="project-listing group reveal" data-project-card data-category="residential" aria-labelledby="project-f218">
-            <div class="project-code-cover" aria-hidden="true"><span>F218</span><small>ربوة التجمع</small></div>
+          <article class="project-listing group reveal" data-project-card data-location="new-cairo" data-category="residential" aria-labelledby="project-f218">
+            <div class="project-listing-media">
+              <img src="images/site/project-f218-v2.webp" width="1000" height="1000" loading="lazy" alt="التصور المعماري لمشروع F218 في ربوة التجمع" class="project-listing-image">
+              <span class="project-phase">تصور معماري</span>
+            </div>
             <div class="project-listing-body">
               <p class="project-location"><i data-lucide="map-pin" class="size-4"></i> ربوة التجمع، القاهرة الجديدة</p>
               <h3 id="project-f218" class="project-name">F218</h3>
@@ -141,8 +171,11 @@
             </div>
           </article>
 
-          <article class="project-listing group reveal" data-project-card data-category="residential" aria-labelledby="project-f129">
-            <div class="project-code-cover" aria-hidden="true"><span>F129</span><small>ربوة التجمع</small></div>
+          <article class="project-listing group reveal" data-project-card data-location="new-cairo" data-category="residential" aria-labelledby="project-f129">
+            <div class="project-listing-media">
+              <img src="images/site/project-f129-v2.webp" width="1000" height="1000" loading="lazy" alt="التصور المعماري لمشروع F129 في ربوة التجمع" class="project-listing-image">
+              <span class="project-phase">تصور معماري</span>
+            </div>
             <div class="project-listing-body">
               <p class="project-location"><i data-lucide="map-pin" class="size-4"></i> ربوة التجمع، القاهرة الجديدة</p>
               <h3 id="project-f129" class="project-name">F129</h3>
@@ -155,8 +188,11 @@
             </div>
           </article>
 
-          <article class="project-listing group reveal" data-project-card data-category="residential" aria-labelledby="project-c87">
-            <div class="project-code-cover" aria-hidden="true"><span>C87</span><small>ربوة التجمع</small></div>
+          <article class="project-listing group reveal" data-project-card data-location="new-cairo" data-category="residential" aria-labelledby="project-c87">
+            <div class="project-listing-media">
+              <img src="images/site/project-c87-v2.webp" width="1000" height="1000" loading="lazy" alt="التصور المعماري لمشروع C87 في ربوة التجمع" class="project-listing-image">
+              <span class="project-phase">تصور معماري</span>
+            </div>
             <div class="project-listing-body">
               <p class="project-location"><i data-lucide="map-pin" class="size-4"></i> ربوة التجمع، القاهرة الجديدة</p>
               <h3 id="project-c87" class="project-name">C87</h3>
@@ -169,8 +205,11 @@
             </div>
           </article>
 
-          <article class="project-listing group reveal" data-project-card data-category="residential completed" aria-labelledby="project-h151">
-            <div class="project-code-cover" aria-hidden="true"><span>H151</span><small>تم التسليم</small></div>
+          <article class="project-listing group reveal" data-project-card data-location="new-cairo" data-category="residential completed" aria-labelledby="project-h151">
+            <div class="project-listing-media">
+              <img src="images/site/project-h151-v2.webp" width="1000" height="750" loading="lazy" alt="صورة فعلية لمشروع H151 من مراحل التنفيذ" class="project-listing-image">
+              <span class="project-phase">صورة موثقة من مراحل التنفيذ</span>
+            </div>
             <div class="project-listing-body">
               <p class="project-location"><i data-lucide="map-pin" class="size-4"></i> ربوة التجمع، القاهرة الجديدة</p>
               <h3 id="project-h151" class="project-name">H151</h3>
@@ -183,10 +222,10 @@
             </div>
           </article>
 
-          <article class="project-listing group reveal" data-project-card data-category="commercial administrative medical" aria-labelledby="project-sednawy">
+          <article class="project-listing group reveal" data-project-card data-location="basyoun" data-category="commercial administrative medical" aria-labelledby="project-sednawy">
             <div class="project-listing-media">
-              <img src="images/site/project-sednawy.webp" width="900" height="1200" loading="lazy" alt="أعمال التنفيذ في مشروع صيدناوي مول ببسيون" class="project-listing-image">
-              <span class="project-phase">تجاري · إداري · طبي</span>
+              <img src="images/site/project-sednawy-v2.webp" width="1000" height="750" loading="lazy" alt="أعمال التنفيذ في مشروع صيدناوي مول ببسيون" class="project-listing-image">
+              <span class="project-phase">أحدث صورة تنفيذ متاحة</span>
             </div>
             <div class="project-listing-body">
               <p class="project-location"><i data-lucide="map-pin" class="size-4"></i> بسيون، الغربية</p>
@@ -200,10 +239,10 @@
             </div>
           </article>
 
-          <article class="project-listing group reveal" data-project-card data-category="commercial administrative completed" aria-labelledby="project-teachers">
+          <article class="project-listing group reveal" data-project-card data-location="basyoun" data-category="commercial administrative completed" aria-labelledby="project-teachers">
             <div class="project-listing-media">
-              <img src="images/site/project-teachers-real.webp" width="900" height="1200" loading="lazy" alt="صورة فعلية لبرج نقابة المعلمين أثناء التنفيذ في بسيون" class="project-listing-image">
-              <span class="project-phase">صورة فعلية من الموقع</span>
+              <img src="images/site/project-teachers-v3.webp" width="900" height="1200" loading="lazy" alt="صورة فعلية لبرج نقابة المعلمين أثناء التنفيذ في بسيون" class="project-listing-image">
+              <span class="project-phase">آخر صورة تنفيذ متاحة · مارس 2025</span>
             </div>
             <div class="project-listing-body">
               <p class="project-location"><i data-lucide="map-pin" class="size-4"></i> بسيون، الغربية</p>
@@ -218,7 +257,7 @@
           </article>
         </div>
 
-        <div class="hidden border-y border-slate-200 py-12 text-center" data-empty-projects>
+        <div class="hidden border-y border-slate-200 py-12 text-center" data-filter-empty>
           <h3 class="text-xl font-black text-ink-950">لا توجد نتائج مطابقة</h3>
           <p class="mt-2 text-sm leading-7 text-slate-600">جرّب اسمًا أو تصنيفًا آخر.</p>
         </div>
