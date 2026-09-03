@@ -24,6 +24,7 @@ const browser = spawn(chromePath, [
   '--allow-file-access-from-files',
   '--no-first-run',
   '--no-default-browser-check',
+  '--remote-allow-origins=*',
   '--remote-debugging-port=' + port,
   '--user-data-dir=' + profile,
   firstUrl,
@@ -50,6 +51,11 @@ function connect(webSocketUrl) {
     ws.addEventListener('open', () => resolveSocket(ws), { once: true });
     ws.addEventListener('error', reject, { once: true });
   });
+}
+
+function rejectPendingCommands(message) {
+  pending.forEach(({ rejectCommand }) => rejectCommand(new Error(message)));
+  pending.clear();
 }
 
 let commandId = 0;
@@ -82,6 +88,8 @@ const results = [];
 try {
   const target = await getPageTarget();
   socket = await connect(target.webSocketDebuggerUrl);
+  socket.addEventListener('close', () => rejectPendingCommands('Chrome debugging connection closed unexpectedly.'));
+  socket.addEventListener('error', () => rejectPendingCommands('Chrome debugging connection failed.'));
   socket.addEventListener('message', (event) => {
     const message = JSON.parse(event.data);
     if (!message.id || !pending.has(message.id)) return;
@@ -157,6 +165,17 @@ try {
         const output = join(tmpdir(), 'engaz-home-mobile-full.png');
         writeFileSync(output, Buffer.from(screenshot.result.data, 'base64'));
         console.log('Mobile screenshot: ' + output);
+      }
+
+      if (page === 'index.html' && width === 1440) {
+        const screenshot = await send('Page.captureScreenshot', {
+          format: 'png',
+          fromSurface: true,
+          captureBeyondViewport: false,
+        });
+        const output = join(tmpdir(), 'engaz-home-desktop.png');
+        writeFileSync(output, Buffer.from(screenshot.result.data, 'base64'));
+        console.log('Desktop screenshot: ' + output);
       }
     }
   }

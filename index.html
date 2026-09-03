@@ -16,7 +16,7 @@
   <meta property="og:url" content="https://engazdevelopments.com/">
   <meta property="og:image" content="https://engazdevelopments.com/images/site/hero.webp">
   <link rel="preload" href="fonts/cairo-arabic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="images/site/hero.webp" as="image" fetchpriority="high">
+  <link rel="preload" href="images/site/hero.avif" as="image" type="image/avif" fetchpriority="high">
   <link rel="stylesheet" href="css/app.css">
   <script defer src="js/app.js"></script>
   <script type="application/ld+json">
@@ -33,6 +33,7 @@
     "sameAs": [
       "https://www.facebook.com/Engazrealestate.eg/",
       "https://www.instagram.com/engazdevelopments/",
+      "https://www.tiktok.com/@engazdevelopments",
       "https://www.linkedin.com/company/engaz-developments"
     ]
   }
@@ -43,40 +44,69 @@
   <div data-site-header class="min-h-[72px] lg:min-h-20"></div>
 
   <main id="main-content">
-    <section class="hero-grid relative isolate flex min-h-[calc(100svh-72px)] items-end overflow-hidden text-white" aria-label="مشروعات إنجاز للتطوير العقاري">
-      <div class="absolute inset-0 -z-10 bg-gradient-to-l from-ink-950/35 via-transparent to-ink-950/25"></div>
-      <div class="site-container pb-7 pt-20 sm:pb-10 sm:pt-28 lg:pb-14">
-        <div class="max-w-3xl">
-          <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-ink-950/35 px-4 py-2 text-xs font-extrabold text-gold-300 backdrop-blur-md sm:text-sm">
-            <i data-lucide="sparkles" class="size-4"></i>
-            خبرة ممتدة منذ 2012
+    <section class="hero-stage relative isolate overflow-hidden bg-ink-950 text-white" aria-labelledby="hero-title">
+      <div class="site-container grid gap-9 py-10 sm:gap-12 sm:py-14 lg:min-h-[680px] lg:grid-cols-[1.03fr_.97fr] lg:items-center lg:gap-16 lg:py-12">
+        <div class="relative z-10 max-w-2xl">
+          <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-gold-300/25 bg-gold-300/8 px-3.5 py-2 text-xs font-extrabold text-gold-300 sm:text-sm">
+            <i data-lucide="badge-check" class="size-4"></i>
+            تطوير عقاري ومقاولات منذ 2012
           </p>
-          <h1 class="text-[clamp(2.45rem,9vw,5.6rem)] leading-[1.12] font-black tracking-[-.055em]">
-            نبني عقارًا<br><span class="text-gold-300">يصنع قيمة.</span>
+          <h1 id="hero-title" class="text-[clamp(2.15rem,8vw,4rem)] leading-[1.25] font-black tracking-[-.02em]">
+            مشروعات مدروسة<br><span class="text-gold-300">قرار عقاري أوضح</span>
           </h1>
-          <p class="mt-5 max-w-2xl text-base leading-8 text-slate-100 sm:text-xl sm:leading-9">
-            من اختيار الموقع حتى تفاصيل التنفيذ، نطوّر مشروعات سكنية وتجارية مدروسة لتمنحك قرارًا أوضح واستثمارًا أكثر اطمئنانًا.
+          <p class="mt-4 max-w-xl text-[15px] leading-8 text-slate-300 sm:mt-5 sm:text-lg sm:leading-9">
+            نطوّر مشروعات سكنية وتجارية وإدارية، ونشاركك تفاصيل التنفيذ بوضوح لتختار ما يناسب هدفك وميزانيتك.
           </p>
-          <div class="mt-7 flex flex-col gap-3 sm:flex-row">
-            <a href="projects.html" class="btn btn-gold sm:min-w-44">استكشف المشروعات <i data-lucide="arrow-left" class="size-5"></i></a>
-            <a href="contact.html#consultation" class="btn border border-white/25 bg-white/10 text-white backdrop-blur-md hover:bg-white/20 sm:min-w-44">احجز استشارتك</a>
+
+          <div class="mt-6 grid gap-3 sm:mt-7 sm:flex sm:flex-wrap">
+            <a href="https://wa.me/201030405054?text=مرحباً%20إنجاز،%20أريد%20معرفة%20الوحدات%20المتاحة" target="_blank" rel="noopener" class="btn bg-whatsapp text-white shadow-lg shadow-black/15 hover:-translate-y-0.5 sm:min-w-52" data-channel="whatsapp">
+              <i data-lucide="message-circle" class="size-5"></i> اسأل عن المتاح الآن
+            </a>
+            <a href="projects.html" class="btn border border-white/20 bg-white/8 text-white hover:-translate-y-0.5 hover:bg-white/15 sm:min-w-44">
+              شاهد المشروعات <i data-lucide="arrow-left" class="size-5"></i>
+            </a>
+          </div>
+          <p class="mt-3 flex items-center gap-2 text-xs font-bold text-slate-400">
+            <i data-lucide="clock-3" class="size-4 text-gold-300"></i>
+            تواصل مباشر مع فريق المبيعات — بدون تسجيل
+          </p>
+
+          <div class="mt-7 border-t border-white/10 pt-5">
+            <p class="mb-3 text-xs font-extrabold text-slate-300">شاهد مواقع التنفيذ وآخر أخبار المشروعات</p>
+            <div class="grid max-w-md grid-cols-3 gap-2">
+              <a class="hero-social-link" href="https://www.facebook.com/Engazrealestate.eg/" target="_blank" rel="noopener" aria-label="تابع إنجاز على فيسبوك" data-channel="facebook">
+                <svg class="size-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                <span>فيسبوك</span>
+              </a>
+              <a class="hero-social-link" href="https://www.instagram.com/engazdevelopments/" target="_blank" rel="noopener" aria-label="تابع إنجاز على إنستجرام" data-channel="instagram">
+                <svg class="size-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <span>إنستجرام</span>
+              </a>
+              <a class="hero-social-link" href="https://www.tiktok.com/@engazdevelopments" target="_blank" rel="noopener" aria-label="تابع إنجاز على تيك توك" data-channel="tiktok">
+                <svg class="size-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.72-.02-.5-.03-1-.01-1.48.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                <span>تيك توك</span>
+              </a>
+            </div>
           </div>
         </div>
 
-        <dl class="mt-9 grid grid-cols-3 overflow-hidden rounded-2xl border border-white/15 bg-ink-950/55 backdrop-blur-xl sm:mt-12 sm:max-w-2xl">
-          <div class="px-3 py-4 text-center sm:px-6 sm:py-5">
-            <dt class="text-[10px] font-bold text-slate-300 sm:text-sm">في السوق منذ</dt>
-            <dd class="mt-1 text-xl font-black text-gold-300 sm:text-3xl" dir="ltr">2012</dd>
+        <figure class="hero-visual relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-ink-900 shadow-2xl">
+          <div class="relative aspect-[16/11] overflow-hidden sm:aspect-[16/10] lg:aspect-[4/5]">
+            <picture class="block size-full">
+              <source srcset="images/site/hero.avif" type="image/avif">
+              <img src="images/site/hero.webp" width="1280" height="1280" fetchpriority="high" decoding="async" alt="تصور معماري لأحد مشروعات إنجاز" class="size-full object-cover object-center">
+            </picture>
+            <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink-950/75 to-transparent"></div>
+            <span class="absolute left-4 top-4 rounded-full border border-white/25 bg-ink-950/65 px-3 py-1.5 text-[11px] font-bold text-white backdrop-blur-md">تصور معماري</span>
           </div>
-          <div class="border-x border-white/10 px-3 py-4 text-center sm:px-6 sm:py-5">
-            <dt class="text-[10px] font-bold text-slate-300 sm:text-sm">حضورنا</dt>
-            <dd class="mt-1 text-xl font-black text-gold-300 sm:text-3xl">3 فروع</dd>
-          </div>
-          <div class="px-3 py-4 text-center sm:px-6 sm:py-5">
-            <dt class="text-[10px] font-bold text-slate-300 sm:text-sm">محفظتنا</dt>
-            <dd class="mt-1 text-xl font-black text-gold-300 sm:text-3xl">متنوعة</dd>
-          </div>
-        </dl>
+          <figcaption>
+            <dl class="grid grid-cols-3 divide-x divide-x-reverse divide-white/10 bg-ink-900">
+              <div class="px-2 py-4 text-center sm:px-4"><dt class="text-[10px] font-bold text-slate-400 sm:text-xs">خبرة منذ</dt><dd class="mt-1 text-lg font-black text-gold-300 sm:text-2xl" dir="ltr">2012</dd></div>
+              <div class="px-2 py-4 text-center sm:px-4"><dt class="text-[10px] font-bold text-slate-400 sm:text-xs">حضورنا</dt><dd class="mt-1 text-lg font-black text-white sm:text-2xl">3 فروع</dd></div>
+              <div class="px-2 py-4 text-center sm:px-4"><dt class="text-[10px] font-bold text-slate-400 sm:text-xs">نطاقنا</dt><dd class="mt-1 text-sm font-black text-white sm:text-lg">مصر والسعودية</dd></div>
+            </dl>
+          </figcaption>
+        </figure>
       </div>
     </section>
 

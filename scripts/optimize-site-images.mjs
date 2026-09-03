@@ -14,9 +14,10 @@ const images = [
   ['images/h151-real-hd.webp', 'project-h151.webp', 1000, 76],
   ['images/sednawy-mall-hd.webp', 'project-sednawy.webp', 900, 74],
   ['images/teachers-syndicate-night.webp', 'project-teachers.webp', 900, 76],
-  ['images/tanta-town-mall-hd.webp', 'portfolio-tanta.webp', 1100, 76],
+  ['images/projects_real/town_mall/img-3.webp', 'portfolio-tanta.webp', 1100, 76],
+  ['images/projects_real/fayrouz_tower/img-3.webp', 'portfolio-fayrouz.webp', 1000, 76],
   ['images/before_after/mansoura-before.webp', 'portfolio-mansoura-design.webp', 1100, 76],
-  ['images/before_after/mansoura-after.webp', 'portfolio-mansoura-built.webp', 900, 76],
+  ['images/projects_real/mansoura_villas/img-4.webp', 'portfolio-mansoura-built.webp', 960, 76],
   ['images/ras-el-bar-hd.webp', 'portfolio-ras-elbar.webp', 1100, 76],
 ];
 
@@ -30,4 +31,10 @@ for (const [input, filename, width, quality] of images) {
     .toFile(outputDirectory + '/' + filename);
 }
 
-console.log('Optimized ' + images.length + ' website images in ' + outputDirectory + '.');
+await sharp('images/projects_real/beit_alwatan/img-3.webp')
+  .rotate()
+  .resize({ width: 1280, withoutEnlargement: true })
+  .avif({ quality: 55, effort: 5 })
+  .toFile(outputDirectory + '/hero.avif');
+
+console.log('Optimized ' + images.length + ' WebP images and the AVIF hero in ' + outputDirectory + '.');

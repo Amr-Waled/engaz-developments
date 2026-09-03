@@ -73,12 +73,31 @@
   .mobile-nav-link { @apply flex min-h-14 items-center justify-between border-b border-white/10 py-3 text-lg font-bold text-white; }
   .filter-btn { @apply min-h-11 shrink-0 rounded-full border border-slate-300 bg-white px-5 text-sm font-extrabold text-slate-600 transition; }
   .filter-btn.active { @apply border-ink-950 bg-ink-950 text-white; }
+  .hero-social-link { @apply flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-2 text-[11px] font-extrabold text-white transition duration-200 hover:-translate-y-0.5 hover:border-gold-300/40 hover:bg-white/10 sm:px-3 sm:text-xs; }
 }
 
-.hero-grid {
-  background-image: linear-gradient(180deg, rgba(7,23,29,.12), rgba(7,23,29,.9)), url('../images/site/hero.webp');
-  background-size: cover;
-  background-position: center;
+.hero-stage {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(205, 176, 90, .15), transparent 24rem),
+    radial-gradient(circle at 86% 80%, rgba(36, 68, 77, .48), transparent 30rem),
+    linear-gradient(145deg, #07171d 0%, #0b222a 56%, #07171d 100%);
+}
+
+.hero-stage::before {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 54px 54px;
+  content: "";
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,.8), transparent 82%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.8), transparent 82%);
+}
+
+.hero-visual {
+  box-shadow: 0 30px 90px rgba(0, 0, 0, .3), 0 0 0 1px rgba(255, 255, 255, .035);
 }
 
 .subpage-hero {
