@@ -154,6 +154,14 @@ try {
           expression: "document.querySelectorAll('.reveal').forEach((node) => node.classList.add('is-visible'))",
         });
         await delay(100);
+        const foldScreenshot = await send('Page.captureScreenshot', {
+          format: 'png',
+          fromSurface: true,
+          captureBeyondViewport: false,
+        });
+        const foldOutput = join(tmpdir(), 'engaz-home-mobile-fold.png');
+        writeFileSync(foldOutput, Buffer.from(foldScreenshot.result.data, 'base64'));
+        console.log('Mobile fold screenshot: ' + foldOutput);
         const metrics = await send('Page.getLayoutMetrics');
         const height = Math.min(Math.ceil(metrics.result.cssContentSize.height), 14000);
         const screenshot = await send('Page.captureScreenshot', {
@@ -265,6 +273,62 @@ try {
   const closedState = closedMenu.result.result.value;
   if (closedState.expanded !== 'false' || !closedState.hidden || closedState.bodyLocked) {
     interactionFailures.push('mobile navigation did not close correctly: ' + JSON.stringify(closedState));
+  }
+
+  await send('Runtime.evaluate', { expression: "document.querySelector('main [data-lead-modal-open]').click()" });
+  await delay(350);
+  const leadModal = await send('Runtime.evaluate', {
+    returnByValue: true,
+    expression: `(() => {
+      const modal = document.querySelector('[data-lead-modal]');
+      const panel = document.querySelector('[data-lead-modal-panel]');
+      return {
+        hidden: modal.classList.contains('hidden'),
+        ariaHidden: modal.getAttribute('aria-hidden'),
+        bodyLocked: document.body.classList.contains('menu-open'),
+        focusedInside: panel.contains(document.activeElement),
+        panelBottom: Math.round(panel.getBoundingClientRect().bottom),
+        viewportHeight: innerHeight,
+      };
+    })()`,
+  });
+  const leadModalState = leadModal.result.result.value;
+  if (leadModalState.hidden || leadModalState.ariaHidden !== 'false' || !leadModalState.bodyLocked || !leadModalState.focusedInside || leadModalState.panelBottom !== leadModalState.viewportHeight) {
+    interactionFailures.push('lead modal did not open accessibly: ' + JSON.stringify(leadModalState));
+  }
+  const leadScreenshot = await send('Page.captureScreenshot', {
+    format: 'png',
+    fromSurface: true,
+    captureBeyondViewport: false,
+  });
+  const leadOutput = join(tmpdir(), 'engaz-lead-modal-mobile.png');
+  writeFileSync(leadOutput, Buffer.from(leadScreenshot.result.data, 'base64'));
+  console.log('Lead modal screenshot: ' + leadOutput);
+  await send('Runtime.evaluate', {
+    expression: "document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }))",
+  });
+  await delay(320);
+  const closedLeadModal = await send('Runtime.evaluate', {
+    returnByValue: true,
+    expression: `({ hidden: document.querySelector('[data-lead-modal]').classList.contains('hidden'), bodyLocked: document.body.classList.contains('menu-open') })`,
+  });
+  if (!closedLeadModal.result.result.value.hidden || closedLeadModal.result.result.value.bodyLocked) {
+    interactionFailures.push('lead modal did not close correctly: ' + JSON.stringify(closedLeadModal.result.result.value));
+  }
+
+  await send('Page.navigate', { url: pathToFileURL(resolve('projects.html')).href + '?location=new-cairo&type=residential' });
+  await waitForPage();
+  const deepFilterState = await send('Runtime.evaluate', {
+    returnByValue: true,
+    expression: `(() => ({
+      activeLocation: document.querySelector('[data-location-filter].active')?.dataset.locationFilter,
+      activeCategory: document.querySelector('[data-filter].active')?.dataset.filter,
+      visible: [...document.querySelectorAll('[data-project-card]')].filter((card) => !card.classList.contains('hidden')).length,
+    }))()`,
+  });
+  const deepProjectState = deepFilterState.result.result.value;
+  if (deepProjectState.activeLocation !== 'new-cairo' || deepProjectState.activeCategory !== 'residential' || deepProjectState.visible !== 8) {
+    interactionFailures.push('project deep-link filtering returned unexpected results: ' + JSON.stringify(deepProjectState));
   }
 
   await send('Page.navigate', { url: pathToFileURL(resolve('projects.html')).href });

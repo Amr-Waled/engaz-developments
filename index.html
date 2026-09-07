@@ -44,70 +44,48 @@
   <div data-site-header class="min-h-[72px] lg:min-h-20"></div>
 
   <main id="main-content">
-    <section class="hero-stage relative isolate overflow-hidden bg-ink-950 text-white" aria-labelledby="hero-title">
-      <div class="hero-home-grid">
-        <div class="hero-home-copy relative z-10 max-w-2xl">
+    <section class="home-hero relative isolate overflow-hidden bg-ink-950 text-white" aria-labelledby="hero-title">
+      <picture class="absolute inset-0 block size-full" aria-hidden="true">
+        <source srcset="images/site/hero.avif" type="image/avif">
+        <img src="images/site/hero.webp" width="1280" height="1280" fetchpriority="high" decoding="async" alt="" class="home-hero-image size-full object-cover">
+      </picture>
+      <div class="home-hero-overlay absolute inset-0"></div>
+      <span class="absolute left-4 top-4 z-10 rounded-full border border-white/20 bg-ink-950/55 px-3 py-1.5 text-[10px] font-bold text-white backdrop-blur-md sm:left-6 sm:top-6">تصور معماري</span>
+
+      <div class="site-container relative z-10 flex min-h-[calc(100svh-72px)] flex-col justify-end pb-[calc(5rem+env(safe-area-inset-bottom))] pt-24 md:pb-5 lg:min-h-[calc(100svh-80px)] lg:pb-8 lg:pt-32">
+        <div class="max-w-3xl">
           <p class="mb-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-extrabold text-gold-300 sm:text-sm">
-            <span dir="ltr" class="tracking-[.12em]">ENGAZ DEVELOPMENTS</span>
-            <span class="h-px w-8 bg-gold-300" aria-hidden="true"></span>
-            <span>منذ 2012</span>
+            <span dir="ltr" class="tracking-[.16em]">ENGAZ DEVELOPMENTS</span>
+            <span class="h-px w-10 bg-gold-300" aria-hidden="true"></span>
+            <span>نطوّر منذ 2012</span>
           </p>
-          <h1 id="hero-title" class="text-[clamp(3rem,12vw,5.25rem)] leading-[1.08] font-black tracking-[-.055em]">
+          <h1 id="hero-title" class="max-w-2xl text-[clamp(3rem,13vw,6.4rem)] leading-[1.02] font-black tracking-[-.065em]">
             وده <span class="text-gold-300">إنجازنا.</span>
           </h1>
-          <p class="mt-5 max-w-xl text-[15px] leading-8 text-slate-300 sm:text-lg sm:leading-9">
-            نطوّر مشروعات سكنية وتجارية وإدارية من الفكرة حتى التنفيذ، ونشاركك التفاصيل بوضوح قبل ما تختار.
+          <p class="mt-5 max-w-2xl text-[15px] leading-8 text-slate-200 sm:text-lg sm:leading-9 lg:text-xl">
+            تطوير عقاري ومقاولات بمعايير تنفيذ واضحة، من القاهرة الجديدة إلى الدلتا.
           </p>
 
-          <div class="mt-6 grid gap-3 sm:mt-7 sm:flex sm:flex-wrap">
-            <a href="projects.html" class="btn btn-gold sm:min-w-52">
-              استعرض المشروعات <i data-lucide="arrow-left" class="size-5"></i>
-            </a>
-            <a href="https://wa.me/201030405054?text=مرحباً%20إنجاز،%20أريد%20معرفة%20الوحدات%20المتاحة" target="_blank" rel="noopener" class="btn border border-white/20 bg-white/8 text-white hover:-translate-y-0.5 hover:bg-white/15 sm:min-w-44" data-channel="whatsapp">
-              <i data-lucide="message-circle" class="size-5"></i> واتساب
-            </a>
+          <div class="mt-6 grid max-w-xl gap-3 sm:flex sm:flex-wrap">
+            <a href="projects.html" class="btn btn-gold sm:min-w-52">استكشف المشروعات <i data-lucide="arrow-left" class="size-5"></i></a>
+            <button type="button" class="btn border border-white/25 bg-ink-950/35 text-white backdrop-blur-md hover:bg-white/10 sm:min-w-44" data-lead-modal-open>
+              سجّل اهتمامك <i data-lucide="send" class="size-4"></i>
+            </button>
           </div>
-          <p class="mt-3 flex items-center gap-2 text-xs font-bold text-slate-400">
-            <i data-lucide="clock-3" class="size-4 text-gold-300"></i>
-            الأسعار والتوافر يشاركهما فريق المبيعات وفق آخر تحديث
-          </p>
 
-          <div class="mt-7 border-t border-white/10 pt-5">
-            <p class="mb-3 text-xs font-extrabold text-slate-300">شاهد مواقع التنفيذ وآخر أخبار المشروعات</p>
-            <div class="grid max-w-md grid-cols-3 gap-2">
-              <a class="hero-social-link" href="https://www.facebook.com/Engazrealestate.eg/" target="_blank" rel="noopener" aria-label="تابع إنجاز على فيسبوك" data-channel="facebook">
-                <svg class="size-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                <span>فيسبوك</span>
-              </a>
-              <a class="hero-social-link" href="https://www.instagram.com/engazdevelopments/" target="_blank" rel="noopener" aria-label="تابع إنجاز على إنستجرام" data-channel="instagram">
-                <svg class="size-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                <span>إنستجرام</span>
-              </a>
-              <a class="hero-social-link" href="https://www.tiktok.com/@engazdevelopments" target="_blank" rel="noopener" aria-label="تابع إنجاز على تيك توك" data-channel="tiktok">
-                <svg class="size-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.72-.02-.5-.03-1-.01-1.48.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-                <span>تيك توك</span>
-              </a>
-            </div>
+          <div class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-bold text-slate-200">
+            <span class="text-slate-400">تابع أحدث التنفيذ:</span>
+            <a href="https://www.facebook.com/Engazrealestate.eg/" target="_blank" rel="noopener" class="min-h-10 content-center border-b border-white/25 hover:border-gold-300 hover:text-gold-300" data-channel="facebook">فيسبوك</a>
+            <a href="https://www.instagram.com/engazdevelopments/" target="_blank" rel="noopener" class="min-h-10 content-center border-b border-white/25 hover:border-gold-300 hover:text-gold-300" data-channel="instagram">إنستجرام</a>
+            <a href="https://www.tiktok.com/@engazdevelopments" target="_blank" rel="noopener" class="min-h-10 content-center border-b border-white/25 hover:border-gold-300 hover:text-gold-300" data-channel="tiktok">تيك توك</a>
           </div>
         </div>
 
-        <figure class="hero-visual hero-home-media relative overflow-hidden border border-white/10 bg-ink-900">
-          <div class="hero-home-image relative overflow-hidden">
-            <picture class="block size-full">
-              <source srcset="images/site/hero.avif" type="image/avif">
-              <img src="images/site/hero.webp" width="1280" height="1280" fetchpriority="high" decoding="async" alt="تصور معماري لأحد مشروعات إنجاز" class="size-full object-cover object-center">
-            </picture>
-            <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink-950/75 to-transparent"></div>
-            <span class="absolute left-4 top-4 rounded-full border border-white/25 bg-ink-950/65 px-3 py-1.5 text-[11px] font-bold text-white backdrop-blur-md">تصور معماري</span>
-          </div>
-          <figcaption>
-            <dl class="grid grid-cols-3 divide-x divide-x-reverse divide-white/10 bg-ink-900">
-              <div class="px-2 py-4 text-center sm:px-4"><dt class="text-[10px] font-bold text-slate-400 sm:text-xs">خبرة منذ</dt><dd class="mt-1 text-lg font-black text-gold-300 sm:text-2xl" dir="ltr">2012</dd></div>
-              <div class="px-2 py-4 text-center sm:px-4"><dt class="text-[10px] font-bold text-slate-400 sm:text-xs">حضورنا</dt><dd class="mt-1 text-lg font-black text-white sm:text-2xl">3 فروع</dd></div>
-              <div class="px-2 py-4 text-center sm:px-4"><dt class="text-[10px] font-bold text-slate-400 sm:text-xs">نطاقنا</dt><dd class="mt-1 text-sm font-black text-white sm:text-lg">مصر والسعودية</dd></div>
-            </dl>
-          </figcaption>
-        </figure>
+        <dl class="home-hero-stats mt-7 grid grid-cols-3 divide-x divide-x-reverse divide-white/15 overflow-hidden rounded-2xl border border-white/15 bg-ink-950/45 backdrop-blur-md sm:max-w-2xl">
+          <div class="px-2 py-3 text-center sm:px-6 sm:py-4"><dt class="text-[10px] font-bold text-slate-300 sm:text-xs">نطوّر منذ</dt><dd class="mt-1 text-xl font-black text-gold-300 sm:text-3xl" dir="ltr">2012</dd></div>
+          <div class="px-2 py-3 text-center sm:px-6 sm:py-4"><dt class="text-[10px] font-bold text-slate-300 sm:text-xs">مشروعات معروضة</dt><dd class="mt-1 text-xl font-black text-white sm:text-3xl" dir="ltr">10</dd></div>
+          <div class="px-2 py-3 text-center sm:px-6 sm:py-4"><dt class="text-[10px] font-bold text-slate-300 sm:text-xs">فروع إنجاز</dt><dd class="mt-1 text-xl font-black text-white sm:text-3xl" dir="ltr">3</dd></div>
+        </dl>
       </div>
     </section>
 
@@ -122,7 +100,28 @@
           <a href="projects.html" class="btn btn-secondary self-start sm:self-auto">كل المشروعات <i data-lucide="arrow-left" class="size-4"></i></a>
         </div>
 
-        <div class="mt-9 grid gap-5 md:grid-cols-2 lg:mt-12 lg:grid-cols-3">
+        <div class="mt-9 grid gap-4 md:grid-cols-2 lg:mt-12">
+          <a href="projects.html?location=new-cairo&type=residential" class="development-path group reveal" aria-label="استعرض المشروعات السكنية في القاهرة الجديدة">
+            <img src="images/site/project-h79-v2.webp" width="1000" height="767" loading="lazy" alt="تصور معماري لمشروع سكني في القاهرة الجديدة" class="development-path-image">
+            <span class="development-path-overlay"></span>
+            <span class="development-path-content">
+              <small>Living · تصور معماري</small>
+              <strong>سكني في القاهرة الجديدة</strong>
+              <span>استكشف 8 مشروعات <i data-lucide="arrow-left" class="size-5"></i></span>
+            </span>
+          </a>
+          <a href="projects.html?location=basyoun&type=all" class="development-path group reveal" aria-label="استعرض المشروعات التجارية والإدارية في بسيون">
+            <img src="images/site/project-sednawy-v2.webp" width="1000" height="750" loading="lazy" alt="أعمال تنفيذ مشروع صيدناوي مول في بسيون" class="development-path-image">
+            <span class="development-path-overlay"></span>
+            <span class="development-path-content">
+              <small>Business · تنفيذ فعلي</small>
+              <strong>تجاري وإداري في بسيون</strong>
+              <span>استكشف مشروعات بسيون <i data-lucide="arrow-left" class="size-5"></i></span>
+            </span>
+          </a>
+        </div>
+
+        <div class="mt-5 grid gap-5 md:grid-cols-2 lg:mt-7 lg:grid-cols-3">
           <article class="project-card group reveal">
             <div class="relative overflow-hidden">
               <img src="images/site/project-h165-v2.webp" width="1000" height="750" loading="lazy" alt="أعمال الإنشاء في مشروع H165" class="project-image">
@@ -182,6 +181,10 @@
             <h2 id="why-title" class="section-title">معلومات أساسية من البداية</h2>
             <p class="section-copy">نعرض ما يمكن توثيقه على الموقع، ونترك الأسعار والتوافر المتغيّر لآخر تحديث من فريق المبيعات.</p>
             <a href="about.html" class="mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-black text-ink-950">عن الشركة <i data-lucide="arrow-left" class="size-4 text-gold-600"></i></a>
+            <figure class="mt-7 overflow-hidden rounded-2xl bg-ink-950">
+              <img src="images/site/portfolio-mansoura-built.webp" width="960" height="1280" loading="lazy" alt="تنفيذ فعلي لأحد مشروعات إنجاز في المنصورة الجديدة" class="aspect-[4/3] w-full object-cover object-center">
+              <figcaption class="flex items-center justify-between gap-4 px-5 py-4 text-xs font-bold text-slate-200"><span>تنفيذ فعلي</span><span class="text-gold-300">فلل المنصورة الجديدة</span></figcaption>
+            </figure>
           </div>
           <ol class="divide-y divide-slate-200 border-y border-slate-200">
             <li class="reveal grid gap-3 py-7 sm:grid-cols-[72px_1fr] sm:gap-6 sm:py-8">
@@ -227,6 +230,26 @@
                 <input class="field text-right" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" placeholder="01xxxxxxxxx" required>
               </label>
               <label class="grid gap-2 text-sm font-extrabold text-ink-950">
+                البريد الإلكتروني <span class="font-normal text-slate-400">(اختياري)</span>
+                <input class="field text-right" name="email" type="email" inputmode="email" autocomplete="email" dir="ltr" placeholder="name@example.com">
+              </label>
+              <label class="grid gap-2 text-sm font-extrabold text-ink-950">
+                المشروع المفضل <span class="font-normal text-slate-400">(اختياري)</span>
+                <select class="field" name="project_interest">
+                  <option value="">لم أحدد مشروعًا</option>
+                  <option value="3" data-slug="h165" data-project-name="H165">H165 — القاهرة الجديدة</option>
+                  <option value="9" data-slug="a100" data-project-name="A100">A100 — القاهرة الجديدة</option>
+                  <option value="5" data-slug="h79" data-project-name="H79">H79 — القاهرة الجديدة</option>
+                  <option value="" data-slug="f216" data-project-name="F216">F216 — القاهرة الجديدة</option>
+                  <option value="" data-slug="f218" data-project-name="F218">F218 — القاهرة الجديدة</option>
+                  <option value="8" data-slug="f129" data-project-name="F129">F129 — القاهرة الجديدة</option>
+                  <option value="10" data-slug="c87" data-project-name="C87">C87 — القاهرة الجديدة</option>
+                  <option value="" data-slug="h151" data-project-name="H151">H151 — القاهرة الجديدة</option>
+                  <option value="1" data-slug="sednawy" data-project-name="صيدناوي مول">صيدناوي مول — بسيون</option>
+                  <option value="2" data-slug="teachers" data-project-name="برج نقابة المعلمين">برج نقابة المعلمين — بسيون</option>
+                </select>
+              </label>
+              <label class="grid gap-2 text-sm font-extrabold text-ink-950">
                 نوع الوحدة
                 <select class="field" name="unit_type" required>
                   <option value="">اختر النوع</option>
@@ -248,7 +271,7 @@
                 </select>
               </label>
               <div class="sm:col-span-2">
-                <button type="submit" class="btn btn-primary w-full sm:w-auto sm:min-w-52">سجّل اهتمامي <i data-lucide="send" class="size-4"></i></button>
+                <button type="submit" class="btn btn-primary w-full sm:w-auto sm:min-w-60">اطلب التفاصيل ومعاودة الاتصال <i data-lucide="send" class="size-4"></i></button>
                 <p class="mt-3 text-xs leading-6 text-slate-500">بإرسال الطلب، أنت توافق على تواصل فريق إنجاز معك بخصوص استفسارك. راجع <a href="privacy.html" class="font-bold underline">سياسة الخصوصية</a>.</p>
                 <p class="mt-2 min-h-6 text-sm font-bold text-emerald-700" role="status" aria-live="polite" data-form-status></p>
               </div>

@@ -79,7 +79,13 @@
   .location-filter.active .location-filter-icon { @apply bg-white/10 text-gold-300; }
   .location-filter small { @apply mt-1 hidden text-[11px] font-bold text-slate-500 sm:block; }
   .location-filter.active small { @apply text-slate-300; }
-  .hero-social-link { @apply flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-2 text-[11px] font-extrabold text-white transition duration-200 hover:-translate-y-0.5 hover:border-gold-300/40 hover:bg-white/10 sm:px-3 sm:text-xs; }
+  .development-path { @apply relative isolate flex min-h-72 overflow-hidden rounded-2xl bg-ink-950 text-white shadow-[0_12px_36px_rgba(7,23,29,.12)]; }
+  .development-path-image { @apply absolute inset-0 size-full object-cover transition duration-700 ease-out group-hover:scale-[1.035]; }
+  .development-path-overlay { @apply absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/35 to-transparent; }
+  .development-path-content { @apply relative z-10 mt-auto flex w-full flex-col items-start p-6 sm:p-8; }
+  .development-path-content small { @apply mb-2 text-[11px] font-black tracking-[.18em] text-gold-300 uppercase; }
+  .development-path-content strong { @apply text-2xl leading-snug font-black sm:text-3xl; }
+  .development-path-content > span { @apply mt-4 inline-flex min-h-11 items-center gap-2 border-b border-white/35 text-sm font-extrabold transition group-hover:border-gold-300 group-hover:text-gold-300; }
   .project-listing { @apply overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300 sm:grid sm:grid-cols-[210px_1fr] hover:border-gold-400/60; }
   .project-listing-media { @apply relative min-h-56 overflow-hidden bg-slate-100 sm:min-h-full; }
   .project-listing-image { @apply absolute inset-0 size-full object-cover transition duration-500 group-hover:scale-[1.025]; }
@@ -102,64 +108,57 @@
   .project-whatsapp { @apply grid size-12 shrink-0 place-items-center rounded-xl border border-slate-300 bg-white text-whatsapp transition hover:border-whatsapp hover:bg-emerald-50; }
 }
 
-.hero-stage {
-  background: linear-gradient(125deg, #07171d 0%, #0b222a 100%);
+.home-hero {
+  min-height: min(52rem, calc(100svh - 4.5rem));
 }
 
-.hero-home-grid {
-  display: grid;
-  width: 100%;
+.home-hero-image {
+  object-position: center 43%;
+  transform: scale(1.01);
 }
 
-.hero-home-copy {
-  padding: 2.5rem 1rem 2rem;
+.home-hero-overlay {
+  background:
+    linear-gradient(90deg, rgba(7, 23, 29, .18) 0%, rgba(7, 23, 29, .78) 64%, rgba(7, 23, 29, .96) 100%),
+    linear-gradient(0deg, rgba(7, 23, 29, .93) 0%, rgba(7, 23, 29, .12) 60%);
 }
 
-.hero-home-media {
+.home-hero-stats {
+  box-shadow: 0 18px 48px rgba(0, 0, 0, .18);
+}
+
+.quick-action-rail {
+  box-shadow: 0 18px 48px rgba(7, 23, 29, .2);
+}
+
+.quick-action-item {
   display: flex;
-  flex-direction: column;
-  margin: 0 1rem 1.5rem;
-  border-radius: 1.25rem;
+  min-height: 3.5rem;
+  align-items: center;
+  gap: .75rem;
+  padding-inline: 1rem;
+  font-size: .75rem;
+  font-weight: 800;
+  transition: color .2s ease, background-color .2s ease;
 }
 
-.hero-home-image {
-  height: clamp(20rem, 48svh, 29rem);
+.quick-action-item + .quick-action-item {
+  border-top: 1px solid rgb(226 232 240 / .85);
 }
 
-.hero-visual {
-  box-shadow: 0 22px 60px rgba(0, 0, 0, .28);
-}
-
-@media (min-width: 640px) {
-  .hero-home-copy { padding-inline: 1.5rem; }
-  .hero-home-media { margin-inline: 1.5rem; }
-}
-
-@media (min-width: 1024px) {
-  .hero-home-grid {
-    grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr);
-    min-height: calc(100svh - 5rem);
+@media (max-width: 639px) {
+  .home-hero {
+    min-height: calc(100svh - 4.5rem);
   }
 
-  .hero-home-copy {
-    align-self: center;
-    justify-self: end;
-    padding: 3rem clamp(2rem, 5vw, 6rem) 3rem max(2rem, calc((100vw - 80rem) / 2 + 2rem));
+  .home-hero-image {
+    object-position: 46% center;
   }
 
-  .hero-home-media {
-    height: 100%;
-    min-height: calc(100svh - 5rem);
-    margin: 0;
-    border-block: 0;
-    border-inline-start: 0;
-    border-radius: 0;
-  }
-
-  .hero-home-image {
-    min-height: 0;
-    height: auto;
-    flex: 1;
+  .home-hero-overlay {
+    background:
+      linear-gradient(0deg, rgba(7, 23, 29, .98) 0%, rgba(7, 23, 29, .82) 51%, rgba(7, 23, 29, .4) 100%),
+      linear-gradient(90deg, rgba(7, 23, 29, .2), rgba(7, 23, 29, .72));
   }
 }
 

@@ -63,9 +63,9 @@ function headerTemplate() {
 
         <nav class="hidden items-center gap-1 lg:flex" aria-label="التنقل الرئيسي">${links}</nav>
 
-        <a href="contact.html#consultation" class="btn btn-gold hidden lg:inline-flex">
+        <button type="button" class="btn btn-gold hidden lg:inline-flex" data-lead-modal-open>
           سجّل اهتمامك <i data-lucide="arrow-left" class="size-4"></i>
-        </a>
+        </button>
 
         <button type="button" class="grid size-12 place-items-center rounded-xl border border-slate-300 bg-white text-ink-950 lg:hidden" data-menu-button aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
           <i data-lucide="menu" class="size-6" data-menu-icon></i>
@@ -104,7 +104,7 @@ function footerTemplate() {
           <div>
             <h2 class="mb-4 text-sm font-black text-gold-300">استكشف</h2>
             <div class="grid gap-3 text-sm text-slate-300">
-              <a href="projects.html" class="flex min-h-11 items-center hover:text-white">المشروعات الحالية</a><a href="portfolio.html" class="flex min-h-11 items-center hover:text-white">سابقة الأعمال</a><a href="about.html" class="flex min-h-11 items-center hover:text-white">عن إنجاز</a><a href="contact.html" class="flex min-h-11 items-center hover:text-white">الفروع والتواصل</a>
+              <a href="projects.html" class="flex min-h-11 items-center hover:text-white">المشروعات الحالية</a><a href="portfolio.html" class="flex min-h-11 items-center hover:text-white">سابقة الأعمال</a><a href="testimonials.html" class="flex min-h-11 items-center hover:text-white">آراء العملاء</a><a href="about.html" class="flex min-h-11 items-center hover:text-white">عن إنجاز</a><a href="contact.html" class="flex min-h-11 items-center hover:text-white">الفروع والتواصل</a>
             </div>
           </div>
           <div>
@@ -132,13 +132,48 @@ function footerTemplate() {
       </div>
     </footer>
 
-    <a href="https://wa.me/201030405054?text=${encodeURIComponent('مرحباً إنجاز، أريد معرفة تفاصيل المشروعات المتاحة')}" target="_blank" rel="noopener" class="fixed bottom-6 left-6 z-40 hidden size-14 place-items-center rounded-2xl bg-whatsapp text-white shadow-xl transition hover:-translate-y-1 md:grid" aria-label="تواصل عبر واتساب" data-channel="whatsapp"><i data-lucide="message-circle" class="size-7"></i></a>
+    <aside class="quick-action-rail fixed bottom-6 left-5 z-40 hidden w-40 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white text-ink-950 md:flex" aria-label="تواصل سريع">
+      <a href="https://wa.me/201030405054?text=${encodeURIComponent('مرحباً إنجاز، أريد معرفة تفاصيل المشروعات المتاحة')}" target="_blank" rel="noopener" class="quick-action-item bg-whatsapp text-white hover:bg-emerald-600" data-channel="whatsapp"><i data-lucide="message-circle" class="size-5"></i><span>واتساب</span></a>
+      <button type="button" class="quick-action-item hover:bg-sand-100" data-lead-modal-open><i data-lucide="send" class="size-5 text-gold-600"></i><span>سجّل اهتمامك</span></button>
+      <a href="tel:+201030405054" class="quick-action-item hover:bg-sand-100" data-channel="phone-egypt"><i data-lucide="phone" class="size-5 text-gold-600"></i><span>اتصال مباشر</span></a>
+    </aside>
 
     <nav class="fixed inset-x-0 bottom-0 z-50 grid grid-cols-3 border-t border-slate-200 bg-white/96 px-2 pb-[max(.45rem,env(safe-area-inset-bottom))] pt-2 shadow-[0_-10px_30px_rgba(7,23,29,.08)] backdrop-blur-xl md:hidden" aria-label="إجراءات سريعة">
       <a href="projects.html" class="flex min-h-12 flex-col items-center justify-center gap-1 text-[10px] font-extrabold text-ink-950"><i data-lucide="building-2" class="size-5 text-gold-600"></i>المشروعات</a>
       <a href="https://wa.me/201030405054" target="_blank" rel="noopener" class="flex min-h-12 flex-col items-center justify-center gap-1 rounded-xl bg-whatsapp text-[10px] font-extrabold text-white" data-channel="whatsapp"><i data-lucide="message-circle" class="size-5"></i>واتساب</a>
-      <a href="contact.html#consultation" class="flex min-h-12 flex-col items-center justify-center gap-1 text-[10px] font-extrabold text-ink-950"><i data-lucide="calendar-days" class="size-5 text-gold-600"></i>استشارة</a>
-    </nav>`;
+      <button type="button" class="flex min-h-12 flex-col items-center justify-center gap-1 text-[10px] font-extrabold text-ink-950" data-lead-modal-open><i data-lucide="calendar-days" class="size-5 text-gold-600"></i>استشارة</button>
+    </nav>
+
+    <div class="fixed inset-0 z-[70] hidden" data-lead-modal aria-hidden="true">
+      <button type="button" class="absolute inset-0 bg-ink-950/75 backdrop-blur-sm" data-lead-modal-close aria-label="إغلاق نموذج تسجيل الاهتمام"></button>
+      <section class="absolute inset-x-0 bottom-0 max-h-[92svh] translate-y-6 overflow-y-auto rounded-t-3xl bg-white p-6 opacity-0 shadow-2xl transition duration-300 sm:inset-auto sm:left-1/2 sm:top-1/2 sm:w-[min(92vw,620px)] sm:-translate-x-1/2 sm:-translate-y-[46%] sm:rounded-3xl sm:p-8" role="dialog" aria-modal="true" aria-labelledby="quick-lead-title" data-lead-modal-panel>
+        <div class="flex items-start justify-between gap-5">
+          <div><p class="text-xs font-black text-gold-600">طلب معلومات</p><h2 id="quick-lead-title" class="mt-2 text-2xl font-black text-ink-950 sm:text-3xl">اختر ما يناسبك وسنتواصل معك</h2><p class="mt-2 text-sm leading-7 text-slate-600">سؤالان أساسيان فقط، ويمكنك إضافة المشروع الذي تهتم به.</p></div>
+          <button type="button" class="grid size-11 shrink-0 place-items-center rounded-xl border border-slate-200 text-ink-950 hover:bg-sand-100" data-lead-modal-close aria-label="إغلاق"><i data-lucide="x" class="size-5"></i></button>
+        </div>
+        <form class="mt-6 grid gap-4 sm:grid-cols-2" data-lead-form novalidate>
+          <input type="hidden" name="source" value="Website quick lead">
+          <label class="grid gap-2 text-sm font-extrabold text-ink-950">الاسم بالكامل<input class="field" name="name" type="text" autocomplete="name" minlength="3" placeholder="اكتب اسمك" required></label>
+          <label class="grid gap-2 text-sm font-extrabold text-ink-950">رقم الهاتف<input class="field text-right" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" placeholder="01xxxxxxxxx" required></label>
+          <label class="grid gap-2 text-sm font-extrabold text-ink-950">المشروع <span class="font-normal text-slate-400">(اختياري)</span><select class="field" name="project_interest">
+            <option value="">لم أحدد مشروعًا</option>
+            <option value="3" data-slug="h165" data-project-name="H165">H165 — القاهرة الجديدة</option>
+            <option value="9" data-slug="a100" data-project-name="A100">A100 — القاهرة الجديدة</option>
+            <option value="5" data-slug="h79" data-project-name="H79">H79 — القاهرة الجديدة</option>
+            <option value="" data-slug="f216" data-project-name="F216">F216 — القاهرة الجديدة</option>
+            <option value="" data-slug="f218" data-project-name="F218">F218 — القاهرة الجديدة</option>
+            <option value="8" data-slug="f129" data-project-name="F129">F129 — القاهرة الجديدة</option>
+            <option value="10" data-slug="c87" data-project-name="C87">C87 — القاهرة الجديدة</option>
+            <option value="" data-slug="h151" data-project-name="H151">H151 — القاهرة الجديدة</option>
+            <option value="1" data-slug="sednawy" data-project-name="صيدناوي مول">صيدناوي مول — بسيون</option>
+            <option value="2" data-slug="teachers" data-project-name="برج نقابة المعلمين">برج نقابة المعلمين — بسيون</option>
+          </select></label>
+          <label class="grid gap-2 text-sm font-extrabold text-ink-950">نوع الوحدة <span class="font-normal text-slate-400">(اختياري)</span><select class="field" name="unit_type"><option value="">لم أحدد النوع</option><option value="apartment">سكنية</option><option value="shop">تجارية</option><option value="office">إدارية</option><option value="clinic">طبية</option><option value="villa">فيلا</option></select></label>
+          <label class="flex items-start gap-3 text-xs leading-6 text-slate-600 sm:col-span-2"><input type="checkbox" class="mt-1 size-4 accent-gold-500" required><span>أوافق على تواصل فريق إنجاز معي بخصوص هذا الطلب وفق <a href="privacy.html" class="font-bold underline">سياسة الخصوصية</a>.</span></label>
+          <div class="sm:col-span-2"><button type="submit" class="btn btn-primary w-full">اطلب معاودة الاتصال <i data-lucide="send" class="size-4"></i></button><p class="mt-2 min-h-6 text-sm font-bold text-emerald-700" role="status" aria-live="polite" data-form-status></p></div>
+        </form>
+      </section>
+    </div>`;
 }
 
 function mountShell() {
@@ -204,6 +239,60 @@ function initMenu() {
   });
 }
 
+function initLeadModal() {
+  const modal = document.querySelector('[data-lead-modal]');
+  const panel = modal?.querySelector('[data-lead-modal-panel]');
+  const openers = [...document.querySelectorAll('[data-lead-modal-open]')];
+  if (!modal || !panel || !openers.length) return;
+  let lastFocused = null;
+  let closeTimer = null;
+
+  const focusable = () => [...panel.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled])')];
+  const open = () => {
+    if (closeTimer) window.clearTimeout(closeTimer);
+    lastFocused = document.activeElement;
+    modal.classList.remove('hidden');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('menu-open');
+    requestAnimationFrame(() => {
+      panel.classList.remove('translate-y-6', 'opacity-0', 'sm:-translate-y-[46%]');
+      panel.classList.add('sm:-translate-y-1/2');
+      panel.querySelector('input[name="name"]')?.focus();
+    });
+  };
+  const close = () => {
+    panel.classList.add('translate-y-6', 'opacity-0', 'sm:-translate-y-[46%]');
+    panel.classList.remove('sm:-translate-y-1/2');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('menu-open');
+    closeTimer = window.setTimeout(() => modal.classList.add('hidden'), 280);
+    if (lastFocused instanceof HTMLElement) lastFocused.focus();
+  };
+
+  openers.forEach((button) => button.addEventListener('click', open));
+  modal.querySelectorAll('[data-lead-modal-close]').forEach((button) => button.addEventListener('click', close));
+  document.addEventListener('keydown', (event) => {
+    if (modal.getAttribute('aria-hidden') !== 'false') return;
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      close();
+      return;
+    }
+    if (event.key !== 'Tab') return;
+    const items = focusable();
+    if (!items.length) return;
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+}
+
 function showToast(message, type = 'success') {
   const old = document.querySelector('[data-toast]');
   if (old) old.remove();
@@ -246,6 +335,7 @@ function initLeadForms() {
       const values = new FormData(form);
       const name = String(values.get('name') || '').trim();
       const phone = String(values.get('phone') || '').replace(/[\s()-]/g, '');
+      const email = String(values.get('email') || '').trim();
       const budget = budgets[values.get('budget')] || [null, null];
       const projectSelect = form.querySelector('select[name="project_interest"]');
       const projectOption = projectSelect?.selectedOptions?.[0];
@@ -273,7 +363,8 @@ function initLeadForms() {
         name,
         phone,
         whatsapp: phone,
-        source: 'Website',
+        email: email || null,
+        source: values.get('source') || 'Website',
         status: 'new',
         unit_type: values.get('unit_type') || null,
         budget_min: budget[0],
@@ -316,6 +407,33 @@ function initFilters() {
   const search = document.querySelector('[data-project-search]');
   let activeCategory = 'all';
   let activeLocation = 'all';
+  const requested = new URLSearchParams(window.location.search);
+  const requestedCategory = requested.get('type');
+  const requestedLocation = requested.get('location');
+  if (categoryButtons.some((button) => button.dataset.filter === requestedCategory)) activeCategory = requestedCategory;
+  if (locationButtons.some((button) => button.dataset.locationFilter === requestedLocation)) activeLocation = requestedLocation;
+
+  const syncControls = () => {
+    categoryButtons.forEach((item) => {
+      const isActive = item.dataset.filter === activeCategory;
+      item.classList.toggle('active', isActive);
+      item.setAttribute('aria-pressed', String(isActive));
+    });
+    locationButtons.forEach((item) => {
+      const isActive = item.dataset.locationFilter === activeLocation;
+      item.classList.toggle('active', isActive);
+      item.setAttribute('aria-pressed', String(isActive));
+    });
+  };
+
+  const syncUrl = () => {
+    if (window.location.protocol === 'file:') return;
+    const params = new URLSearchParams(window.location.search);
+    if (activeCategory === 'all') params.delete('type'); else params.set('type', activeCategory);
+    if (activeLocation === 'all') params.delete('location'); else params.set('location', activeLocation);
+    const query = params.toString();
+    window.history.replaceState({}, '', `${window.location.pathname}${query ? `?${query}` : ''}${window.location.hash}`);
+  };
 
   const apply = () => {
     const query = (search?.value || '').trim().toLowerCase();
@@ -336,19 +454,18 @@ function initFilters() {
 
   categoryButtons.forEach((button) => button.addEventListener('click', () => {
     activeCategory = button.dataset.filter;
-    categoryButtons.forEach((item) => item.classList.toggle('active', item === button));
+    syncControls();
+    syncUrl();
     apply();
   }));
   locationButtons.forEach((button) => button.addEventListener('click', () => {
     activeLocation = button.dataset.locationFilter;
-    locationButtons.forEach((item) => {
-      const isActive = item === button;
-      item.classList.toggle('active', isActive);
-      item.setAttribute('aria-pressed', String(isActive));
-    });
+    syncControls();
+    syncUrl();
     apply();
   }));
   search?.addEventListener('input', apply);
+  syncControls();
   apply();
 }
 
@@ -410,6 +527,7 @@ document.addEventListener('DOMContentLoaded', () => {
   mountShell();
   createIcons({ icons, attrs: { 'stroke-width': 1.8 } });
   initMenu();
+  initLeadModal();
   initChannelTracking();
   initProjectSelection();
   initLeadForms();
