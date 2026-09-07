@@ -1,0 +1,4 @@
+interface:
+  display_name: "Web Brand Growth"
+  short_description: "Build brand-led websites that rank and convert"
+  default_prompt: "Use $web-brand-growth to audit and improve website brand, SEO, UX, conversion, and measurement."

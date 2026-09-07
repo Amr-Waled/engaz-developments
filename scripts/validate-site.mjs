@@ -6,6 +6,7 @@ const pages = [
   'projects.html',
   'portfolio.html',
   'about.html',
+  'board.html',
   'testimonials.html',
   'contact.html',
   'privacy.html',
@@ -31,6 +32,12 @@ for (const page of pages) {
   assert(html.includes('data-site-header'), page + ': shared header mount missing');
   assert(html.includes('data-site-footer'), page + ': shared footer mount missing');
   assert(!/odd-panda|cdn\.tailwindcss\.com/i.test(html), page + ': legacy/CDN dependency found');
+  if (page !== '404.html') {
+    assert(/<meta[^>]+name="description"[^>]+content="[^"]+"/i.test(html), page + ': meta description missing');
+    assert(/<link[^>]+rel="canonical"[^>]+href="https:\/\/engazdevelopments\.com\//i.test(html), page + ': canonical URL missing');
+    assert(/<meta[^>]+property="og:title"[^>]+content="[^"]+"/i.test(html), page + ': Open Graph title missing');
+    assert(/<meta[^>]+property="og:image"[^>]+content="https:\/\//i.test(html), page + ': Open Graph image missing');
+  }
 
   for (const tag of html.match(/<img\b[^>]*>/gi) || []) {
     assert(/\balt="[^"]*"/i.test(tag), page + ': image without alt attribute');
@@ -46,6 +53,18 @@ for (const page of pages) {
       : resolve(dirname(resolve(page)), clean);
     assert(existsSync(target), page + ': broken local reference -> ' + url);
   }
+}
+
+try {
+  JSON.parse(readFileSync('schema.json', 'utf8'));
+} catch (error) {
+  failures.push('schema.json: invalid JSON -> ' + error.message);
+}
+
+const sitemap = readFileSync('sitemap.xml', 'utf8');
+for (const page of pages.filter((page) => page !== '404.html')) {
+  const sitemapTarget = page === 'index.html' ? '<loc>https://engazdevelopments.com/</loc>' : page;
+  assert(sitemap.includes(sitemapTarget), 'sitemap.xml: missing indexable page -> ' + page);
 }
 
 const allContent = [

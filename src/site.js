@@ -36,14 +36,15 @@ const navItems = [
 ];
 
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+const activeNavPage = currentPage === 'board.html' ? 'about.html' : currentPage;
 
 function headerTemplate() {
   const links = navItems.map(([href, label]) => `
-    <a class="nav-link ${currentPage === href ? 'active' : ''}" href="${href}" ${currentPage === href ? 'aria-current="page"' : ''}>${label}</a>
+    <a class="nav-link ${activeNavPage === href ? 'active' : ''}" href="${href}" ${activeNavPage === href ? 'aria-current="page"' : ''}>${label}</a>
   `).join('');
 
   const mobileLinks = navItems.map(([href, label]) => `
-    <a class="mobile-nav-link" href="${href}" ${currentPage === href ? 'aria-current="page"' : ''}>
+    <a class="mobile-nav-link" href="${href}" ${activeNavPage === href ? 'aria-current="page"' : ''}>
       <span>${label}</span><i data-lucide="chevron-left" class="size-5 text-gold-300"></i>
     </a>
   `).join('');
@@ -104,7 +105,7 @@ function footerTemplate() {
           <div>
             <h2 class="mb-4 text-sm font-black text-gold-300">استكشف</h2>
             <div class="grid gap-3 text-sm text-slate-300">
-              <a href="projects.html" class="flex min-h-11 items-center hover:text-white">المشروعات الحالية</a><a href="portfolio.html" class="flex min-h-11 items-center hover:text-white">سابقة الأعمال</a><a href="testimonials.html" class="flex min-h-11 items-center hover:text-white">آراء العملاء</a><a href="about.html" class="flex min-h-11 items-center hover:text-white">عن إنجاز</a><a href="contact.html" class="flex min-h-11 items-center hover:text-white">الفروع والتواصل</a>
+              <a href="projects.html" class="flex min-h-11 items-center hover:text-white">المشروعات الحالية</a><a href="portfolio.html" class="flex min-h-11 items-center hover:text-white">سابقة الأعمال</a><a href="testimonials.html" class="flex min-h-11 items-center hover:text-white">آراء العملاء</a><a href="about.html" class="flex min-h-11 items-center hover:text-white">عن إنجاز</a><a href="board.html" class="flex min-h-11 items-center hover:text-white">مجلس الإدارة</a><a href="contact.html" class="flex min-h-11 items-center hover:text-white">الفروع والتواصل</a>
             </div>
           </div>
           <div>

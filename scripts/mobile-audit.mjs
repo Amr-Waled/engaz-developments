@@ -81,7 +81,7 @@ async function waitForPage() {
   });
 }
 
-const pageNames = ['index.html', 'projects.html', 'portfolio.html', 'about.html', 'testimonials.html', 'contact.html', 'privacy.html'];
+const pageNames = ['index.html', 'projects.html', 'portfolio.html', 'about.html', 'board.html', 'testimonials.html', 'contact.html', 'privacy.html'];
 const widths = [320, 360, 375, 390, 430, 768, 1024, 1440];
 const results = [];
 
@@ -222,6 +222,26 @@ try {
         const output = join(tmpdir(), width === 390 ? 'engaz-portfolio-mobile.png' : 'engaz-portfolio-desktop.png');
         writeFileSync(output, Buffer.from(screenshot.result.data, 'base64'));
         console.log('Portfolio screenshot: ' + output);
+      }
+
+      if ((page === 'about.html' || page === 'board.html') && (width === 390 || width === 1440)) {
+        await send('Runtime.evaluate', {
+          expression: "document.querySelectorAll('.reveal').forEach((node) => node.classList.add('is-visible'))",
+        });
+        await delay(150);
+        const screenshotOptions = { format: 'png', fromSurface: true, captureBeyondViewport: width === 390 };
+        if (width === 390) {
+          const metrics = await send('Page.getLayoutMetrics');
+          screenshotOptions.clip = { x: 0, y: 0, width, height: Math.min(Math.ceil(metrics.result.cssContentSize.height), 14000), scale: 1 };
+        } else if (page === 'about.html') {
+          await send('Runtime.evaluate', { expression: 'scrollTo(0, 520)' });
+          await delay(100);
+        }
+        const screenshot = await send('Page.captureScreenshot', screenshotOptions);
+        const pageLabel = page.replace('.html', '');
+        const output = join(tmpdir(), `engaz-${pageLabel}-${width === 390 ? 'mobile' : 'desktop'}.png`);
+        writeFileSync(output, Buffer.from(screenshot.result.data, 'base64'));
+        console.log(pageLabel + ' screenshot: ' + output);
       }
     }
   }

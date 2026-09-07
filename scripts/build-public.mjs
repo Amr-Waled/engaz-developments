@@ -11,6 +11,7 @@ if (dirname(outputDirectory) !== projectRoot || basename(outputDirectory) !== 'p
 const files = [
   '404.html',
   'about.html',
+  'board.html',
   'BingSiteAuth.xml',
   'contact.html',
   'engazdevelopments2026indexnow.txt',
