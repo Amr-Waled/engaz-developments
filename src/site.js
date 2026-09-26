@@ -314,6 +314,12 @@ const budgets = {
   'over-5000000': [5000000, null],
 };
 
+function cookieValue(name) {
+  const prefix = `${name}=`;
+  const item = document.cookie.split(';').map((part) => part.trim()).find((part) => part.startsWith(prefix));
+  return item ? decodeURIComponent(item.slice(prefix.length)) : '';
+}
+
 function initProjectSelection() {
   const project = new URLSearchParams(window.location.search).get('project');
   if (!project) return;
@@ -356,6 +362,8 @@ function initLeadForms() {
       if (status) status.textContent = '';
 
       const campaignContext = new URLSearchParams(window.location.search);
+      const fbclid = campaignContext.get('fbclid') || '';
+      const fbc = cookieValue('_fbc') || (fbclid ? `fb.1.${Date.now()}.${fbclid}` : '');
       const campaignNote = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content']
         .filter((key) => campaignContext.get(key))
         .map((key) => `${key}=${campaignContext.get(key)}`)
@@ -371,6 +379,18 @@ function initLeadForms() {
         budget_min: budget[0],
         budget_max: budget[1],
         project_interest: Number.isInteger(projectInterest) ? projectInterest : null,
+        campaign: campaignContext.get('utm_campaign') || null,
+        campaign_name: campaignContext.get('utm_campaign') || null,
+        platform: campaignContext.get('utm_source') || 'Website',
+        fbp: cookieValue('_fbp') || null,
+        fbc: fbc || null,
+        fbclid: fbclid || null,
+        utm_source: campaignContext.get('utm_source') || null,
+        utm_medium: campaignContext.get('utm_medium') || null,
+        utm_campaign: campaignContext.get('utm_campaign') || null,
+        utm_content: campaignContext.get('utm_content') || null,
+        landing_page: window.location.href,
+        referrer_url: document.referrer || null,
         notes: [projectName ? `المشروع المطلوب: ${projectName}` : '', values.get('notes') || `طلب استشارة من صفحة ${document.title}`, campaignNote, `referrer=${document.referrer || 'direct'}`].filter(Boolean).join(' | '),
       };
 
@@ -381,10 +401,13 @@ function initLeadForms() {
           body: JSON.stringify(payload),
         });
         if (!response.ok) throw new Error('تعذر حفظ الطلب');
+        const savedLead = await response.json();
         form.reset();
         if (status) status.textContent = 'تم استلام طلبك. سيتواصل معك مستشار إنجاز قريبًا.';
         showToast('تم إرسال طلبك بنجاح. سنتواصل معك قريبًا.');
-        if (window.fbq) window.fbq('track', 'Lead', { content_name: 'Website consultation' });
+        if (window.fbq && savedLead?.id) {
+          window.fbq('track', 'Lead', { content_name: 'Website consultation', currency: 'EGP', value: 0 }, { eventID: `lead:${savedLead.id}:new:0` });
+        }
       } catch {
         if (status) status.textContent = 'تعذر الإرسال الآن. يمكنك التواصل معنا مباشرة عبر واتساب.';
         showToast('تعذر الإرسال الآن. تواصل معنا عبر واتساب وسنساعدك فورًا.', 'error');

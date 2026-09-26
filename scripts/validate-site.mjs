@@ -29,6 +29,7 @@ for (const page of pages) {
   assert((html.match(/<h1\b/gi) || []).length === 1, page + ': expected exactly one h1');
   assert(html.includes('css/app.css'), page + ': production CSS missing');
   assert(html.includes('js/app.js'), page + ': bundled JS missing');
+  assert(html.includes('js/meta-pixel.js'), page + ': Meta Pixel loader missing');
   assert(html.includes('data-site-header'), page + ': shared header mount missing');
   assert(html.includes('data-site-footer'), page + ': shared footer mount missing');
   assert(!/odd-panda|cdn\.tailwindcss\.com/i.test(html), page + ': legacy/CDN dependency found');
@@ -54,6 +55,10 @@ for (const page of pages) {
     assert(existsSync(target), page + ': broken local reference -> ' + url);
   }
 }
+
+const metaPixel = readFileSync('js/meta-pixel.js', 'utf8');
+assert(metaPixel.includes("fbq('init', datasetId)"), 'Meta Pixel init missing');
+assert(metaPixel.includes('1825147448913242'), 'Meta Pixel dataset ID mismatch');
 
 try {
   JSON.parse(readFileSync('schema.json', 'utf8'));
