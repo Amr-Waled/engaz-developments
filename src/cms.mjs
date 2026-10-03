@@ -21,12 +21,18 @@ export function annotatePage(html, page, projects) {
     const area = el.closest('[data-site-header]').length ? 'header' : el.closest('[data-site-footer]').length ? 'footer' : page;
     let key = `${area}:text:${el.attr('id') || ++number}`;
     if (['header','footer'].includes(area)) key = `${area}:text:${digest(value + (el.attr('href') || ''))}`;
+    if (node.name==='a' && (el.attr('href') || '').startsWith('tel:') && /^\+\d[\d -]+$/.test(value)) key=`contact:phone:${value.replace(/\D/g,'')}`;
     const cardSlug = el.closest('[data-project-card]').attr('aria-labelledby')?.replace('card-', '');
     const current = projects.find((p) => p.slug === cardSlug) || (el.closest('main').length ? project || projects.find((p) => [p.name,p.description].includes(value)) : null);
     if (current) for (const property of ['name','address','description','use','stageLabel']) if (value === current[property]) key = `project:${current.slug}:${property}`;
     if (current && value === current.image.caption) key = `project:${current.slug}:caption`;
     el.attr('data-cms-key', key);
     add({ key, type: 'text', label: `${labels[node.name] || 'نص'} · ${value.slice(0, 65)}`, default: value, maxLength: node.name === 'h1' ? 200 : 5000, required: /^h[1-3]$/.test(node.name), shared: !key.startsWith(page + ':') });
+  });
+  // Mobile navigation uses the same published text as the desktop header.
+  $('[data-mobile-menu] a').each((_,node)=>{
+    const el=$(node), value=plainText($,node), key=`header:text:${digest(value + (el.attr('href') || ''))}`;
+    if(fields.some(f=>f.key===key)) (el.children('span').length ? el.children('span').first() : el).attr('data-cms-key',key);
   });
   $('body img').each((_, node) => {
     const el = $(node); const src = el.attr('src');
@@ -43,6 +49,16 @@ export function renderContent(html, page, content, catalog) {
   const $ = load(html); const values = content?.values || {}; const fields = new Map(catalog.fields.map((f) => [f.key, f]));
   const valueFor = (key) => Object.hasOwn(values, key) && fields.has(key) ? values[key] : undefined;
   $('[data-cms-key]').each((_, node) => { const value = valueFor($(node).attr('data-cms-key')); if (typeof value === 'string') $(node).text(value).css('white-space', 'pre-line'); });
+  const phones = new Map();
+  for(const field of catalog.fields) {
+    const value=valueFor(field.key);
+    if(field.type==='text' && /^\+\d[\d -]+$/.test(field.default) && typeof value==='string') phones.set(field.default.replace(/\D/g,''),value);
+  }
+  $('a[href]').each((_,node)=>{
+    const el=$(node), href=el.attr('href');
+    if(href.startsWith('tel:')) { const value=phones.get(href.replace(/\D/g,'')); if(value) el.attr('href','tel:+'+value.replace(/\D/g,'')).text(value); }
+    if(/^https:\/\/wa\.me\//.test(href)) { const url=new URL(href),value=phones.get(url.pathname.slice(1)); if(value){url.pathname='/'+value.replace(/\D/g,'');el.attr('href',url.href);} }
+  });
   $('[data-cms-image]').each((_, node) => {
     const value = valueFor($(node).attr('data-cms-image')); if (!value || typeof value !== 'object') return;
     if (value.hidden) { const wrapper = $(node).closest('picture'); (wrapper.length ? wrapper : $(node)).remove(); return; }
@@ -71,6 +87,11 @@ export function renderContent(html, page, content, catalog) {
     try {
       const graph = JSON.parse($(node).text());
       for (const entity of graph['@graph'] || []) {
+        if(entity['@type']==='Organization') {
+          const updatePhone=(value)=>typeof value==='string' && phones.has(value.replace(/\D/g,'')) ? '+'+phones.get(value.replace(/\D/g,'')).replace(/\D/g,'') : value;
+          if(entity.telephone) entity.telephone=Array.isArray(entity.telephone) ? entity.telephone.map(updatePhone) : updatePhone(entity.telephone);
+          for(const point of Array.isArray(entity.contactPoint) ? entity.contactPoint : entity.contactPoint ? [entity.contactPoint] : []) if(point.telephone) point.telephone=updatePhone(point.telephone);
+        }
         if (entity['@id']?.endsWith('#webpage')) { entity.name = title; entity.description = description; }
         if (entity['@type'] === 'ImageObject' && absoluteImage) { entity.url = absoluteImage; entity.contentUrl = absoluteImage; entity.caption = $('main img').first().attr('alt') || ''; }
         const slug = page.match(/^project-(.+)\.html$/)?.[1];

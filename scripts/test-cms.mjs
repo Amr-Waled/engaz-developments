@@ -15,5 +15,11 @@ const values={[image.key]:{src:'/api/site-media?id=12345678-1234-1234-1234-12345
 for(const page of ['index.html','projects.html','project-h165.html']){const rendered=load(renderContent(templates[page],page,{values},catalog));assert.equal(rendered(`[data-cms-image="${image.key}"]`).attr('alt'),'تنفيذ موثق');assert.ok(rendered('main').text().includes('H165 الجديد'));}
 $=load(renderContent(templates['project-h165.html'],'project-h165.html',{values},catalog));const graph=JSON.parse($('script[type="application/ld+json"]').text())['@graph'];assert.equal(graph.find(e=>e['@type']==='Place').name,'H165 الجديد');assert.equal(graph.find(e=>e['@type']==='Place').description,'وصف محدث');assert.ok($('title').text().includes('H165 الجديد'));
 const hidden=load(renderContent(templates['index.html'],'index.html',{values:{[image.key]:{...values[image.key],hidden:true}}},catalog));assert.equal(hidden(`[data-cms-image="${image.key}"]`).length,0);
+const header=catalog.fields.find(f=>f.key.startsWith('header:text:')&&f.default==='مشروعاتنا');
+const updated=load(renderContent(templates['index.html'],'index.html',{values:{[header.key]:'اكتشف المشروعات','contact:phone:201030405054':'+20 10 0000 0000'}},catalog));
+assert.equal(updated('[data-mobile-menu] a[href="projects.html"]').text().trim(),'اكتشف المشروعات');
+assert.ok(updated('a[href="tel:+201000000000"]').length);
+assert.ok(updated('a[href^="https://wa.me/201000000000"]').length);
+assert.equal(JSON.parse(updated('script[type="application/ld+json"]').text())['@graph'].find(e=>e['@type']==='Organization').telephone.includes('+201000000000'),true);
 process.env.NODE_ENV='test';const runtime=require('../server/cms-runtime.cjs');assert.equal(runtime.csrf({headers:{host:'localhost:4181',origin:'http://localhost:4181','x-engaz-admin':'1'}}),true);assert.equal(runtime.csrf({headers:{host:'localhost:4181',origin:'https://attacker.invalid','x-engaz-admin':'1'}}),false);assert.equal(runtime.cookieToken({headers:{cookie:'other=x; engaz_cms=jwt-value'}}),'jwt-value');
 console.log('CMS rendering checks passed: escaped text, synchronized project images/names, SEO, hiding images and CSRF boundary.');
