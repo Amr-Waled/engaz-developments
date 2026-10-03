@@ -1,4 +1,4 @@
-import { existsSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdtempSync, rmSync, writeFileSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve, sep } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -81,7 +81,9 @@ async function waitForPage() {
   });
 }
 
-const pageNames = ['index.html', 'projects.html', 'portfolio.html', 'about.html', 'board.html', 'testimonials.html', 'contact.html', 'privacy.html'];
+const pageNames = ['index.html', 'projects.html', 'new-cairo.html', 'basyoun.html', 'portfolio.html', 'about.html', 'board.html', 'testimonials.html', 'contact.html', 'privacy.html'];
+const projects = JSON.parse(readFileSync('src/data/projects.json', 'utf8'));
+pageNames.push(...projects.map((project) => `project-${project.slug}.html`));
 const widths = [320, 360, 375, 390, 430, 768, 1024, 1440];
 const results = [];
 
@@ -342,7 +344,7 @@ try {
     returnByValue: true,
     expression: `(() => ({
       activeLocation: document.querySelector('[data-location-filter].active')?.dataset.locationFilter,
-      activeCategory: document.querySelector('[data-filter].active')?.dataset.filter,
+      activeCategory: document.querySelector('[data-category-select]')?.value,
       visible: [...document.querySelectorAll('[data-project-card]')].filter((card) => !card.classList.contains('hidden')).length,
     }))()`,
   });
@@ -358,10 +360,13 @@ try {
     expression: `(() => {
       document.querySelector('[data-location-filter="basyoun"]').click();
       const visibleInBasyoun = [...document.querySelectorAll('[data-project-card]')].filter((card) => !card.classList.contains('hidden')).length;
-      document.querySelector('[data-filter="administrative"]').click();
+      const category = document.querySelector('[data-category-select]');
+      category.value = 'administrative';
+      category.dispatchEvent(new Event('change', { bubbles: true }));
       const visibleAfterFilter = [...document.querySelectorAll('[data-project-card]')].filter((card) => !card.classList.contains('hidden')).length;
       const search = document.querySelector('[data-project-search]');
-      document.querySelector('[data-filter="all"]').click();
+      category.value = 'all';
+      category.dispatchEvent(new Event('change', { bubbles: true }));
       document.querySelector('[data-location-filter="all"]').click();
       search.value = 'H165';
       search.dispatchEvent(new Event('input', { bubbles: true }));

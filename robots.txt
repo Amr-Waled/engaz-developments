@@ -2,6 +2,10 @@ User-agent: *
 Allow: /
 
 # AI Crawlers & LLM Agents
+# Search discovery is independent from GPTBot training permissions.
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: GPTBot
 Allow: /
 

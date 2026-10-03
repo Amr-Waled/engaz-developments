@@ -1,0 +1,19 @@
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { load } from 'cheerio';
+import { renderContent } from '../src/cms.mjs';
+import { createRequire } from 'node:module';
+const require=createRequire(import.meta.url);
+const catalog=JSON.parse(readFileSync('src/generated/cms-catalog.json','utf8'));
+const templates=JSON.parse(readFileSync('src/generated/cms-pages.json','utf8'));
+const field=catalog.fields.find(f=>f.key==='index.html:text:hero-title');
+assert.ok(field,'Homepage heading must be editable');
+let html=renderContent(templates['index.html'],'index.html',{values:{[field.key]:'<img src=x onerror=alert(1)> عنوان اختبار','index.html:meta:title':'عنوان بحث جديد'}},catalog);
+let $=load(html);assert.equal($('h1').text(),'<img src=x onerror=alert(1)> عنوان اختبار');assert.equal($('h1 img').length,0);assert.equal($('title').text(),'عنوان بحث جديد');assert.equal($('meta[property="og:title"]').attr('content'),'عنوان بحث جديد');assert.equal($('[data-lead-modal]').length,1);
+const image=catalog.fields.find(f=>f.type==='image'&&f.default.src.includes('project-h165'));
+const values={[image.key]:{src:'/api/site-media?id=12345678-1234-1234-1234-123456789012',alt:'تنفيذ موثق',hidden:false,width:1200,height:800},'project:h165:name':'H165 الجديد','project:h165:description':'وصف محدث'};
+for(const page of ['index.html','projects.html','project-h165.html']){const rendered=load(renderContent(templates[page],page,{values},catalog));assert.equal(rendered(`[data-cms-image="${image.key}"]`).attr('alt'),'تنفيذ موثق');assert.ok(rendered('main').text().includes('H165 الجديد'));}
+$=load(renderContent(templates['project-h165.html'],'project-h165.html',{values},catalog));const graph=JSON.parse($('script[type="application/ld+json"]').text())['@graph'];assert.equal(graph.find(e=>e['@type']==='Place').name,'H165 الجديد');assert.equal(graph.find(e=>e['@type']==='Place').description,'وصف محدث');assert.ok($('title').text().includes('H165 الجديد'));
+const hidden=load(renderContent(templates['index.html'],'index.html',{values:{[image.key]:{...values[image.key],hidden:true}}},catalog));assert.equal(hidden(`[data-cms-image="${image.key}"]`).length,0);
+process.env.NODE_ENV='test';const runtime=require('../server/cms-runtime.cjs');assert.equal(runtime.csrf({headers:{host:'localhost:4181',origin:'http://localhost:4181','x-engaz-admin':'1'}}),true);assert.equal(runtime.csrf({headers:{host:'localhost:4181',origin:'https://attacker.invalid','x-engaz-admin':'1'}}),false);assert.equal(runtime.cookieToken({headers:{cookie:'other=x; engaz_cms=jwt-value'}}),'jwt-value');
+console.log('CMS rendering checks passed: escaped text, synchronized project images/names, SEO, hiding images and CSRF boundary.');

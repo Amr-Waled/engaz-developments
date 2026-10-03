@@ -1,234 +1,55 @@
 {
   "@context": "https://schema.org",
-  "@type": "RealEstateAgent",
-  "name": "Engaz Developments إنجاز للتطوير العقاري",
-  "alternateName": "Engaz Developments",
-  "slogan": "Engaz Developments.. وده إنجازنا",
-  "url": "https://engazdevelopments.com",
-  "logo": "https://engazdevelopments.com/images/logo_engaz.png",
-  "image": "https://engazdevelopments.com/images/logo_engaz.png",
-  "description": "شركة إنجاز للتطوير العقاري (Engaz Developments)، مطور عقاري رائد في مصر متخصص في تشييد وتطوير المشاريع السكنية الراقية بربوة التجمع والمراكز التجارية والطبية بالدلتا (طنطا وبسيون)، وفرع رسمي بالرياض لخدمة المستثمرين بالخليج.",
-  "telephone": "+201030405054",
-  "email": "engaz.com2020@gmail.com",
-  "member": [
+  "@graph": [
     {
-      "@type": "Person",
-      "name": "عمر أبو داود",
-      "jobTitle": "شريك"
+      "@type": "Organization",
+      "@id": "https://engazdevelopments.com/#organization",
+      "name": "إنجاز للتطوير العقاري والمقاولات",
+      "alternateName": [
+        "Engaz Developments",
+        "إنجاز للتطوير العقاري"
+      ],
+      "url": "https://engazdevelopments.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://engazdevelopments.com/images/logo_engaz.png",
+        "width": 108,
+        "height": 108
+      },
+      "foundingDate": "2012",
+      "description": "شركة للتطوير العقاري والمقاولات منذ 2012، بمشروعات في القاهرة الجديدة والدلتا.",
+      "telephone": "+201030405054",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+201030405054",
+          "contactType": "customer service",
+          "availableLanguage": "ar"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+966503040505",
+          "contactType": "customer service",
+          "availableLanguage": "ar"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/Engazrealestate.eg/",
+        "https://www.instagram.com/engazdevelopments/",
+        "https://www.tiktok.com/@engazdevelopments",
+        "https://www.linkedin.com/company/engaz-developments"
+      ]
     },
     {
-      "@type": "Person",
-      "name": "إبراهيم العطافي",
-      "jobTitle": "شريك"
-    }
-  ],
-  "address": [
-    {
-      "@type": "PostalAddress",
-      "name": "المقر الرئيسي - فرع طنطا",
-      "streetAddress": "برج دلتا سيتي مول، شارع البحر، إشارة النحاس",
-      "postalCode": "31511",
-      "addressLocality": "طنطا",
-      "addressRegion": "الغربية",
-      "addressCountry": "EG"
-    },
-    {
-      "@type": "PostalAddress",
-      "name": "فرع القاهرة والتجمع الخامس",
-      "streetAddress": "ربوة التجمع الخامس",
-      "addressLocality": "القاهرة الجديدة",
-      "addressRegion": "القاهرة",
-      "addressCountry": "EG"
-    },
-    {
-      "@type": "PostalAddress",
-      "name": "فرع بسيون",
-      "streetAddress": "شارع 23 يوليو، بجوار نقابة المعلمين ومول صيدناوي",
-      "addressLocality": "بسيون",
-      "addressRegion": "الغربية",
-      "addressCountry": "EG"
-    },
-    {
-      "@type": "PostalAddress",
-      "name": "فرع الرياض",
-      "streetAddress": "حي الياسمين، طريق الملك عبدالعزيز",
-      "addressLocality": "الرياض",
-      "addressCountry": "SA"
-    }
-  ],
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "30.7865",
-    "longitude": "31.0004"
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Saturday",
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday"
-    ],
-    "opens": "09:00",
-    "closes": "17:00"
-  },
-  "sameAs": [
-    "https://www.facebook.com/Engazrealestate.eg/",
-    "https://www.instagram.com/engazdevelopments/",
-    "https://www.tiktok.com/@engazdevelopments",
-    "https://www.linkedin.com/company/engaz-developments",
-    "https://crm.engazdevelopments.com"
-  ],
-  "areaServed": [
-    {
-      "@type": "AdministrativeArea",
-      "name": "New Cairo"
-    },
-    {
-      "@type": "AdministrativeArea",
-      "name": "Tanta"
-    },
-    {
-      "@type": "AdministrativeArea",
-      "name": "Basyoun"
-    },
-    {
-      "@type": "AdministrativeArea",
-      "name": "Gharbia"
-    },
-    {
-      "@type": "AdministrativeArea",
-      "name": "Egypt"
-    }
-  ],
-  "knowsAbout": [
-    "Real Estate Development",
-    "Property Investment",
-    "Residential Construction",
-    "Commercial Malls",
-    "Medical Clinics Development",
-    "Tanta Town Mall",
-    "Mall Sednawy Basyoun",
-    "Rabwat Al-Tagamoa New Cairo"
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "المشاريع العقارية لشركة إنجاز",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "RealEstateProperty",
-          "name": "مشروع H151 - ربوة التجمع",
-          "description": "وحدة سكنية جاهزة للتسليم الفوري بالكامل (Completed & Delivered) في ربوة التجمع."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "RealEstateProperty",
-          "name": "مشروع F129 - ربوة التجمع",
-          "description": "مبنى سكني مكتمل بالكامل وجاهز للتسليم الفوري في ربوة التجمع."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "RealEstateProperty",
-          "name": "مشروع H165 - ربوة التجمع",
-          "description": "مشروع سكني في مرحلة التشطيبات النهائية (Under Finishing) في ربوة التجمع."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "RealEstateProperty",
-          "name": "مشروع C87 - ربوة التجمع",
-          "description": "مشروع سكني تم اكتمال الهيكل الخرساني له بالكامل في ربوة التجمع."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "RealEstateProperty",
-          "name": "مشروع A100 - ربوة التجمع (نورث هاوس)",
-          "description": "مشروع سكني تحت الإنشاء في مرحلة بناء الدور الأول في ربوة التجمع."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "RealEstateProperty",
-          "name": "مشروع F216 - ربوة التجمع",
-          "description": "مشروع سكني تحت الإنشاء في مرحلة الهيكل الخرساني في ربوة التجمع."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "RealEstateProperty",
-          "name": "مشروع F218 - ربوة التجمع",
-          "description": "مشروع سكني استثماري تحت الإنشاء في مرحلة الهيكل الخرساني في ربوة التجمع."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "RealEstateProperty",
-          "name": "مشروع H79 - ربوة التجمع",
-          "description": "مشروع سكني استثماري في مرحلة أعمال الحفر وتجهيز الأساسات في ربوة التجمع."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "RealEstateProperty",
-          "name": "Mall Sednawy Basyoun (مول صيدناوي بسيون)",
-          "description": "مول متعدد الاستخدامات يضم وحدات تجارية وإدارية وطبية في مدينة بسيون."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "RealEstateProperty",
-          "name": "برج نقابة المعلمين بسيون (Teachers Syndicate Tower)",
-          "description": "برج تجاري وإداري في مدينة بسيون بمحافظة الغربية."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "RealEstateProperty",
-          "name": "Tanta Town Mall (مول طنطا تاون) - طنطا",
-          "description": "مول تجاري وترفيهي متميز في موقع استراتيجي بقلب مدينة طنطا بمحافظة الغربية تم تسليمه بالكامل."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "RealEstateProperty",
-          "name": "برج الفيروز - تلا",
-          "description": "برج سكني إداري متكامل بموقع مميز في مدينة تلا بمحافظة المنوفية تم تسليمه بالكامل."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "RealEstateProperty",
-          "name": "فلل المنصورة الجديدة",
-          "description": "فيلات سكنية فاخرة بموقع ساحلي متميز بالمنصورة الجديدة بمحافظة الدقهلية تم تسليمها بالكامل."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "RealEstateProperty",
-          "name": "مشروع رأس البر",
-          "description": "عقارات ووحدات سكنية ساحلية متميزة بمحافظة دمياط تم تسليمها بالكامل."
-        }
+      "@type": "WebSite",
+      "@id": "https://engazdevelopments.com/#website",
+      "url": "https://engazdevelopments.com/",
+      "name": "إنجاز للتطوير العقاري",
+      "alternateName": "Engaz Developments",
+      "inLanguage": "ar-EG",
+      "publisher": {
+        "@id": "https://engazdevelopments.com/#organization"
       }
-    ]
-  }
+    }
+  ]
 }

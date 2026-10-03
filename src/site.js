@@ -1,14 +1,7 @@
-import {
-  createIcons,
-  Menu, X, ArrowLeft, ArrowRight, MapPin, Phone, MessageCircle,
-  Building2, Home, ShieldCheck, Ruler, WalletCards, HardHat,
-  CheckCircle2, Clock3, ChevronLeft, Star, Quote, Mail,
-  Play, UsersRound, Award,
-  Target, Eye, Gem, Handshake, CalendarDays, Layers3,
-  BadgeCheck, Send, LoaderCircle, Search,
-  Sparkles, Navigation, Headphones, ExternalLink, CircleCheck,
-  KeyRound, LayoutGrid,
-} from 'lucide';
+import { headerTemplate, footerTemplate, socialLinksTemplate } from './shell.mjs';
+import { campaignContext, campaignKeys } from './attribution.mjs';
+import { createIcons, Menu, X, Search, LoaderCircle } from 'lucide';
+import projects from './data/projects.json';
 
 document.documentElement.classList.add('motion-ok');
 
@@ -16,170 +9,18 @@ const API_URL = ['localhost', '127.0.0.1'].includes(window.location.hostname) ||
   ? 'http://localhost:5001'
   : 'https://api.engazdevelopments.com';
 
-const icons = {
-  Menu, X, ArrowLeft, ArrowRight, MapPin, Phone, MessageCircle,
-  Building2, Home, ShieldCheck, Ruler, WalletCards, HardHat,
-  CheckCircle2, Clock3, ChevronLeft, Star, Quote, Mail,
-  Play, UsersRound, Award,
-  Target, Eye, Gem, Handshake, CalendarDays, Layers3,
-  BadgeCheck, Send, LoaderCircle, Search,
-  Sparkles, Navigation, Headphones, ExternalLink, CircleCheck,
-  KeyRound, LayoutGrid,
-};
+const icons = { Menu, X, Search, LoaderCircle };
 
-const navItems = [
-  ['index.html', 'الرئيسية'],
-  ['projects.html', 'مشروعاتنا'],
-  ['portfolio.html', 'سابقة الأعمال'],
-  ['about.html', 'عن الشركة'],
-  ['contact.html', 'اتصل بنا'],
-];
-
-const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-const activeNavPage = currentPage === 'board.html' ? 'about.html' : currentPage;
-
-function headerTemplate() {
-  const links = navItems.map(([href, label]) => `
-    <a class="nav-link ${activeNavPage === href ? 'active' : ''}" href="${href}" ${activeNavPage === href ? 'aria-current="page"' : ''}>${label}</a>
-  `).join('');
-
-  const mobileLinks = navItems.map(([href, label]) => `
-    <a class="mobile-nav-link" href="${href}" ${activeNavPage === href ? 'aria-current="page"' : ''}>
-      <span>${label}</span><i data-lucide="chevron-left" class="size-5 text-gold-300"></i>
-    </a>
-  `).join('');
-
-  return `
-    <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-sand-50/92 backdrop-blur-xl" data-header>
-      <div class="site-container flex h-[72px] items-center justify-between gap-4 lg:h-20">
-        <a href="index.html" class="flex shrink-0 items-center gap-3" aria-label="إنجاز للتطوير العقاري - الرئيسية">
-          <span class="grid size-11 place-items-center overflow-hidden rounded-xl border border-gold-400/50 bg-white shadow-sm lg:size-12">
-            <img src="images/logo_engaz.png" width="48" height="48" alt="" class="size-full object-contain p-1">
-          </span>
-          <span class="leading-none">
-            <strong class="block text-lg font-black tracking-[.08em] text-ink-950">ENGAZ</strong>
-            <span class="mt-1 block text-[9px] font-bold text-gold-600 sm:text-[10px]">للتطوير العقاري</span>
-          </span>
-        </a>
-
-        <nav class="hidden items-center gap-1 lg:flex" aria-label="التنقل الرئيسي">${links}</nav>
-
-        <button type="button" class="btn btn-gold hidden lg:inline-flex" data-lead-modal-open>
-          سجّل اهتمامك <i data-lucide="arrow-left" class="size-4"></i>
-        </button>
-
-        <button type="button" class="grid size-12 place-items-center rounded-xl border border-slate-300 bg-white text-ink-950 lg:hidden" data-menu-button aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
-          <i data-lucide="menu" class="size-6" data-menu-icon></i>
-        </button>
-      </div>
-    </header>
-
-    <div id="mobile-menu" class="fixed inset-0 z-[60] hidden lg:hidden" data-mobile-menu aria-hidden="true">
-      <button class="absolute inset-0 bg-ink-950/60 backdrop-blur-sm" data-menu-close aria-label="إغلاق القائمة"></button>
-      <aside class="absolute inset-y-0 right-0 flex w-[min(88vw,360px)] translate-x-full flex-col bg-ink-950 px-5 pb-6 pt-4 text-white transition-transform duration-300" data-menu-panel>
-        <div class="mb-5 flex h-14 items-center justify-between border-b border-white/10 pb-4">
-          <span class="text-sm font-black text-gold-300">القائمة الرئيسية</span>
-          <button type="button" class="grid size-11 place-items-center rounded-xl bg-white/8" data-menu-close aria-label="إغلاق القائمة"><i data-lucide="x" class="size-6"></i></button>
-        </div>
-        <nav aria-label="التنقل على الهاتف">${mobileLinks}</nav>
-        <div class="mt-auto grid gap-3 pt-6">
-          <a href="contact.html#consultation" class="btn btn-gold w-full">سجّل اهتمامك</a>
-          <a href="https://wa.me/201030405054" target="_blank" rel="noopener" class="btn border border-white/15 bg-white/8 text-white" data-channel="whatsapp"><i data-lucide="message-circle" class="size-5"></i> واتساب</a>
-        </div>
-      </aside>
-    </div>`;
-}
-
-function footerTemplate() {
-  return `
-    <footer class="bg-ink-950 pb-24 pt-14 text-white md:pb-8 lg:pt-20">
-      <div class="site-container">
-        <div class="grid gap-10 border-b border-white/10 pb-12 sm:grid-cols-2 lg:grid-cols-[1.35fr_1fr_1fr_1fr]">
-          <div>
-            <div class="mb-5 flex items-center gap-3">
-              <span class="grid size-12 place-items-center overflow-hidden rounded-xl bg-white"><img src="images/logo_engaz.png" alt="" class="size-full object-contain p-1"></span>
-              <div><strong class="block text-xl font-black tracking-wider">ENGAZ</strong><span class="text-xs text-gold-300">للتطوير العقاري والمقاولات</span></div>
-            </div>
-            <p class="max-w-sm text-sm leading-7 text-slate-300">نطوّر مشروعات سكنية وتجارية بمعايير تنفيذ واضحة، ونبني علاقات طويلة المدى أساسها الثقة والالتزام.</p>
-          </div>
-          <div>
-            <h2 class="mb-4 text-sm font-black text-gold-300">استكشف</h2>
-            <div class="grid gap-3 text-sm text-slate-300">
-              <a href="projects.html" class="flex min-h-11 items-center hover:text-white">المشروعات الحالية</a><a href="portfolio.html" class="flex min-h-11 items-center hover:text-white">سابقة الأعمال</a><a href="testimonials.html" class="flex min-h-11 items-center hover:text-white">آراء العملاء</a><a href="about.html" class="flex min-h-11 items-center hover:text-white">عن إنجاز</a><a href="board.html" class="flex min-h-11 items-center hover:text-white">مجلس الإدارة</a><a href="contact.html" class="flex min-h-11 items-center hover:text-white">الفروع والتواصل</a>
-            </div>
-          </div>
-          <div>
-            <h2 class="mb-4 text-sm font-black text-gold-300">تواصل معنا</h2>
-            <div class="grid gap-3 text-sm text-slate-300">
-              <a href="tel:+201030405054" dir="ltr" class="flex min-h-11 w-fit items-center hover:text-white" data-channel="phone-egypt">+20 10 3040 5054</a>
-              <a href="tel:+966503040505" dir="ltr" class="flex min-h-11 w-fit items-center hover:text-white" data-channel="phone-saudi">+966 50 304 0505</a>
-              <a href="contact.html" class="flex min-h-11 items-center hover:text-white">الفروع ومواعيد التواصل</a>
-            </div>
-          </div>
-          <div>
-            <h2 class="mb-4 text-sm font-black text-gold-300">تابع إنجاز</h2>
-            <div class="flex gap-2">
-              <a class="grid size-11 place-items-center rounded-xl bg-white/8 hover:bg-white/15" href="https://www.facebook.com/Engazrealestate.eg/" target="_blank" rel="noopener" aria-label="فيسبوك" data-channel="facebook"><svg class="size-5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-              <a class="grid size-11 place-items-center rounded-xl bg-white/8 hover:bg-white/15" href="https://www.instagram.com/engazdevelopments/" target="_blank" rel="noopener" aria-label="إنستجرام" data-channel="instagram"><svg class="size-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-              <a class="grid size-11 place-items-center rounded-xl bg-white/8 hover:bg-white/15" href="https://www.tiktok.com/@engazdevelopments" target="_blank" rel="noopener" aria-label="تيك توك" data-channel="tiktok"><svg class="size-5 fill-current" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.72-.02-.5-.03-1-.01-1.48.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
-              <a class="grid size-11 place-items-center rounded-xl bg-white/8 hover:bg-white/15" href="https://www.linkedin.com/company/engaz-developments" target="_blank" rel="noopener" aria-label="لينكدإن" data-channel="linkedin"><svg class="size-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-col gap-3 pt-6 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 إنجاز للتطوير العقاري. جميع الحقوق محفوظة.</p>
-          <div class="flex gap-4"><a href="privacy.html" class="flex min-h-11 items-center hover:text-white">سياسة الخصوصية</a><a href="contact.html" class="flex min-h-11 items-center hover:text-white">الدعم والتواصل</a></div>
-        </div>
-      </div>
-    </footer>
-
-    <aside class="quick-action-rail fixed bottom-6 left-5 z-40 hidden w-40 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white text-ink-950 md:flex" aria-label="تواصل سريع">
-      <a href="https://wa.me/201030405054?text=${encodeURIComponent('مرحباً إنجاز، أريد معرفة تفاصيل المشروعات المتاحة')}" target="_blank" rel="noopener" class="quick-action-item bg-whatsapp text-white hover:bg-emerald-600" data-channel="whatsapp"><i data-lucide="message-circle" class="size-5"></i><span>واتساب</span></a>
-      <button type="button" class="quick-action-item hover:bg-sand-100" data-lead-modal-open><i data-lucide="send" class="size-5 text-gold-600"></i><span>سجّل اهتمامك</span></button>
-      <a href="tel:+201030405054" class="quick-action-item hover:bg-sand-100" data-channel="phone-egypt"><i data-lucide="phone" class="size-5 text-gold-600"></i><span>اتصال مباشر</span></a>
-    </aside>
-
-    <nav class="fixed inset-x-0 bottom-0 z-50 grid grid-cols-3 border-t border-slate-200 bg-white/96 px-2 pb-[max(.45rem,env(safe-area-inset-bottom))] pt-2 shadow-[0_-10px_30px_rgba(7,23,29,.08)] backdrop-blur-xl md:hidden" aria-label="إجراءات سريعة">
-      <a href="projects.html" class="flex min-h-12 flex-col items-center justify-center gap-1 text-[10px] font-extrabold text-ink-950"><i data-lucide="building-2" class="size-5 text-gold-600"></i>المشروعات</a>
-      <a href="https://wa.me/201030405054" target="_blank" rel="noopener" class="flex min-h-12 flex-col items-center justify-center gap-1 rounded-xl bg-whatsapp text-[10px] font-extrabold text-white" data-channel="whatsapp"><i data-lucide="message-circle" class="size-5"></i>واتساب</a>
-      <button type="button" class="flex min-h-12 flex-col items-center justify-center gap-1 text-[10px] font-extrabold text-ink-950" data-lead-modal-open><i data-lucide="calendar-days" class="size-5 text-gold-600"></i>استشارة</button>
-    </nav>
-
-    <div class="fixed inset-0 z-[70] hidden" data-lead-modal aria-hidden="true">
-      <button type="button" class="absolute inset-0 bg-ink-950/75 backdrop-blur-sm" data-lead-modal-close aria-label="إغلاق نموذج تسجيل الاهتمام"></button>
-      <section class="absolute inset-x-0 bottom-0 max-h-[92svh] translate-y-6 overflow-y-auto rounded-t-3xl bg-white p-6 opacity-0 shadow-2xl transition duration-300 sm:inset-auto sm:left-1/2 sm:top-1/2 sm:w-[min(92vw,620px)] sm:-translate-x-1/2 sm:-translate-y-[46%] sm:rounded-3xl sm:p-8" role="dialog" aria-modal="true" aria-labelledby="quick-lead-title" data-lead-modal-panel>
-        <div class="flex items-start justify-between gap-5">
-          <div><p class="text-xs font-black text-gold-600">طلب معلومات</p><h2 id="quick-lead-title" class="mt-2 text-2xl font-black text-ink-950 sm:text-3xl">اختر ما يناسبك وسنتواصل معك</h2><p class="mt-2 text-sm leading-7 text-slate-600">سؤالان أساسيان فقط، ويمكنك إضافة المشروع الذي تهتم به.</p></div>
-          <button type="button" class="grid size-11 shrink-0 place-items-center rounded-xl border border-slate-200 text-ink-950 hover:bg-sand-100" data-lead-modal-close aria-label="إغلاق"><i data-lucide="x" class="size-5"></i></button>
-        </div>
-        <form class="mt-6 grid gap-4 sm:grid-cols-2" data-lead-form novalidate>
-          <input type="hidden" name="source" value="Website quick lead">
-          <label class="grid gap-2 text-sm font-extrabold text-ink-950">الاسم بالكامل<input class="field" name="name" type="text" autocomplete="name" minlength="3" placeholder="اكتب اسمك" required></label>
-          <label class="grid gap-2 text-sm font-extrabold text-ink-950">رقم الهاتف<input class="field text-right" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" placeholder="01xxxxxxxxx" required></label>
-          <label class="grid gap-2 text-sm font-extrabold text-ink-950">المشروع <span class="font-normal text-slate-400">(اختياري)</span><select class="field" name="project_interest">
-            <option value="">لم أحدد مشروعًا</option>
-            <option value="3" data-slug="h165" data-project-name="H165">H165 — القاهرة الجديدة</option>
-            <option value="9" data-slug="a100" data-project-name="A100">A100 — القاهرة الجديدة</option>
-            <option value="5" data-slug="h79" data-project-name="H79">H79 — القاهرة الجديدة</option>
-            <option value="" data-slug="f216" data-project-name="F216">F216 — القاهرة الجديدة</option>
-            <option value="" data-slug="f218" data-project-name="F218">F218 — القاهرة الجديدة</option>
-            <option value="8" data-slug="f129" data-project-name="F129">F129 — القاهرة الجديدة</option>
-            <option value="10" data-slug="c87" data-project-name="C87">C87 — القاهرة الجديدة</option>
-            <option value="" data-slug="h151" data-project-name="H151">H151 — القاهرة الجديدة</option>
-            <option value="1" data-slug="sednawy" data-project-name="صيدناوي مول">صيدناوي مول — بسيون</option>
-            <option value="2" data-slug="teachers" data-project-name="برج نقابة المعلمين">برج نقابة المعلمين — بسيون</option>
-          </select></label>
-          <label class="grid gap-2 text-sm font-extrabold text-ink-950">نوع الوحدة <span class="font-normal text-slate-400">(اختياري)</span><select class="field" name="unit_type"><option value="">لم أحدد النوع</option><option value="apartment">سكنية</option><option value="shop">تجارية</option><option value="office">إدارية</option><option value="clinic">طبية</option><option value="villa">فيلا</option></select></label>
-          <label class="flex items-start gap-3 text-xs leading-6 text-slate-600 sm:col-span-2"><input type="checkbox" class="mt-1 size-4 accent-gold-500" required><span>أوافق على تواصل فريق إنجاز معي بخصوص هذا الطلب وفق <a href="privacy.html" class="font-bold underline">سياسة الخصوصية</a>.</span></label>
-          <div class="sm:col-span-2"><button type="submit" class="btn btn-primary w-full">اطلب معاودة الاتصال <i data-lucide="send" class="size-4"></i></button><p class="mt-2 min-h-6 text-sm font-bold text-emerald-700" role="status" aria-live="polite" data-form-status></p></div>
-        </form>
-      </section>
-    </div>`;
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
 }
 
 function mountShell() {
-  document.querySelectorAll('[data-site-header]').forEach((node) => { node.innerHTML = headerTemplate(); });
-  document.querySelectorAll('[data-site-footer]').forEach((node) => { node.innerHTML = footerTemplate(); });
+  document.querySelectorAll('[data-site-header]').forEach((node) => { if (!node.firstElementChild) node.innerHTML = headerTemplate(window.location.pathname.split('/').pop() || 'index.html'); });
+  document.querySelectorAll('[data-site-footer]').forEach((node) => { if (!node.firstElementChild) node.innerHTML = footerTemplate(document.body.dataset.projectName, projects); });
+  document.querySelectorAll('[data-social-links]').forEach((node) => {
+    if (!node.firstElementChild) node.innerHTML = socialLinksTemplate(node.dataset.socialLinks === 'all');
+  });
 }
 
 function initChannelTracking() {
@@ -188,8 +29,11 @@ function initChannelTracking() {
     const link = target?.closest('[data-channel]');
     if (!link) return;
     const channel = link.dataset.channel;
-    const details = { channel, page_path: window.location.pathname };
+    const details = { channel, page_path: window.location.pathname, project: document.body.dataset.currentProject || null };
     if (typeof window.fbq === 'function') window.fbq('trackCustom', 'ContactChannelClick', details);
+    if (['whatsapp', 'phone-egypt', 'phone-saudi'].includes(channel) && typeof window.fbq === 'function') {
+      window.fbq('track', 'Contact', { content_name: channel, content_category: 'contact_intent', project: details.project });
+    }
     if (typeof window.gtag === 'function') window.gtag('event', 'contact_channel_click', details);
   });
 }
@@ -248,8 +92,15 @@ function initLeadModal() {
   let lastFocused = null;
   let closeTimer = null;
 
-  const focusable = () => [...panel.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled])')];
-  const open = () => {
+  const focusable = () => [...panel.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), summary')].filter((element) => element.getClientRects().length > 0);
+  const open = (event) => {
+    event?.preventDefault();
+    const slug = event?.currentTarget?.dataset.projectInterest || document.body.dataset.currentProject;
+    const select = panel.querySelector('select[name="project_interest"]');
+    const option = slug ? [...select.options].find((item) => item.dataset.slug === slug) : select.selectedOptions[0];
+    if (option) option.selected = true;
+    const context = panel.querySelector('[data-lead-context]');
+    if (context) context.textContent = option?.dataset.projectName ? `استفسارك عن مشروع ${option.dataset.projectName}` : '';
     if (closeTimer) window.clearTimeout(closeTimer);
     lastFocused = document.activeElement;
     modal.classList.remove('hidden');
@@ -300,7 +151,7 @@ function showToast(message, type = 'success') {
   const toast = document.createElement('div');
   toast.dataset.toast = '';
   toast.className = `toast fixed bottom-24 left-4 right-4 z-[80] mx-auto flex max-w-md items-start gap-3 rounded-2xl border p-4 text-sm font-bold shadow-2xl md:bottom-8 ${type === 'success' ? 'border-emerald-200 bg-white text-emerald-800' : 'border-red-200 bg-white text-red-700'}`;
-  toast.innerHTML = `<i data-lucide="${type === 'success' ? 'circle-check' : 'x'}" class="mt-0.5 size-5 shrink-0"></i><span></span>`;
+  toast.innerHTML = `<span></span>`;
   toast.querySelector('span').textContent = message;
   document.body.appendChild(toast);
   createIcons({ icons });
@@ -321,7 +172,7 @@ function cookieValue(name) {
 }
 
 function initProjectSelection() {
-  const project = new URLSearchParams(window.location.search).get('project');
+  const project = document.body.dataset.currentProject || new URLSearchParams(window.location.search).get('project');
   if (!project) return;
   document.querySelectorAll('select[name="project_interest"]').forEach((select) => {
     const option = [...select.options].find((item) => item.dataset.slug === project);
@@ -329,10 +180,44 @@ function initProjectSelection() {
   });
 }
 
+function initCampaignLinks() {
+  const query = campaignContext().query;
+  const campaign = campaignKeys.filter((key) => query.has(key)).map((key) => [key, query.get(key)]);
+  if (!campaign.length) return;
+  document.querySelectorAll('a[href]').forEach((link) => {
+    const url = new URL(link.getAttribute('href'), window.location.href);
+    if (url.origin !== window.location.origin || !url.pathname.endsWith('.html')) return;
+    campaign.forEach(([key, value]) => { if (!url.searchParams.has(key)) url.searchParams.set(key, value); });
+    link.href = url.href;
+  });
+  document.querySelectorAll('form.project-finder').forEach((form) => {
+    campaign.forEach(([key, value]) => {
+      const input = document.createElement('input');
+      input.type = 'hidden'; input.name = key; input.value = value;
+      form.appendChild(input);
+    });
+  });
+}
+
+function initFinder() {
+  const form = document.querySelector('.project-finder');
+  if (!form) return;
+  const location = form.querySelector('[name="location"]');
+  const type = form.querySelector('[name="type"]');
+  const update = () => {
+    const available = new Set(projects.filter((project) => location.value === 'all' || project.location === location.value).flatMap((project) => project.categories));
+    [...type.options].forEach((option) => { option.disabled = option.value !== 'all' && !available.has(option.value); });
+    if (type.selectedOptions[0]?.disabled) type.value = 'all';
+  };
+  location.addEventListener('change', update);
+  update();
+}
+
 function initLeadForms() {
   document.querySelectorAll('[data-lead-form]').forEach((form) => {
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
+      if (form.dataset.submitting === 'true') return;
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
@@ -341,7 +226,7 @@ function initLeadForms() {
       const status = form.querySelector('[data-form-status]');
       const values = new FormData(form);
       const name = String(values.get('name') || '').trim();
-      const phone = String(values.get('phone') || '').replace(/[\s()-]/g, '');
+      const phone = String(values.get('phone') || '').replace(/[٠-٩۰-۹]/g, (digit) => String(digit.charCodeAt(0) - (digit <= '٩' ? 1632 : 1776))).replace(/[\s()-]/g, '');
       const email = String(values.get('email') || '').trim();
       const budget = budgets[values.get('budget')] || [null, null];
       const projectSelect = form.querySelector('select[name="project_interest"]');
@@ -351,22 +236,25 @@ function initLeadForms() {
 
       const validPhone = /^(?:(?:\+?20|0)?1[0125]\d{8}|(?:\+?966|0)?5\d{8})$/.test(phone);
       if (name.length < 3 || !validPhone) {
+        if (status) status.textContent = 'راجع الاسم ورقم الهاتف المصري أو السعودي ثم حاول مرة أخرى.';
         showToast('راجع الاسم ورقم الهاتف المصري أو السعودي ثم حاول مرة أخرى.', 'error');
         return;
       }
 
       const original = submit.innerHTML;
+      form.dataset.submitting = 'true';
       submit.disabled = true;
       submit.innerHTML = '<i data-lucide="loader-circle" class="size-5 animate-spin"></i> جارٍ الإرسال';
       createIcons({ icons });
       if (status) status.textContent = '';
 
-      const campaignContext = new URLSearchParams(window.location.search);
-      const fbclid = campaignContext.get('fbclid') || '';
-      const fbc = cookieValue('_fbc') || (fbclid ? `fb.1.${Date.now()}.${fbclid}` : '');
-      const campaignNote = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content']
-        .filter((key) => campaignContext.get(key))
-        .map((key) => `${key}=${campaignContext.get(key)}`)
+      const attribution = campaignContext();
+      const campaignQuery = attribution.query;
+      const fbclid = campaignQuery.get('fbclid') || '';
+      const fbc = cookieValue('_fbc') || (fbclid ? `fb.1.${attribution.clickTimestamp}.${fbclid}` : '');
+      const campaignNote = campaignKeys.filter((key) => key !== 'fbclid')
+        .filter((key) => campaignQuery.get(key))
+        .map((key) => `${key}=${campaignQuery.get(key)}`)
         .join(' | ');
       const payload = {
         name,
@@ -379,39 +267,55 @@ function initLeadForms() {
         budget_min: budget[0],
         budget_max: budget[1],
         project_interest: Number.isInteger(projectInterest) ? projectInterest : null,
-        campaign: campaignContext.get('utm_campaign') || null,
-        campaign_name: campaignContext.get('utm_campaign') || null,
-        platform: campaignContext.get('utm_source') || 'Website',
+        campaign: campaignQuery.get('utm_campaign') || null,
+        campaign_name: campaignQuery.get('utm_campaign') || null,
+        campaign_id: campaignQuery.get('campaign_id') || null,
+        adset_id: campaignQuery.get('adset_id') || null,
+        ad_id: campaignQuery.get('ad_id') || null,
+        adset_name: campaignQuery.get('adset_name') || null,
+        ad_name: campaignQuery.get('ad_name') || null,
+        platform: campaignQuery.get('utm_source') || 'Website',
         fbp: cookieValue('_fbp') || null,
         fbc: fbc || null,
         fbclid: fbclid || null,
-        utm_source: campaignContext.get('utm_source') || null,
-        utm_medium: campaignContext.get('utm_medium') || null,
-        utm_campaign: campaignContext.get('utm_campaign') || null,
-        utm_content: campaignContext.get('utm_content') || null,
-        landing_page: window.location.href,
-        referrer_url: document.referrer || null,
+        utm_source: campaignQuery.get('utm_source') || null,
+        utm_medium: campaignQuery.get('utm_medium') || null,
+        utm_campaign: campaignQuery.get('utm_campaign') || null,
+        utm_content: campaignQuery.get('utm_content') || null,
+        landing_page: attribution.landingPage,
+        referrer_url: attribution.referrer || null,
         notes: [projectName ? `المشروع المطلوب: ${projectName}` : '', values.get('notes') || `طلب استشارة من صفحة ${document.title}`, campaignNote, `referrer=${document.referrer || 'direct'}`].filter(Boolean).join(' | '),
       };
 
       try {
-        const response = await fetch(`${API_URL}/api/leads`, {
+        const controller = new AbortController();
+        const timeout = window.setTimeout(() => controller.abort(), 20000);
+        let response;
+        try {
+        response = await fetch(`${API_URL}/api/leads`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
+          signal: controller.signal,
         });
+        } finally { window.clearTimeout(timeout); }
         if (!response.ok) throw new Error('تعذر حفظ الطلب');
         const savedLead = await response.json();
+        if (!savedLead || (savedLead.success !== true && !savedLead.id)) throw new Error('لم يتم تأكيد حفظ الطلب');
         form.reset();
+        initProjectSelection();
         if (status) status.textContent = 'تم استلام طلبك. سيتواصل معك مستشار إنجاز قريبًا.';
         showToast('تم إرسال طلبك بنجاح. سنتواصل معك قريبًا.');
-        if (window.fbq && savedLead?.id) {
-          window.fbq('track', 'Lead', { content_name: 'Website consultation', currency: 'EGP', value: 0 }, { eventID: `lead:${savedLead.id}:new:0` });
+        if (window.fbq && savedLead.id && !savedLead.duplicate) {
+          window.fbq('track', 'Lead', { content_name: projectName || 'Website consultation', content_category: values.get('unit_type') || 'property_enquiry' }, { eventID: `lead:${savedLead.id}:new:0` });
+        } else if (window.fbq && savedLead.duplicate) {
+          window.fbq('trackCustom', 'RepeatInquiry', { content_name: projectName || 'Website consultation' });
         }
       } catch {
         if (status) status.textContent = 'تعذر الإرسال الآن. يمكنك التواصل معنا مباشرة عبر واتساب.';
         showToast('تعذر الإرسال الآن. تواصل معنا عبر واتساب وسنساعدك فورًا.', 'error');
       } finally {
+        delete form.dataset.submitting;
         submit.disabled = false;
         submit.innerHTML = original;
         createIcons({ icons });
@@ -423,7 +327,8 @@ function initLeadForms() {
 function initFilters() {
   const filterRoot = document.querySelector('[data-project-filters]');
   if (!filterRoot) return;
-  const categoryButtons = [...filterRoot.querySelectorAll('[data-filter]')];
+  const categorySelect = filterRoot.querySelector('[data-category-select]');
+  const stageSelect = filterRoot.querySelector('[data-stage-select]');
   const locationButtons = [...filterRoot.querySelectorAll('[data-location-filter]')];
   const cards = [...document.querySelectorAll('[data-project-card]')];
   const count = document.querySelector('[data-results-count]');
@@ -431,18 +336,20 @@ function initFilters() {
   const search = document.querySelector('[data-project-search]');
   let activeCategory = 'all';
   let activeLocation = 'all';
+  let activeStage = 'all';
   const requested = new URLSearchParams(window.location.search);
   const requestedCategory = requested.get('type');
   const requestedLocation = requested.get('location');
-  if (categoryButtons.some((button) => button.dataset.filter === requestedCategory)) activeCategory = requestedCategory;
+  if ([...categorySelect.options].some((option) => option.value === requestedCategory)) activeCategory = requestedCategory;
+  const requestedStage = requested.get('stage');
+  if ([...stageSelect.options].some((option) => option.value === requestedStage)) activeStage = requestedStage;
+  if (requestedCategory === 'completed') activeStage = 'delivered';
   if (locationButtons.some((button) => button.dataset.locationFilter === requestedLocation)) activeLocation = requestedLocation;
+  if (search) search.value = requested.get('q') || '';
 
   const syncControls = () => {
-    categoryButtons.forEach((item) => {
-      const isActive = item.dataset.filter === activeCategory;
-      item.classList.toggle('active', isActive);
-      item.setAttribute('aria-pressed', String(isActive));
-    });
+    categorySelect.value = activeCategory;
+    stageSelect.value = activeStage;
     locationButtons.forEach((item) => {
       const isActive = item.dataset.locationFilter === activeLocation;
       item.classList.toggle('active', isActive);
@@ -455,6 +362,8 @@ function initFilters() {
     const params = new URLSearchParams(window.location.search);
     if (activeCategory === 'all') params.delete('type'); else params.set('type', activeCategory);
     if (activeLocation === 'all') params.delete('location'); else params.set('location', activeLocation);
+    if (activeStage === 'all') params.delete('stage'); else params.set('stage', activeStage);
+    if (search?.value.trim()) params.set('q', search.value.trim()); else params.delete('q');
     const query = params.toString();
     window.history.replaceState({}, '', `${window.location.pathname}${query ? `?${query}` : ''}${window.location.hash}`);
   };
@@ -465,8 +374,9 @@ function initFilters() {
     cards.forEach((card) => {
       const matchesCategory = activeCategory === 'all' || card.dataset.category?.split(' ').includes(activeCategory);
       const matchesLocation = activeLocation === 'all' || card.dataset.location === activeLocation;
+      const matchesStage = activeStage === 'all' || card.dataset.stage === activeStage;
       const matchesSearch = !query || card.textContent.toLowerCase().includes(query);
-      const show = matchesCategory && matchesLocation && matchesSearch;
+      const show = matchesCategory && matchesLocation && matchesStage && matchesSearch;
       card.classList.toggle('hidden', !show);
       if (show) visible += 1;
     });
@@ -474,21 +384,34 @@ function initFilters() {
       count.textContent = visible === 1 ? 'مشروع واحد' : visible === 2 ? 'مشروعان' : visible >= 3 && visible <= 10 ? `${visible} مشروعات` : `${visible} مشروع`;
     }
     empty?.classList.toggle('hidden', visible !== 0);
+    const filtered = activeCategory !== 'all' || activeLocation !== 'all' || activeStage !== 'all' || Boolean(query);
+    filterRoot.querySelector('.listing-results [data-filter-reset]')?.classList.toggle('invisible', !filtered);
   };
 
-  categoryButtons.forEach((button) => button.addEventListener('click', () => {
-    activeCategory = button.dataset.filter;
+  categorySelect.addEventListener('change', () => {
+    activeCategory = categorySelect.value;
     syncControls();
     syncUrl();
     apply();
-  }));
+  });
+  stageSelect.addEventListener('change', () => {
+    activeStage = stageSelect.value;
+    syncControls();
+    syncUrl();
+    apply();
+  });
   locationButtons.forEach((button) => button.addEventListener('click', () => {
     activeLocation = button.dataset.locationFilter;
     syncControls();
     syncUrl();
     apply();
   }));
-  search?.addEventListener('input', apply);
+  search?.addEventListener('input', () => { syncUrl(); apply(); });
+  filterRoot.querySelectorAll('[data-filter-reset]').forEach((button) => button.addEventListener('click', () => {
+    activeCategory = activeLocation = activeStage = 'all';
+    if (search) search.value = '';
+    syncControls(); syncUrl(); apply();
+  }));
   syncControls();
   apply();
 }
@@ -500,10 +423,10 @@ function testimonialCard(item) {
   card.className = 'surface-card flex h-full flex-col p-6 sm:p-7';
   const stars = Math.min(5, Math.max(1, Number(item.rating) || 5));
   card.innerHTML = `
-    <div class="mb-5 flex items-center justify-between"><div class="flex gap-1 text-gold-500" data-stars></div><i data-lucide="quote" class="size-8 text-sand-100"></i></div>
+    <div class="mb-5 flex items-center justify-between"><div class="flex gap-1 text-gold-500" data-stars></div></div>
     <p class="grow text-base leading-8 text-slate-700" data-comment></p>
     <div class="mt-6 border-t border-slate-100 pt-5"><strong class="block text-sm text-ink-950" data-name></strong><span class="mt-1 block text-xs text-slate-500" data-project></span></div>`;
-  card.querySelector('[data-stars]').innerHTML = Array.from({ length: stars }, () => '<i data-lucide="star" class="size-4 fill-current"></i>').join('');
+  card.querySelector('[data-stars]').innerHTML = Array.from({ length: stars }, () => '').join('');
   card.querySelector('[data-comment]').textContent = `“${item.comment || item.content || ''}”`;
   card.querySelector('[data-name]').textContent = item.client_name || item.name || 'عميل إنجاز';
   card.querySelector('[data-project]').textContent = item.project_name || 'أحد مشروعات إنجاز';
@@ -523,7 +446,7 @@ async function loadTestimonials() {
   } catch { /* Static fallback intentionally remains visible. */ }
   container.innerHTML = '';
   if (!items.length) {
-    container.innerHTML = `<div class="surface-card col-span-full px-6 py-12 text-center sm:px-10"><span class="icon-box mx-auto mb-4"><i data-lucide="badge-check" class="size-5"></i></span><h2 class="text-xl font-black text-ink-950">قريبًا: تجارب موثقة من عملائنا</h2><p class="mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-600">نراجع كل تجربة قبل نشرها حفاظًا على الدقة والخصوصية. يمكنك الآن مشاهدة أعمالنا المنفذة أو التحدث مباشرة مع أحد مستشارينا.</p><div class="mt-6 flex flex-col justify-center gap-3 sm:flex-row"><a href="portfolio.html" class="btn btn-primary">شاهد سابقة الأعمال</a><a href="contact.html#consultation" class="btn btn-secondary">تحدث مع مستشار</a></div></div>`;
+    container.innerHTML = `<div class="surface-card col-span-full px-6 py-12 text-center sm:px-10"><h2 class="text-xl font-semibold text-ink-950">قريبًا: تجارب موثقة من عملائنا</h2><p class="mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-600">نراجع كل تجربة قبل نشرها حفاظًا على الدقة والخصوصية. يمكنك الآن مشاهدة أعمالنا المنفذة أو التحدث مباشرة مع أحد مستشارينا.</p><div class="mt-6 flex flex-col justify-center gap-3 sm:flex-row"><a href="portfolio.html" class="btn btn-primary">شاهد سابقة الأعمال</a><a href="contact.html#consultation" class="btn btn-secondary">تحدث مع مستشار</a></div></div>`;
     createIcons({ icons });
     container.setAttribute('aria-busy', 'false');
     return;
@@ -554,6 +477,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initLeadModal();
   initChannelTracking();
   initProjectSelection();
+  initCampaignLinks();
+  initFinder();
   initLeadForms();
   initFilters();
   initReveals();

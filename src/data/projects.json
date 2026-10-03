@@ -1,0 +1,235 @@
+[
+  {
+    "slug": "h165",
+    "name": "H165",
+    "location": "new-cairo",
+    "address": "ربوة التجمع، القاهرة الجديدة",
+    "categories": [
+      "residential"
+    ],
+    "use": "سكني",
+    "description": "مشروع سكني جارٍ استكمال أعمال المباني والتشطيبات به.",
+    "stage": "construction",
+    "stageLabel": "قيد التنفيذ",
+    "crmId": 3,
+    "lastVerified": null,
+    "image": {
+      "src": "images/site/project-h165-v2.webp",
+      "width": 1000,
+      "height": 750,
+      "alt": "مشروع H165 في ربوة التجمع أثناء التنفيذ",
+      "kind": "construction",
+      "caption": "صورة فعلية من مراحل التنفيذ"
+    }
+  },
+  {
+    "slug": "a100",
+    "name": "A100",
+    "location": "new-cairo",
+    "address": "نورث هاوس، القاهرة الجديدة",
+    "categories": [
+      "residential"
+    ],
+    "use": "سكني",
+    "description": "مشروع سكني في منطقة نورث هاوس.",
+    "stage": "construction",
+    "stageLabel": "قيد التنفيذ",
+    "crmId": 9,
+    "lastVerified": null,
+    "image": {
+      "src": "images/site/project-a100.webp",
+      "width": 900,
+      "height": 1200,
+      "alt": "مشروع A100 في نورث هاوس أثناء التنفيذ",
+      "kind": "construction",
+      "caption": "صورة فعلية من مراحل التنفيذ"
+    }
+  },
+  {
+    "slug": "h79",
+    "name": "H79",
+    "location": "new-cairo",
+    "address": "ربوة التجمع، القاهرة الجديدة",
+    "categories": [
+      "residential"
+    ],
+    "use": "سكني",
+    "description": "مشروع سكني في مرحلة أعمال الحفر.",
+    "stage": "excavation",
+    "stageLabel": "أعمال الحفر",
+    "crmId": 5,
+    "lastVerified": null,
+    "image": {
+      "src": "images/site/project-h79-v2.webp",
+      "width": 1000,
+      "height": 767,
+      "alt": "التصور المعماري المعتمد لمشروع H79 في ربوة التجمع",
+      "kind": "render",
+      "caption": "تصور معماري للمشروع"
+    }
+  },
+  {
+    "slug": "f216",
+    "name": "F216",
+    "location": "new-cairo",
+    "address": "ربوة التجمع، القاهرة الجديدة",
+    "categories": [
+      "residential"
+    ],
+    "use": "سكني",
+    "description": "مشروع سكني قيد التنفيذ في ربوة التجمع.",
+    "stage": "construction",
+    "stageLabel": "قيد التنفيذ",
+    "crmId": 6,
+    "lastVerified": null,
+    "image": {
+      "src": "images/site/project-f216-v2.webp",
+      "width": 1000,
+      "height": 1000,
+      "alt": "التصور المعماري لمشروع F216 في ربوة التجمع",
+      "kind": "render",
+      "caption": "تصور معماري للمشروع"
+    }
+  },
+  {
+    "slug": "f218",
+    "name": "F218",
+    "location": "new-cairo",
+    "address": "ربوة التجمع، القاهرة الجديدة",
+    "categories": [
+      "residential"
+    ],
+    "use": "سكني",
+    "description": "مشروع سكني قيد التنفيذ في ربوة التجمع.",
+    "stage": "construction",
+    "stageLabel": "قيد التنفيذ",
+    "crmId": 7,
+    "lastVerified": null,
+    "image": {
+      "src": "images/site/project-f218-v2.webp",
+      "width": 1000,
+      "height": 1000,
+      "alt": "التصور المعماري لمشروع F218 في ربوة التجمع",
+      "kind": "render",
+      "caption": "تصور معماري للمشروع"
+    }
+  },
+  {
+    "slug": "f129",
+    "name": "F129",
+    "location": "new-cairo",
+    "address": "ربوة التجمع، القاهرة الجديدة",
+    "categories": [
+      "residential"
+    ],
+    "use": "سكني",
+    "description": "مشروع سكني اكتملت أعمال المبنى به.",
+    "stage": "complete",
+    "stageLabel": "المبنى مكتمل",
+    "crmId": 8,
+    "lastVerified": null,
+    "image": {
+      "src": "images/site/project-f129-v2.webp",
+      "width": 1000,
+      "height": 1000,
+      "alt": "التصور المعماري لمشروع F129 في ربوة التجمع",
+      "kind": "render",
+      "caption": "تصور معماري للمشروع"
+    }
+  },
+  {
+    "slug": "c87",
+    "name": "C87",
+    "location": "new-cairo",
+    "address": "ربوة التجمع، القاهرة الجديدة",
+    "categories": [
+      "residential"
+    ],
+    "use": "سكني",
+    "description": "مشروع سكني اكتمل به الهيكل الإنشائي.",
+    "stage": "structure",
+    "stageLabel": "الهيكل مكتمل",
+    "crmId": 10,
+    "lastVerified": null,
+    "image": {
+      "src": "images/site/project-c87-v2.webp",
+      "width": 1000,
+      "height": 1000,
+      "alt": "التصور المعماري لمشروع C87 في ربوة التجمع",
+      "kind": "render",
+      "caption": "تصور معماري للمشروع"
+    }
+  },
+  {
+    "slug": "h151",
+    "name": "H151",
+    "location": "new-cairo",
+    "address": "ربوة التجمع، القاهرة الجديدة",
+    "categories": [
+      "residential"
+    ],
+    "use": "سكني",
+    "description": "مشروع سكني مكتمل وتم تسليمه للملاك.",
+    "stage": "delivered",
+    "stageLabel": "تم التسليم",
+    "crmId": 4,
+    "lastVerified": null,
+    "image": {
+      "src": "images/site/project-h151-v2.webp",
+      "width": 1000,
+      "height": 750,
+      "alt": "صورة فعلية لمشروع H151 من مراحل التنفيذ",
+      "kind": "construction",
+      "caption": "صورة فعلية من مراحل التنفيذ"
+    }
+  },
+  {
+    "slug": "sednawy",
+    "name": "مول صيدناوي",
+    "location": "basyoun",
+    "address": "بسيون، الغربية",
+    "categories": [
+      "commercial",
+      "administrative",
+      "medical"
+    ],
+    "use": "تجاري · إداري · طبي",
+    "description": "وحدات تجارية وإدارية وطبية في وسط بسيون.",
+    "stage": "unknown",
+    "stageLabel": "استفسر عن مرحلة التنفيذ",
+    "crmId": 1,
+    "lastVerified": null,
+    "image": {
+      "src": "images/site/project-sednawy-v2.webp",
+      "width": 1000,
+      "height": 750,
+      "alt": "أعمال التنفيذ في مشروع صيدناوي مول ببسيون",
+      "kind": "construction",
+      "caption": "صورة فعلية من مراحل التنفيذ"
+    }
+  },
+  {
+    "slug": "teachers",
+    "name": "برج نقابة المعلمين",
+    "location": "basyoun",
+    "address": "بسيون، الغربية",
+    "categories": [
+      "commercial",
+      "administrative"
+    ],
+    "use": "تجاري وإداري",
+    "description": "برج تجاري وإداري مكتمل في موقع مركزي بمدينة بسيون.",
+    "stage": "complete",
+    "stageLabel": "مكتمل",
+    "crmId": 2,
+    "lastVerified": null,
+    "image": {
+      "src": "images/site/project-teachers-v3.webp",
+      "width": 900,
+      "height": 1200,
+      "alt": "صورة فعلية لبرج نقابة المعلمين أثناء التنفيذ في بسيون",
+      "kind": "construction",
+      "caption": "صورة من التنفيذ · مارس 2025"
+    }
+  }
+]

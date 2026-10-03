@@ -1,4 +1,4 @@
-import { cp, mkdir, rm } from 'node:fs/promises';
+import { cp, mkdir, rm, readFile } from 'node:fs/promises';
 import { basename, dirname, resolve } from 'node:path';
 
 const projectRoot = resolve('.');
@@ -11,6 +11,8 @@ if (dirname(outputDirectory) !== projectRoot || basename(outputDirectory) !== 'p
 const files = [
   '404.html',
   'about.html',
+  'admin.html',
+  'basyoun.html',
   'board.html',
   'BingSiteAuth.xml',
   'contact.html',
@@ -19,6 +21,7 @@ const files = [
   'index.html',
   'llms-full.txt',
   'llms.txt',
+  'new-cairo.html',
   'portfolio.html',
   'privacy.html',
   'projects.html',
@@ -28,10 +31,16 @@ const files = [
   'testimonials.html',
 ];
 
+const projects = JSON.parse(await readFile('src/data/projects.json', 'utf8'));
+files.push(...projects.map((project) => `project-${project.slug}.html`));
+
 await rm(outputDirectory, { recursive: true, force: true });
 await mkdir(outputDirectory, { recursive: true });
 
 for (const file of files) {
+  // Public HTML routes render the published CMS content on the server. Keep
+  // verification files and the platform 404 static; templates ship in functions.
+  if (file.endsWith('.html') && !['404.html', 'admin.html', 'googleb4a4e9895834d7b3.html'].includes(file)) continue;
   await cp(file, resolve(outputDirectory, file));
 }
 

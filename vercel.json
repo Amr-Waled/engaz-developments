@@ -1,39 +1,175 @@
 {
   "outputDirectory": "public",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.engazdevelopments.com"
+        }
+      ],
+      "destination": "https://engazdevelopments.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
-        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains"
+        }
       ]
     },
     {
       "source": "/css/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/js/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/images/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/fonts/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
+    }
+  ],
+  "functions": {
+    "api/*.js": {
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/api/site-page?page=index.html"
+    },
+    {
+      "source": "/admin",
+      "destination": "/admin.html"
+    },
+    {
+      "source": "/about.html",
+      "destination": "/api/site-page?page=about.html"
+    },
+    {
+      "source": "/board.html",
+      "destination": "/api/site-page?page=board.html"
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/api/site-page?page=contact.html"
+    },
+    {
+      "source": "/portfolio.html",
+      "destination": "/api/site-page?page=portfolio.html"
+    },
+    {
+      "source": "/privacy.html",
+      "destination": "/api/site-page?page=privacy.html"
+    },
+    {
+      "source": "/projects.html",
+      "destination": "/api/site-page?page=projects.html"
+    },
+    {
+      "source": "/testimonials.html",
+      "destination": "/api/site-page?page=testimonials.html"
+    },
+    {
+      "source": "/basyoun.html",
+      "destination": "/api/site-page?page=basyoun.html"
+    },
+    {
+      "source": "/new-cairo.html",
+      "destination": "/api/site-page?page=new-cairo.html"
+    },
+    {
+      "source": "/project-h165.html",
+      "destination": "/api/site-page?page=project-h165.html"
+    },
+    {
+      "source": "/project-a100.html",
+      "destination": "/api/site-page?page=project-a100.html"
+    },
+    {
+      "source": "/project-h79.html",
+      "destination": "/api/site-page?page=project-h79.html"
+    },
+    {
+      "source": "/project-f216.html",
+      "destination": "/api/site-page?page=project-f216.html"
+    },
+    {
+      "source": "/project-f218.html",
+      "destination": "/api/site-page?page=project-f218.html"
+    },
+    {
+      "source": "/project-f129.html",
+      "destination": "/api/site-page?page=project-f129.html"
+    },
+    {
+      "source": "/project-c87.html",
+      "destination": "/api/site-page?page=project-c87.html"
+    },
+    {
+      "source": "/project-h151.html",
+      "destination": "/api/site-page?page=project-h151.html"
+    },
+    {
+      "source": "/project-sednawy.html",
+      "destination": "/api/site-page?page=project-sednawy.html"
+    },
+    {
+      "source": "/project-teachers.html",
+      "destination": "/api/site-page?page=project-teachers.html"
     }
   ]
 }

@@ -6,20 +6,25 @@
     "build:css": "tailwindcss -i ./src/styles.css -o ./css/app.css --minify",
     "build:js": "esbuild ./src/site.js --bundle --minify --format=iife --target=es2020 --outfile=./js/app.js",
     "build:images": "node ./scripts/optimize-site-images.mjs",
-    "build": "npm run build:css && npm run build:js && node ./scripts/build-public.mjs",
-    "validate": "node ./scripts/validate-site.mjs",
+    "build": "npm run build:pages && npm run build:seo && npm run build:cms && npm run build:css && npm run build:js && npm run build:admin && node ./scripts/build-public.mjs",
+    "validate": "node ./scripts/validate-site.mjs && node ./scripts/test-attribution.mjs && node ./scripts/test-cms.mjs",
     "check": "npm run build && npm run validate",
     "audit:mobile": "node ./scripts/mobile-audit.mjs",
-    "dev:css": "tailwindcss -i ./src/styles.css -o ./css/app.css --watch"
+    "dev:css": "tailwindcss -i ./src/styles.css -o ./css/app.css --watch",
+    "build:pages": "node ./scripts/build-project-pages.mjs",
+    "build:seo": "node ./scripts/build-seo.mjs",
+    "build:cms": "node scripts/build-cms.mjs",
+    "build:admin": "esbuild ./src/admin.js --bundle --minify --format=iife --target=es2020 --outfile=./js/admin.js"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.3",
     "esbuild": "^0.25.0",
-    "sharp": "^0.35.3",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4.3.3"
   },
   "dependencies": {
     "@fontsource-variable/cairo": "^5.3.0",
+    "cheerio": "^1.2.0",
     "lucide": "^1.39.0"
   }
 }
