@@ -1,4 +1,6 @@
 (function initializeMetaPixel(windowRef, documentRef) {
+  // Development and deployment previews must not enter the production dataset.
+  if (!['engazdevelopments.com', 'www.engazdevelopments.com'].includes(windowRef.location.hostname)) return;
   const datasetId = '1825147448913242';
   if (windowRef.fbq) return;
 
