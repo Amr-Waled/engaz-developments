@@ -1,19 +1,14 @@
 const catalog = require('../src/generated/cms-catalog.json');
 const pages = require('../src/generated/cms-pages.json');
 const API = process.env.NODE_ENV === 'test' && process.env.CMS_TEST_API ? process.env.CMS_TEST_API : 'https://api.engazdevelopments.com';
-let cache = { until: 0, content: { values: {} }, updatedAt: null };
+const snapshot = require('../src/generated/published-snapshot.json');
+const { createPublishedCache } = require('./published-cache.cjs');
 const cookieToken = (req) => (req.headers.cookie || '').split(';').map((c) => c.trim()).find((c) => c.startsWith('engaz_cms='))?.slice(10) || '';
-async function published() {
-  if (Date.now() < cache.until) return cache;
-  try {
+const published = createPublishedCache(snapshot, async () => {
     const response = await fetch(API + '/api/website/public', { signal: AbortSignal.timeout(2500) });
     if (!response.ok) throw new Error('CMS unavailable');
-    const result = await response.json();
-    if (!result.content?.values || typeof result.content.values !== 'object') throw new Error('Invalid published content');
-    cache = { until: Date.now() + 10000, ...result };
-  } catch { cache.until = Date.now() + 10000; }
-  return cache;
-}
+    return response.json();
+});
 function json(res, status, body) { res.statusCode = status; res.setHeader('Content-Type','application/json; charset=utf-8'); res.end(JSON.stringify(body)); }
 function csrf(req) {
   const host = req.headers.host;

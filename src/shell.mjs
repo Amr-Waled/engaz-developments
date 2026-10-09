@@ -98,7 +98,7 @@ export function footerTemplate(name = '', projects = []) {
           <div>
             <h2 class="mb-4 text-sm font-semibold text-gold-300">استكشف</h2>
             <div class="grid gap-3 text-sm text-slate-300">
-              <a href="projects.html" class="flex min-h-11 items-center hover:text-white">المشروعات</a><a href="new-cairo.html" class="flex min-h-11 items-center hover:text-white">القاهرة الجديدة</a><a href="basyoun.html" class="flex min-h-11 items-center hover:text-white">بسيون</a><a href="portfolio.html" class="flex min-h-11 items-center hover:text-white">سابقة الأعمال</a><a href="testimonials.html" class="flex min-h-11 items-center hover:text-white">آراء العملاء</a><a href="about.html" class="flex min-h-11 items-center hover:text-white">عن إنجاز</a><a href="board.html" class="flex min-h-11 items-center hover:text-white">مجلس الإدارة</a><a href="contact.html" class="flex min-h-11 items-center hover:text-white">الفروع والتواصل</a>
+              <a href="projects.html" class="flex min-h-11 items-center hover:text-white">المشروعات</a><a href="new-cairo.html" class="flex min-h-11 items-center hover:text-white">القاهرة الجديدة</a><a href="basyoun.html" class="flex min-h-11 items-center hover:text-white">بسيون</a><a href="portfolio.html" class="flex min-h-11 items-center hover:text-white">سابقة الأعمال</a><a href="about.html" class="flex min-h-11 items-center hover:text-white">عن إنجاز</a><a href="board.html" class="flex min-h-11 items-center hover:text-white">مجلس الإدارة</a><a href="contact.html" class="flex min-h-11 items-center hover:text-white">الفروع والتواصل</a>
             </div>
           </div>
           <div>
@@ -135,7 +135,7 @@ export function footerTemplate(name = '', projects = []) {
         <p class="lead-context" data-lead-context></p><form class="mt-6 grid gap-4 sm:grid-cols-2" data-lead-form novalidate>
           <input type="hidden" name="source" value="Website quick lead">
           <label class="grid gap-2 text-sm font-medium text-ink-950">الاسم بالكامل<input class="field" name="name" type="text" autocomplete="name" minlength="3" placeholder="اكتب اسمك" required></label>
-          <label class="grid gap-2 text-sm font-medium text-ink-950">رقم الهاتف<input class="field text-right" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" placeholder="01xxxxxxxxx" required></label>
+          <label class="grid gap-2 text-sm font-medium text-ink-950">رقم الهاتف <span class="font-normal text-slate-500">أضف كود الدولة للأرقام الدولية</span><input class="field text-right" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" placeholder="+20 10 1234 5678" required></label>
           <details class="lead-optional sm:col-span-2"><summary>إضافة المشروع ونوع الوحدة <span>(اختياري)</span></summary><div class="grid gap-4 sm:grid-cols-2">          <label class="grid gap-2 text-sm font-medium text-ink-950">المشروع <span class="font-normal text-slate-400">(اختياري)</span><select class="field" name="project_interest">
             <option value="">لم أحدد مشروعًا</option>
             ${projectOptionsTemplate(projects)}

@@ -5,7 +5,7 @@ import { origin, organization, organizationId, websiteId, regions, basePages, pa
 import { projectCard } from '../src/project-card.mjs';
 
 const projects = JSON.parse(readFileSync('src/data/projects.json', 'utf8'));
-const version = '20261003-4';
+const version = '20261009-1';
 const pages = [...basePages, ...regions.map((region) => region.file), ...projects.map((project) => `project-${project.slug}.html`)];
 
 function renderMount(html, attribute, marker, content) {

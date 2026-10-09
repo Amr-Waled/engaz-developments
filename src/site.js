@@ -2,6 +2,10 @@ import { headerTemplate, footerTemplate, socialLinksTemplate } from './shell.mjs
 import { campaignContext, campaignKeys } from './attribution.mjs';
 import { createIcons, Menu, X, Search, LoaderCircle } from 'lucide';
 import projects from './data/projects.json';
+import { normalizeLeadPhone } from './lead-phone.mjs';
+import { trackSiteEvent, createFormJourney } from './measurement.mjs';
+
+const formJourneys = new WeakMap();
 
 document.documentElement.classList.add('motion-ok');
 
@@ -114,6 +118,7 @@ function initLeadModal() {
   };
   const close = () => {
     panel.classList.add('translate-y-6', 'opacity-0', 'sm:-translate-y-[46%]');
+    panel.querySelectorAll('[data-lead-form]').forEach((form) => formJourneys.get(form)?.exit('modal_closed'));
     panel.classList.remove('sm:-translate-y-1/2');
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('menu-open');
@@ -215,10 +220,20 @@ function initFinder() {
 
 function initLeadForms() {
   document.querySelectorAll('[data-lead-form]').forEach((form) => {
+    const journey = createFormJourney((name, details = {}) => {
+      const slug = form.querySelector('select[name="project_interest"]')?.selectedOptions?.[0]?.dataset.slug;
+      trackSiteEvent(name, { form: form.closest('[data-lead-modal]') ? 'quick' : 'contact', project: projects.some((p) => p.slug === slug) ? slug : undefined, ...details });
+    });
+    formJourneys.set(form, journey);
+    form.addEventListener('input', () => journey.start());
+    form.addEventListener('change', () => journey.start());
+    window.addEventListener('pagehide', () => { if (form.dataset.submitting !== 'true') journey.exit('page_exit'); });
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
       if (form.dataset.submitting === 'true') return;
+      journey.start();
       if (!form.checkValidity()) {
+        journey.error('invalid_fields');
         form.reportValidity();
         return;
       }
@@ -226,7 +241,7 @@ function initLeadForms() {
       const status = form.querySelector('[data-form-status]');
       const values = new FormData(form);
       const name = String(values.get('name') || '').trim();
-      const phone = String(values.get('phone') || '').replace(/[٠-٩۰-۹]/g, (digit) => String(digit.charCodeAt(0) - (digit <= '٩' ? 1632 : 1776))).replace(/[\s()-]/g, '');
+      const phone = normalizeLeadPhone(values.get('phone'));
       const email = String(values.get('email') || '').trim();
       const budget = budgets[values.get('budget')] || [null, null];
       const projectSelect = form.querySelector('select[name="project_interest"]');
@@ -234,10 +249,11 @@ function initLeadForms() {
       const projectInterest = Number.parseInt(String(values.get('project_interest') || ''), 10);
       const projectName = projectOption?.dataset.projectName || '';
 
-      const validPhone = /^(?:(?:\+?20|0)?1[0125]\d{8}|(?:\+?966|0)?5\d{8})$/.test(phone);
-      if (name.length < 3 || !validPhone) {
-        if (status) status.textContent = 'راجع الاسم ورقم الهاتف المصري أو السعودي ثم حاول مرة أخرى.';
-        showToast('راجع الاسم ورقم الهاتف المصري أو السعودي ثم حاول مرة أخرى.', 'error');
+      if (name.length < 3 || !phone) {
+        journey.error(name.length < 3 ? 'invalid_name' : 'invalid_phone');
+        const message = name.length < 3 ? 'اكتب الاسم من ثلاثة أحرف على الأقل.' : 'راجع رقم الهاتف. للأرقام خارج مصر والسعودية، أضف كود الدولة مثل +971 أو +965.';
+        if (status) status.textContent = message;
+        showToast(message, 'error');
         return;
       }
 
@@ -302,6 +318,7 @@ function initLeadForms() {
         if (!response.ok) throw new Error('تعذر حفظ الطلب');
         const savedLead = await response.json();
         if (!savedLead || (savedLead.success !== true && !savedLead.id)) throw new Error('لم يتم تأكيد حفظ الطلب');
+        journey.success(Boolean(savedLead.duplicate));
         form.reset();
         initProjectSelection();
         if (status) status.textContent = 'تم استلام طلبك. سيتواصل معك مستشار إنجاز قريبًا.';
@@ -311,7 +328,8 @@ function initLeadForms() {
         } else if (window.fbq && savedLead.duplicate) {
           window.fbq('trackCustom', 'RepeatInquiry', { content_name: projectName || 'Website consultation' });
         }
-      } catch {
+      } catch (error) {
+        journey.error(error?.name === 'AbortError' ? 'timeout' : 'request_failed');
         if (status) status.textContent = 'تعذر الإرسال الآن. يمكنك التواصل معنا مباشرة عبر واتساب.';
         showToast('تعذر الإرسال الآن. تواصل معنا عبر واتساب وسنساعدك فورًا.', 'error');
       } finally {
@@ -436,17 +454,23 @@ function testimonialCard(item) {
 async function loadTestimonials() {
   const container = document.querySelector('[data-testimonials]');
   if (!container) return;
+  container.setAttribute('aria-busy', 'true');
   let items = fallbackTestimonials;
   try {
-    const response = await fetch(`${API_URL}/api/public/testimonials`);
-    if (response.ok) {
-      const data = await response.json();
-      if (Array.isArray(data) && data.length) items = data;
-    }
-  } catch { /* Static fallback intentionally remains visible. */ }
+    const response = await fetch(`${API_URL}/api/public/testimonials`, { signal: AbortSignal.timeout(10000) });
+    if (!response.ok) throw new Error('Unavailable');
+    const data = await response.json();
+    if (!Array.isArray(data)) throw new Error('Invalid response');
+    items = data;
+  } catch {
+    container.innerHTML = '<div class="surface-card col-span-full px-6 py-10 text-center"><h2 class="text-xl font-semibold">تعذر تحميل الآراء الآن</h2><p class="mt-3 leading-7">حاول مرة أخرى، أو شاهد صور مشروعاتنا في سابقة الأعمال.</p><button type="button" class="btn btn-primary mt-5" data-retry-testimonials>إعادة المحاولة</button><a class="text-link mr-4" href="portfolio.html">سابقة الأعمال</a></div>';
+    container.querySelector('[data-retry-testimonials]').addEventListener('click', () => loadTestimonials());
+    container.setAttribute('aria-busy', 'false');
+    return;
+  }
   container.innerHTML = '';
   if (!items.length) {
-    container.innerHTML = `<div class="surface-card col-span-full px-6 py-12 text-center sm:px-10"><h2 class="text-xl font-semibold text-ink-950">قريبًا: تجارب موثقة من عملائنا</h2><p class="mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-600">نراجع كل تجربة قبل نشرها حفاظًا على الدقة والخصوصية. يمكنك الآن مشاهدة أعمالنا المنفذة أو التحدث مباشرة مع أحد مستشارينا.</p><div class="mt-6 flex flex-col justify-center gap-3 sm:flex-row"><a href="portfolio.html" class="btn btn-primary">شاهد سابقة الأعمال</a><a href="contact.html#consultation" class="btn btn-secondary">تحدث مع مستشار</a></div></div>`;
+    container.innerHTML = `<div class="surface-card col-span-full px-6 py-12 text-center sm:px-10"><h2 class="text-xl font-semibold text-ink-950">شاهد ما نفذناه على أرض الواقع</h2><p class="mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-600">لا توجد آراء منشورة حاليًا. يمكنك الاطلاع على صور الأعمال المنفذة، أو التحدث مع الفريق عن المشروع الذي يهمك.</p><div class="mt-6 flex flex-col justify-center gap-3 sm:flex-row"><a href="portfolio.html" class="btn btn-primary">شاهد سابقة الأعمال</a><a href="contact.html#consultation" class="btn btn-secondary">تحدث مع مستشار</a></div></div>`;
     createIcons({ icons });
     container.setAttribute('aria-busy', 'false');
     return;
@@ -480,6 +504,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCampaignLinks();
   initFinder();
   initLeadForms();
+  if (projects.some((p) => p.slug === document.body.dataset.currentProject)) trackSiteEvent('project_view', { project: document.body.dataset.currentProject });
   initFilters();
   initReveals();
   loadTestimonials();

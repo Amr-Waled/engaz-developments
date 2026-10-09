@@ -292,6 +292,16 @@
 .subpage-hero > .site-container { padding-block: 2.5rem; }
 .subpage-hero nav { margin-bottom: 1rem; }
 
+/* Keep captions and supporting decisions readable, especially on phones. */
+.discovery-facts dt, .image-note, .project-finder label > span,
+.filter-fields label > span, .proof-company p, .breadcrumb,
+.hero-evidence figcaption, .detail-image figcaption, .proof-layout figcaption {
+  font-size: .8125rem;
+  line-height: 1.85;
+}
+.discovery-facts dt, .image-note, .breadcrumb { color: #5d6056; }
+.project-enquiry > .enquiry-note { font-size: .8125rem !important; }
+
 @media (max-width: 767px) {
   .discovery-hero > .site-container { display: flex; flex-direction: column; padding-bottom: 1.5rem; }
   .hero-layout { display: contents; min-height: 0; }
@@ -300,5 +310,9 @@
   .discovery-shortcuts { order: 3; }
   .hero-evidence { order: 4; display: block; width: 100%; margin-top: .75rem; }
   .hero-evidence img { height: 180px; min-height: 0; max-height: none; object-position: center 55%; }
-  .hero-evidence figcaption { position: static; padding: .5rem .75rem; font-size: .6875rem; }
+  .hero-evidence figcaption { position: static; padding: .5rem .75rem; font-size: .8125rem; }
+  .hero-copy .section-kicker, .section-kicker, .discovery-shortcuts a { font-size: .8125rem; }
+  .mobile-actions a { font-size: .8125rem; }
+  [data-lead-form] .text-xs, [data-site-footer] .text-xs { font-size: .8125rem; line-height: 1.85; }
+  .field { font-size: 1rem; }
 }

@@ -2,7 +2,7 @@ import { projectCard as card } from '../src/project-card.mjs';
 import { readFileSync, writeFileSync } from 'node:fs';
 
 const projects = JSON.parse(readFileSync('src/data/projects.json', 'utf8'));
-const version = '20261003-4';
+const version = '20261009-1';
 const escape = (value) => String(value).replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
 const pageName = (project) => `project-${project.slug}.html`;
 
