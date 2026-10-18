@@ -92,6 +92,14 @@
   },
   "rewrites": [
     {
+      "source": "/sitemap.xml",
+      "destination": "/api/project-sitemap"
+    },
+    {
+      "source": "/project-:slug.html",
+      "destination": "/api/site-page?page=project-:slug.html"
+    },
+    {
       "source": "/",
       "destination": "/api/site-page?page=index.html"
     },

@@ -3,7 +3,7 @@ function escapeHtml(value) {
 }
 
 export function projectOptionsTemplate(projects) {
-  return projects.map((project) => `<option value="${project.crmId ?? ''}" data-slug="${project.slug}" data-project-name="${escapeHtml(project.name)}">${escapeHtml(project.name)} — ${project.location === 'basyoun' ? 'بسيون' : 'القاهرة الجديدة'}</option>`).join('');
+  return projects.map((project) => `<option value="${project.crmId ?? ''}" data-slug="${project.slug}" data-project-name="${escapeHtml(project.name)}">${escapeHtml(project.name)} — ${project.location === 'basyoun' ? 'بسيون' : project.location === 'new-cairo' ? 'القاهرة الجديدة' : escapeHtml(project.address)}</option>`).join('');
 }
 
 const navItems = [

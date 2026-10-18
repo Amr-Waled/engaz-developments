@@ -7,7 +7,7 @@
     "build:js": "esbuild ./src/site.js --bundle --minify --format=iife --target=es2020 --outfile=./js/app.js",
     "build:images": "node ./scripts/optimize-site-images.mjs",
     "build": "npm run build:pages && npm run build:seo && npm run build:cms && node scripts/snapshot-published.mjs && npm run build:css && npm run build:js && npm run build:admin && node ./scripts/build-public.mjs",
-    "validate": "node ./scripts/validate-site.mjs && node ./scripts/test-attribution.mjs && node ./scripts/test-cms.mjs && node --test scripts/conversion.test.mjs",
+    "validate": "node ./scripts/validate-site.mjs && node ./scripts/test-attribution.mjs && node ./scripts/test-cms.mjs && node --test scripts/conversion.test.mjs && node scripts/test-company-projects.mjs",
     "check": "npm run build && npm run validate",
     "audit:mobile": "node ./scripts/mobile-audit.mjs",
     "dev:css": "tailwindcss -i ./src/styles.css -o ./css/app.css --watch",

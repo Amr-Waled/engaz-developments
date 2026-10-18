@@ -1,0 +1,3 @@
+const cms=require('./cms-runtime.cjs');let cached=null,checked=0,pending;
+async function publishedProjects(){if(cached&&Date.now()-checked<15000)return cached;if(pending)return pending;pending=(async()=>{try{const r=await cms.backend('/api/website/projects');if(!r.ok)throw Error('Project catalog unavailable');const body=await r.json();if(!Array.isArray(body.projects))throw Error('Invalid catalog');cached=body.projects;checked=Date.now();return cached;}catch(e){if(cached&&Date.now()-checked<900000)return cached;throw e;}finally{pending=null;}})();return pending;}
+module.exports={publishedProjects};

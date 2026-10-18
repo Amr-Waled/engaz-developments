@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
       const response = await cms.backend('/api/auth/login',null,'POST',{email,password});
       const login = await response.json();
       if (!response.ok) return cms.json(res,response.status,{error:login.error || 'تعذر تسجيل الدخول'});
-      if (!['admin','ceo','marketing_manager'].includes(login.user?.role)) return cms.json(res,403,{error:'حسابك لا يملك صلاحية إدارة الموقع'});
+      if (!['admin','ceo','marketing_manager'].includes(login.user?.role) && Number(login.user?.company_admin)!==1) return cms.json(res,403,{error:'حسابك لا يملك صلاحية إدارة الموقع'});
       if (login.user.must_change_password) return cms.json(res,403,{error:'غيّر كلمة المرور المؤقتة من الـCRM أولًا'});
       const access = await cms.backend('/api/website/admin',login.token);
       if (!access.ok) return cms.json(res,503,{error:'خدمة إدارة الموقع لم تُفعّل على السيرفر بعد'});

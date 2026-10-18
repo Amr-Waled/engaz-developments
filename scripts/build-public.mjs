@@ -27,7 +27,6 @@ const files = [
   'projects.html',
   'robots.txt',
   'schema.json',
-  'sitemap.xml',
   'testimonials.html',
 ];
 

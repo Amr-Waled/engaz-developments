@@ -1,7 +1,8 @@
 import { headerTemplate, footerTemplate, socialLinksTemplate } from './shell.mjs';
 import { campaignContext, campaignKeys } from './attribution.mjs';
 import { createIcons, Menu, X, Search, LoaderCircle } from 'lucide';
-import projects from './data/projects.json';
+import baselineProjects from './data/projects.json';
+const projects = (() => { try { const data = JSON.parse(document.querySelector('[data-company-projects]')?.textContent || 'null'); return Array.isArray(data) ? data : baselineProjects; } catch { return baselineProjects; } })();
 import { normalizeLeadPhone } from './lead-phone.mjs';
 import { trackSiteEvent, createFormJourney } from './measurement.mjs';
 

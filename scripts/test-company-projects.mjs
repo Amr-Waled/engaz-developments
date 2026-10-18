@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';import {load} from 'cheerio';import {renderProjects} from '../src/company-projects.mjs';
+const templates=JSON.parse(readFileSync('src/generated/cms-pages.json','utf8')),base=JSON.parse(readFileSync('src/data/projects.json','utf8')).map(p=>({...p,visible:true,managed:false}));
+const hidden=base.find(p=>p.slug==='h165');hidden.visible=false;
+const newProject={...base[0],crmId:900,slug:'isolated-new',name:'New <script>unsafe</script>',description:'</script><img src=x onerror=alert(1)>',location:'other',paymentPlan:'Approved payment',specs:'Approved detail',visible:true,managed:true};
+const catalog=[...base,newProject];let $=load(renderProjects(templates['projects.html'],'projects.html',catalog));
+assert.equal($('[data-project-card] a[href="project-h165.html"]').length,0);assert.ok($('[data-project-card] a[href="project-isolated-new.html"]').length);assert.equal($('script').filter((_,n)=>$(n).text()==='unsafe').length,0);
+assert.equal($('select[name="project_interest"] option[data-slug="h165"]').length,0);assert.ok($('select[name="project_interest"] option[data-slug="isolated-new"]').length);
+const embedded=JSON.parse($('script[data-company-projects]').text());assert.equal(embedded.find(p=>p.slug==='isolated-new').description,newProject.description);
+const graphs=$('script[type="application/ld+json"]').map((_,n)=>$(n).text()).get().join('');assert.ok(graphs.includes('project-isolated-new.html'));assert.ok(!graphs.includes('project-h165.html'));
+$=load(renderProjects(templates['project-h165.html'],'project-isolated-new.html',catalog));assert.equal($('h1').text(),newProject.name);assert.ok($('.detail-heading').text().includes(newProject.description));assert.equal($('.detail-heading img').length,0);assert.ok($('.detail-facts').text().includes(newProject.paymentPlan));assert.equal($('link[rel="canonical"]').attr('href'),'https://engazdevelopments.com/project-isolated-new.html');assert.equal($('#project-image img').attr('src'),newProject.image.src);
+const moved={...base.find(p=>p.location==='new-cairo'),location:'basyoun',managed:true,visible:true};$=load(renderProjects(templates['new-cairo.html'],'new-cairo.html',[...base.filter(p=>p.slug!==moved.slug),moved]));assert.equal($('[data-project-card] a[href="project-'+moved.slug+'.html"]').length,0);
+console.log('Company project rendering passed: new/hidden/moved projects, publication snapshot, safe HTML/JSON, SEO and form options.');
